@@ -38,9 +38,8 @@ if [[ "$SFTP_USERNAME" != "u154814653" ]]; then
 fi
 export SSHPASS="$SFTP_PASSWORD"
 printf 'pwd\nls "%s"\n' "$SFTP_DATA_DIR" > "$tmp/read_only.batch"
-if timeout 45s sshpass -e sftp -vv -q -b "$tmp/read_only.batch" \
+if timeout 45s sshpass -e sftp -vv -q -oBatchMode=no -b "$tmp/read_only.batch" \
   -P "$PORT" \
-  -oBatchMode=no \
   -oPubkeyAuthentication=no \
   -oPreferredAuthentications=password,keyboard-interactive \
   -oNumberOfPasswordPrompts=1 \

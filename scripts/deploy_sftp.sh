@@ -59,8 +59,8 @@ echo "PASS: Hostinger SSH host fingerprint verified"
 # A read-only list confirms the target exists before upload; never create parent directories.
 printf 'ls "%s"\n' "$TARGET" > "$tmp/read_only.batch"
 export SSHPASS="$SFTP_PASSWORD"
-timeout 45 sshpass -e sftp -q -b "$tmp/read_only.batch" -P "$PORT" \
-  -oBatchMode=no -oPubkeyAuthentication=no -oPreferredAuthentications=password,keyboard-interactive \
+timeout 45 sshpass -e sftp -q -oBatchMode=no -b "$tmp/read_only.batch" -P "$PORT" \
+  -oPubkeyAuthentication=no -oPreferredAuthentications=password,keyboard-interactive \
   -oStrictHostKeyChecking=yes -oUserKnownHostsFile="$tmp/known_hosts" \
   -oConnectTimeout=15 "$SFTP_USERNAME@$HOST"
 echo "PASS: SFTP authentication and target directory existence"
@@ -70,8 +70,8 @@ echo "PASS: SFTP authentication and target directory existence"
 for f in "${files[@]}"; do
   printf 'put "%s" "%s/%s"\n' "$f" "$TARGET" "$(basename "$f")" >> "$tmp/upload.batch"
 done
-timeout 180 sshpass -e sftp -q -b "$tmp/upload.batch" -P "$PORT" \
-  -oBatchMode=no -oPubkeyAuthentication=no -oPreferredAuthentications=password,keyboard-interactive \
+timeout 180 sshpass -e sftp -q -oBatchMode=no -b "$tmp/upload.batch" -P "$PORT" \
+  -oPubkeyAuthentication=no -oPreferredAuthentications=password,keyboard-interactive \
   -oStrictHostKeyChecking=yes -oUserKnownHostsFile="$tmp/known_hosts" \
   -oConnectTimeout=15 "$SFTP_USERNAME@$HOST"
 unset SSHPASS
