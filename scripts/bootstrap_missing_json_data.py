@@ -55,6 +55,7 @@ def run():
     sftp = None
     created = 0
     verified = 0
+    stage = 'preflight'
     try:
         sock = socket.create_connection((HOST, PORT), timeout=12)
         transport = paramiko.Transport(sock)
@@ -90,6 +91,7 @@ def run():
             return 2
         # No remote file deletion, replacement, chmod, move, PHP/HTML/CSS/JS.
         for path in files:
+            stage = 'upload:' + path.name
             remote = TARGET + "/" + path.name
             digest = hashlib.sha256(path.read_bytes()).hexdigest()
             try:
@@ -105,8 +107,22 @@ def run():
                     return 2
                 verified += 1
                 continue
-            # Paramiko 'x' -> EXCL: prevents creating over a file added since lstat.
-            with sftp.open(remote, "xb") as dst:
+            # Some hosts reject SFTP EXCL. Retry only if target remains absent.
+            try:
+                stream = sftp.open(remote, "xb")
+            except OSError as excl_error:
+                print(f"CHECK: exclusive create failed for {path.name}, errno={excl_error.errno}")
+                try:
+                    present = sftp.lstat(remote)
+                except FileNotFoundError:
+                    present = None
+                if present is not None:
+                    print(f"::error::Target appeared; refusing overwrite: {path.name}")
+                    return 2
+                # This dedicated directory was confirmed absent in recovery preflight.
+                # Do not open a pre-existing file in write mode.
+                stream = sftp.open(remote, "wb")
+            with stream as dst:
                 with path.open("rb") as src:
                     while True:
                         data = src.read(65536)
@@ -121,7 +137,7 @@ def run():
         print("PASS: No existing files overwritten or deleted; no UI/CSS/PHP/JS files touched")
         return 0
     except Exception as exc:
-        print(f"::error::Data recovery stopped ({type(exc).__name__}). "
+        print(f"::error::Data recovery stopped at {stage} ({type(exc).__name__}, errno={getattr(exc, 'errno', None)}). "
               f"Uploaded {created} files; safe to rerun, no remote overwrites.")
         return 1
     finally:
