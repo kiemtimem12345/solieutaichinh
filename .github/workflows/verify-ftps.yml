@@ -1,0 +1,27 @@
+name: Verify Hostinger FTPS read-only
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-ftps.yml'
+      - 'scripts/check_ftps.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check TLS, login and deployment folder (READ ONLY)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PORT: ${{ secrets.FTP_PORT || '21' }}
+          FTP_DATA_DIR: ${{ vars.FTP_DATA_DIR }}
+        run: python scripts/check_ftps.py
