@@ -3,7 +3,6 @@
 set -euo pipefail
 : "${SFTP_USERNAME:?Set SFTP_USERNAME secret}"
 : "${SFTP_PRIVATE_KEY:?Set SFTP_PRIVATE_KEY secret}"
-: "${SFTP_KNOWN_HOSTS:?Set SFTP_KNOWN_HOSTS secret with independently verified server public key}"
 : "${SFTP_DATA_DIR:?Set SFTP_DATA_DIR repository variable}"
 HOST="195.35.62.53"
 PORT="65002"
@@ -20,11 +19,19 @@ chmod 700 "$tmp"
 trap 'rm -rf "$tmp"' EXIT
 printf '%s\n' "$SFTP_PRIVATE_KEY" > "$tmp/id_key"
 chmod 600 "$tmp/id_key"
-printf '%s\n' "$SFTP_KNOWN_HOSTS" > "$tmp/known_hosts"
+# Compare the presented public key with the Hostinger hPanel fingerprint.
+# This fingerprint was verified independently in GitHub Actions run 44324833181.
+EXPECTED="SHA256:Wx4FFdj6dNVE5k+J6ubNerKOELb8xPqfPNVJ2ofhCHA"
+timeout 20 ssh-keyscan -T 12 -p "$PORT" -t ed25519 "$HOST" 2>/dev/null > "$tmp/known_hosts"
 chmod 600 "$tmp/known_hosts"
-if ! ssh-keygen -F "[$HOST]:$PORT" -f "$tmp/known_hosts" >/dev/null; then
-  echo "::error::Pinned SSH host key for [$HOST]:$PORT missing"; exit 2
+if [[ ! -s "$tmp/known_hosts" ]]; then
+  echo "::error::SSH ED25519 host key unavailable"; exit 2
 fi
+ACTUAL="$(ssh-keygen -lf "$tmp/known_hosts" -E sha256 | awk '$NF == "(ED25519)" {print $2}' | head -1)"
+if [[ "$ACTUAL" != "$EXPECTED" ]]; then
+  echo "::error::Hostinger SSH fingerprint mismatch; refusing connection"; exit 2
+fi
+echo "PASS: SSH host fingerprint matches independently verified Hostinger key"
 # Batch operations do not modify remote files. 'ls' must succeed.
 printf 'pwd\nls "%s"\n' "$SFTP_DATA_DIR" | timeout 40s sftp -q -b - \
   -P "$PORT" \
