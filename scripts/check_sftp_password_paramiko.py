@@ -39,6 +39,7 @@ def run() -> int:
         sock = socket.create_connection((HOST, PORT), timeout=12)
         sock.settimeout(15)
         transport = paramiko.Transport(sock)
+        transport.get_security_options().key_types = ("ssh-ed25519",)
         transport.banner_timeout = 12
         transport.auth_timeout = 15
         transport.start_client(timeout=15)
