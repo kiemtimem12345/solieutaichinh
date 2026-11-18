@@ -5,7 +5,7 @@ import ssl
 from ftplib import FTP_TLS
 
 EXPECTED_IP = "195.35.62.53"
-HOST = "server545.hstgr.io"
+HOST = "ftp.solieutaichinh.online"
 PORT = 21
 
 def main():
@@ -14,7 +14,7 @@ def main():
     print("DNS addresses:", ", ".join(addresses))
     print("Expected Hostinger IP matches:", EXPECTED_IP in addresses)
     if EXPECTED_IP not in addresses:
-        raise SystemExit("BLOCKED: candidate hostname does not resolve to configured FTP IP")
+        raise SystemExit("BLOCKED: FTP hostname does not resolve to Hostinger FTP IP")
     context = ssl.create_default_context()
     with FTP_TLS(context=context, timeout=12) as ftp:
         ftp.connect(HOST, PORT)
