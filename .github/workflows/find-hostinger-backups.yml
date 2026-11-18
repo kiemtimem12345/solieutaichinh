@@ -1,0 +1,26 @@
+name: Find Hostinger frontend backups (read-only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/find_hostinger_backups.py'
+      - '.github/workflows/find-hostinger-backups.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install SSH/SFTP client
+        run: python -m pip install --disable-pip-version-check 'paramiko>=3.5,<5'
+      - name: Inspect common hosting backup folders without downloads or writes
+        env:
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: python scripts/find_hostinger_backups.py
