@@ -1,0 +1,26 @@
+name: Inspect private Hostinger backup archive (read-only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/inspect_hostinger_backup.py'
+      - '.github/workflows/inspect-hostinger-backup.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install SSH/SFTP library
+        run: python -m pip install --disable-pip-version-check 'paramiko>=3.5,<5'
+      - name: Locate and inventory private archive without extraction
+        env:
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: python scripts/inspect_hostinger_backup.py
