@@ -102,27 +102,31 @@ def run():
                 if not stat.S_ISREG(attr.st_mode):
                     print(f"::error::Target exists but is not regular file: {path.name}")
                     return 2
-                if remote_digest(sftp, remote) != digest:
+                actual = remote_digest(sftp, remote)
+                if actual != digest:
+                    print(f"CHECK: Existing mismatch: {path.name}; remote_bytes={attr.st_size}, "
+                          f"expected_bytes={path.stat().st_size}")
+                    # Only repair a zero-byte placeholder known to originate from
+                    # the initial run that CREATED this previously missing /data.
+                    # No other pre-existing or nonzero files are ever overwritten.
+                    if path.name == "analysis-reports.json" and attr.st_size == 0:
+                        print("REPAIR: empty placeholder left by first bootstrap attempt")
+                        with sftp.open(remote, "wb") as dst:
+                            dst.write(path.read_bytes())
+                        if remote_digest(sftp, remote) != digest:
+                            print("::error::Empty-placeholder repair hash mismatch; abort")
+                            return 1
+                        verified += 1
+                        created += 1
+                        continue
                     print(f"::error::Existing file differs; refusing to overwrite: {path.name}")
                     return 2
                 verified += 1
                 continue
-            # Some hosts reject SFTP EXCL. Retry only if target remains absent.
-            try:
-                stream = sftp.open(remote, "xb")
-            except OSError as excl_error:
-                print(f"CHECK: exclusive create failed for {path.name}, errno={excl_error.errno}")
-                try:
-                    present = sftp.lstat(remote)
-                except FileNotFoundError:
-                    present = None
-                if present is not None:
-                    print(f"::error::Target appeared; refusing overwrite: {path.name}")
-                    return 2
-                # This dedicated directory was confirmed absent in recovery preflight.
-                # Do not open a pre-existing file in write mode.
-                stream = sftp.open(remote, "wb")
-            with stream as dst:
+            # /data was absent before this bootstrap and this name was just
+            # confirmed absent. Hostinger's SFTP EXCL mode can leave an empty
+            # placeholder before returning an error. Use simple create and verify.
+            with sftp.open(remote, "wb") as dst:
                 with path.open("rb") as src:
                     while True:
                         data = src.read(65536)
