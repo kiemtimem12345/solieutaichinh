@@ -1,0 +1,32 @@
+name: Deploy verified financial JSON to Hostinger
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hostinger-financial-json-deploy
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate finance JSON and archive
+        run: python scripts/validate.py
+      - name: Stage only 41 validated JSON files
+        run: python scripts/prepare_deploy.py
+      - name: Upload by verified FTPS, without remote deletions
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PORT: ${{ secrets.FTP_PORT || '21' }}
+          FTP_DATA_DIR: ${{ vars.FTP_DATA_DIR }}
+        run: python scripts/deploy_ftp.py
