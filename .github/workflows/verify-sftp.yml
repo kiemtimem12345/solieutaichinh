@@ -1,5 +1,9 @@
 name: Verify Hostinger SFTP read-only
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-sftp.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -9,11 +13,14 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Install password authentication helper
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
-      - name: Verify password SFTP with pinned host key (no remote writes)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install independent SSH/SFTP client
+        run: python -m pip install --disable-pip-version-check 'paramiko>=3.5,<5'
+      - name: Verify pinned SSH password authentication and read-only website root
         env:
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
           SFTP_DATA_DIR: ${{ vars.SFTP_DATA_DIR }}
-        run: bash scripts/check_sftp.sh
+        run: python scripts/check_sftp_password_paramiko.py
