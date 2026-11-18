@@ -1,0 +1,32 @@
+name: Deploy validated JSON via SFTP (manual, guarded)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hostinger-financial-json-deploy
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate original archive
+        run: python scripts/validate.py
+      - name: Prepare 41 JSON only
+        run: python scripts/prepare_deploy.py
+      - name: Upload verified JSON via SFTP
+        env:
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
+          SFTP_DATA_DIR: ${{ vars.SFTP_DATA_DIR }}
+          SFTP_DEPLOY_ENABLED: ${{ vars.SFTP_DEPLOY_ENABLED }}
+        run: bash scripts/deploy_sftp.sh
