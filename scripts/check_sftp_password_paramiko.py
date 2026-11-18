@@ -69,9 +69,55 @@ def run() -> int:
         print("PASS: SFTP subsystem opened")
 
         stage = "remote_directory"
-        sftp.listdir(path)
-        print("PASS: read-only SFTP listing of configured data directory")
-        return 0
+        import stat
+
+        # Typical Hostinger SFTP home/chroot variants. Do not create or modify paths.
+        candidates = [
+            DATA_DIR,
+            "/domains/solieutaichinh.online/public_html/data",
+            "domains/solieutaichinh.online/public_html/data",
+            "/public_html/data",
+            "public_html/data",
+        ]
+        roots = [
+            DATA_DIR.rsplit("/", 1)[0],
+            "/domains/solieutaichinh.online/public_html",
+            "domains/solieutaichinh.online/public_html",
+            "/public_html",
+            "public_html",
+        ]
+        print("SFTP working directory: " + sftp.normalize("."))
+        valid_data = []
+        valid_roots = []
+        for label, items, found in [
+            ("data", candidates, valid_data),
+            ("website_root", roots, valid_roots),
+        ]:
+            for candidate in items:
+                try:
+                    attrs = sftp.stat(candidate)
+                    if not stat.S_ISDIR(attrs.st_mode):
+                        print(f"CHECK: {label} {candidate} exists but is not a directory")
+                        continue
+                    # No remote files are opened or changed.
+                    sftp.listdir(candidate)
+                    found.append(candidate)
+                    print(f"PASS: read-only accessible {label}: {candidate}")
+                except PermissionError:
+                    print(f"CHECK: access denied to {label}: {candidate}")
+                except FileNotFoundError:
+                    print(f"CHECK: not found {label}: {candidate}")
+                except OSError as exc:
+                    print(f"CHECK: {label} access error at {candidate}: errno={exc.errno}")
+
+        if valid_data:
+            print("PASS: SFTP directory usable. Update repository SFTP_DATA_DIR to a verified matching path if needed.")
+            return 0
+        if valid_roots:
+            print("::warning::SFTP login and website root access PASSED, but data directory was not found. Do not deploy until a controlled backup and directory creation step.")
+            return 0
+        print("::error::SFTP login worked but no known website directory was found; inspect hosting root/chroot path.")
+        return 1
 
     except paramiko.BadAuthenticationType as exc:
         print("::error::SSH server rejected password authentication method")
