@@ -71,7 +71,7 @@ for f in "${files[@]}"; do
   printf 'put "%s" "%s/%s"\n' "$f" "$TARGET" "$(basename "$f")" >> "$tmp/upload.batch"
 done
 timeout 180 sshpass -e sftp -q -b "$tmp/upload.batch" -P "$PORT" \
-  -i "$tmp/id_key" -oBatchMode=yes -oIdentitiesOnly=yes \
+  -oBatchMode=no -oPubkeyAuthentication=no -oPreferredAuthentications=password,keyboard-interactive \
   -oStrictHostKeyChecking=yes -oUserKnownHostsFile="$tmp/known_hosts" \
   -oConnectTimeout=15 "$SFTP_USERNAME@$HOST"
 unset SSHPASS
