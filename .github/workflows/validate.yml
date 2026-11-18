@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Validate SFTP scripts syntax
+        run: bash -n scripts/check_sftp.sh scripts/deploy_sftp.sh scripts/verify_hostinger_ssh_hostkey.sh
       - name: Validate production JSON and archived JS syntax
         run: python scripts/validate.py
       - name: Stage JSON and verify package
