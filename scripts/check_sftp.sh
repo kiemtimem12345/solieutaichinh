@@ -2,7 +2,7 @@
 # Verify SFTP access read-only using pinned SSH host key.
 set -euo pipefail
 : "${SFTP_USERNAME:?Set SFTP_USERNAME secret}"
-: "${SFTP_PRIVATE_KEY:?Set SFTP_PRIVATE_KEY secret}"
+: "${SFTP_PASSWORD:?Set SFTP_PASSWORD secret}"
 : "${SFTP_DATA_DIR:?Set SFTP_DATA_DIR repository variable}"
 HOST="195.35.62.53"
 PORT="65002"
@@ -17,8 +17,6 @@ fi
 tmp="$(mktemp -d)"
 chmod 700 "$tmp"
 trap 'rm -rf "$tmp"' EXIT
-printf '%s\n' "$SFTP_PRIVATE_KEY" > "$tmp/id_key"
-chmod 600 "$tmp/id_key"
 # Compare the presented public key with the Hostinger hPanel fingerprint.
 # This fingerprint was verified independently in GitHub Actions run 44324833181.
 EXPECTED="SHA256:Wx4FFdj6dNVE5k+J6ubNerKOELb8xPqfPNVJ2ofhCHA"
@@ -33,13 +31,15 @@ if [[ "$ACTUAL" != "$EXPECTED" ]]; then
 fi
 echo "PASS: SSH host fingerprint matches independently verified Hostinger key"
 # Batch operations do not modify remote files. 'ls' must succeed.
-printf 'pwd\nls "%s"\n' "$SFTP_DATA_DIR" | timeout 40s sftp -q -b - \
+export SSHPASS="$SFTP_PASSWORD"
+printf 'pwd\nls "%s"\n' "$SFTP_DATA_DIR" | timeout 40s sshpass -e sftp -q -b - \
   -P "$PORT" \
-  -i "$tmp/id_key" \
-  -oBatchMode=yes \
-  -oIdentitiesOnly=yes \
+  -oBatchMode=no \
+  -oPubkeyAuthentication=no \
+  -oPreferredAuthentications=password,keyboard-interactive \
   -oStrictHostKeyChecking=yes \
   -oUserKnownHostsFile="$tmp/known_hosts" \
   -oConnectTimeout=15 \
   "$SFTP_USERNAME@$HOST"
-echo "PASS: verified SSH host identity, authenticated, read-only SFTP access to data directory"
+unset SSHPASS
+echo "PASS: verified SSH host identity, password-authenticated, read-only SFTP access to data directory"

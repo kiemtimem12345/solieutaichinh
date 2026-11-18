@@ -23,10 +23,12 @@ jobs:
         run: python scripts/validate.py
       - name: Prepare 41 JSON only
         run: python scripts/prepare_deploy.py
+      - name: Install password authentication helper
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
       - name: Upload verified JSON via SFTP
         env:
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
-          SFTP_PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
           SFTP_DATA_DIR: ${{ vars.SFTP_DATA_DIR }}
           SFTP_DEPLOY_ENABLED: ${{ vars.SFTP_DEPLOY_ENABLED }}
         run: bash scripts/deploy_sftp.sh

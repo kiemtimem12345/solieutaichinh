@@ -4,7 +4,7 @@
 set -euo pipefail
 
 : "${SFTP_USERNAME:?Missing SFTP_USERNAME secret}"
-: "${SFTP_PRIVATE_KEY:?Missing SFTP_PRIVATE_KEY secret}"
+: "${SFTP_PASSWORD:?Missing SFTP_PASSWORD secret}"
 : "${SFTP_DATA_DIR:?Missing SFTP_DATA_DIR variable}"
 
 if [[ "${SFTP_DEPLOY_ENABLED:-}" != "YES_AFTER_UI_RESTORE" ]]; then
@@ -44,8 +44,6 @@ fi
 tmp="$(mktemp -d)"
 chmod 700 "$tmp"
 trap 'rm -rf "$tmp"' EXIT
-printf '%s\n' "$SFTP_PRIVATE_KEY" > "$tmp/id_key"
-chmod 600 "$tmp/id_key"
 
 timeout 20 ssh-keyscan -T 12 -p "$PORT" -t ed25519 "$HOST" 2>/dev/null > "$tmp/known_hosts"
 if [[ ! -s "$tmp/known_hosts" ]]; then
@@ -60,8 +58,9 @@ echo "PASS: Hostinger SSH host fingerprint verified"
 
 # A read-only list confirms the target exists before upload; never create parent directories.
 printf 'ls "%s"\n' "$TARGET" > "$tmp/read_only.batch"
-timeout 45 sftp -q -b "$tmp/read_only.batch" -P "$PORT" \
-  -i "$tmp/id_key" -oBatchMode=yes -oIdentitiesOnly=yes \
+export SSHPASS="$SFTP_PASSWORD"
+timeout 45 sshpass -e sftp -q -b "$tmp/read_only.batch" -P "$PORT" \
+  -oBatchMode=no -oPubkeyAuthentication=no -oPreferredAuthentications=password,keyboard-interactive \
   -oStrictHostKeyChecking=yes -oUserKnownHostsFile="$tmp/known_hosts" \
   -oConnectTimeout=15 "$SFTP_USERNAME@$HOST"
 echo "PASS: SFTP authentication and target directory existence"
@@ -71,8 +70,9 @@ echo "PASS: SFTP authentication and target directory existence"
 for f in "${files[@]}"; do
   printf 'put "%s" "%s/%s"\n' "$f" "$TARGET" "$(basename "$f")" >> "$tmp/upload.batch"
 done
-timeout 180 sftp -q -b "$tmp/upload.batch" -P "$PORT" \
-  -i "$tmp/id_key" -oBatchMode=yes -oIdentitiesOnly=yes \
+timeout 180 sshpass -e sftp -q -b "$tmp/upload.batch" -P "$PORT" \
+  -oBatchMode=no -oPubkeyAuthentication=no -oPreferredAuthentications=password,keyboard-interactive \
   -oStrictHostKeyChecking=yes -oUserKnownHostsFile="$tmp/known_hosts" \
   -oConnectTimeout=15 "$SFTP_USERNAME@$HOST"
+unset SSHPASS
 echo "PASS: Uploaded 41 validated JSON snapshots via pinned SFTP; no files deleted."

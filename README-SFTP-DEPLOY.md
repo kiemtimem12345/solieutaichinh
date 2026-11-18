@@ -7,8 +7,8 @@
 - Cần xác minh đăng nhập qua workflow read-only và khôi phục giao diện gốc (index.html / CSS / PHP) trước khi cho phép triển khai.
 
 ## Khi chuẩn bị xong
-1. Bật SSH và thêm public key vào Hostinger; không gửi private key cho trợ lý.
-2. GitHub Secrets: `SFTP_USERNAME=u154814653`, `SFTP_PRIVATE_KEY` là private key tương ứng với public key trong Hostinger.
+1. Bật SSH trên Hostinger và kiểm tra tài khoản SSH chính có hỗ trợ đăng nhập bằng mật khẩu. Không chia sẻ mật khẩu với trợ lý.
+2. GitHub Secrets: `SFTP_USERNAME=u154814653`, `SFTP_PASSWORD` = mật khẩu SSH chính trong Hostinger, không phải mật khẩu FTP phụ.
 3. GitHub Variable `SFTP_DATA_DIR=/home/u154814653/domains/solieutaichinh.online/public_html/data`.
 4. Chạy Actions → `Verify Hostinger SFTP read-only` và yêu cầu PASS.
 5. Khôi phục giao diện gốc, sao lưu website/dữ liệu và kiểm tra website hoạt động.
