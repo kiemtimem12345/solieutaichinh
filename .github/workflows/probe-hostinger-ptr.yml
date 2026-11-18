@@ -1,0 +1,21 @@
+name: Probe Hostinger reverse DNS (read-only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/probe_hostinger_ptr.py'
+      - '.github/workflows/probe-hostinger-ptr.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect FTP server PTR and verified hostname (no credentials)
+        run: python scripts/probe_hostinger_ptr.py
