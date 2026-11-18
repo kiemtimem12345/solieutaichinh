@@ -6,6 +6,8 @@ on:
       - 'scripts/inspect_hostinger_backup.py'
       - '.github/workflows/inspect-hostinger-backup.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '41 * * * *'
 permissions:
   contents: read
 jobs:
