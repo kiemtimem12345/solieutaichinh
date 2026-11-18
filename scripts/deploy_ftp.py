@@ -26,8 +26,11 @@ def main():
     password = need("FTP_PASSWORD")
     directory = need("FTP_DATA_DIR").replace("\\", "/")
     path = "/" + directory.strip("/") + "/"
-    if path not in ("/data/", "/public_html/data/"):
-        raise ValueError("FTP_DATA_DIR must be /data/ or /public_html/data/; verify FTP root first")
+    if path not in ("/", "/data/", "/public_html/data/"):
+        raise ValueError("Unsupported FTP_DATA_DIR")
+    restricted_root = path == "/"
+    if restricted_root and username != "u154814653.githubdeploy":
+        raise ValueError("Root upload only allowed for dedicated restricted githubdeploy account")
     parent = "/" if path == "/data/" else "/public_html"
     files = sorted(DATA.glob("*.json"))
     if len(files) != 41 or any(not f.is_file() for f in files):
@@ -41,19 +44,25 @@ def main():
         ftp.connect(server, port)
         ftp.login(username, password)
         ftp.prot_p()
-        ftp.cwd(parent)
-        marker = io.BytesIO()
-        try:
-            ftp.retrbinary("RETR CNAME", marker.write)
-        except Exception as exc:
-            raise ValueError("No readable CNAME in the deployment parent; verify FTP_DATA_DIR") from exc
-        if b"solieutaichinh.online" not in marker.getvalue():
-            raise ValueError("CNAME does not match expected website; aborting upload")
-        try:
-            ftp.cwd("data")
-        except Exception:
-            ftp.mkd("data")
-            ftp.cwd("data")
+        if restricted_root:
+            ftp.cwd("/")
+            if ftp.pwd() != "/":
+                raise ValueError("FTP root verification failed")
+        else:
+            ftp.cwd(parent)
+            marker = io.BytesIO()
+        if not restricted_root:
+            try:
+                ftp.retrbinary("RETR CNAME", marker.write)
+            except Exception as exc:
+                raise ValueError("No readable CNAME in deployment parent; verify FTP_DATA_DIR") from exc
+            if b"solieutaichinh.online" not in marker.getvalue():
+                raise ValueError("CNAME does not match website; aborting upload")
+            try:
+                ftp.cwd("data")
+            except Exception:
+                ftp.mkd("data")
+                ftp.cwd("data")
         for i, f in enumerate(files, 1):
             with f.open("rb") as handle:
                 ftp.storbinary(f"STOR {f.name}", handle)

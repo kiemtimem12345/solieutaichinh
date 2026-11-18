@@ -45,8 +45,11 @@ def check():
     password = required("FTP_PASSWORD")
     port = int(os.getenv("FTP_PORT", "21"))
     path = required("FTP_DATA_DIR").replace("\\", "/")
-    if path not in ("/data/", "/public_html/data/"):
-        raise ValueError("FTP_DATA_DIR must be /data/ or /public_html/data/")
+    if path not in ("/", "/data/", "/public_html/data/"):
+        raise ValueError("Unsupported FTP_DATA_DIR")
+    root_is_data = path == "/"
+    if root_is_data and user != "u154814653.githubdeploy":
+        raise ValueError("Restricted root deployment requires dedicated githubdeploy account")
     parent = "/" if path == "/data/" else "/public_html"
     print("FTPS: trying TLS-verified connection; no remote writes")
     with FTP_TLS(context=ssl.create_default_context(), timeout=20) as ftp:
@@ -54,6 +57,14 @@ def check():
         ftp.login(user, password)
         ftp.prot_p()
         print("PASS: explicit FTPS login and protected data channel")
+        if root_is_data:
+            ftp.cwd("/")
+            if ftp.pwd() != "/":
+                raise ValueError("Dedicated FTP account did not start in restricted root")
+            print("PASS: dedicated FTP account can access root (/).")
+            print("NOTICE: Hostinger account settings scope this root to public_html/data (per supplied control-panel screenshot).")
+            ftp.quit()
+            return 0
         ftp.cwd(parent)
         print("PASS: configured parent directory accessible")
         marker = io.BytesIO()

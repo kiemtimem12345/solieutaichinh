@@ -11,7 +11,7 @@ Repository: kiemtimem12345/solieutaichinh; nhánh mặc định: main.
 
 ## Cấu hình
 1. GitHub Settings → Secrets and variables → Actions → Secrets: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` (tuỳ chọn `FTP_PORT`; mặc định 21).
-2. Actions → Variables: `FTP_DATA_DIR`: `/data/` nếu FTP đăng nhập trực tiếp tại `public_html`, hoặc `/public_html/data/` nếu FTP đăng nhập thư mục cha.
+2. Actions → Variables: `FTP_DATA_DIR`: `/` khi sử dụng FTP mới `u154814653.githubdeploy` với thư mục gốc được Hostinger giới hạn tại `public_html/data`; `/data/` nếu FTP đăng nhập trực tiếp tại `public_html`, hoặc `/public_html/data/` nếu FTP đăng nhập thư mục cha.
 3. GitHub Settings → Environments: tạo `production`. Nếu có thể, thiết lập required reviewers.
 4. Actions → **Validate financial snapshots** phải PASS.
 5. **Chỉ sau khi khôi phục được giao diện website, sao lưu dữ liệu và xác minh root FTP**, vào Actions → **Deploy verified financial JSON to Hostinger** → Run workflow.
@@ -19,13 +19,13 @@ Repository: kiemtimem12345/solieutaichinh; nhánh mặc định: main.
 ## Bảo vệ production
 - Workflow triển khai mặc định chỉ chạy khi bấm thủ công, **không tự chạy khi push**.
 - `scripts/deploy_ftp.py` chỉ dùng FTPS, có TLS kiểm tra chứng chỉ, không tự hạ cấp FTP không mã hóa.
-- `FTP_DATA_DIR` chỉ cho phép `/data/` hoặc `/public_html/data/`.
-- Script phải đọc được `CNAME` có chữ `solieutaichinh.online` trong thư mục cha từ phía FTP trước khi upload; nếu không sẽ dừng.
+- `FTP_DATA_DIR` cho phép `/` **chỉ khi FTP_USERNAME là `u154814653.githubdeploy`**; hoặc `/data/`, `/public_html/data/` cho tài khoản có thư mục cha. Giá trị `/` chỉ áp dụng khi thư mục gốc tài khoản FTP bị giới hạn vào `public_html/data`.
+- Với FTP cũ, script phải đọc `CNAME` của website trong thư mục cha. Với tài khoản mới bị giới hạn tại `data`, script kiểm tra đúng tài khoản `u154814653.githubdeploy` và thư mục gốc `/`, vì không thể đọc `CNAME` ở ngoài quyền được cấp.
 - Chỉ tải JSON, không có lệnh xóa file từ xa.
 - Nếu dùng địa chỉ IP ở `FTP_SERVER` gây lỗi chứng chỉ FTPS, hãy sử dụng tên máy chủ FTPS do Hostinger cung cấp với chứng chỉ phù hợp. Không tắt kiểm tra TLS.
 - Không gửi hoặc ghi mật khẩu FTP vào GitHub repository hay log workflow.
 
 ## Giới hạn chưa giải quyết
 - Repo hiện chỉ có gói snapshot, README và workflow; chưa có `index.html`, CSS hoặc PHP gốc. Workflow upload JSON không thay thế được việc khôi phục giao diện.
-- Tài khoản FTPS chưa được thử nghiệm từ GitHub Actions. Lần triển khai đầu tiên cần kiểm tra thực tế thủ công.
+- Tài khoản mới Hostinger: hostname `ftp.solieutaichinh.online`, username `u154814653.githubdeploy`, root scope được thiết lập tại `public_html/data` theo ảnh Hostinger. Chưa biết hostname có hợp lệ với chứng chỉ TLS; kiểm tra DNS/TLS không gửi mật khẩu được thêm vào GitHub Actions. Lần triển khai đầu tiên cần kiểm tra thực tế thủ công.
 - Chỉ bật deploy tự động khi đã chạy thử thành công trên production.
