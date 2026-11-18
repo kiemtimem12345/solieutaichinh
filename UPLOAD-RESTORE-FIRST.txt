@@ -1,0 +1,33 @@
+SO-LIEU — GÓI KHÔI PHỤC SNAPSHOT HOSTINGER
+Ngày đóng gói: 18/11/2026
+
+MỤC ĐÍCH
+Khôi phục lớp dữ liệu đang không tải trên website. Trang production hiện báo 32 mã không tải được snapshot và nhiều panel không đọc được data/*.json. Đây là gói dữ liệu + JS đã được kiểm tra cú pháp, không chứa index/CSS/PHP/database.
+
+CẤU TRÚC
+- data/: 32 financials-<TICKER>.json + 9 snapshot kinh tế/thị trường/lãi suất/báo cáo.
+- assets/app.js: bộ nạp dùng URL tuyệt đối /data/<file> trên cùng origin (không phụ thuộc URL trang hiện tại), sau đó fallback GitHub Raw/CDN; xác thực response phải là JSON.
+- BCTC-gap-audit-2026-11-17.csv: bảng kiểm toán 34 scope/32 mã.
+
+CÁCH TRIỂN KHAI AN TOÀN
+1. Trong Hostinger File Manager, sao lưu public_html/data/ và public_html/assets/app.js.
+2. Giải nén gói trên máy. Merge toàn bộ thư mục data/ vào public_html/data/; không xóa file không có trong gói.
+3. Thay public_html/assets/app.js bằng assets/app.js trong gói. Không thay index.html, CSS, PHP hoặc database.
+4. Xóa cache Hostinger/CDN nếu có, sau đó hard refresh trình duyệt.
+5. Kiểm tra các URL sau trả JSON (không phải HTML/404):
+   https://solieutaichinh.online/data/category-data.json
+   https://solieutaichinh.online/data/financials-MBB.json
+   https://solieutaichinh.online/data/financials-GAS.json
+   https://solieutaichinh.online/data/financials-GEG.json
+   https://solieutaichinh.online/data/currency-rates.json
+6. Trên trang, kiểm tra bộ đếm financial snapshots và các panel category-data/market-prices/rates.
+
+GIỚI HẠN VÀ AN TOÀN DỮ LIỆU
+- Gói là recovery base từ 17/11/2026; 32 snapshot tài chính không đồng nghĩa 32 mã đã đủ Q3/2026. Nhiều mã mới nhất Q2/2026.
+- GAS/GEG có Q3/2026 đã bổ sung theo trạng thái trong audit; GAS B03 hiện là 9M YTD, không được hiển thị như riêng Q3 khi chưa có B03 Q2 cùng scope.
+- KBC Q3/2026 vẫn provisional ngoài data/, chưa được xuất bản.
+- MBB Q3/2026 B01/B02 vẫn phải giữ pending visual cho tới khi kiểm tra được ảnh trang gốc; không đưa dữ liệu pending vào production.
+- Không deploy số liệu OCR/auto-extracted còn pending visual như dữ liệu đã xác minh. Xem CSV audit.
+- GitHub API đang trả HTTP 403 (account suspended); phiên này không có quyền đăng nhập Hostinger. Vì vậy gói đã chuẩn bị và kiểm tra, chưa có upload/deploy từ phiên này.
+
+7. Mở website, nhấn F12 > Console, dán nội dung SNAPSHOT-DIAGNOSTIC.js để kiểm tra toàn bộ 41 endpoint (9 snapshot phụ + 32 mã). Gửi lại bảng kết quả nếu còn lỗi.
