@@ -13,6 +13,5 @@ jobs:
         env:
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
           SFTP_PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
-          SFTP_KNOWN_HOSTS: ${{ secrets.SFTP_KNOWN_HOSTS }}
           SFTP_DATA_DIR: ${{ vars.SFTP_DATA_DIR }}
         run: bash scripts/check_sftp.sh
