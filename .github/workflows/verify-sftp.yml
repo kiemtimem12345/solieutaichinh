@@ -9,9 +9,11 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Verify SFTP with pinned host key (no remote writes)
+      - name: Install password authentication helper
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
+      - name: Verify password SFTP with pinned host key (no remote writes)
         env:
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
-          SFTP_PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
           SFTP_DATA_DIR: ${{ vars.SFTP_DATA_DIR }}
         run: bash scripts/check_sftp.sh
