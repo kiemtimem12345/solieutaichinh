@@ -1,0 +1,18 @@
+name: Verify Hostinger SFTP read-only
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify SFTP with pinned host key (no remote writes)
+        env:
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
+          SFTP_KNOWN_HOSTS: ${{ secrets.SFTP_KNOWN_HOSTS }}
+          SFTP_DATA_DIR: ${{ vars.SFTP_DATA_DIR }}
+        run: bash scripts/check_sftp.sh
