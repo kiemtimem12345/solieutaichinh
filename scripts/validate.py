@@ -21,24 +21,22 @@ def normalized_financial(obj, name):
     symbol = match.group(1)
     if obj.get("symbol") != symbol or not isinstance(obj.get("items"), list):
         raise ValueError(f"Invalid symbol/items for {name}")
-    seen = set()
-    kept = []
+    periods = set()
     for item in obj["items"]:
         if not isinstance(item, dict):
             raise ValueError(f"Invalid financial period row in {name}")
         period = item.get("period")
         if not isinstance(period, str) or not PERIOD.fullmatch(period):
             raise ValueError(f"Malformed period {period!r} in {name}")
-        if period in seen:
-            raise ValueError(f"Duplicate period {period} in {name}")
-        seen.add(period)
         if period >= FIRST_ALLOWED:
-            kept.append(item)
-    kept.sort(key=lambda x: x["period"])
-    if len(kept) > MAX_PERIODS:
-        kept = kept[-MAX_PERIODS:]
-    if not kept:
+            periods.add(period)
+    latest_periods = set(sorted(periods)[-MAX_PERIODS:])
+    if not latest_periods:
         raise ValueError(f"No publishable periods after {FIRST_ALLOWED} in {name}")
+    # One quarter may legitimately have both parent-only and consolidated
+    # report rows. Preserve both; the maximum applies to distinct periods.
+    kept = [item for item in obj["items"] if item["period"] in latest_periods]
+    kept.sort(key=lambda x: x["period"])
     result = dict(obj)
     result["items"] = kept
     return result, len(obj["items"]) - len(kept)
