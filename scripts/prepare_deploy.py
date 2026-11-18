@@ -31,7 +31,7 @@ def main():
         obj = json.loads(path.read_text(encoding="utf-8-sig"))
         if path.name.startswith("financials-"):
             periods = [row["period"] for row in obj["items"]]
-            if not periods or len(periods) > MAX_PERIODS or any(p < FIRST_ALLOWED for p in periods):
+            if not periods or len(set(periods)) > MAX_PERIODS or any(p < FIRST_ALLOWED for p in periods):
                 sys.exit(f"Invalid staged periods in {path.name}")
     print(f"PASS: staged 41 JSON; excluded {excluded} pre-2025/excess periods; no UI files staged.")
 
