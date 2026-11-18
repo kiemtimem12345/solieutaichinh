@@ -9,8 +9,8 @@
 1. Trang web → `solieutaichinh.online` → Bảng điều khiển → tìm **Truy cập SSH / SSH Access**. Nếu gói hosting cho phép, bật SSH.
 2. Xem **SSH IP**, **SSH username**, **port**. Port thường là **65002**. Tránh sử dụng user FTP phụ `u154814653.githubdeploy` cho SFTP nếu Hostinger chỉ cho phép SSH user chính.
 3. Khuyến nghị tạo SSH key chuyên dùng. Đưa **public key** vào Hostinger, **private key** chỉ đưa vào GitHub Secret `SFTP_PRIVATE_KEY`. Tuyệt đối không commit private key.
-4. Lấy host public key/fingerprint SSH của máy chủ **từ nguồn đáng tin cậy của Hostinger** để kiểm tra, rồi cấu hình GitHub Secret `SFTP_KNOWN_HOSTS` với dòng định dạng `[195.35.62.53]:65002 ssh-ed25519 AAAA...`. Không lấy khóa bằng `ssh-keyscan` rồi tin ngay mà không đối chiếu fingerprint.
-5. GitHub Secrets: `SFTP_USERNAME`, `SFTP_PRIVATE_KEY`, `SFTP_KNOWN_HOSTS`.
+4. Dấu vân tay ED25519 đã được so khớp với Hostinger hPanel qua GitHub Actions run `44324833181`: `SHA256:Wx4FFdj6dNVE5k+J6ubNerKOELb8xPqfPNVJ2ofhCHA`. Script tự lấy khóa máy chủ và buộc trùng với fingerprint đã xác minh. Không cần tạo `SFTP_KNOWN_HOSTS`.
+5. GitHub Secrets: `SFTP_USERNAME` = `u154814653`, `SFTP_PRIVATE_KEY` là private key tạo riêng trên máy cá nhân; không gửi khóa qua chat.
 6. GitHub Actions Variable: `SFTP_DATA_DIR=/home/u154814653/domains/solieutaichinh.online/public_html/data` (dựa theo hPanel đã cung cấp; xác minh SSH path chính xác trước triển khai).
 7. Mở GitHub Actions → **Verify Hostinger SFTP read-only** → **Run workflow**. Script không tải lên, không xóa dữ liệu.
 
