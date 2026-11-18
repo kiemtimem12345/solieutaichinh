@@ -19,3 +19,9 @@
 - SSH/SFTP của Hostinger thường sử dụng tài khoản SSH của hosting; quyền có thể rộng hơn FTP phụ. Giữ workflow ở chế độ chỉ đọc tới khi xác minh giới hạn và sao lưu.
 - Khi xác minh PASS, có thể bổ sung workflow upload chỉ 41 JSON, không ghi đè giao diện.
 - Không bật FTP thường để tự động chuyển mật khẩu qua mạng; đây là biện pháp cuối cùng chỉ nên dùng khi có sự chấp thuận riêng cho lần chạy, và vẫn cần đảm bảo website có giao diện gốc.
+
+## Cập nhật ngày 18/11/2026 — xác thực mật khẩu SFTP đã PASS
+- Run `44343156120`: **SSH password authentication PASS**, **SFTP subsystem PASS** (đã xác minh trực tiếp bằng Python Paramiko). Không cần đổi mật khẩu nữa.
+- Run `44343527858`: **truy cập đọc public_html PASS**; đường dẫn `/home/u154814653/domains/solieutaichinh.online/public_html/data` **chưa tồn tại**.
+- Workflow `Verify Hostinger SFTP read-only` nay dùng Python Paramiko và kiểm tra các đường dẫn an toàn, không dùng `sshpass`; kết quả SUCCESS khi đăng nhập và truy cập web root đúng dù `data` chưa được tạo, kèm WARNING.
+- Không tự tạo `data`, không upload dữ liệu cho tới khi đã phục hồi giao diện gốc, kiểm tra backup và chuẩn bị triển khai có kiểm soát.
