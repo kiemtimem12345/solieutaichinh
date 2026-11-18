@@ -3,28 +3,29 @@
 Repository: kiemtimem12345/solieutaichinh; nhánh mặc định: main.
 
 ## Phạm vi
-- Lưu trữ dữ liệu đã kiểm tra trong gói `so-lieu-hostinger-restore-2026-11-18-fixed.zip` hiện có trên GitHub.
-- Validate: 32 `financials-*.json` + 9 JSON phụ trợ, giải mã JSON và kiểm tra cú pháp JavaScript lưu trữ.
-- Deploy: **chỉ 41 JSON** từ gói, vào thư mục data của website; không upload `assets/app.js`, `index.html`, CSS hoặc PHP và không xóa file đang tồn tại.
-- File JS trong ZIP là bản lưu trữ cũ có tham chiếu GitHub cũ; không dùng để triển khai website.
+- Gói ZIP `so-lieu-hostinger-restore-2026-11-18-fixed.zip` được giữ nguyên làm nguồn lưu trữ; không thay thế, xóa hoặc sửa ZIP gốc.
+- Kiểm tra 32 `financials-*.json` và 9 JSON phụ trợ, đúng tên mã, đúng cấu trúc và cú pháp JavaScript lưu trữ.
+- Khi chuẩn bị xuất bản, lọc các kỳ BCTC **trước `2025-Q1`**, chỉ giữ **20 kỳ gần nhất** của từng mã; file JSON phụ trợ giữ nguyên. ZIP nguồn không thay đổi.
+- Triển khai **chỉ 41 JSON đã chuẩn bị** vào thư mục data của website; không upload HTML, CSS, PHP, JavaScript hay dữ liệu provisional. Không xóa tệp trên máy chủ.
+- Gói snapshot này **chưa có Q3/2026 đầy đủ cho 32 mã**; việc kiểm tra PASS là kiểm tra cấu trúc và phạm vi kỳ, không đồng nghĩa mọi số liệu tài chính đã xác minh đầy đủ.
 
 ## Cấu hình
 1. GitHub Settings → Secrets and variables → Actions → Secrets: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` (tuỳ chọn `FTP_PORT`; mặc định 21).
-2. Actions → Variables: `FTP_DATA_DIR`, đúng bằng `/data/` nếu FTP đăng nhập trực tiếp tại `public_html`, hoặc `/public_html/data/` nếu FTP đăng nhập ở thư mục cha.
+2. Actions → Variables: `FTP_DATA_DIR`: `/data/` nếu FTP đăng nhập trực tiếp tại `public_html`, hoặc `/public_html/data/` nếu FTP đăng nhập thư mục cha.
 3. GitHub Settings → Environments: tạo `production`. Nếu có thể, thiết lập required reviewers.
-4. Mở Actions → **Validate financial snapshots** để xem trạng thái PASS.
-5. Chỉ khi website đã được khôi phục giao diện, FTP root được xác minh và đã sao lưu dữ liệu, vào Actions → **Deploy verified financial JSON to Hostinger** → Run workflow.
+4. Actions → **Validate financial snapshots** phải PASS.
+5. **Chỉ sau khi khôi phục được giao diện website, sao lưu dữ liệu và xác minh root FTP**, vào Actions → **Deploy verified financial JSON to Hostinger** → Run workflow.
 
-## Biện pháp bảo vệ
-- Workflow triển khai chạy thủ công, **không tự triển khai khi push** cho đến khi có kiểm tra production thành công.
-- `scripts/deploy_ftp.py` chỉ dùng FTPS (TLS kiểm tra chứng chỉ), không tự hạ cấp FTP thường.
-- Bắt buộc `FTP_DATA_DIR` là `/data/` hoặc `/public_html/data/`.
-- Trước khi tạo / tải lên `data`, script phải đọc được `CNAME` có chữ `solieutaichinh.online` ở thư mục cha. Nếu không thì dừng.
-- Chỉ tải lên các file `*.json` được kiểm tra; không có lệnh xoá file trên máy chủ.
-- Nếu FTPS báo lỗi chứng chỉ do `FTP_SERVER` là địa chỉ IP, dùng **tên máy chủ FTPS chính thức** có chứng chỉ TLS khớp từ Hostinger. Không tắt kiểm tra chứng chỉ để né lỗi.
-- Bí mật FTP không đặt trong Git hoặc ghi vào log.
+## Bảo vệ production
+- Workflow triển khai mặc định chỉ chạy khi bấm thủ công, **không tự chạy khi push**.
+- `scripts/deploy_ftp.py` chỉ dùng FTPS, có TLS kiểm tra chứng chỉ, không tự hạ cấp FTP không mã hóa.
+- `FTP_DATA_DIR` chỉ cho phép `/data/` hoặc `/public_html/data/`.
+- Script phải đọc được `CNAME` có chữ `solieutaichinh.online` trong thư mục cha từ phía FTP trước khi upload; nếu không sẽ dừng.
+- Chỉ tải JSON, không có lệnh xóa file từ xa.
+- Nếu dùng địa chỉ IP ở `FTP_SERVER` gây lỗi chứng chỉ FTPS, hãy sử dụng tên máy chủ FTPS do Hostinger cung cấp với chứng chỉ phù hợp. Không tắt kiểm tra TLS.
+- Không gửi hoặc ghi mật khẩu FTP vào GitHub repository hay log workflow.
 
-## Website hiện tại chưa đủ giao diện
-Repository `main` tại thời điểm thiết lập chỉ có các file hồi phục và ZIP, không chứa giao diện gốc. Hoàn thành quy trình upload JSON **không** đồng nghĩa website sẽ được khôi phục. Cần đưa mã nguồn HTML/CSS/PHP gốc trở lại trước khi chạy triển khai.
-
-Để bật tự động deploy ở giai đoạn sau, thay `workflow_dispatch` bằng thêm `push: branches: [main]` sau khi đã chạy thử thành công.
+## Giới hạn chưa giải quyết
+- Repo hiện chỉ có gói snapshot, README và workflow; chưa có `index.html`, CSS hoặc PHP gốc. Workflow upload JSON không thay thế được việc khôi phục giao diện.
+- Tài khoản FTPS chưa được thử nghiệm từ GitHub Actions. Lần triển khai đầu tiên cần kiểm tra thực tế thủ công.
+- Chỉ bật deploy tự động khi đã chạy thử thành công trên production.
