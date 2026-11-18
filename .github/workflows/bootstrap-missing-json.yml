@@ -1,0 +1,34 @@
+name: Bootstrap missing Hostinger JSON data (create-only recovery)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/bootstrap_missing_json_data.py'
+      - '.github/workflows/bootstrap-missing-json.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hostinger-financial-json-deploy
+  cancel-in-progress: false
+jobs:
+  restore-missing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned-host-key SFTP library
+        run: python -m pip install --disable-pip-version-check 'paramiko>=3.5,<5'
+      - name: Validate financial archive
+        run: python scripts/validate.py
+      - name: Prepare 41 JSON with 2025-Q1 cutoff and 20-period limit
+        run: python scripts/prepare_deploy.py
+      - name: Create only missing JSON files under expected data root
+        env:
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_DATA_DIR: ${{ vars.SFTP_DATA_DIR }}
+        run: python scripts/bootstrap_missing_json_data.py
