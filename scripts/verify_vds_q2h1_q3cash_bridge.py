@@ -34,9 +34,9 @@ h1expected={
 }
 for k,x in h1expected.items():
     assert v(h,k)==x,(k,v(h,k),x)
-assert h["verification_status"]=="partial_b03_h1_original_visual_verified_b01_b02_pending"
+assert h["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_h1_q2_standalone_cash_deferred"
 assert h["source_validation"]["b03_h1_issuer_original_visual_verified"] is True
-assert h["source_validation"]["manually_visual_reviewed"] is False, "Full B01/B02 not verified"
+assert h["source_validation"]["manually_visual_reviewed"] is True, "B01/B02 and B03 all source visually verified"
 assert h["source_validation"]["b03_original_report_pdf_pages"]==[14,15,16]
 assert all(h.get(k) is None for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","cash_beginning","foreign_exchange_effect"))
 assert v(h,"foreign_exchange_effect_ytd")==0
