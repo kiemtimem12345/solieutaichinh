@@ -38,3 +38,11 @@
 - **Merge only CI PASS**, then verify production website 45/45 URLs and byte-level SHA against main. Save merged commit in this checkpoint.
 - Next within **same ticker VDS**, validate 2025Q1–Q4 B01/B02/B03 from issuer originals one quarter at a time; do not mark old auto-extracted values as PASS. After full VDS, GEG gaps → IDC Q3; skip already complete GEG Q3.
 - GAS H1 2026 COGS 10.160.150.278 VND assignment unresolved, retain checkpoint; PLX parent Q3 B03 mismatch 87.654.015.000 VND unresolved; never fabricate.
+
+## Merge / production status — verified
+- PR #63 merged `main`, commit `d1587e4216358e1d4997abfd10701bbacadd82df`.
+- GitHub Actions pre-merge CI run `44508369760` PASS; main CI run `44508444594` PASS.
+- GitHub Actions read-only issuer original Q1 50-page PDF run `44506806233` PASS (artifact 14519881822; SHA256 documented above); duplicate reruns not required for financial verification.
+- Production website read-only SHA-256 verification `44508444014` PASS **45/45 HTTPS URLs**, including original HTML/CSS/JS and all 41 tracked JSON assets (32 financial + 9 support). No direct SFTP changes.
+- VDS 2026Q1 and 2026Q2 consolidated original B01/B02/B03 and Q2/Q3 standalone cash-flow now have source+exact-VND checks. **VDS ticker NOT fully finished**: older 2025Q1–Q4 remain auto-extracted/unverified; do not revisit completed 2026Q1–Q3 unless a later explicit contradiction.
+- Resume next from **VDS 2025-Q4 original B01/B02/B03** (then Q3→Q1 2025, one quarter at a time). Preserve 2025Q1 cutoff, max 20 periods, and <=0.01% tolerance.
