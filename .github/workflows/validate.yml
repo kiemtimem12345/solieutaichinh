@@ -61,6 +61,8 @@ jobs:
         run: python scripts/verify_vds_h1_2025_reviewed_attribution.py
       - name: Verify GEG consolidated Q2 2026 signed B01 B02 and 6M B03
         run: python scripts/verify_geg_q2_2026_source.py
+      - name: Verify GEG 2026 Q1 issuer original and cross-vintage H1 cash opening exception
+        run: python scripts/verify_geg_q1_2026_source.py
       - name: Validate SFTP scripts syntax
         run: bash -n scripts/check_sftp.sh scripts/deploy_sftp.sh scripts/verify_hostinger_ssh_hostkey.sh
       - name: Validate production JSON and archived JS syntax
