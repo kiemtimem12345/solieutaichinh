@@ -25,6 +25,10 @@ jobs:
           python -c 'from scripts.verify_live_site import validate_checkout; validate_checkout()'
       - name: Verify 6 quarters MBB bank P&L against B03a source
         run: python scripts/verify_mbb_income.py
+      - name: Audit report scope and distinguish missing from unconfirmed
+        run: python scripts/audit_all_statement_coverage.py > /dev/null
+      - name: Check officially verified PLX Q3 parent and consolidated profit
+        run: python scripts/verify_plx_issuer_q3.py
       - name: Validate SFTP scripts syntax
         run: bash -n scripts/check_sftp.sh scripts/deploy_sftp.sh scripts/verify_hostinger_ssh_hostkey.sh
       - name: Validate production JSON and archived JS syntax

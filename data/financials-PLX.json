@@ -1171,9 +1171,77 @@
       "ratio_source_basis": "VietstockFinance consolidated quarterly statements; locally derived from quarterly net profit and average balance sheet totals.",
       "cash_beginning_reported_ytd": 10034406,
       "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có."
+    },
+    {
+      "symbol": "PLX",
+      "period": "2026-Q3",
+      "unit": "triệu VND",
+      "published_at": "2026-11-02",
+      "source_url": "https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/041ce27107d94176a4c6a3356a250824/20261102%20-%20PLX%20-%20Van%20ban%20giai%20trinh%20BCTC%20Quy%203%20nam%202026.pdf",
+      "source_index_url": "https://plx.petrolimex.com.vn/quan-he-nha-dau-tu.html",
+      "source_pages": "Văn bản số 2779/PLX-TCKT ngày 02/11/2026, bảng LNST quý III/2026 — trang 1",
+      "quarter_profit_basis": "Số phát sinh riêng quý III/2026, không phải lũy kế 9 tháng",
+      "verification_status": "issuer_signed_disclosure_profit_only_verified",
+      "financial_line_items_status": "issuer_disclosure_net_profit_only_pending_full_bctc",
+      "financial_line_items_extracted_fields": [
+        "net_profit"
+      ],
+      "financial_line_items_manually_verified_fields": [
+        "net_profit"
+      ],
+      "financial_line_items_note": "Chỉ xác nhận LNST quý III/2026 từ văn bản giải trình chính thức của Petrolimex. Các trường B01, B02 khác, B03 và số công ty mẹ chưa có PDF BCTC gốc được đối chiếu chi tiết, vì vậy vẫn không điền hoặc suy diễn. Không đánh dấu hoàn thành BCTC Q3.",
+      "source_validation": {
+        "reviewed_at": "2026-11-19",
+        "source_type": "issuer_official_disclosure_2779_PLX_TCKT",
+        "source_scope_verified": true,
+        "source_figures_unit": "VND",
+        "signed_source_profit_reconciliation": "Số công bố quý III/2026; không dùng chỉ số tổng hợp làm nguồn cho các khoản mục khác",
+        "quarter_not_ytd": true,
+        "full_b01_b02_b03_visual_reviewed": false,
+        "remaining_pdf_retrieval_needed": true,
+        "scope": "consolidated",
+        "reported_vnd": 1363096640781,
+        "source_comparison_q3_2025_vnd": 705970238434
+      },
+      "net_profit": 1363096.640781,
+      "report_type": "BCTC hợp nhất PLX Q3/2026 — LNST xác nhận từ công bố chính thức, B01/B02/B03 chi tiết chờ PDF gốc"
+    },
+    {
+      "symbol": "PLX",
+      "period": "2026-Q3",
+      "unit": "triệu VND",
+      "published_at": "2026-11-02",
+      "source_url": "https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/041ce27107d94176a4c6a3356a250824/20261102%20-%20PLX%20-%20Van%20ban%20giai%20trinh%20BCTC%20Quy%203%20nam%202026.pdf",
+      "source_index_url": "https://plx.petrolimex.com.vn/quan-he-nha-dau-tu.html",
+      "source_pages": "Văn bản số 2779/PLX-TCKT ngày 02/11/2026, bảng LNST quý III/2026 — trang 1",
+      "quarter_profit_basis": "Số phát sinh riêng quý III/2026, không phải lũy kế 9 tháng",
+      "verification_status": "issuer_signed_disclosure_profit_only_verified",
+      "financial_line_items_status": "issuer_disclosure_net_profit_only_pending_full_bctc",
+      "financial_line_items_extracted_fields": [
+        "net_profit"
+      ],
+      "financial_line_items_manually_verified_fields": [
+        "net_profit"
+      ],
+      "financial_line_items_note": "Chỉ xác nhận LNST quý III/2026 từ văn bản giải trình chính thức của Petrolimex. Các trường B01, B02 khác, B03 và số công ty mẹ chưa có PDF BCTC gốc được đối chiếu chi tiết, vì vậy vẫn không điền hoặc suy diễn. Không đánh dấu hoàn thành BCTC Q3.",
+      "source_validation": {
+        "reviewed_at": "2026-11-19",
+        "source_type": "issuer_official_disclosure_2779_PLX_TCKT",
+        "source_scope_verified": true,
+        "source_figures_unit": "VND",
+        "signed_source_profit_reconciliation": "Số công bố quý III/2026; không dùng chỉ số tổng hợp làm nguồn cho các khoản mục khác",
+        "quarter_not_ytd": true,
+        "full_b01_b02_b03_visual_reviewed": false,
+        "remaining_pdf_retrieval_needed": true,
+        "scope": "parent_company",
+        "reported_vnd": 1315029909162,
+        "source_comparison_q3_2025_vnd": 527524735210
+      },
+      "net_profit": 1315029.909162,
+      "report_type": "BCTC riêng lẻ công ty mẹ PLX Q3/2026 — LNST xác nhận từ công bố chính thức, B01/B02/B03 chi tiết chờ PDF gốc"
     }
   ],
-  "sync_status": "records_found",
+  "sync_status": "PLX Q3/2026 two scopes partially updated from official issuer disclosure; financial statement source pending",
   "bootstrap_last_attempt_at": "2026-10-23T18:24:32+00:00",
   "bootstrap_attempt_count": 1,
   "bootstrap_status": "complete_needs_manual_review",

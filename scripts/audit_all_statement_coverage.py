@@ -42,9 +42,11 @@ def is_number(x):
 
 def kind(row):
     label = str(row.get("report_type") or "").lower()
-    if "riêng lẻ" in label or "công ty mẹ" in label and "hợp nhất" not in label:
+    if any(flag in label for flag in ("không ghi nhãn", "chưa xác nhận", "phạm vi chưa", "chờ xác nhận")):
+        return "unconfirmed"
+    if re.search(r"riêng(?:\s+lẻ|\s+[a-z]|$)|công ty mẹ|cty mẹ|congtyme", label) and "hợp nhất" not in label:
         return "parent"
-    if "hợp nhất" in label and not re.search("chưa xác nhận.{0,100}hợp nhất", label):
+    if "hợp nhất" in label:
         return "consolidated"
     return "unconfirmed"
 
@@ -70,12 +72,21 @@ def rows_audit():
             report_scope = kind(row)
             byperiod.setdefault(period, []).append(row)
         covered = []
-        missing = []
+        missing = []   # No record at all, not merely no consolidated scope
+        unconfirmed = []
+        parent_only = []
+        no_consolidated = []
         for period in PERIODS:
             records = byperiod.get(period, [])
             consolidated = [r for r in records if kind(r) == "consolidated"]
             if not consolidated:
-                missing.append(period)
+                no_consolidated.append(period)
+                if not records:
+                    missing.append(period)
+                elif any(kind(r) == "unconfirmed" for r in records):
+                    unconfirmed.append(period)
+                else:
+                    parent_only.append(period)
                 continue
             if len(consolidated) > 1:
                 raise ValueError(f"{ticker}: multiple consolidated records for {period}")
@@ -101,7 +112,9 @@ def rows_audit():
         denominator = len(covered) * len(required)
         results.append({
             "symbol": ticker, "group": group, "periods": len(covered),
-            "missing_periods": missing, "sources": sum(bool(x["source_url"]) for x in covered),
+            "missing_periods": missing, "no_consolidated_periods": no_consolidated,
+            "unconfirmed_scope_periods": unconfirmed, "parent_only_periods": parent_only,
+            "sources": sum(bool(x["source_url"]) for x in covered),
             "available": numerator, "possible": denominator,
             "coverage_percent": round(100 * numerator / denominator, 1) if denominator else 0.0,
             "verified": sum(x["verified"] for x in covered), "period_details": covered,
@@ -114,33 +127,43 @@ def report(results, manifests):
     ticker_order = ["PLX", "GAS", "VDS", "GEG", "IDC", "MBB"]
     byticker = {item["symbol"]: item for item in results}
     order = ticker_order + sorted(set(byticker) - set(ticker_order))
-    full = sum(1 for a in results if len(a["missing_periods"]) == 0)
+    full = sum(1 for a in results if len(a["no_consolidated_periods"]) == 0)
     total = sum(a["periods"] for a in results)
     target = len(results) * len(PERIODS)
+    absent = sum(len(a["missing_periods"]) for a in results)
+    unconfirmed = sum(len(a["unconfirmed_scope_periods"]) for a in results)
+    parent_only = sum(len(a["parent_only_periods"]) for a in results)
+    if total + absent + unconfirmed + parent_only != target:
+        raise ValueError("Audit must classify each symbol-period exactly once")
     lines = [
         "# Kiểm kê độ phủ báo cáo tài chính — 19/11/2026",
         "",
         f"Đối tượng: **{len(results)} mã × {len(PERIODS)} kỳ Q1/2025–Q3/2026**, phạm vi **BCTC hợp nhất**.",
-        f"Đã có {total}/{target} cặp mã-kỳ hợp nhất trong JSON; còn {target-total} cặp chưa có. {full}/{len(results)} mã có đủ tất cả các kỳ.",
+        f"Đã nhận diện {total}/{target} cặp mã-kỳ hợp nhất. Phần còn lại gồm: **{absent} hoàn toàn chưa có bản ghi**, "
+        f"**{unconfirmed} đã có báo cáo nhưng chưa xác nhận phạm vi**, **{parent_only} chỉ có báo cáo riêng lẻ**. "
+        f"{full}/{len(results)} mã có đủ 7 kỳ hợp nhất được nhận diện.",
         "",
         "Độ phủ KQKD bên dưới là **số trường thực sự lưu dạng số trong JSON**; không đồng nghĩa được kiểm chứng. "
         "Ô trắng có thể là chưa trích xuất, N/A theo mẫu báo cáo hoặc đã bị chặn xác minh. "
         "Cột 'xác nhận' chỉ tính trường được đánh dấu xác minh thủ công, không tự suy diễn từ trạng thái toàn báo cáo.",
         "",
-        "| Mã | Ngành | Kỳ hợp nhất | Thiếu kỳ | KQKD có giá trị | KQKD xác minh từng dòng |",
-        "|---|---|---:|---|---:|---:|"
+        "| Mã | Ngành | Kỳ hợp nhất | Chưa có bản ghi | Phạm vi chưa rõ | Chỉ riêng lẻ | KQKD có giá trị | KQKD xác minh từng dòng |",
+        "|---|---|---:|---|---|---|---:|---:|"
     ]
     for symbol in order:
         x = byticker[symbol]
         missing = ", ".join(x["missing_periods"]) or "—"
-        lines.append(f"| {symbol} | {x['group']} | {x['periods']}/{len(PERIODS)} | {missing} | "
+        unclear = ", ".join(x["unconfirmed_scope_periods"]) or "—"
+        parent = ", ".join(x["parent_only_periods"]) or "—"
+        lines.append(f"| {symbol} | {x['group']} | {x['periods']}/{len(PERIODS)} | {missing} | {unclear} | {parent} | "
                      f"{x['available']}/{x['possible']} ({x['coverage_percent']}%) | {x['verified']}/{x['possible']} |")
     lines.extend(["", "## Ưu tiên xử lý tiếp (không làm lại phần đã PASS)", ""])
     for ticker in ticker_order[:-1]:
         x = byticker[ticker]
         details = x["period_details"]
         worst = sorted(details, key=lambda p: (p["raw"]/p["expected"], p["period"]))[:3]
-        lines.append(f"- **{ticker}**: thiếu {', '.join(x['missing_periods']) or 'không có kỳ nào'}; "
+        lines.append(f"- **{ticker}**: chưa có bản ghi {', '.join(x['missing_periods']) or 'không'}; "
+                     f"báo cáo khác phạm vi/chưa rõ {len(x['unconfirmed_scope_periods']) + len(x['parent_only_periods'])} kỳ; "
                      f"KQKD thấp nhất: {', '.join(y['period']+' '+str(y['raw'])+'/'+str(y['expected']) for y in worst)}. "
                      "Chỉ cập nhật kỳ/phạm vi có nguồn PDF chính xác.")
     lines.extend(["", "## Nguyên tắc xác minh", "",
