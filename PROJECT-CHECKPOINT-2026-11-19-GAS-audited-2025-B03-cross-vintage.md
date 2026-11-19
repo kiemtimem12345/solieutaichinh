@@ -38,3 +38,11 @@
 3. Determine whether full audited 2025 and reviewed H1 2026 statement notes explicitly explain reclassification; if no allocation of 10.160bn to Q1/Q2, keep cross-quarter reconciliation as *open* with source notes, not fabricated corrections.
 4. Keep GAS 2026Q3 both scopes PASS. After final GAS verification move in order VDS Q3/2026 → GEG historical gaps → IDC Q3/2026. PLX Q3 parent B03 87,654,015,000 VND unresolved and must not be released.
 5. GitHub main is website production; CI + SHA/HTTPS 45/45 after merge; 2025-Q1 onward, at most 20 periods, tolerance <=0.01%, million VND except EPS.
+
+## Validation / production status recorded after PR merge (19/11/2026)
+- PR #56 merged into main, commit `dde3c2b5b7359a7d74e86cca8256ecd424f71308`.
+- Financial CI: GitHub Actions run `44495632184` PASS, including the expanded audited-B03 and reviewed-H1-B01 source-vintage gate.
+- Website release: GitHub pages build/deployment run `44495631638` PASS.
+- Website smoke: run `44495632158` attempt **2** PASS, confirming 45/45 HTTPS URLs byte-for-byte SHA-256 against Git main. Attempt 1 transiently returned 404 for `assets/styles.css` during deployment and is superseded by successful retry; do not count the temporary attempt as permanent production failure.
+- Closed stale PR #48 as superseded by issuer-visual PR #50 and version-reconciliation PR #56, to prevent historical GAS values from being accidentally overwritten.
+- **GAS current status:** all targeted original GAS consolidated quarterly source rows 2025Q1–2026Q2 and Q3/2026 parent+consolidated have source/identity verification; 2026 H1 cross-quarter P&L allocation 10,160,150,278 VND is **not resolved**. Treat GAS ticker as `verified_quarter_snapshots_with_open_cross_vintage_anomaly`, not wholly final for harmonized long series. Keep both source vintages in metadata.
