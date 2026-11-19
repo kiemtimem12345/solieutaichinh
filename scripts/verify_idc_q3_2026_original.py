@@ -25,19 +25,30 @@ assert q["eps"] == 1181 and q["diluted_eps"] == 1181
 assert q["eps_ytd"] == 3290
 assert q["roa"] is None and q["roe"] is None
 assert q["cashflow_period_basis"] == "year_to_date"
-assert q["verification_status"] == "issuer_original_visual_verified_b01_b02_b03_9m_ytd_q3_standalone_cash_deferred"
+assert q["verification_status"] == "issuer_original_visual_verified_b01_b02_b03_9m_and_q3_standalone_cash"
 assert q["source_validation"]["manually_visual_reviewed"] is True
 assert q["source_validation"]["source_scope"].startswith("consolidated only")
 assert q["source_validation"]["issuer_pdf_sha256"] == "dde75e3efe8a569a0d264b27f7d7a0d8a4edb4abdf22a56144e0847f2c8dc790"
 assert q["source_validation"]["issuer_pdf_pages"] == 70
 assert q["source_validation"]["reviewed_page_numbers"] == [8,9,10,11,12,13,14,15]
 assert q["source_validation"]["mirrored_consolidated_pdf_matches_issuer_sha256"] is True
-assert q["q3_standalone_cashflow_status"].startswith("deferred")
-assert all(q.get(k) is None for k in (
-    "operating_cash_flow", "investing_cash_flow", "financing_cash_flow",
-    "net_cash_change", "cash_beginning", "foreign_exchange_effect",
-    "capital_expenditure", "dividends_paid"))
-assert len(q["financial_line_items_extracted_fields"]) == 105
+assert q["q3_standalone_cashflow_status"] == "verified_9m_minus_signed_6m_h1_same_consolidated_scope"
+quarter_expected = {
+    "operating_cash_flow":216619259342,
+    "investing_cash_flow":93759529850,
+    "financing_cash_flow":-449106095224,
+    "net_cash_change":-138727306032,
+    "foreign_exchange_effect":-23254979,
+    "capital_expenditure":-198696957995,
+    "dividends_paid":-636417638950,
+    "cash_beginning":608684579632,
+}
+for k,amount in quarter_expected.items():
+    assert v(k) == amount,(k,v(k),amount)
+assert v("cash_beginning")+v("net_cash_change")+v("foreign_exchange_effect")==v("cash_ending")
+assert v("operating_cash_flow")+v("investing_cash_flow")+v("financing_cash_flow")==v("net_cash_change")
+assert q["source_validation"]["q3_standalone_cashflow_source_q2_pdf_sha256"]=="f0bee9c4554b166380098034650b09c0e45f85da55fd016086f0ef08a596354c"
+assert len(q["financial_line_items_extracted_fields"]) == 113
 assert set(q["financial_line_items_extracted_fields"]) == set(q["financial_line_items_manually_verified_fields"])
 assert len(doc["items"]) == 7
 assert not any(r["period"] < "2025-Q1" for r in doc["items"])
@@ -127,4 +138,4 @@ assert all(residual == 0 for residual in checks.values()), checks
 assert set(checks) == set(q["source_validation"]["source_identity_residuals_vnd"])
 assert all(v == "0" for v in q["source_validation"]["source_identity_residuals_vnd"].values())
 assert v("cash_ending") == v("cash_and_equivalents")
-print("PASS IDC 2026-Q3 signed original consolidated B01/B02/B03: 105 numeric fields; 29 exact-VND accounting identities, separate Q3 B02 vs 9M B03 and no fabricated Q3-only CFO/CFI/CFF")
+print("PASS IDC 2026-Q3 signed original consolidated B01/B02/B03: 105 numeric fields; 29 exact-VND accounting identities, separate Q3 B02 vs 9M B03 and verified source-derived Q3-only CFO/CFI/CFF")
