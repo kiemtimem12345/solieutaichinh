@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Original VDS consolidated 2025-Q4 B01/B02/FY B03, exact-VND source gate.
 
-Issuer signed PDF 28 Jan 2026, 50 pages, SHA256 below. Standalone Q4 CFO,
-CFI and CFF stay null until 2025Q3 9M original is independently verified.
+Issuer signed FY PDF 28 Jan 2026, 50 pages, SHA256 below. Standalone Q4
+CFO, CFI and CFF are FY2025 12M minus verified Q3 2025 9M, same scope.
 """
 import json
 from decimal import Decimal
@@ -22,11 +22,21 @@ assert q["source_validation"]["manually_visual_reviewed"] is True
 assert q["source_validation"]["original_pdf_sha256"]=="eba8fa6cde5e7325a8ab6fef5d2776807e81e6e3e17da24ed7a116f191baab95"
 assert q["source_validation"]["original_pdf_bytes"]==10387010
 assert q["source_validation"]["original_pdf_pages"]==[6,7,8,11,12,13,14,15,16]
-assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_fy_ytd_q4_standalone_cash_deferred"
+assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_fy_and_q4_standalone_cash"
 assert q["cashflow_period_basis"]=="year_to_date"
-assert len(q["financial_line_items_extracted_fields"])==111
+assert len(q["financial_line_items_extracted_fields"])==118
 assert set(q["financial_line_items_extracted_fields"])==set(q["financial_line_items_manually_verified_fields"])
-assert all(q.get(k) is None for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","capital_expenditure","cash_beginning","foreign_exchange_effect"))
+assert v("operating_cash_flow")==-59940474075
+assert v("investing_cash_flow")==40439803532
+assert v("financing_cash_flow")==428224000000
+assert v("net_cash_change")==408723329457
+assert v("cash_beginning")==588252269795
+assert v("capital_expenditure")==-3650969550
+assert v("foreign_exchange_effect")==0
+assert v("cash_beginning")+v("net_cash_change")==v("cash_ending")
+assert v("operating_cash_flow")+v("investing_cash_flow")+v("financing_cash_flow")==v("net_cash_change")
+assert q["source_validation"]["q4_standalone_cashflow_status"]=="derived_from_verified_original_FY_12M_minus_original_Q3_9M"
+assert all(x=="0" for x in q["source_validation"]["q4_standalone_cashflow_residuals_vnd"].values())
 assert q["selling_expense"] is None
 
 SOURCE={
@@ -107,4 +117,4 @@ assert prior["revenue"]==23061 and prior["net_profit"]==15744
 assert prior["operating_cash_flow_ytd"]==346792
 assert q["financial_line_items_rejected_values"]["auto_eps_vnd"]==501
 assert v("net_profit")==v("pretax_profit")-v("income_tax")
-print("PASS VDS 2025Q4 issuer signed consolidated 28 exact-VND B01/B02/B03 identities, 111 fields, original Q4 net P/L, FY CFO and cash, no invented Q4 standalone flows")
+print("PASS VDS 2025Q4 issuer signed consolidated 28 exact-VND B01/B02/B03 identities, 118 fields, original Q4 net P/L, FY CFO and exact 12M less verified 9M standalone Q4 flows")
