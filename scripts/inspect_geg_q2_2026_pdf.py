@@ -26,7 +26,7 @@ def read_pdf(name,url):
     request=Request(url,headers={
        "User-Agent":"Mozilla/5.0 (compatible; OriginalFinancialStatementQA/1.0)",
        "Accept":"application/pdf,application/octet-stream,*/*",
-       "Referer":"https://www.gegc.com.vn/",
+       "Referer":"https://www.hsx.vn/",
     })
     with urlopen(request,timeout=50) as resp:
         final=urlparse(resp.url)
