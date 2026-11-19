@@ -42,9 +42,11 @@ def is_number(x):
 
 def kind(row):
     label = str(row.get("report_type") or "").lower()
-    if "riêng lẻ" in label or "công ty mẹ" in label and "hợp nhất" not in label:
+    if any(flag in label for flag in ("không ghi nhãn", "chưa xác nhận", "phạm vi chưa", "chờ xác nhận")):
+        return "unconfirmed"
+    if re.search(r"riêng(?:\s+lẻ|\s+[a-z]|$)|công ty mẹ|cty mẹ|congtyme", label) and "hợp nhất" not in label:
         return "parent"
-    if "hợp nhất" in label and not re.search("chưa xác nhận.{0,100}hợp nhất", label):
+    if "hợp nhất" in label:
         return "consolidated"
     return "unconfirmed"
 
