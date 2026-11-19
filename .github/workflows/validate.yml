@@ -43,6 +43,8 @@ jobs:
         run: python scripts/verify_gas_reviewed_h1_versions.py
       - name: Verify GAS 2026 Q3 nine-month income corroborates H1 and flags standalone mismatch
         run: python scripts/verify_gas_2026_h1_q3_bridge.py
+      - name: Verify VDS consolidated Q3 2026 original statements B01 B02 and B03 YTD
+        run: python scripts/verify_vds_q3_2026_source.py
       - name: Validate SFTP scripts syntax
         run: bash -n scripts/check_sftp.sh scripts/deploy_sftp.sh scripts/verify_hostinger_ssh_hostkey.sh
       - name: Validate production JSON and archived JS syntax
