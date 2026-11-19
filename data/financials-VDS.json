@@ -663,7 +663,52 @@
         },
         "h1_vs_q1q2_revenue_operatingexpense_netting_vnd": "-774921",
         "h1_vs_q1q2_attributable_parent_delta_vnd": "-1117693283",
-        "h1_cumulative_consistency": "Original 2025 H1 cumulative is 774,921 VND lower than sum standalone Q1+Q2 for both revenue and operating expenses (offset; within 0.01%), PBT and consolidated net are exact. Parent/NCI split H1 differs by 1,117,693,283 VND; preserve original published source values and flag attribution not verified."
+        "h1_cumulative_consistency": "Original 2025 H1 cumulative is 774,921 VND lower than sum standalone Q1+Q2 for both revenue and operating expenses (offset; within 0.01%), PBT and consolidated net are exact. Parent/NCI split H1 differs by 1,117,693,283 VND; preserve original published source values and flag attribution not verified.",
+        "reviewed_h1_2025_consolidated_vintage": {
+          "issuer_report": "VDS BCTC hợp nhất giữa niên độ 2025 đã soát xét ký 11/08/2025, công bố 13/08/2025",
+          "issuer_original_pdf_url": "https://www.vdsc.com.vn/data/api/app/file-storage/6d34c594-a07c-4fc9-88a1-08ddd9f82764/VDSC_Cong%20bo%20BCTC%20hop%20nhat%20ban%20nien%202025%20da%20soat%20xet.pdf?downloadFrom=ManagementDocument-921",
+          "source_listing_url": "https://www.vdsc.com.vn/quan-he-co-dong/cong-bo-thong-tin/rong-viet-cong-bo-bao-cao-tai-chinh-rieng-bao-cao-tai-chinh-hop-nhat-va-bao-cao-ty-le-attc-ban-nien-2025-da-duoc-soat-xet-i921",
+          "original_pdf_sha256": "75de6381cdb92812422c264f9d4729e69e5bf7c31c852b77d60c0052140ac57f",
+          "original_pdf_bytes": 9476053,
+          "original_pdf_pages_total": 84,
+          "visually_reviewed_original_pdf_pages": [
+            20,
+            21,
+            22
+          ],
+          "original_render_github_actions_run_id": 44519001636,
+          "original_render_artifact_id": 14527516340,
+          "b02_H1_reviewed_source_vnd": {
+            "revenue": "349950141337",
+            "operating_expense": "273327926577",
+            "operating_profit": "5189063536",
+            "pretax_profit": "5201163732",
+            "income_tax": "-2617272857",
+            "net_profit": "7818436589",
+            "parent_attributable_profit": "8071151977",
+            "non_controlling_profit": "-252715388"
+          },
+          "original_Q1_plus_Q2_parent_attributable_vnd": "9188845260",
+          "original_Q1_plus_Q2_nci_vnd": "-1370408671",
+          "reviewed_H1_minus_quarters_parent_vnd": "-1117693283",
+          "reviewed_H1_minus_quarters_nci_vnd": "1117693283",
+          "reviewed_vs_original_H1_standalone_difference_vnd": "0",
+          "reviewed_H1_exact_identity_checks_vnd": {
+            "h1_income_profit": "0",
+            "h1_parent_nci": "0",
+            "quarter_sum_net": "0",
+            "quarter_parent_variance": "1117693283",
+            "quarter_nci_variance": "-1117693283",
+            "prior_H1_same_parent": "0",
+            "prior_H1_same_nci": "0",
+            "prior_H1_same_revenue": "0",
+            "prior_H1_same_pretax": "0",
+            "prior_H1_same_net": "0"
+          },
+          "review_conclusion": "Reviewed issuer H1/2025 B02 pages 20-22 reproduce original Q2 2025 H1 cumulative parent (8,071,151,977) and NCI (-252,715,388) exactly. Original Q1+Q2 columns differ in distribution by 1,117,693,283 opposite each, consolidated net identical. Review provides no quarter-specific attribution; preserve original source versions and flag cross-period allocation unresolved.",
+          "verification_status": "confirmed_source_originals_not_resolved_per_quarter_allocation",
+          "no_quarterly_adjustment_without_issuer_evidence": true
+        }
       },
       "published_at": "2025-07-30",
       "source_archive_file": "reports/raw/VDS/auto-vds-20261021/69d4862950596830.pdf",
