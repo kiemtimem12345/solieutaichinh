@@ -33,11 +33,11 @@ for label,url in SOURCES:
   if not 12<=len(pdf)<=210:raise ValueError("Unexpected PDF page count "+str(len(pdf)))
   meta={"label":label,"url":url,"bytes":len(payload),"sha256":hashlib.sha256(payload).hexdigest(),"pages":len(pdf),"page_text":[]}
   print("SOURCE_OK",json.dumps({k:v for k,v in meta.items() if k!="page_text"},ensure_ascii=False),flush=True)
-  for i in range(min(27,len(pdf))):
+  for i in range(min(41,len(pdf))):
    p=pdf[i]
    t=p.get_text(sort=True)
-   if i<22 or any(w in t.lower() for w in ("lưu chuyển tiền","cash flows","553.943","553,943")):
-    if 5<=i<22:
+   if i<40 or any(w in t.lower() for w in ("lưu chuyển tiền","cash flows","553.943","553,943")):
+    if 5<=i<40:
      im=p.get_pixmap(matrix=fitz.Matrix(1.4,1.4),alpha=False)
      im.save(out/f"{label}-page-{i+1:02d}.png")
     print(f"PAGE_BEGIN {label} {i+1} text_length={len(t)}",flush=True)
