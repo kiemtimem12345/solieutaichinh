@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""IDC Q3 2025 original signed HNX consolidated PDF, 30 exact-VND identities.
+"""IDC Q3 2025 original signed HNX consolidated PDF, 30 exact-VND identities; Q3 B03 quarterization uses H1/2025 EY-reviewed source.
 
 Authentic source: HNX Q3 publication mirrored ZIP, its embedded signed
 Vietnamese consolidated PDF (NOT any parent-only or English OCR approximation).
@@ -16,7 +16,7 @@ def S(r,*ks):return sum(V(r,k) for k in ks)
 
 assert q["symbol"]=="IDC" and q["unit"]=="triệu VND"
 assert q["report_type"].startswith("BCTC hợp nhất IDC Q3/2025")
-assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_9m_ytd_q3_cash_deferred"
+assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_9m_and_q3_standalone_cash"
 assert q["cashflow_period_basis"]=="year_to_date"
 assert q["source_validation"]["manually_visual_reviewed"] is True
 assert q["source_validation"]["source_scope"].startswith("consolidated")
@@ -31,7 +31,38 @@ assert len(q["financial_line_items_extracted_fields"])==102
 assert q["financial_line_items_manually_verified_fields"]==q["financial_line_items_extracted_fields"]
 assert q["roa"] is None and q["roe"] is None
 assert q["eps"]==q["diluted_eps"]==2218
-assert all(q.get(k) is None for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","cash_beginning","foreign_exchange_effect","capital_expenditure","dividends_paid"))
+assert q["q3_standalone_cashflow_status"]=="verified_9m_minus_reviewed_h1_same_consolidated_scope"
+h1=q["source_validation"]["q3_standalone_B03_source_h1"]
+assert h1["scope"]=="consolidated" and h1["period_basis"]=="6m_ytd"
+assert h1["source_visual_checked"] is True
+assert h1["page_numbers_zero_based"]==[14,15]
+assert h1["signed_q3_original_sha256"]==q["source_validation"]["original_issuer_signed_pdf_sha256"]
+assert h1["source_url"]=="https://cafef1.mediacdn.vn/download/040925/idc-bao-cao-tai-chinh-ban-nien-nam-2025-0-579208.pdf"
+assert "q3_standalone_B03_deferred_until_verified_2025_H1" not in q["source_validation"]
+h1_expected={
+"operating_cash_flow_ytd":1402209397523,"investing_cash_flow_ytd":-2438216817714,
+"financing_cash_flow_ytd":-288817920091,"net_cash_change_ytd":-1324825340282,
+"foreign_exchange_effect_ytd":41467072,"capital_expenditure_ytd":-909344214214,
+"dividends_paid_ytd":-588587063470,"cash_ending":863253933107}
+for k,amount in h1_expected.items():assert int(h1["h1_6m_source_values_vnd"][k])==amount
+assert h1_expected["operating_cash_flow_ytd"]+h1_expected["investing_cash_flow_ytd"]+h1_expected["financing_cash_flow_ytd"]==h1_expected["net_cash_change_ytd"]
+assert 2188037806317+h1_expected["net_cash_change_ytd"]+h1_expected["foreign_exchange_effect_ytd"]==h1_expected["cash_ending"]
+q3_derived_expected={
+"operating_cash_flow":1541531404357,"investing_cash_flow":-2242302344954,
+"financing_cash_flow":629179666426,"net_cash_change":-71591274171,
+"foreign_exchange_effect":23900983,"capital_expenditure":-893695067506,
+"dividends_paid":-57513573250,"cash_beginning":863253933107}
+for k,amount in q3_derived_expected.items():
+    assert V(q,k)==amount,(k,V(q,k),amount)
+    assert int(h1["quarter_derived_vnd"][k])==amount
+    if k!="cash_beginning":assert V(q,k)==V(q,k+"_ytd")-h1_expected[k+"_ytd"],k
+assert V(q,"cash_beginning")==h1_expected["cash_ending"]
+assert S(q,"operating_cash_flow","investing_cash_flow","financing_cash_flow")==V(q,"net_cash_change")
+assert V(q,"cash_beginning")+V(q,"net_cash_change")+V(q,"foreign_exchange_effect")==V(q,"cash_ending")
+assert all(int(value)==0 for value in h1["residuals_vnd"].values())
+assert rows["2025-Q2"]["verification_status"]=="partially_reconciled_from_archived_source_text"
+assert rows["2025-Q2"]["source_validation"]["manually_visual_reviewed"] is False
+assert rows["2025-Q2"]["source_validation"]["reviewed_h1_2025_consolidated_b03_visual"]["status"]=="verified_B03_only_other_Q2_original_pages_pending"
 fixture={
 "total_assets":21293030253931,"current_assets":9562532464360,"non_current_assets":11730497789571,
 "total_liabilities":12926247964300,"current_liabilities":4317438822891,
@@ -119,4 +150,4 @@ assert V(y,"cash_beginning")+V(y,"net_cash_change")+V(y,"foreign_exchange_effect
 assert S(y,"operating_cash_flow","investing_cash_flow","financing_cash_flow")==V(y,"net_cash_change")
 assert len(y["source_validation"]["standalone_q4_identity_residuals_vnd"])==5
 assert all(int(x)==0 for x in y["source_validation"]["standalone_q4_identity_residuals_vnd"].values())
-print("PASS IDC 2025Q3 102 issuer fields 30 VND identities, original ZIP PDF hash; IDC Q4 FY-minus-9M 9 B02 and 5 quarter cash exact checks; 2026 Q2 cash-vintage exception intact")
+print("PASS IDC 2025Q3 102 issuer fields + 30 VND identities; signed 9M minus visually reviewed H1 produces Q3 CFO/CFI/CFF + 5 exact cash checks; IDC Q4 FY-minus-9M and Q2 2026 vintage exception intact")
