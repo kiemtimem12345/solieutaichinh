@@ -240,7 +240,38 @@
           13,
           14
         ],
-        "review_note": "Sidecar OCR từ ZIP BCTC hợp nhất IDC Q2/2025 VietstockFinance. Đọc cột phát sinh Quý II của KQKD, số dư 30/6 của B/S; dòng tiền được phân rã từ YTD 6 tháng bằng cách trừ Q1. Không coi là xác minh trực quan."
+        "review_note": "Sidecar OCR từ ZIP BCTC hợp nhất IDC Q2/2025 VietstockFinance. Đọc cột phát sinh Quý II của KQKD, số dư 30/6 của B/S; dòng tiền được phân rã từ YTD 6 tháng bằng cách trừ Q1. Không coi là xác minh trực quan.",
+        "reviewed_h1_2025_consolidated_b03_visual": {
+          "status": "verified_B03_only_other_Q2_original_pages_pending",
+          "issuer": "Tổng công ty IDICO - CTCP",
+          "source_type": "H1/2025 consolidated interim financial statements reviewed by EY",
+          "dated": "2025-08-28",
+          "disclosed_at": "2025-09-04",
+          "hnx_archived_filename": "IDC_2025.9.4_32903a4_VI_BaoCaoTaiChinh_KiemToan_HN_T6.2025.pdf",
+          "source_url": "https://cafef1.mediacdn.vn/download/040925/idc-bao-cao-tai-chinh-ban-nien-nam-2025-0-579208.pdf",
+          "pdf_pages_zero_based": [
+            14,
+            15
+          ],
+          "unit": "VND",
+          "scope": "consolidated",
+          "basis": "six_months_ytd",
+          "line_items_exact_vnd": {
+            "operating_cash_flow_ytd": "1402209397523",
+            "investing_cash_flow_ytd": "-2438216817714",
+            "financing_cash_flow_ytd": "-288817920091",
+            "net_cash_change_ytd": "-1324825340282",
+            "foreign_exchange_effect_ytd": "41467072",
+            "capital_expenditure_ytd": "-909344214214",
+            "dividends_paid_ytd": "-588587063470",
+            "cash_ending": "863253933107"
+          },
+          "source_visual_evidence": "B03a-DN/HN PDF pages 14-15 viewed on 2026-11-19; page 14 printed CFO CFI CFF and page 15 opening FX closing; not whole Q2 report",
+          "math_residuals_vnd": {
+            "h1_cashflow_sections": "0",
+            "h1_cash_open_fx_close": "0"
+          }
+        }
       },
       "published_at": "2025-07-30",
       "source_archive_file": "reports/raw/IDC/auto-idc-20261021/48616c2bb9d17c99.zip",
@@ -419,7 +450,7 @@
       "report_type": "BCTC hợp nhất IDC Q3/2025 — B01 B02 riêng quý III và B03 9 tháng",
       "source_pages": "Original HNX-disclosed signed Vietnamese consolidated report from mirrored ZIP: embedded file 3_idc_2025_10_30_d9319de_vi_baocaotaichinhhn_q3_2025_s.pdf; 64 PDF pages, B01 p8–11, B02 p12, B03 p13–14, signed 29/10/2025. Source VND.",
       "quarter_profit_basis": "B02 Q3 standalone from signed Q3 column; B03 9M YTD. Do not infer Q3 standalone cash until Q2/2025 issuer 6M source is verified.",
-      "verification_status": "issuer_original_visual_verified_b01_b02_b03_9m_ytd_q3_cash_deferred",
+      "verification_status": "issuer_original_visual_verified_b01_b02_b03_9m_and_q3_standalone_cash",
       "source_validation": {
         "reviewed_at": "2026-10-25",
         "single_source_policy": "Chỉ danh mục VietstockFinance và tệp do danh mục đó liên kết.",
@@ -493,7 +524,51 @@
           "cf_investing": "0",
           "cf_financing": "0"
         },
-        "q3_standalone_B03_deferred_until_verified_2025_H1": true
+        "q3_standalone_B03_prior_blocker_resolved": "2025 H1 consolidated reviewed B03 original visually inspected; Q2 interim original B01/B02 is still pending",
+        "q3_standalone_B03_blocker_resolved_on": "2026-11-19",
+        "q3_standalone_B03_source_h1": {
+          "source_url": "https://cafef1.mediacdn.vn/download/040925/idc-bao-cao-tai-chinh-ban-nien-nam-2025-0-579208.pdf",
+          "original_report_filename": "IDC_2025.9.4_32903a4_VI_BaoCaoTaiChinh_KiemToan_HN_T6.2025.pdf",
+          "report_issue_date": "2025-08-28",
+          "published_at": "2025-09-04",
+          "scope": "consolidated",
+          "period_basis": "6m_ytd",
+          "page_numbers_zero_based": [
+            14,
+            15
+          ],
+          "source_unit": "VND",
+          "source_visual_checked": true,
+          "signed_q3_original_sha256": "80c1b3dcb2e5469d4fb84c3a0cbd46c51f664ce7e07a2a0946e10b691ca92ce3",
+          "h1_6m_source_values_vnd": {
+            "operating_cash_flow_ytd": "1402209397523",
+            "investing_cash_flow_ytd": "-2438216817714",
+            "financing_cash_flow_ytd": "-288817920091",
+            "net_cash_change_ytd": "-1324825340282",
+            "foreign_exchange_effect_ytd": "41467072",
+            "capital_expenditure_ytd": "-909344214214",
+            "dividends_paid_ytd": "-588587063470",
+            "cash_ending": "863253933107"
+          },
+          "quarter_derived_vnd": {
+            "operating_cash_flow": "1541531404357",
+            "investing_cash_flow": "-2242302344954",
+            "financing_cash_flow": "629179666426",
+            "net_cash_change": "-71591274171",
+            "foreign_exchange_effect": "23900983",
+            "capital_expenditure": "-893695067506",
+            "dividends_paid": "-57513573250",
+            "cash_beginning": "863253933107"
+          },
+          "cashflow_period_basis": "9m_ytd_minus_6m_ytd_same_consolidated_scope",
+          "residuals_vnd": {
+            "h1_cashflow_sections": "0",
+            "h1_cash_open_fx_close": "0",
+            "q3_cashflow_sections": "0",
+            "q3_cash_open_fx_close": "0",
+            "b01_equals_b03_cash": "0"
+          }
+        }
       },
       "published_at": "2025-10-30",
       "source_archive_file": "reports/raw/IDC/auto-idc-20261021/04ff7104fec1b3fd.zip",
@@ -513,7 +588,7 @@
       ],
       "core_financial_extraction_status": "issuer_original_visual_verified_exact_vnd",
       "core_financial_extraction_note": "Đã phục hồi bảng cân đối và KQKD riêng quý III/2025 từ sidecar OCR VietstockFinance. Các công thức tổng khớp; chưa được xem ảnh trực tiếp.",
-      "verification_status_note": "Original IDC consolidated signed HNX Q3/2025 PDF from archive ZIP, B01 p8–11/B02 p12/B03 p13–14 visually checked, 30 full-VND source identities zero. CFO 9M +2,943,740,801,880; Q3 standalone B03 deferred until independently verified H1 original. Original issuer alternative direct URL returned HTTP 404, archived signed source recovered from Vietstock mirrored HNX ZIP.",
+      "verification_status_note": "Original IDC consolidated signed HNX Q3/2025 PDF from archive ZIP, B01 p8–11/B02 p12/B03 p13–14 visually checked, 30 full-VND source identities zero. CFO 9M +2,943,740,801,880; Q3 standalone B03 verified by exact VND subtraction of signed 9M Q3 and EY-reviewed 6M H1 same consolidated scope (H1 B03 visually checked 2026-11-19); no Q2 interim B01/B02 PASS implied. Original issuer alternative direct URL returned HTTP 404, archived signed source recovered from Vietstock mirrored HNX ZIP.",
       "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
       "core_financial_extraction_evidence_fingerprint": "c59e1a62089f3056c83ed014069c7be0307188c84f7905f16213c771b46ff037",
       "core_financial_extraction_evidence_attempt_count": 0,
@@ -625,12 +700,12 @@
         "total_assets",
         "total_liabilities"
       ],
-      "financial_line_items_status": "issuer_original_visual_B01_B02_B03_9m_ytd_verified",
+      "financial_line_items_status": "issuer_original_visual_B01_B02_B03_9m_and_verified_Q3_cash",
       "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
       "financial_line_items_schema_updated_at": "2026-10-25T21:29:07+00:00",
       "financial_line_items_source": "reports/raw/IDC/auto-idc-20261021/04ff7104fec1b3fd.zip.extracted.json",
       "financial_line_items_updated_at": "2026-11-19",
-      "financial_line_items_note": "102 original signed source fields in million VND (EPS VND/share); standalone Q3 B02, 9M B03 cumulative. Cash of customers not combined with IDC cash. Q4 source FY 12M minus Q3 9M matches original B02 Q4 and derives quarter cashflow.",
+      "financial_line_items_note": "102 original signed source fields in million VND (EPS VND/share); standalone Q3 B02, 9M B03 cumulative. Cash of customers not combined with IDC cash. Q4 source FY 12M minus Q3 9M matches original B02 Q4 and derives quarter cashflow. Q3 2025 standalone B03 verified against 2025 H1 consolidated reviewed B03; figures derived, not source-original 9M fields.",
       "financial_line_items_prior_values": {
         "prior_unverified_auto_before_issuer_original_20261119": {
           "total_assets": 21293030,
@@ -778,14 +853,14 @@
       "cf_new_borrowings_ytd": 4991459.011179,
       "cf_borrowing_repayments_ytd": -4008076.628124,
       "dividends_paid_ytd": -646100.63672,
-      "operating_cash_flow": null,
-      "investing_cash_flow": null,
-      "financing_cash_flow": null,
-      "net_cash_change": null,
-      "cash_beginning": null,
-      "capital_expenditure": null,
-      "dividends_paid": null,
-      "foreign_exchange_effect": null,
+      "operating_cash_flow": 1541531.404357,
+      "investing_cash_flow": -2242302.344954,
+      "financing_cash_flow": 629179.666426,
+      "net_cash_change": -71591.274171,
+      "cash_beginning": 863253.933107,
+      "capital_expenditure": -893695.067506,
+      "dividends_paid": -57513.57325,
+      "foreign_exchange_effect": 23.900983,
       "cashflow_period_basis": "year_to_date",
       "financial_line_items_manually_verified_fields": [
         "admin_expense",
@@ -890,7 +965,8 @@
         "short_term_receivables",
         "total_assets",
         "total_liabilities"
-      ]
+      ],
+      "q3_standalone_cashflow_status": "verified_9m_minus_reviewed_h1_same_consolidated_scope"
     },
     {
       "symbol": "IDC",
