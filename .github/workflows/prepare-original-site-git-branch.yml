@@ -1,0 +1,46 @@
+name: Prepare original UI and JSON on Git recovery branch
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/prepare_original_site_git_branch.py'
+      - '.github/workflows/prepare-original-site-git-branch.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install SSH/SFTP library
+        run: python -m pip install --disable-pip-version-check 'paramiko>=3.5,<5'
+      - name: Validate archived snapshot and normalize financial periods
+        run: |
+          python scripts/validate.py
+          python scripts/prepare_deploy.py
+      - name: Read exact original static UI from private Hostinger staging
+        env:
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: python -u scripts/prepare_original_site_git_branch.py
+      - name: Validate original frontend JavaScript syntax
+        run: node --check assets/app.js
+      - name: Commit static UI and verified data to review branch (never main)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c recovery/original-ui-data-20261119
+          git add -- index.html assets/app.js assets/styles.css data/
+          git diff --cached --stat
+          git commit -m "Restore original static dashboard UI and 41 verified JSON snapshots"
+          git push origin HEAD:refs/heads/recovery/original-ui-data-20261119
