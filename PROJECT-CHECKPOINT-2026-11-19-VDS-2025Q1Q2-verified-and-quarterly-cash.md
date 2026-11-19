@@ -60,3 +60,10 @@
 - `.github/workflows/validate.yml` runs the new regression; merge PR only after PASS, verify production 45/45 HTTPS SHA256 and record merged main commit.
 - After merge ticker VDS has source-verified **7/7 consolidated quarter rows** (Q1/2025–Q3/2026), but do not mark ticker fully harmonized until the significant 2025H1 parent/NCI split source-vintage discrepancy has a defensible resolution or explicit documented exception.
 - Next in scope: finish VDS classification exception investigation; then GEG historical gaps (do not redo completed GEG Q3 2026), then IDC Q3 2026. Maintain one ticker at a time, source originals and checkpoints, <0.01% tolerance.
+
+## CI / production after PR #66
+- PR #66 merged into `main` as `0423fb7323a461e9c01a16574c8153cbda97f817`.
+- GitHub Actions financial validation `44518130016` PR PASS; main financial validation `44518227512` PASS.
+- Production read-only smoke run `44518228001` PASS, confirmed log `45/45 HTTPS URLs serve exact tracked Git content (SHA256)`.
+- All 7 VDS consolidated quarter rows have issuer-source B01/B02/B03 verified. **Exception**: 2025 H1 parent/NCI attribution difference of 1,117,693,283 VND remains open; source report cumulative and standalone columns both internally balance. Keep `verified_originals_with_documented_cross_period_exception`, not `fully_harmonized`.
+- Additional research now targets official VDS H1/2025 **reviewed consolidated report**, 13/08/2025, published at https://www.vdsc.com.vn/quan-he-co-dong/cong-bo-thong-tin/rong-viet-cong-bo-bao-cao-tai-chinh-rieng-bao-cao-tai-chinh-hop-nhat-va-bao-cao-ty-le-attc-ban-nien-2025-da-duoc-soat-xet-i921 . Original issuer PDF: https://www.vdsc.com.vn/data/api/app/file-storage/6d34c594-a07c-4fc9-88a1-08ddd9f82764/VDSC_Cong%20bo%20BCTC%20hop%20nhat%20ban%20nien%202025%20da%20soat%20xet.pdf?downloadFrom=ManagementDocument-921 . Original scanned PDF 84 pages; visual-review tool PDF screenshot endpoint timed out, so use bounded GitHub Actions original source renderer rather than make accounting adjustments from OCR.
