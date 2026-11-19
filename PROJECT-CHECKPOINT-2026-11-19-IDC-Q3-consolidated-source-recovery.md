@@ -1,0 +1,27 @@
+# IDC — Q3/2026 consolidated original PDF retrieval checkpoint (19/11/2026)
+
+## Scope / resume
+- Start after verified GEG 7/7 consolidated periods source QA. GEG PR #75 merged `a8f899d57dcc591c462f5f3e7db603e27c6bdd8f`, main CI `44535532371` PASS; live site smoke `44535532376` **45/45 exact SHA PASS**. GEG initial cash-equivalents cross-vintage 11,422,218,903 VND remains flagged; do not redo accepted rows.
+- VDS 7/7 consolidated is PASS, no reprocessing. Next priority is IDC 2026-Q3, **consolidated (hợp nhất)** then parent separate. Existing `data/financials-IDC.json` has six 2025Q1–2026Q2 records with `auto_extracted_pending_visual_review` or `partially_reconciled_from_archived_source_text` and NO 2026Q3 record; do NOT claim any of them source-verified.
+- Source unit/period policy: original VND, JSON million VND except EPS, Q3 standalone B02 versus 9M cumulative B03, parent and consolidated separate, >=2025Q1 max20 quarters.
+
+## Grounded original source locators
+- **HNX original consolidated 2 Nov 2026:** `https://owa.hnx.vn/ftp///cims/2026/10_W5/000000016989520_VI_BaoCaoTaiChinhHN_Q3_2026_signed.pdf`. Filename explicitly `BaoCaoTaiChinhHN` means consolidated (not the separately published parent `BaoCaoTaiChinhR`). Original indexed by HNX issuer profile `https://www.hnx.vn/vi-vn/cophieu-etfs/chi-tiet-chung-khoan-ny-IDC.html?_des_tab=1` and third-party unchanged HNX source pointer `https://nmquan.vn/data/ma/IDC/cong-bo/244178003-vi-baocaotaichinhhn-q3-2026-signed` and `https://stock.hoana.vn/bao-cao-tai-chinh/IDC`.
+- **Issuer IDICO official disclosure** dated **27 Oct 2026** lists `Về việc CBTT Định Kỳ Báo Cáo Tài Chính Hợp Nhất Quý 3 năm 2026`: `https://idico.com.vn/vi/quan-he-co-dong/cong-bo-thong-tin?slug=cbtt-bctt`. Website dynamically loads attachments, static HTML does not provide direct PDF href. Find that link on source site if accessible.
+- **BSC intermediary original HNX-disclosure attachments**, 2 Nov 2026, indexed `https://www.bsc.com.vn/tin-tuc/tin-tuc-ma-co-phieu/1632697-idc-bao-cao-tai-chinh-quy-3-2026/`. Four binary attachments are at `https://www.bsc.com.vn/News/NewsAttachedFile/1632697-{1,2,3,4}`. These MUST be inspected and classified: may contain parent, consolidated, or explanatory PDFs, no automatic scope assignment.
+- **Vietstock fallback path is a candidate only, not yet verified**: `https://static2.vietstock.vn/data/HNX/2026/BCTC/VN/QUY%203/IDC_Baocaotaichinh_Q3_2026_Hopnhat.zip`; similarly .pdf. Web browser retrieval returned inaccessible, so never claim it is a working source without actual PDF content.
+- **Avoid wrong document**: `https://cafefnew.mediacdn.vn/download/021126/idc-bao-cao-tai-chinh-quy-3-2026-1-640274.pdf?v=1793584839173` is a small notice and explanation about Q3 reports, **not the full financial B01/B02/B03**.
+- **Avoid false ticker:** INC, UIC, HTI and other IDICO subsidiaries are **NOT** IDC corporate consolidated report. Q3 parent source `000000016977595_VI_BaoCaoTaiChinhR_Q3_2026_signed.pdf` is deliberately separate and must not enter IDC consolidated row.
+
+## Retrieval / QA engineering
+- Web PDF open original HNX returned HTTP **502 Bad Gateway** at 19 Nov 2026; direct sandbox BSC binary returned unsupported content type / download failed. No source pages have been independently verified visually, and **no new canonical IDC data has been published** at this checkpoint.
+- New GitHub read-only script `scripts/inspect_idc_q3_2026_pdf.py`, workflow `.github/workflows/inspect-idc-q3-2026-pdf.yml`. It tries 4 BSC attachments and original HNX and possible Vietstock copies; allowed redirects and HTTPS, maximum 55 MiB, ZIP/PDF handling, prints SHA256 and first 18 source pages (PDF native text if present, OCR clearly marked unverified), uploads 3-day PNG image artifact with no data/secret writes.
+- Initial GitHub Actions source-recovery run `44536828720` started; **do not mark as source PASS until actual run ends with a valid consolidated original and human verification**. Source inspector code alone does not establish report values.
+- Public third-party analysis suggests Q3 consolidated sales about 2,076 billion VND and consolidated net about 540 billion, but these are approximate and **must not be copied to exact canonical `data/financials-IDC.json`**. The parent published Q3 profit of about 411bn is a different scope.
+- If retrieved source is scanned, visually verify B01 assets/liabilities/equity, B02 Q3 column and 9M column, B03 cumulative operating/investing/financing flows and cash bridge; preserve any source anomalies as unresolved. Only after that record exact source VND -> JSON million VND, add issuer statement exact-VND regression, CI PASS and 45/45 production SHA.
+
+## Next
+1. Inspect run `44536828720` job logs + image artifact; classify each PDF by cover `BCTC HỢP NHẤT` vs `CÔNG TY MẸ`. If all sources fail, find issuer static media link/API or alternative trusted HNX-hosted file/CBTT, do not fabricate original pages.
+2. Add IDC 2026-Q3 consolidated B01/B02/B03 **only** after original verification; leave Q3 standalone B03 cash deferred until matching 2026 H1 original B03 checked.
+3. Continue older IDC source rows 2025-Q1 to 2026-Q2 only after Q3 restored; one quarter at a time, durable separate checkpoints, no resets of GEG/VDS/GAS accepted periods.
+4. The GAS 2026 H1 10,160,150,278 VND COGS source-vintage allocation and PLX 2026 Q3 parent 87,654,015,000 VND B03 difference remain open separately.
