@@ -106,7 +106,7 @@ assert q["financial_line_items_prior_values"]["prior_unverified_auto_before_issu
 assert q["financial_line_items_rejected_values"]["auto_fx_ytd_million_vnd"]==588252
 
 assert f["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_fy_and_q4_standalone_cash"
-assert f["source_validation"]["q4_standalone_cashflow_q3_source_pdf_sha256"] if "q4_standalone_cashflow_q3_source_pdf_sha256" in f["source_validation"] else True
+assert f["source_validation"]["q4_standalone_cashflow_q3_source_pdf_sha256"]=="93580147a2c34adb8118a83ed3d9348360355b0660bdd5a47871c60f2403dc3b"
 assert f["source_validation"]["q4_standalone_cashflow_status"]=="derived_from_verified_original_FY_12M_minus_original_Q3_9M"
 expected={
  "operating_cash_flow":-59940474075,
