@@ -138,4 +138,10 @@ assert all(residual == 0 for residual in checks.values()), checks
 assert set(checks) == set(q["source_validation"]["source_identity_residuals_vnd"])
 assert all(v == "0" for v in q["source_validation"]["source_identity_residuals_vnd"].values())
 assert v("cash_ending") == v("cash_and_equivalents")
+assert "q3_standalone_cashflow_blocker" not in q["source_validation"], "Outdated Q3 cash blocker is misleading after signed H1 verification"
+assert q["source_validation"]["q3_standalone_cashflow_current_status"] == q["q3_standalone_cashflow_status"]
+assert q["source_validation"]["q3_standalone_cashflow_prior_blocker_resolved"].startswith("Q2 2026 IDC record is auto-extracted")
+assert q["source_validation"]["q3_standalone_cashflow_blocker_resolved_on"] == "2026-11-19"
+assert q["source_validation"]["q3_standalone_cashflow_resolution_note"].find("890,796,892 VND") > 0
+assert all(v == "0" for v in q["source_validation"]["q3_standalone_cashflow_source_checks_vnd"].values())
 print("PASS IDC 2026-Q3 signed original consolidated B01/B02/B03: 105 numeric fields; 29 exact-VND accounting identities, separate Q3 B02 vs 9M B03 and verified source-derived Q3-only CFO/CFI/CFF")
