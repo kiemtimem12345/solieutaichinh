@@ -1,0 +1,23 @@
+name: Inspect GAS Q3/2025 original B01 B02 B03 PDF source
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/inspect_gas_q3_pdf.py'
+      - '.github/workflows/inspect-gas-q3-pdf.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install ephemeral PDF text engine
+        run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Inspect public issuer B01 B02 and B03 pages, no remote writes
+        run: python -u scripts/inspect_gas_q3_pdf.py
