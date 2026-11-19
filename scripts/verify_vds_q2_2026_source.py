@@ -17,14 +17,14 @@ def s(*keys):
     return sum(v(k) for k in keys)
 assert q["unit"]=="triệu VND" and q["eps"]==q["diluted_eps"]==134
 assert q["roa"] is None and q["roe"] is None
-assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_h1_q2_standalone_cash_deferred"
+assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_and_q2_standalone_cash"
 assert q["source_validation"]["manually_visual_reviewed"] is True
 assert q["source_validation"]["issuer_original_visual_artifact"].endswith("and others")
 assert q["source_validation"]["issuer_pdf_sha256"]=="d16188e1e63da279e5214af46271dfd67dab4d26c20c2d77c78cb1db56200410"
 assert q["source_validation"]["issuer_b01_b02_original_pdf_pages"]==[6,7,8,11,12,13]
 assert set(q["financial_line_items_extracted_fields"])==set(q["financial_line_items_manually_verified_fields"])
-assert len(q["financial_line_items_manually_verified_fields"])==87
-assert q["operating_cash_flow"] is None and q["investing_cash_flow"] is None and q["financing_cash_flow"] is None
+assert len(q["financial_line_items_manually_verified_fields"])==95
+assert v("operating_cash_flow")==-251044721598 and v("investing_cash_flow")==179751455631 and v("financing_cash_flow")==14750000000
 assert q["selling_expense"] is None
 src={
 "total_assets":7906589387452,"total_liabilities":4892114272349,"equity":3014475115103,
@@ -40,7 +40,7 @@ src={
 "broker_other_short_term_financial_receivables_net":19367713528,
 "broker_noncurrent_held_to_maturity_assets":1100000000000,"broker_noncurrent_other_investments":77520336212,
 "broker_short_term_borrowings":2776900000000,"broker_short_term_bonds":1998900000000,
-"retained_earnings":363368457472,"non_control_interest_equity":-56506662501,
+"retained_earnings":363368457472,"non_control_interest_equity":56506662501,
 "revenue":262152978583,"revenue_ytd":458846424238,
 "broker_fvtpl_gain":74785440340,"broker_htm_income":18225781764,
 "broker_lending_income":123834858318,"broker_afs_interest_income":2000000000,
@@ -101,4 +101,7 @@ assert q["financial_line_items_rejected_values"]["prior_auto_eps_vnd"]==501
 assert prior["financial_income"]==0
 assert prior["broker_total_operating_revenue"]==262153
 assert q["source_validation"]["b03_h1_issuer_original_visual_verified"] is True
-print("PASS: VDS Q2/2026 consolidated issuer original B01/B02 24 exact-VND identities, 87 source fields, restored securities revenue 262.152bn EPS 134; B03 H1 unchanged, Q2 quarter cash still deferred")
+assert v("parent_equity") + v("non_control_interest_equity") == v("equity")
+assert v("parent_equity")==2957968452602
+assert q["source_validation"]["equity_split_exact_residual_vnd"]=="0"
+print("PASS: VDS Q2 issuer B01 B02 and signed H1 B03, 24 exact-VND identities, 95 verified source/derived fields; Q2 standalone cash and positive NCI equity checked")
