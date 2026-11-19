@@ -1,0 +1,23 @@
+# CHECKPOINT — GAS 2025 audited, GAS H1/2026 reviewed versions (19/11/2026)
+
+## Source-verification completed
+- GAS consolidated original 2025 Q1-Q4 and 2026 Q1-Q2 sourced from PV GAS original PDFs and stored in `data/financials-GAS.json`, Q3/2026 previously verified.
+- PR #49/Q4 source; #50 GAS 2025-Q4 52 fields / 23 checks; #51 original Q1-Q2 visual inspector; #52 GAS Q1-Q2 99 fields / 36 checks; all merged and production 45/45 HTTPS SHA checks PASS after retry of temporary stale JS.
+- PR #53 enables read-only audit and reviewed-H1 comparative inspection from authoritative PV GAS PDFs. GitHub Actions run `44493346638` two source matrices PASS; original PV GAS artifacts: 2025 audited `14514061182`, 2026 H1 reviewed `14512709329`, source pages viewed visually.
+- PV GAS 2025 audited 04/03/2026: https://www.pvgas.com.vn/DesktopModules/EasyDNNNews/DocumentDownload.ashx?articleid=14454&documentid=3253&moduleid=648&portalid=0 ; SHA-256 `b1cfb676ad81cabb6a0ebcd4b9955f33c9644964ef894c985228694a2d5aef6c`.
+- PV GAS H1/2026 reviewed 14/08/2026, Deloitte signed 12/08: https://www.pvgas.com.vn/DesktopModules/EasyDNNNews/DocumentDownload.ashx?articleid=14606&documentid=3375&moduleid=648&portalid=0 ; SHA-256 `a90c4b06b6fa67215ee83247c8f2ea7b5cf8bdba8cc968b226e52c55ce568886`.
+
+## Findings: distinct reporting vintages (keep without mixing)
+1. GAS 2025 Q4 original (pre-audit) B01 assets `93.531.511.866.676` VND vs 2025 audited B01 assets `93.568.198.109.790` VND. Diff `+36.686.243.114` VND. 2026 Q1/Q2 beginning comparative B01 `93.568.198.109.790` matches **audited 2025**, so origin is different source vintage; exact audited adjustment rationale still to be traced in auditor's notes. Audited liabilities `25.914.808.991.853` vs original Q4 `25.878.122.748.740`, difference `+36.686.243.113`; audited cash 2025-12-31 **unchanged** `6.876.468.282.085` VND.
+2. Q2/2026 unreviewed B01 30/06 assets `102.869.897.500.506` vs H1 reviewed B01 `102.853.960.066.179`; diff `-15.937.434.327`. Liabilities diff `-47.027.042.266`, equity diff `+31.089.607.939`; audited H1 internal B01 balances exact.
+3. **H1 reviewed B02 PBT `11.207.899.960.622` and net `9.025.674.760.340` are identical to original Q2/2026 H1**, but both differ from Q1 original + Q2 original stand-alone PBT/net by **+10.160.150.278** VND, traced to H1 cost-of-goods-sold difference. No documented allocation to Q1/Q2; hold cross-quarter reconciliation.
+4. **H1 original Q2 unreviewed B03 CFO `7.038.604.357.979`, CFI `-2.828.965.984.641`, CFF `-42.216.621.345`**. **H1 reviewed B03** CFO `6.455.378.093.715`, CFI `-2.234.588.471.909`, CFF `-42.021.936.897` VND. Reviewed-original delta CFO `-583.226.264.264`, CFI `+594.377.512.732`, CFF `+194.684.448` VND. Net cash delta `+11.345.932.916`, FX delta `-11.361.467.163`, beginning cash delta `+15.534.247`; **ending cash unchanged** `11.055.638.145.352`. Both cash-flow identities =0 independently.
+5. Reviewed H1 B03 pretax `11.207.899.960.622` matches H1 B02, eliminating **11.034.262.367** VND unreviewed B03-vs-B02 PBT mismatch. Reviewed H1 B03 beginning cash `6.876.468.282.085` matches audited FY2025 closing, eliminating the 15.534.247 VND opening mismatch **in the later reviewed version**. Old original report remains unchanged for lineage.
+6. Avoid misassigning six-month restatement to stand-alone Q2: **do not replace quarterly Q2 B03 with reviewed H1 less original Q1** unless the revised Q1 base is substantiated. Source-version reconciliations are stored as separate objects in `source_validation` for 2025-Q4, 2026-Q1, 2026-Q2; core figures untouched.
+7. `scripts/verify_gas_reviewed_h1_versions.py` + CI gate assert the compared source values, exact-VND identities and preserve original quarter observations. Earlier scripts `verify_gas_q4_visual.py` and `verify_gas_2026_q1_q2_visual.py` remain in CI.
+
+## Next
+- Check PR metadata CI, merge only PASS. Confirm production 45/45 HTTPS SHA and save durable status.
+- To close GAS fully: inspect original explanatory note and auditor H1 restatement detail (possible COGS 10.160bn, CFO/CFI reclassification), then decide proper canonical quarterly series and annotate as source-vintage. Do not fabricate a corrected Q1 or Q2.
+- GAS Q3/2026 both consolidated and parent already PASS; do not reprocess. Once GAS passes all cross-period criteria proceed VDS Q3/2026 → GEG historical gaps → IDC Q3/2026. PLX parent Q3 B03 still blocked 87.654.015.000 VND.
+- Follow SOP: 32 tickers from 2025-Q1, max 20 periods, 0.01% tolerance, source unit VND -> JSON million VND except EPS, scope separated, main GitHub source of website, never upload direct SFTP.

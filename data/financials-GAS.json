@@ -683,6 +683,19 @@
           "financing_components": "0",
           "investing_components": "0",
           "operating_components": "0"
+        },
+        "audit_version_comparison": {
+          "audited_report_url": "https://www.pvgas.com.vn/DesktopModules/EasyDNNNews/DocumentDownload.ashx?articleid=14454&documentid=3253&moduleid=648&portalid=0",
+          "audited_report_date": "2026-03-04",
+          "original_unreviewed_report_date": "2026-01-30",
+          "audited_total_assets_vnd": "93568198109790",
+          "original_unreviewed_total_assets_vnd": "93531511866676",
+          "total_assets_delta_vnd": "36686243114",
+          "liabilities_delta_vnd": "36686243113",
+          "cash_delta_vnd": "0",
+          "visual_source_sha256": "b1cfb676ad81cabb6a0ebcd4b9955f33c9644964ef894c985228694a2d5aef6c",
+          "evidence": "Issuer original audited 2025 PDF; Actions run 44493346638 artifact 14514061182",
+          "handling": "Preserve original Q4/2025 unaudited source; audited version used for 2026 balance-sheet opening comparator."
         }
       },
       "published_at": "2026-02-03",
@@ -940,7 +953,15 @@
         "h1_vs_sum_q1_q2_gross_pretax_net_adjustment_vnd": "10160150278",
         "h1_b03_pretax_vs_h1_b02_pretax_vnd": "11034262367",
         "unresolved_comparative_presentation_differences": true,
-        "q1_b03_beginning_cash_vnd": "6876452747838"
+        "q1_b03_beginning_cash_vnd": "6876452747838",
+        "subsequent_reviewed_h1_report": {
+          "url": "https://www.pvgas.com.vn/DesktopModules/EasyDNNNews/DocumentDownload.ashx?articleid=14606&documentid=3375&moduleid=648&portalid=0",
+          "published": "2026-08-14",
+          "h1_revenue_matches_sum_of_quarters": true,
+          "h1_cogs_difference_vs_q1_plus_q2_vnd": "-10160150278",
+          "h1_pretax_and_profit_difference_vs_q1_plus_q2_vnd": "10160150278",
+          "handling": "Original Q1 source stays unchanged; reviewed H1 does not document which historical quarter to reallocate."
+        }
       },
       "published_at": "2026-04-24",
       "source_archive_file": "reports/raw/GAS/auto-gas-20261021/853ad22dfe045d24.pdf",
@@ -1212,7 +1233,47 @@
         "h1_b03_pretax_vs_h1_b02_pretax_vnd": "11034262367",
         "unresolved_comparative_presentation_differences": true,
         "q2_cash_bridge_residual_vnd": "0",
-        "cash_flow_derivation": "Q2 standalone = Q2 6M YTD minus validated Q1 3M YTD, same consolidated scope. Q1 dividend field dash: do not infer Q2 quarter dividend."
+        "cash_flow_derivation": "Q2 standalone = Q2 6M YTD minus validated Q1 3M YTD, same consolidated scope. Q1 dividend field dash: do not infer Q2 quarter dividend.",
+        "reviewed_h1_version_comparison": {
+          "source_url": "https://www.pvgas.com.vn/DesktopModules/EasyDNNNews/DocumentDownload.ashx?articleid=14606&documentid=3375&moduleid=648&portalid=0",
+          "issuer_pdf_sha256": "a90c4b06b6fa67215ee83247c8f2ea7b5cf8bdba8cc968b226e52c55ce568886",
+          "publication_date": "2026-08-14",
+          "image_evidence": "GitHub Actions run 44493346638 artifact 14512709329, reviewed pages 8-12, Deloitte Việt Nam",
+          "reviewed_h1_values_vnd": {
+            "total_assets": "102853960066179",
+            "total_liabilities": "32568229020837",
+            "equity": "70285731045342",
+            "operating_cash_flow_ytd": "6455378093715",
+            "investing_cash_flow_ytd": "-2234588471909",
+            "financing_cash_flow_ytd": "-42021936897",
+            "net_cash_change_ytd": "4178767684909",
+            "foreign_exchange_effect_ytd": "402178358",
+            "cash_beginning_reported_ytd": "6876468282085",
+            "cash_ending": "11055638145352",
+            "cf_pretax": "11207899960622"
+          },
+          "reviewed_minus_original_q2_report_vnd": {
+            "total_assets": "-15937434327",
+            "total_liabilities": "-47027042266",
+            "equity": "31089607939",
+            "operating_cash_flow_ytd": "-583226264264",
+            "investing_cash_flow_ytd": "594377512732",
+            "financing_cash_flow_ytd": "194684448",
+            "net_cash_change_ytd": "11345932916",
+            "foreign_exchange_effect_ytd": "-11361467163",
+            "cash_beginning_reported_ytd": "15534247",
+            "cash_ending": "0",
+            "cf_pretax": "-11034262367"
+          },
+          "reviewed_h1_cash_bridge_residual_vnd": "0",
+          "reviewed_h1_b02_pretax_vnd": "11207899960622",
+          "reviewed_h1_b03_pretax_matches_b02": true,
+          "original_q2_b03_pretax_minus_b02_vnd": "11034262367",
+          "reviewed_h1_revenue_matches_original_h1": true,
+          "reviewed_h1_vs_q1_plus_q2_profit_difference_vnd": "10160150278",
+          "evidence_status": "reviewed_h1_source_comparison_exact_arithmetic_verified_but_quarterly_reallocation_unresolved",
+          "handling": "Keep original 2026 Q1/Q2 standalone quarter values. Reviewed H1 represents later revision; do not allocate 6M cashflow reclassification to Q2 until same-basis Q1 is available."
+        }
       },
       "published_at": "2026-07-31",
       "source_archive_file": "reports/raw/GAS/auto-gas-20261021/118f3b092ddce271.pdf",
@@ -1231,7 +1292,7 @@
       ],
       "core_financial_extraction_status": "verified_from_issuer_original_visual_with_cross_report_anomalies_flagged",
       "core_financial_extraction_note": "Original PV GAS issuer page images, not unverified OCR; independent issuer statement arithmetic 0; Q2 comparative YTD discrepancy kept flagged.",
-      "verification_status_note": "Internal statement identities PASS. Cross-period discrepancy of 10,160,150,278 VND in COGS/PBT/net H1 vs sum Q1 and Q2; 2026 opening comparative total assets differ from verified 2025-Q4 by 36,686,243,114 VND; do not infer correction.",
+      "verification_status_note": "Internal statement identities PASS. Cross-period discrepancy of 10,160,150,278 VND in COGS/PBT/net H1 vs sum Q1 and Q2; 2026 opening comparative total assets differ from verified 2025-Q4 by 36,686,243,114 VND; do not infer correction. New reviewed H1/2026 changes B01/B03 versus Q2 unreviewed; exact source-version deltas stored; no silent overwrite of original quarter history.",
       "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
       "core_financial_extraction_evidence_fingerprint": "8d703d06d5da0d9254e13ccf49c5f3d0bb78bf5fbcb6b674870eb93e6471487d",
       "core_financial_extraction_evidence_attempt_count": 0,
