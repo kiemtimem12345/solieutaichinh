@@ -1,0 +1,26 @@
+name: Diagnose Hostinger Git checkout resets (read-only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/diagnose_hostinger_git_checkout.py'
+      - '.github/workflows/diagnose-hostinger-git-checkout.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install SSH/SFTP library
+        run: python -m pip install --disable-pip-version-check 'paramiko>=3.5,<5'
+      - name: Inspect live git metadata safely without printing credentials
+        env:
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: python scripts/diagnose_hostinger_git_checkout.py
