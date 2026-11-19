@@ -42,3 +42,11 @@
 2. Verify **GEG Q1/2026 hợp nhất** original B01 B02 B03 before calculating Q2 quarter cash (6M minus 3M), then GEG 2025Q4, 2025Q3, 2025Q2, 2025Q1 one quarter at a time. Source original first; no automatic parser numbers marked PASS.
 3. When all GEG periods pass, move to IDC 2026 Q3; do not redo already verified GEG 2026Q3 two scopes.
 4. Open independent exceptions: VDS 2025 H1 owner/NCI attribution 1,117,693,283 VND, GAS 2026 H1 COGS 10,160,150,278 VND, PLX parent 2026 Q3 CFF 87,654,015,000 VND. Keep provenance and never guess resolution.
+
+## PR #69 / CI and production verified
+- Merged GitHub PR #69 to main, commit `0da1635d0c846b45208f5cc35a64d71f25880bd0`.
+- Pre-merge financial CI run `44522227655` **success**; post-merge main financial CI `44522371719` **success**, with 31 exact-VND GEG Q2 source/identity checks.
+- Read-only production smoke run `44522371752` **success**, log explicitly `PASS: 45/45 HTTPS URLs serve exact tracked Git content (SHA256).`
+- Redundant source-only PR #68 (failing direct HOSE PDF fetch) closed as superseded by successful original signed-PDF Vietstock mirror fallback in PR #69. Do not merge PR #68.
+- GEG consolidated 2026-Q2 now **issuer_original_visual_verified** with B03 6M YTD. Do **not** calculate standalone 2026-Q2 cash until GEG 2026-Q1 original B03 same scope is verified.
+- Next resume: GEG **2026-Q1** issuer consolidated original B01/B02/B03. After Q1 source validated, derive Q2 standalone = 6M–3M and retain Q3/2026 original already PASS; then historical GEG 2025-Q4 → Q1.
