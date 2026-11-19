@@ -1,0 +1,37 @@
+name: Inspect IDC issuer Q4 2025 and audited FY 2025 original PDF
+on:
+  push:
+    branches: [work/idc-fy2025-audited-q4-original-20261119]
+    paths:
+      - 'scripts/inspect_idc_fy2025_original_pdf.py'
+      - '.github/workflows/inspect-idc-fy2025-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        source: [q4_issuer, fy_audited]
+    env:
+      IDC_2025_DOCUMENT: ${{ matrix.source }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install ephemeral PDF renderer
+        run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Validate original issuer PDF and capture B01 B02 B03 images
+        run: python -u scripts/inspect_idc_fy2025_original_pdf.py
+      - name: Upload public finance source page images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: idc-original-${{ matrix.source }}-report-pages
+          path: idc-fy2025-report-pages/*.png
+          if-no-files-found: warn
+          retention-days: 3
