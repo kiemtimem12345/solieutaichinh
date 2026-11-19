@@ -21,3 +21,11 @@ jobs:
         run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
       - name: Inspect public issuer B01 B02 and B03 pages, no remote writes
         run: python -u scripts/inspect_gas_q3_pdf.py
+      - name: Upload original public report page images for visual QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gas-2025-q3-original-report-pages
+          path: q3-renders/*.png
+          if-no-files-found: warn
+          retention-days: 3
