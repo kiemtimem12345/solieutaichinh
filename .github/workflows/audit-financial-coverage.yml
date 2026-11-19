@@ -1,0 +1,23 @@
+name: Audit all 32 ticker financial report coverage
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_all_statement_coverage.py'
+      - '.github/workflows/audit-financial-coverage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Review consolidated quarter coverage and bank/broker/industry line gaps
+        run: |
+          python scripts/audit_all_statement_coverage.py --write | tee coverage-report.log
+          cat reports/coverage-audit-2026-11-19.md >> "$GITHUB_STEP_SUMMARY"
