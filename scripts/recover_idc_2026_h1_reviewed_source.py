@@ -33,6 +33,9 @@ for label,url in SOURCES:
   if not 12<=len(pdf)<=210:raise ValueError("Unexpected PDF page count "+str(len(pdf)))
   meta={"label":label,"url":url,"bytes":len(payload),"sha256":hashlib.sha256(payload).hexdigest(),"pages":len(pdf),"page_text":[]}
   print("SOURCE_OK",json.dumps({k:v for k,v in meta.items() if k!="page_text"},ensure_ascii=False),flush=True)
+  if label=="BSC_HNX_attachment_1":
+   (out/"IDC-2026-H1-reviewed-consolidated-HNX-original.pdf").write_bytes(payload)
+   print("ORIGINAL_VI_PDF_ARCHIVED source sha256="+meta["sha256"],flush=True)
   for i in range(min(41,len(pdf))):
    p=pdf[i]
    t=p.get_text(sort=True)
