@@ -45,6 +45,8 @@ jobs:
         run: python scripts/verify_gas_2026_h1_q3_bridge.py
       - name: Verify VDS consolidated Q3 2026 original statements B01 B02 and B03 YTD
         run: python scripts/verify_vds_q3_2026_source.py
+      - name: Validate VDS H1 source and Q3 standalone cash from 9M less 6M
+        run: python scripts/verify_vds_q2h1_q3cash_bridge.py
       - name: Validate SFTP scripts syntax
         run: bash -n scripts/check_sftp.sh scripts/deploy_sftp.sh scripts/verify_hostinger_ssh_hostkey.sh
       - name: Validate production JSON and archived JS syntax

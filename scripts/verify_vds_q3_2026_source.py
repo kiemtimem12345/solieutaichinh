@@ -22,11 +22,11 @@ assert q["unit"]=="triệu VND" and q["eps"]==-382 and q["diluted_eps"]==-382
 assert q["roa"] is None and q["roe"] is None
 assert q["source_validation"]["manually_visual_reviewed"] is True
 assert q["source_validation"]["source_unit"]=="VND"
-assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_9m_ytd_standalone_cash_deferred"
+assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_9m_and_q3_standalone_cash"
 assert q["cashflow_period_basis"]=="year_to_date"
-assert q["q3_standalone_cashflow_status"].startswith("deferred")
-assert q.get("operating_cash_flow") is None and q.get("financing_cash_flow") is None and q.get("investing_cash_flow") is None
-assert len(q["financial_line_items_extracted_fields"])==90
+assert q["q3_standalone_cashflow_status"]=="original_9m_minus_issuer_verified_h1_6m_same_consolidated_scope"
+assert q.get("operating_cash_flow") is not None and q.get("financing_cash_flow") is not None and q.get("investing_cash_flow") is not None
+assert len(q["financial_line_items_extracted_fields"])==96
 assert set(q["financial_line_items_extracted_fields"])==set(q["financial_line_items_manually_verified_fields"])
 assert not any(x["period"] < "2025-Q1" for x in data["items"])
 assert len(data["items"])==7
@@ -87,4 +87,4 @@ assert set(checks)==set(q["source_validation"]["statement_identity_residuals_vnd
 assert all(raw=="0" for raw in q["source_validation"]["statement_identity_residuals_vnd"].values())
 assert v("client_brokerage_cash_ending_ytd") != v("cash_ending")
 assert v("net_profit") < 0 and v("income_tax") < 0
-print("PASS VDS 2026Q3 consolidated issuer B01/B02/B03: 90 fields, 21 exact-VND identities, separate off-balance client cash, no invented Q3 standalone cash")
+print("PASS VDS 2026Q3 consolidated issuer B01/B02/B03: 96 fields, 21 original exact-VND identities, separately derived standalone Q3 cash, off-balance client cash isolated")
