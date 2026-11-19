@@ -6,6 +6,7 @@ or touches stored financial figures; prints source page text for accounting
 cross-checks and caps transfer volume and printed output.
 """
 import io, re, sys, unicodedata
+from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import urlparse
 import fitz
@@ -57,10 +58,17 @@ def inspect(body,source):
             kind="B01" if "bang can doi ke toan" in n else "B02" if "bao cao ket qua" in n else "B03"
             heads.append((i,kind))
     if not heads:
-        print("::warning::No extractable B01/B02/B03 text headers in first 16 pages (possible scanned PDF)",flush=True)
-        for i in range(min(10,len(doc))):
-            print(f"TEXT_SUMMARY: pdf_page={i+1}, text_chars={len(doc[i].get_text())}",flush=True)
-        return 1
+        print("INFO: GAS Q3/2025 original PDF has scanned B01/B02/B03. Render only initial report pages for human-vision inspection, no OCR.",flush=True)
+        dest=Path("q3-renders")
+        dest.mkdir(exist_ok=True)
+        # Public financial-report pages only; no archive, no private config, no logs of image bytes.
+        for i in range(2,min(10,len(doc))):
+            page=doc[i]
+            pix=page.get_pixmap(matrix=fitz.Matrix(1.65,1.65),alpha=False)
+            out=dest/f"gas-2025-q3-pdf-page-{i+1:02d}.png"
+            pix.save(out)
+            print(f"RENDERED: pdf_page={i+1}, pixels={pix.width}x{pix.height}",flush=True)
+        return 0
     seen=set()
     for i,kind in heads:
         if (i,kind) in seen:continue
