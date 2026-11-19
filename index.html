@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Dữ liệu kinh tế Việt Nam, thị trường hàng hóa và báo cáo tài chính doanh nghiệp từ nguồn có thể kiểm chứng.">
+  <title>Dữ Liệu Kinh Tế Việt Nam</title>
+  <link rel="stylesheet" href="assets/styles.css?v=20261030-financial-report-coverage-v1">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+  <script src="assets/app.js?v=financial-line-items-20261031-v23" defer></script>
+</head>
+<body>
+  <aside class="site-sidebar" id="siteSidebar">
+    <a class="brand" href="#tong-quan" aria-label="Trang chủ">
+      <span class="brand-mark"><span>⌁</span></span>
+      <span><strong>Dữ Liệu Kinh Tế</strong></span>
+    </a>
+    <label class="header-search"><span class="search-symbol">⌕</span><input id="siteSearch" type="search" placeholder="Tìm kiếm số liệu..."><kbd>AI</kbd><kbd>⌘ K</kbd></label>
+    <nav id="mainNav" aria-label="Danh mục dữ liệu">
+      <a href="#van-tai"><span class="nav-icon">♧</span><span>Vận tải</span><i>›</i></a>
+      <a href="#tien-te"><span class="nav-icon">▣</span><span>Tiền tệ</span><em>11</em></a>
+      <div class="nav-children money-nav-children">
+        <a href="#sbv-bom-hut-tien">SBV Bơm/Hút Tiền</a>
+        <a href="#tang-truong-tin-dung">Tăng trưởng tín dụng</a>
+        <a href="#can-can-thanh-toan">Cán cân thanh toán</a>
+        <a href="#lai-suat-huy-dong">Lãi suất huy động</a>
+        <a href="#cung-tien-m2">Cung tiền M2 & Huy động</a>
+        <a href="#lai-suat-dieu-hanh">Lãi suất điều hành</a>
+        <a href="#lai-suat-cho-vay">Lãi suất cho vay</a>
+        <a href="#ty-gia">Tỷ giá</a>
+        <a href="#ty-gia-usdvnd">Tỷ giá USDVND</a>
+        <a href="#ty-gia-cho-den">Tỷ giá chợ đen</a>
+        <a href="#kieu-hoi">Kiều hối</a>
+      </div>
+      <a href="#bat-dong-san"><span class="nav-icon">⌂</span><span>Bất động sản</span><em>7</em></a>
+      <a href="#hang-hoa"><span class="nav-icon">⬡</span><span>Hàng hóa</span><em>9</em></a>
+      <a href="#co-phieu"><span class="nav-icon">▥</span><span>Chứng Khoán</span><em>1</em></a>
+      <a href="#nong-nghiep"><span class="nav-icon">♧</span><span>Nông nghiệp</span><em>4</em></a>
+      <a href="#cang-vu"><span class="nav-icon">⚓</span><span>Cảng vụ</span><em>1</em></a>
+      <a href="#trai-phieu" class="nav-parent active"><span class="nav-icon">▤</span><span>Trái phiếu</span><em>2</em></a>
+      <div class="nav-children"><a href="#trai-phieu">Lợi suất Trái phiếu Chính phủ</a><a href="#trai-phieu">Thị trường Trái phiếu</a></div>
+      <a href="#lao-dong"><span class="nav-icon">♙</span><span>Lao động</span><em>1</em></a>
+      <div class="sidebar-divider"></div>
+      <a href="#vi-mo"><span class="nav-icon">▦</span><span>Kinh tế vĩ mô</span></a>
+      <a href="#xuat-nhap-khau"><span class="nav-icon">⇄</span><span>Xuất nhập khẩu</span></a>
+      <a href="#nguon"><span class="nav-icon">ⓘ</span><span>Nguồn số liệu</span></a>
+    </nav>
+    <div class="sidebar-footer"><span class="sidebar-status-dot"></span> Dữ liệu có nguồn kiểm chứng</div>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Mở menu">☰</button>
+  </aside>
+
+  <main>
+    <section class="dashboard-top" id="tong-quan">
+      <div class="overview-intro">
+        <p class="eyebrow">DỮ LIỆU KINH TẾ · VIỆT NAM</p>
+        <h1>Số liệu kinh tế vĩ<br class="desktop-break"> mô Việt Nam</h1>
+        <p class="overview-description">Toàn cảnh nền kinh tế trong một trang: GDP, lạm phát, thương mại, đầu tư và doanh nghiệp — tổng hợp từ Tổng cục Thống kê, Hải quan và Ngân hàng Nhà nước, kèm biểu đồ tương tác và khả năng so sánh nhiều chỉ tiêu. Hoàn toàn miễn phí.</p>
+        <div class="overview-stats"><span><strong>97+</strong> bảng số liệu</span><span><strong>15</strong> nhóm chỉ tiêu</span><span><strong>Hàng tháng</strong> cập nhật</span></div>
+      </div>
+      <div class="overview-rule"></div>
+      <div class="latest-heading"><h2>Toàn cảnh — số liệu mới nhất</h2><p>Giá trị và xu hướng gần nhất của các chỉ tiêu chủ chốt. Bấm vào thẻ để xem chuỗi đầy đủ.</p></div>
+      <div class="overview-kpis" id="overviewKpis">
+        <article class="overview-kpi kpi-gdp"><span>GDP (giá hiện hành)</span><strong>Chưa có dữ liệu</strong><small>Đơn vị và kỳ báo cáo sẽ hiển thị theo nguồn.</small><div class="kpi-spark empty-spark">Chưa có chuỗi dữ liệu</div></article>
+        <article class="overview-kpi"><span>Lạm phát (CPI)</span><strong>Chưa có dữ liệu</strong><small>Chưa có kỳ cập nhật xác minh</small><div class="kpi-spark empty-spark">Chưa có chuỗi dữ liệu</div></article>
+        <article class="overview-kpi"><span>Bán lẻ HH & DV</span><strong>Chưa có dữ liệu</strong><small>Chưa có kỳ cập nhật xác minh</small><div class="kpi-spark empty-spark">Chưa có chuỗi dữ liệu</div></article>
+      </div>
+      <div class="home-categories">
+        <h2>Danh mục dữ liệu</h2>
+        <div class="category-grid">
+          <a class="category-card" href="#vi-mo"><span class="cat-icon blue">▥</span><b>Kinh tế vĩ mô</b><small>GDP, CPI, bán lẻ, sản xuất, lao động, dân số...</small><em>→</em></a>
+          <a class="category-card" href="#xuat-nhap-khau"><span class="cat-icon purple">⇄</span><b>Xuất nhập khẩu</b><small>Kim ngạch, cán cân thương mại, thị trường...</small><em>→</em></a>
+          <a class="category-card" href="#hang-hoa"><span class="cat-icon orange">⚖</span><b>Hàng hóa</b><small>Dầu thô, Brent, phân bón, hóa chất, đồng, bạc...</small><em>→</em></a>
+          <a class="category-card" href="#co-phieu"><span class="cat-icon green">▤</span><b>Tài chính doanh nghiệp</b><small>Báo cáo quý, tài sản, nợ, lợi nhuận, ROA, ROE...</small><em>→</em></a>
+          <a class="category-card" href="#tien-te"><span class="cat-icon teal">◉</span><b>Tiền tệ & Ngân sách</b><small>Lãi suất, tỷ giá, tín dụng, thu chi ngân sách...</small><em>→</em></a>
+          <a class="category-card" href="#bat-dong-san"><span class="cat-icon red">⌂</span><b>Bất động sản</b><small>Thị trường, giá cả và các chỉ tiêu liên quan...</small><em>→</em></a>
+          <a class="category-card" href="#vi-mo"><span class="cat-icon indigo">⌁</span><b>Số liệu khác</b><small>PMI, FDI, lao động và các chỉ số bổ sung...</small><em>→</em></a>
+          <a class="category-card" href="#nguon"><span class="cat-icon blue">▣</span><b>Nguồn số liệu & Phương pháp</b><small>Nguồn gốc, phạm vi, đơn vị và cách tổng hợp...</small><em>→</em></a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="section category-data-section" id="van-tai">
+      <div class="section-heading"><div><p class="eyebrow">VẬN TẢI & LOGISTICS</p><h2>Dữ liệu vận tải</h2><p class="muted">Khối lượng vận chuyển, luân chuyển hàng hóa và hành khách theo kỳ công bố.</p></div><span class="section-index">05 / TRANSPORT</span></div>
+      <div class="data-card-grid">
+        <article class="data-info-card"><span class="cat-icon blue">↗</span><h3>Vận tải hàng hóa</h3><p>Sản lượng vận chuyển và luân chuyển hàng hóa theo đường bộ, đường sắt, đường thủy, hàng không.</p><small>Nguồn dự kiến: Cục Thống kê (NSO)</small></article>
+        <article class="data-info-card"><span class="cat-icon teal">♧</span><h3>Vận tải hành khách</h3><p>Lượt hành khách và luân chuyển hành khách, theo phương thức vận tải và kỳ thống kê.</p><small>Nguồn: Cục Thống kê · Có chuỗi tổng vận chuyển hành khách bên dưới</small></article>
+        <article class="data-info-card"><span class="cat-icon purple">▦</span><h3>Chỉ số logistics</h3><p>Các chỉ số chi phí, lưu lượng và hiệu quả chỉ hiển thị khi có nguồn, định nghĩa và chu kỳ rõ ràng.</p><small>Trạng thái: Chưa kết nối nguồn dữ liệu</small></article>
+      </div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Chỉ tiêu vận tải hàng hóa</h3><p class="muted">Chuỗi lịch sử theo tháng từ nguồn thống kê.</p></div><span id="transportUpdated" class="status-pill neutral">Đang tải…</span></div><div id="transportDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu vận tải</h3><p>Đọc snapshot đã đồng bộ.</p></div></div><div class="chart-panel"><div class="currency-panel-heading"><div><h3>Biến động khối lượng vận chuyển hàng hóa</h3><p class="muted">Dữ liệu lịch sử theo kỳ công bố; không nội suy kỳ thiếu.</p></div></div><div class="chart-canvas-wrap"><canvas id="transportHistoryChart" role="img" aria-label="Biến động khối lượng vận chuyển hàng hóa"></canvas></div><p class="muted" id="transportChartNote">Biểu đồ sử dụng quan sát đã đồng bộ từ nguồn.</p></div></div>
+    </section>
+
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Tổng khối lượng vận chuyển hành khách</h3><p class="muted">Đơn vị theo nguồn công bố; số lượt hành khách, không phải số người duy nhất.</p></div><span id="passengersUpdated" class="status-pill neutral">Đang tải…</span></div><div id="passengersDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu hành khách</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="passengersHistoryChart" role="img" aria-label="Biến động tổng khối lượng vận chuyển hành khách"></canvas></div><p class="muted" id="passengersChartNote">Nguồn: Cục Thống kê (NSO).</p></div></div>
+    <section class="section alt-section category-data-section" id="tien-te">
+      <div class="section-heading"><div><p class="eyebrow">TIỀN TỆ & NGÂN SÁCH</p><h2>Tiền tệ, lãi suất và ngân sách</h2><p class="muted">Theo dõi tỷ giá, lãi suất, tín dụng và các chỉ tiêu ngân sách khi có nguồn xác thực.</p></div><span class="section-index">06 / MONEY</span></div>
+      <div class="data-card-grid">
+        <article class="data-info-card"><span class="cat-icon teal">⇄</span><h3>Tỷ giá tham khảo</h3><p>Giá trị quy đổi tham khảo theo nguồn tỷ giá quốc tế; không phải tỷ giá mua/bán tại ngân hàng.</p><small id="currencySourceStatus">Đang chờ tải dữ liệu tỷ giá</small></article>
+        <article class="data-info-card"><span class="cat-icon blue">％</span><h3>Lãi suất liên ngân hàng</h3><p>Các kỳ hạn qua đêm, 1 tuần và 1 tháng từ chuỗi công bố của NHNN.</p><small>Nguồn: NHNN · Cập nhật theo dữ liệu nguồn</small></article>
+        <article class="data-info-card"><span class="cat-icon orange">▤</span><h3>Ngân sách & tín dụng</h3><p>Thu chi ngân sách, bội chi, tăng trưởng tín dụng chỉ được hiển thị khi có kỳ và đơn vị thống nhất.</p><small>Nguồn dự kiến: Bộ Tài chính, NHNN · Chưa kết nối</small></article>
+      </div>
+      <div class="currency-panel">
+        <div class="currency-panel-heading"><div><h3>Lãi suất liên ngân hàng</h3><p class="muted">Đơn vị %/năm; đây không phải lãi suất tiền gửi hoặc lãi suất cho vay khách hàng.</p></div><span id="interestRatesUpdated" class="status-pill neutral">Đang tải…</span></div>
+        <div id="interestRatesTable" class="table-scroll"><div class="empty-state"><h3>Đang tải lãi suất</h3><p>Dữ liệu lấy từ snapshot đã đồng bộ.</p></div></div>
+        <div class="chart-panel">
+          <div class="currency-panel-heading"><div><h3>Biến động lãi suất liên ngân hàng</h3><p class="muted">Đường biểu diễn các quan sát lịch sử có trong nguồn dữ liệu.</p></div><label class="chart-range-label">Khoảng thời gian <select id="interestChartRange" aria-label="Khoảng thời gian lãi suất"><option value="7">7 ngày</option><option value="30" selected>30 ngày</option></select></label></div>
+          <div class="chart-canvas-wrap"><canvas id="interestRatesChart" aria-label="Biểu đồ đường lãi suất liên ngân hàng" role="img"></canvas></div>
+          <p class="muted" id="interestChartNote">Biểu đồ dựa trên các quan sát lịch sử được API trả về.</p>
+        </div>
+      </div>
+      <div class="currency-panel">
+        <div class="currency-panel-heading"><div><h3 id="ty-gia">Tỷ giá tham khảo quy đổi sang VND</h3><p class="muted">Giá trị cho 1 đơn vị ngoại tệ, dùng để tham khảo và so sánh.</p></div><span id="currencyUpdated" class="status-pill neutral">Đang tải…</span></div>
+        <div id="currencyRatesTable" class="table-scroll"><div class="empty-state"><h3>Đang tải tỷ giá</h3><p>Dữ liệu được đọc từ snapshot đồng bộ hằng ngày.</p></div></div>
+        <p class="notice" id="currencyDisclaimer">Tỷ giá tham khảo không thay thế tỷ giá niêm yết của ngân hàng hoặc tỷ giá trung tâm do NHNN công bố.</p>
+      </div>
+      <div class="currency-panel money-indicator-panel" id="sbv-bom-hut-tien"><div class="currency-panel-heading"><div><h3>SBV Bơm/Hút Tiền</h3><p class="muted">Khối lượng mua OMO trong ngày và chênh lệch lưu hành OMO − tín phiếu NHNN.</p></div><span id="omoDataUpdated" class="status-pill neutral">Đang tải…</span></div><div id="omoDataContent" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu OMO</h3><p>Đang đọc snapshot chuỗi số liệu có nguồn và ngày dữ liệu.</p></div></div><p class="notice">Lưu ý: khối lượng mua OMO là dòng giao dịch, còn chênh lệch lưu hành OMO − tín phiếu là chỉ tiêu tồn lưu; không được diễn giải thay cho bơm/hút ròng trong ngày. Dữ liệu được đồng bộ cùng chuỗi danh mục.</p></div>
+      <div class="currency-panel money-indicator-panel" id="tang-truong-tin-dung"><div class="currency-panel-heading"><div><h3>Tăng trưởng tín dụng</h3><p class="muted">Số liệu công bố chính thức gần nhất; phân biệt mức tăng từ đầu năm và so cùng kỳ.</p></div><span id="creditGrowthUpdated" class="status-pill neutral">Đang tải…</span></div><div id="creditGrowthContent" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3><p>Chỉ hiển thị các chỉ tiêu có nguồn và ngày dữ liệu.</p></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="creditGrowthHistoryChart" role="img" aria-label="Lịch sử tăng trưởng tín dụng"></canvas></div><p class="muted" id="creditGrowthHistoryNote">Đang tải chuỗi lịch sử tăng trưởng tín dụng.</p></div><p class="notice">Nguồn: Cổng Thông tin điện tử Chính phủ, thông tin họp báo NHNN quý III/2026. Đây là số liệu công bố trong bản tin, chưa phải chuỗi API lịch sử tự động.</p></div>
+      <div class="currency-panel money-indicator-panel" id="can-can-thanh-toan"><div class="currency-panel-heading"><div><h3>Cán cân thanh toán</h3><p class="muted">Các cấu phần cán cân vãng lai + vốn, cán cân tài chính và cán cân tổng thể theo quý.</p></div><span id="bopUpdated" class="status-pill neutral">Đang tải…</span></div><div id="bopContent" class="table-scroll"><div class="empty-state"><h3>Đang tải cán cân thanh toán</h3><p>Đọc snapshot chuỗi quý từ nguồn NHNN.</p></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="bopChart" role="img" aria-label="Biểu đồ cán cân thanh toán Việt Nam"></canvas></div><p class="muted" id="bopChartNote">Đang tải chuỗi lịch sử cán cân thanh toán.</p></div><p class="notice">Đơn vị theo nguồn (tỷ); các cấu phần là chỉ tiêu kế toán khác nhau, không cộng gộp tùy ý. Nguồn: NHNN qua Dữ Liệu Kinh Tế.</p></div>
+      <div class="currency-panel money-indicator-panel" id="lai-suat-huy-dong"><div class="currency-panel-heading"><div><h3>Lãi suất huy động</h3><p class="muted">Lãi suất tiền gửi theo ngân hàng, kỳ hạn và thời điểm công bố.</p></div><span id="depositRatesUpdated" class="status-pill neutral">Đang tải…</span></div><div id="depositRatesContent" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3><p>Đọc các chuỗi lãi suất đã đồng bộ từ Dữ Liệu Kinh Tế.</p></div></div><p class="notice">Lãi suất tiền gửi MB 12 tháng là chỉ tiêu riêng, không đại diện cho toàn bộ ngân hàng hoặc kỳ hạn.</p></div>
+      <div class="currency-panel money-indicator-panel" id="cung-tien-m2"><div class="currency-panel-heading"><div><h3>Cung tiền M2 & Huy động</h3><p class="muted">Cung tiền M2 và tiền gửi huy động được trình bày thành chuỗi riêng theo định nghĩa nguồn.</p></div><span id="m2DataUpdated" class="status-pill neutral">Đang tải…</span></div><div id="m2DataContent" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3><p>Đọc riêng M2, tiền gửi dân cư và tiền gửi tổ chức kinh tế.</p></div></div><p class="notice">Các chỉ tiêu là số dư theo tháng, đơn vị tỷ đồng; không cộng các tháng với nhau. Tỷ trọng tiền mặt/M2 chưa đưa vào vì cần xác nhận đúng series ID API.</p></div>
+      <div class="currency-panel money-indicator-panel" id="lai-suat-dieu-hanh"><div class="currency-panel-heading"><div><h3>Lãi suất điều hành NHNN</h3><p class="muted">Mức lãi suất và ngày hiệu lực được tách biệt với lãi suất thị trường liên ngân hàng.</p></div><span id="policyRatesUpdated" class="status-pill neutral">Đang tải…</span></div><div id="policyRatesContent" class="table-scroll"><div class="empty-state"><h3>Đang tải lãi suất điều hành</h3><p>Đọc từ bản ghi nguồn đã xác minh.</p></div></div><p class="notice">Nguồn: NHNN và thông tin họp báo NHNN 6 tháng đầu năm 2026. Snapshot xác nhận được trạng thái công bố đến 30/06/2026; không tự suy diễn thay đổi sau thời điểm đó.</p></div>
+      <div class="currency-panel money-indicator-panel" id="lai-suat-cho-vay"><div class="currency-panel-heading"><div><h3>Lãi suất cho vay</h3><p class="muted">Lãi suất cho vay theo lĩnh vực hoặc nhóm ngân hàng khi nguồn công bố có định nghĩa thống nhất.</p></div><span class="status-pill neutral">Chưa kết nối</span></div><div class="empty-state"><h3>Chưa có chuỗi dữ liệu đã xác minh</h3><p>Không coi lãi suất cho vay tham khảo là mức áp dụng cho mọi khách hàng.</p></div></div>
+      <div class="currency-panel money-indicator-panel" id="ty-gia-usdvnd"><div class="currency-panel-heading"><div><h3>Tỷ giá USD/VND tham khảo</h3><p class="muted">Tỷ giá quy đổi tham khảo từ nguồn quốc tế; không phải tỷ giá trung tâm NHNN hoặc giá mua/bán ngân hàng.</p></div><span id="usdVndReferenceUpdated" class="status-pill neutral">Đang tải…</span></div><div id="usdVndReferenceContent" class="table-scroll"><div class="empty-state"><h3>Đang tải tỷ giá USD/VND tham khảo</h3><p>Dữ liệu được đọc từ snapshot đã đồng bộ; không có số liệu giả lập.</p></div></div><p class="notice">Nguồn: ExchangeRate-API Open Access. Chỉ dùng làm tỷ giá quy đổi tham khảo; cần đối chiếu NHNN/ngân hàng khi giao dịch.</p></div>
+      <div class="currency-panel money-indicator-panel" id="ty-gia-cho-den"><div class="currency-panel-heading"><div><h3>Tỷ giá chợ đen</h3><p class="muted">Giá mua/bán USD trên thị trường tự do, nếu có nguồn công khai kiểm chứng được.</p></div><span class="status-pill neutral">Chưa kết nối</span></div><div class="empty-state"><h3>Chưa có nguồn giá tự do được xác minh</h3><p>Không ước tính hoặc tự điền giá khi không có dữ liệu đáng tin cậy.</p></div></div>
+      <div class="currency-panel money-indicator-panel" id="kieu-hoi"><div class="currency-panel-heading"><div><h3>Kiều hối</h3><p class="muted">Dòng kiều hối theo kỳ báo cáo, phạm vi địa lý và đơn vị nguồn công bố.</p></div><span class="status-pill neutral">Chưa kết nối</span></div><div class="empty-state"><h3>Chưa có chuỗi kiều hối đã xác minh</h3><p>Cần nguồn và tần suất công bố rõ ràng trước khi bổ sung dữ liệu.</p></div></div>
+    </section>
+
+    <section class="section category-data-section" id="bat-dong-san">
+      <div class="section-heading"><div><p class="eyebrow">THỊ TRƯỜNG NHÀ Ở</p><h2>Bất động sản</h2><p class="muted">Tổng hợp chỉ tiêu nhà ở, giao dịch, đầu tư và thị trường theo phạm vi công bố.</p></div><span class="section-index">07 / PROPERTY</span></div>
+      <div class="data-card-grid">
+        <article class="data-info-card"><span class="cat-icon red">⌂</span><h3>Nhà ở & nguồn cung</h3><p>Số dự án, căn hộ, nhà ở xã hội và tình hình cấp phép theo báo cáo chính thức.</p><small>Nguồn dự kiến: Bộ Xây dựng</small></article>
+        <article class="data-info-card"><span class="cat-icon orange">▥</span><h3>Giao dịch & giá</h3><p>Giá rao bán, giá giao dịch và chỉ số giá không được gộp chung nếu khác phương pháp.</p><small>Giá giao dịch chưa có chuỗi xác minh; xem chỉ tiêu dự án bên dưới</small></article>
+        <article class="data-info-card"><span class="cat-icon purple">▤</span><h3>Tín dụng bất động sản</h3><p>Chỉ tiêu tín dụng cần ghi rõ thời điểm thống kê, phạm vi và cơ quan công bố.</p><small>Nguồn dự kiến: NHNN, báo cáo chính thức</small></article>
+      </div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Chỉ tiêu thị trường bất động sản</h3><p class="muted">Số dự án nhà ở thương mại được chấp thuận chủ trương đầu tư.</p></div><span id="propertyUpdated" class="status-pill neutral">Đang tải…</span></div><div id="propertyDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu bất động sản</h3><p>Đọc snapshot đã đồng bộ.</p></div></div><div class="chart-panel"><div class="currency-panel-heading"><div><h3>Biến động số dự án nhà ở thương mại</h3><p class="muted">Dữ liệu lịch sử theo kỳ công bố; không nội suy kỳ thiếu.</p></div></div><div class="chart-canvas-wrap"><canvas id="propertyHistoryChart" role="img" aria-label="Biến động số dự án nhà ở thương mại"></canvas></div><p class="muted" id="propertyChartNote">Biểu đồ sử dụng quan sát đã đồng bộ từ nguồn.</p></div></div>
+    </section>
+
+    <section class="section alt-section category-data-section" id="nong-nghiep">
+      <div class="section-heading"><div><p class="eyebrow">NÔNG NGHIỆP & NÔNG SẢN</p><h2>Nông nghiệp</h2><p class="muted">Sản lượng, diện tích, năng suất và giá nông sản theo địa bàn và kỳ thống kê.</p></div><span class="section-index">08 / AGRICULTURE</span></div>
+      <div class="data-card-grid">
+        <article class="data-info-card"><span class="cat-icon green">♧</span><h3>Cây trồng & sản lượng</h3><p>Diện tích gieo trồng, năng suất và sản lượng theo vụ, năm và địa phương.</p><small>Nguồn dự kiến: NSO, Bộ Nông nghiệp và Môi trường</small></article>
+        <article class="data-info-card"><span class="cat-icon orange">◈</span><h3>Giá nông sản</h3><p>Giá tại nông trại, giá bán buôn, giá xuất khẩu cần được tách riêng theo thị trường.</p><small>Nguồn: Cục Thống kê · Chỉ số giá sản xuất được hiển thị bên dưới</small></article>
+        <article class="data-info-card"><span class="cat-icon teal">⇄</span><h3>Xuất khẩu nông sản</h3><p>Kim ngạch, khối lượng và thị trường xuất khẩu khi có số liệu chính thức.</p><small>Nguồn dự kiến: Hải quan, cơ quan chuyên ngành</small></article>
+      </div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Chỉ tiêu nông nghiệp</h3><p class="muted">Diện tích lúa mùa miền Nam, đơn vị theo nguồn công bố.</p></div><span id="agricultureUpdated" class="status-pill neutral">Đang tải…</span></div><div id="agricultureDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu nông nghiệp</h3><p>Đọc snapshot đã đồng bộ.</p></div></div><div class="chart-panel"><div class="currency-panel-heading"><div><h3>Biến động chỉ tiêu nông nghiệp</h3><p class="muted">Dữ liệu lịch sử theo kỳ công bố; không nội suy kỳ thiếu.</p></div></div><div class="chart-canvas-wrap"><canvas id="agricultureHistoryChart" role="img" aria-label="Biến động chỉ tiêu nông nghiệp"></canvas></div><p class="muted" id="agricultureChartNote">Biểu đồ sử dụng quan sát đã đồng bộ từ nguồn.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Chỉ số giá sản xuất nông, lâm nghiệp và thủy sản</h3><p class="muted">Biến động giá sản xuất so cùng kỳ; đây là chỉ số giá, không phải giá bán lẻ từng mặt hàng.</p></div><span id="agriPriceUpdated" class="status-pill neutral">Đang tải…</span></div><div id="agriPriceDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải chỉ số giá nông nghiệp</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="agriPriceHistoryChart" role="img" aria-label="Biến động chỉ số giá sản xuất nông lâm nghiệp và thủy sản"></canvas></div><p class="muted" id="agriPriceChartNote">Nguồn: Cục Thống kê (NSO).</p></div></div>
+    </section>
+
+    <section class="section category-data-section" id="cang-vu">
+      <div class="section-heading"><div><p class="eyebrow">HÀNG HẢI & CẢNG BIỂN</p><h2>Cảng vụ và vận tải biển</h2><p class="muted">Lưu lượng hàng qua cảng, container và hoạt động hàng hải theo cảng hoặc khu vực.</p></div><span class="section-index">09 / PORTS</span></div>
+      <div class="data-card-grid">
+        <article class="data-info-card"><span class="cat-icon blue">⚓</span><h3>Sản lượng hàng hóa</h3><p>Sản lượng thông qua cảng theo tấn, nhóm hàng và kỳ báo cáo.</p><small>Nguồn dự kiến: Cục Hàng hải và Đường thủy Việt Nam</small></article>
+        <article class="data-info-card"><span class="cat-icon purple">▦</span><h3>Container</h3><p>Sản lượng container cần nêu rõ TEU, cảng, thời kỳ và loại hình hàng hóa nếu nguồn cung cấp.</p><small>Trạng thái: Chưa đồng bộ</small></article>
+        <article class="data-info-card"><span class="cat-icon teal">◷</span><h3>Hoạt động tàu</h3><p>Lượt tàu và các chỉ tiêu khai thác chỉ bổ sung khi có bộ dữ liệu được phép sử dụng.</p><small>Nguồn: Chờ xác minh</small></article>
+      </div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Tổng DWT tàu vào cảng biển TP. Hồ Chí Minh</h3><p class="muted">Chỉ tiêu trọng tải toàn phần tàu vào cảng; không phải khối lượng hàng thực tế bốc dỡ.</p></div><span id="portsUpdated" class="status-pill neutral">Đang tải…</span></div><div id="portsDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu cảng vụ</h3><p>Đọc snapshot đã đồng bộ.</p></div></div><div class="chart-panel"><div class="currency-panel-heading"><div><h3>Biến động DWT tàu vào cảng</h3><p class="muted">Dữ liệu lịch sử theo kỳ công bố; không nội suy kỳ thiếu.</p></div></div><div class="chart-canvas-wrap"><canvas id="portsHistoryChart" role="img" aria-label="Biến động DWT tàu vào cảng"></canvas></div><p class="muted" id="portsChartNote">Biểu đồ sử dụng quan sát đã đồng bộ từ nguồn.</p></div></div>
+    </section>
+
+    <section class="section alt-section category-data-section" id="trai-phieu">
+      <div class="section-heading"><div><p class="eyebrow">THỊ TRƯỜNG VỐN NỢ</p><h2>Trái phiếu</h2><p class="muted">Lợi suất trái phiếu Chính phủ, phát hành, giao dịch và dư nợ theo nguồn công bố.</p></div><span class="section-index">10 / BONDS</span></div>
+      <div class="data-card-grid">
+        <article class="data-info-card"><span class="cat-icon blue">％</span><h3>Lợi suất Trái phiếu Chính phủ</h3><p>Lợi suất thị trường thứ cấp theo kỳ hạn 1, 2, 10 và 20 năm.</p><small>Nguồn: Sở Giao dịch Chứng khoán Hà Nội (HNX)</small></article>
+        <article class="data-info-card"><span class="cat-icon purple">▤</span><h3>Phát hành trái phiếu</h3><p>Khối lượng gọi thầu, trúng thầu, lãi suất trúng thầu và kỳ hạn phát hành.</p><small>Nguồn dự kiến: HNX, Bộ Tài chính · Chưa kết nối</small></article>
+        <article class="data-info-card"><span class="cat-icon orange">⇄</span><h3>Thị trường trái phiếu doanh nghiệp</h3><p>Phát hành và đáo hạn phải được phân loại theo loại trái phiếu và nguồn báo cáo.</p><small>Chưa đồng bộ dữ liệu</small></article>
+      </div>
+      <div class="currency-panel">
+        <div class="currency-panel-heading"><div><h3>Lợi suất trái phiếu Chính phủ — thị trường thứ cấp</h3><p class="muted">Đơn vị %/năm; lợi suất không đồng nghĩa với lãi coupon của một trái phiếu cụ thể.</p></div><span id="bondYieldsUpdated" class="status-pill neutral">Đang tải…</span></div>
+        <div id="bondYieldsTable" class="table-scroll"><div class="empty-state"><h3>Đang tải lợi suất</h3><p>Dữ liệu lấy từ snapshot đã đồng bộ.</p></div></div>
+        <div class="chart-panel">
+          <div class="currency-panel-heading"><div><h3>Biến động lợi suất trái phiếu Chính phủ</h3><p class="muted">So sánh lợi suất theo kỳ hạn, đơn vị %/năm.</p></div><label class="chart-range-label">Khoảng thời gian <select id="bondChartRange" aria-label="Khoảng thời gian lợi suất trái phiếu"><option value="7">7 ngày</option><option value="30" selected>30 ngày</option></select></label></div>
+          <div class="chart-canvas-wrap"><canvas id="bondYieldsChart" aria-label="Biểu đồ đường lợi suất trái phiếu Chính phủ" role="img"></canvas></div>
+          <p class="muted" id="bondChartNote">Biểu đồ dựa trên các quan sát lịch sử được API trả về.</p>
+        </div>
+      </div>
+      <p class="notice">Nguồn dữ liệu: HNX qua Dữ Liệu Kinh Tế. Phát hành trái phiếu doanh nghiệp và số liệu đấu thầu chưa được kết nối.</p>
+    </section>
+
+    <section class="section category-data-section" id="lao-dong">
+      <div class="section-heading"><div><p class="eyebrow">VIỆC LÀM & THU NHẬP</p><h2>Lao động</h2><p class="muted">Lực lượng lao động, việc làm, thất nghiệp, tiền lương và năng suất lao động.</p></div><span class="section-index">11 / LABOR</span></div>
+      <div class="data-card-grid">
+        <article class="data-info-card"><span class="cat-icon teal">♙</span><h3>Lực lượng lao động</h3><p>Quy mô và cơ cấu lao động theo giới tính, độ tuổi, khu vực và trình độ khi nguồn có công bố.</p><small>Nguồn dự kiến: NSO</small></article>
+        <article class="data-info-card"><span class="cat-icon orange">％</span><h3>Việc làm & thất nghiệp</h3><p>Tỷ lệ thất nghiệp cần ghi rõ khu vực thành thị/nông thôn và nhóm tuổi nếu có.</p><small>Nguồn dự kiến: NSO</small></article>
+        <article class="data-info-card"><span class="cat-icon green">▥</span><h3>Thu nhập & năng suất</h3><p>Thu nhập bình quân và năng suất lao động phải kèm đơn vị, giá hiện hành/so sánh và kỳ dữ liệu.</p><small>Trạng thái: Chưa đồng bộ</small></article>
+      </div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Lao động có việc làm</h3><p class="muted">Quy mô lao động có việc làm theo quý, đơn vị nghìn người.</p></div><span id="laborUpdated" class="status-pill neutral">Đang tải…</span></div><div id="laborDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu lao động</h3><p>Đọc snapshot đã đồng bộ.</p></div></div><div class="chart-panel"><div class="currency-panel-heading"><div><h3>Biến động lao động có việc làm</h3><p class="muted">Dữ liệu lịch sử theo kỳ công bố; không nội suy kỳ thiếu.</p></div></div><div class="chart-canvas-wrap"><canvas id="laborHistoryChart" role="img" aria-label="Biến động lao động có việc làm"></canvas></div><p class="muted" id="laborChartNote">Biểu đồ sử dụng quan sát đã đồng bộ từ nguồn.</p></div></div>
+    </section>
+
+
+    <section class="section trending-market-section" id="bien-dong-manh">
+      <div class="section-heading"><div><p class="eyebrow">THỊ TRƯỜNG HÀNG HÓA · LIVE</p><h2>Biến động mạnh</h2><p class="muted">Giá và phần trăm thay đổi tham chiếu từ Thị Trường Hàng Hóa.</p></div><a class="market-source-link" href="https://www.thitruonghanghoa.com/" target="_blank" rel="noopener noreferrer">● LIVE · Mở nguồn ↗</a></div>
+      <div id="trendingCommodityCards" class="trending-commodity-grid" aria-live="polite"><div class="loading-card">Đang tải biến động hàng hóa…</div></div>
+      <p class="trending-source-note" id="trendingCommodityStatus">Nguồn duy nhất: <a href="https://www.thitruonghanghoa.com/" target="_blank" rel="noopener noreferrer">thitruonghanghoa.com</a>.</p>
+    </section>
+
+    <section class="section market-section" id="hang-hoa">
+      <div class="section-heading">
+        <div><p class="eyebrow">THỊ TRƯỜNG TOÀN CẦU</p><h2>Giá hàng hóa</h2><p class="muted">Chọn mặt hàng để xem lịch sử gần nhất, đơn vị, nguồn và thời điểm dữ liệu.</p></div>
+        <span class="section-index">01 / MARKET</span>
+      </div>
+      <div class="toolbar">
+        <label class="search-box"><span>⌕</span><input id="commoditySearch" type="search" placeholder="Tìm dầu Brent, đồng, bạc…"></label>
+        <select id="commodityGroup" aria-label="Lọc nhóm hàng hóa"><option value="all">Tất cả nhóm</option><option value="energy">Năng lượng</option><option value="metals">Kim loại</option><option value="agriculture">Nông sản</option><option value="chemicals">Phân bón & hóa chất</option></select>
+      </div>
+      <div class="commodity-layout">
+        <div class="commodity-list" id="commodityList"><div class="loading-card">Đang tải danh mục…</div></div>
+        <article class="detail-card" id="commodityDetail">
+          <div class="detail-top"><div><p class="eyebrow">CHI TIẾT MẶT HÀNG</p><h3>Chọn một mặt hàng</h3></div><span class="status-pill neutral">Chưa chọn</span></div>
+          <p class="muted">Giá chỉ xuất hiện khi API nguồn trả về dữ liệu thực tế và được xác thực.</p>
+          <div class="metric-grid">
+            <div class="metric"><span>Giá mở cửa</span><strong>—</strong></div><div class="metric"><span>Giá đóng cửa gần nhất</span><strong>—</strong></div>
+            <div class="metric"><span>Cao nhất phiên</span><strong>—</strong></div><div class="metric"><span>Thấp nhất phiên</span><strong>—</strong></div>
+          </div>
+          <div class="chart-wrap"><canvas id="commodityChart" aria-label="Biểu đồ lịch sử giá hàng hóa"></canvas><div class="chart-empty" id="chartEmpty">Chưa có lịch sử giá được xác minh.</div></div>
+          <div class="detail-foot"><span id="commoditySource">Nguồn: chưa cấu hình</span><span id="commodityTimestamp">Thời điểm: —</span></div>
+        </article>
+      </div>
+      <div class="currency-panel money-indicator-panel" id="gold-finance"><div class="currency-panel-heading"><div><h3>Vàng và tài chính liên quan</h3><p class="muted">Giá mua/bán vàng theo thương hiệu và ngày công bố từ Dữ Liệu Kinh Tế.</p></div><span id="goldDataUpdated" class="status-pill neutral">Đang tải…</span></div><div id="goldDataContent" class="table-scroll"><div class="empty-state"><h3>Đang tải giá vàng</h3><p>Chỉ hiển thị chỉ tiêu có nguồn và ngày dữ liệu.</p></div></div><p class="notice">Giá theo thương hiệu có thể khác nhau; đơn vị triệu đồng/lượng. Không dùng giá mua vào thay cho giá bán ra.</p></div>
+      <p class="notice"><strong>Lưu ý:</strong> giá hợp đồng tương lai, giá giao ngay và giá bán nội địa có thể khác nhau. Mỗi mặt hàng phải được gắn đúng mã, loại giá, tiền tệ và đơn vị trước khi so sánh.</p>
+    </section>
+
+    <section class="section alt-section" id="co-phieu">
+      <div class="section-heading">
+        <div><p class="eyebrow">DOANH NGHIỆP NIÊM YẾT</p><h2>Báo cáo tài chính theo quý</h2><p class="muted">Theo dõi các kỳ có số liệu từ VietstockFinance. Kỳ mới tự xuất hiện sau khi đồng bộ; kỳ chưa trích xuất đủ sẽ được đánh dấu chờ.</p></div>
+        <span class="section-index">02 / COMPANY</span>
+      </div>
+      <div class="financial-terminal" id="financialTerminal">
+        <div class="statement-topbar">
+          <label class="statement-basis-label" aria-label="Loại báo cáo">
+            <select id="stockReportBasis">
+              <option value="consolidated">Báo cáo hợp nhất</option>
+              <option value="separate">Báo cáo riêng lẻ</option>
+            </select>
+          </label>
+          <nav class="statement-tabs" id="stockStatementTabs" aria-label="Loại báo cáo tài chính" role="tablist">
+            <button type="button" role="tab" aria-selected="true" class="is-active" data-statement="balance">Cân đối kế toán</button>
+            <button type="button" role="tab" aria-selected="false" data-statement="income">Kết quả kinh doanh</button>
+            <button type="button" role="tab" aria-selected="false" data-statement="cashflow">Lưu chuyển tiền tệ</button>
+            <button type="button" role="tab" aria-selected="false" data-statement="ratios">Chỉ số tài chính</button>
+            <button type="button" role="tab" aria-selected="false" data-statement="valuation">Định giá</button>
+            <button type="button" role="tab" aria-selected="false" data-statement="peers">So sánh cùng ngành</button>
+            <button type="button" role="tab" aria-selected="false" data-statement="notes">Thuyết minh &amp; nguồn</button>
+          </nav>
+        </div>
+        <div class="statement-toolbar">
+          <div class="statement-paging" role="group" aria-label="Chuyển khoảng kỳ báo cáo">
+            <button type="button" id="stockPeriodFirst" aria-label="Đến các kỳ mới nhất" title="Các kỳ mới nhất">≪</button>
+            <button type="button" id="stockPeriodPrev" aria-label="Kỳ mới hơn" title="Kỳ mới hơn">‹</button>
+            <span id="stockPeriodRange" aria-live="polite">Đang tải kỳ báo cáo…</span>
+            <button type="button" id="stockPeriodNext" aria-label="Kỳ cũ hơn" title="Kỳ cũ hơn">›</button>
+            <button type="button" id="stockPeriodLast" aria-label="Đến các kỳ cũ nhất" title="Các kỳ cũ nhất">≫</button>
+          </div>
+          <div class="statement-filters">
+            <label class="visually-hidden" for="stockUnit">Đơn vị</label>
+            <select id="stockUnit" aria-label="Đơn vị hiển thị"><option value="billion">Tỷ đồng</option><option value="million">Triệu đồng</option></select>
+            <label class="visually-hidden" for="stockFrequency">Chu kỳ</label>
+            <select id="stockFrequency" aria-label="Chu kỳ"><option value="quarter">Quý</option><option value="year" disabled>Năm (chưa có bảng năm)</option></select>
+            <label class="statement-cashflow-basis" id="stockCashflowBasisLabel" for="stockCashflowBasis" hidden>Cơ sở dòng tiền<select id="stockCashflowBasis" aria-label="Cơ sở số liệu lưu chuyển tiền tệ"><option value="quarter">Phát sinh trong quý</option><option value="ytd">Lũy kế từ đầu năm</option></select></label>
+            <label class="statement-symbol-select" for="stockSymbol">Mã<select id="stockSymbol">
+              <option value="MBB">MBB</option><option value="ACB">ACB</option><option value="FPT">FPT</option><option value="SHB">SHB</option><option value="TCX">TCX</option><option value="HCM">HCM</option><option value="VND">VND</option><option value="SHS">SHS</option><option value="NLG">NLG</option><option value="BSR">BSR</option><option value="TCB">TCB</option><option value="VHM">VHM</option>
+            <option value="TPB">TPB</option><option value="VPB">VPB</option><option value="STB">STB</option><option value="VCB">VCB</option><option value="CTG">CTG</option><option value="BID">BID</option><option value="VCI">VCI</option><option value="VCK">VCK</option><option value="VIX">VIX</option><option value="SSI">SSI</option><option value="VDS">VDS</option><option value="KDH">KDH</option><option value="NVL">NVL</option><option value="HHV">HHV</option><option value="DPG">DPG</option><option value="GAS">GAS</option><option value="PLX">PLX</option><option value="IDC">IDC</option><option value="KBC">KBC</option><option value="GEG">GEG</option></select></label>
+            <button class="statement-export" id="stockExportExcel" type="button">▧ Xuất Excel</button>
+            <button class="statement-refresh" id="loadStock" type="button" title="Tải lại dữ liệu" aria-label="Tải lại dữ liệu">↻</button>
+          </div>
+        </div>
+        <div class="statement-peer-options" id="stockPeerOptions" hidden>
+          <label for="stockTableCompareMetric">Chỉ tiêu so sánh
+            <select id="stockTableCompareMetric"><option value="net_profit">Lợi nhuận sau thuế</option><option value="pretax_profit">Lợi nhuận trước thuế</option><option value="revenue">Doanh thu</option><option value="total_assets">Tổng tài sản</option><option value="total_liabilities">Nợ phải trả</option><option value="equity">Vốn chủ sở hữu</option><option value="roa">ROA (%)</option><option value="roe">ROE (%)</option><option value="pb">P/B (lần)</option></select>
+          </label>
+          <label for="stockPeerIndustry">Phạm vi ngành<select id="stockPeerIndustry"><option value="same">Cùng ngành với mã đang chọn</option><option value="all">Tất cả ngành</option></select></label>
+          <span>Nhóm ngành được gán theo lĩnh vực hoạt động phổ biến của các mã đang cấu hình. P/B chỉ hiện khi dữ liệu nguồn có trường pb.</span>
+        </div>
+        <div class="empty-state hidden" id="stockState"><div class="empty-icon">▤</div><h3>Đang tải báo cáo tài chính</h3><p>Đang tìm snapshot VietstockFinance mới nhất. Trường chưa có trong dữ liệu sẽ để trống.</p></div>
+        <div class="table-scroll hidden" id="stockTableWrap">
+          <table class="statement-table" aria-label="Bảng báo cáo tài chính theo quý">
+            <thead id="stockStatementHead"><tr><th>Chỉ tiêu</th></tr></thead>
+            <tbody id="stockTableBody"></tbody>
+          </table>
+        </div>
+        <p id="stockSourceStatus" class="small statement-status" role="status" aria-live="polite">Đang nạp dữ liệu báo cáo tài chính…</p>
+        <p id="stockSyncSummary" class="small statement-summary"></p>
+        <p id="stockStatementHint" class="statement-hint">Đơn vị mặc định là tỷ đồng. Dữ liệu trống không được suy diễn; mở liên kết PDF để kiểm tra báo cáo gốc.</p>
+      </div>
+        <section class="financial-overview" aria-label="Thống kê chính doanh nghiệp">
+          <div class="financial-overview-heading">
+            <div>
+              <h3>Thống kê chính <strong id="stockStatsSymbol">MBB</strong></h3>
+              <p id="stockStatsMeta" class="financial-overview-meta">Đang tải kỳ báo cáo mới nhất…</p>
+            </div>
+            <span class="financial-overview-unit" id="stockStatsUnit">Đơn vị: tỷ đồng</span>
+          </div>
+          <div class="financial-stats-grid">
+            <article class="financial-stat-card">
+              <div class="financial-stat-heading"><h4>Diễn biến giá &amp; giao dịch</h4><span id="stockStatMarketPeriod">Thị trường</span></div>
+              <div class="financial-stat-rows">
+                <div><span>Giá cổ phiếu</span><strong id="stockStatPrice">—</strong></div>
+                <div><span>Khối lượng trung bình 15 ngày</span><strong id="stockStatVolume15d">—</strong></div>
+                <div><span>Biến động trong ngày</span><strong id="stockStatChange1d">—</strong></div>
+                <div><span>Biến động 1 tuần</span><strong id="stockStatChange1w">—</strong></div>
+                <div><span>Biến động 1 tháng</span><strong id="stockStatChange1m">—</strong></div>
+                <div><span>Biến động 3 tháng</span><strong id="stockStatChange3m">—</strong></div>
+                <div><span>Biến động 1 năm</span><strong id="stockStatChange1y">—</strong></div>
+                <div><span>Cao nhất / thấp nhất 52 tuần</span><strong id="stockStatRange52w">—</strong></div>
+              </div>
+              <p class="financial-stat-foot">Chỉ hiển thị khi snapshot có dữ liệu thị trường tương ứng; không tự ước tính giá.</p>
+            </article>
+            <article class="financial-stat-card">
+              <div class="financial-stat-heading"><h4>Tăng trưởng năm</h4><span id="stockStatPeriod">—</span></div>
+              <div class="financial-stat-rows">
+                <div><span id="stockStatRevenueYoYLabel">Doanh thu thuần (YoY)</span><strong id="stockStatRevenueYoY">—</strong></div>
+                <div><span>Lợi nhuận trước thuế (YoY)</span><strong id="stockStatPretaxYoY">—</strong></div>
+                <div><span>Lợi nhuận sau thuế (YoY)</span><strong id="stockStatNetYoY">—</strong></div>
+                <div><span id="stockStatRevenueLabel">Doanh thu thuần kỳ gần nhất</span><strong id="stockStatRevenue">—</strong></div>
+                <div><span>Lợi nhuận trước thuế kỳ gần nhất</span><strong id="stockStatPretax">—</strong></div>
+                <div><span>Lợi nhuận sau thuế kỳ gần nhất</span><strong id="stockStatNet">—</strong></div>
+              </div>
+              <p class="financial-stat-foot">YoY so với cùng kỳ năm trước trên cùng cơ sở hợp nhất/riêng lẻ.</p>
+            </article>
+            <article class="financial-stat-card">
+              <div class="financial-stat-heading"><h4>Định giá</h4><span>Chỉ số thị trường</span></div>
+              <div class="financial-stat-rows">
+                <div><span>Vốn hóa thị trường</span><strong id="stockStatMarketCap">—</strong></div>
+                <div><span>Giá trị doanh nghiệp (EV)</span><strong id="stockStatEnterpriseValue">—</strong></div>
+                <div><span>EPS (đồng/cp)</span><strong id="stockStatEps">—</strong></div>
+                <div><span>P/E</span><strong id="stockStatPe">—</strong></div>
+                <div><span>PEG</span><strong id="stockStatPeg">—</strong></div>
+                <div><span>P/B</span><strong id="stockStatPb">—</strong></div>
+                <div><span>EV/EBITDA</span><strong id="stockStatEvEbitda">—</strong></div>
+                <div><span>P/S</span><strong id="stockStatPs">—</strong></div>
+              </div>
+              <p class="financial-stat-foot">Định giá phụ thuộc dữ liệu thị trường cùng thời điểm; trường không có sẽ để trống.</p>
+            </article>
+            <article class="financial-stat-card">
+              <div class="financial-stat-heading"><h4>Cân đối kế toán</h4><span id="stockStatBasis">—</span></div>
+              <div class="financial-stat-rows">
+                <div><span>Tổng tài sản</span><strong id="stockStatAssets">—</strong></div>
+                <div><span>Tài sản ngắn hạn</span><strong id="stockStatCurrentAssets">—</strong></div>
+                <div><span>Tiền và tương đương tiền</span><strong id="stockStatCash">—</strong></div>
+                <div><span>Đầu tư tài chính ngắn hạn</span><strong id="stockStatShortInvestments">—</strong></div>
+                <div><span>Hàng tồn kho</span><strong id="stockStatInventory">—</strong></div>
+                <div><span>Nợ ngắn hạn</span><strong id="stockStatCurrentLiabilities">—</strong></div>
+                <div><span>Tổng nợ phải trả</span><strong id="stockStatLiabilities">—</strong></div>
+                <div><span>Vốn chủ sở hữu</span><strong id="stockStatEquity">—</strong></div>
+              </div>
+              <p class="financial-stat-foot">Các khoản mục chi tiết cần được trích xuất và đối chiếu từ bảng cân đối gốc.</p>
+            </article>
+            <article class="financial-stat-card">
+              <div class="financial-stat-heading"><h4>Dòng tiền &amp; hiệu quả</h4><span>Từ BCTC</span></div>
+              <div class="financial-stat-rows">
+                <div><span>Lưu chuyển tiền kinh doanh</span><strong id="stockStatOperatingCash">—</strong></div>
+                <div><span>Lưu chuyển tiền đầu tư</span><strong id="stockStatInvestingCash">—</strong></div>
+                <div><span>Lưu chuyển tiền tài chính</span><strong id="stockStatFinancingCash">—</strong></div>
+                <div><span>Chi đầu tư tài sản (CapEx)</span><strong id="stockStatCapex">—</strong></div>
+                <div><span>Dòng tiền tự do (ước tính)</span><strong id="stockStatFcf">—</strong></div>
+                <div><span>Biên lợi nhuận gộp</span><strong id="stockStatGrossMargin">—</strong></div>
+                <div><span>Biên lợi nhuận ròng</span><strong id="stockStatNetMargin">—</strong></div>
+              </div>
+              <p class="financial-stat-foot">Dòng tiền tự do chỉ tính khi có dòng tiền kinh doanh và chi đầu tư rõ ràng.</p>
+            </article>
+            <article class="financial-stat-card">
+              <div class="financial-stat-heading"><h4>Sức khỏe tài chính</h4><span>Chỉ số tính từ BCTC</span></div>
+              <div class="financial-stat-rows">
+                <div><span>Nợ phải trả / Tổng tài sản</span><strong id="stockStatDebtAssets">—</strong></div>
+                <div><span>Nợ phải trả / Vốn chủ</span><strong id="stockStatDebtEquity">—</strong></div>
+                <div><span>Vốn chủ / Tổng tài sản</span><strong id="stockStatEquityAssets">—</strong></div>
+                <div><span>ROA</span><strong id="stockStatRoa">—</strong></div>
+                <div><span>ROE</span><strong id="stockStatRoe">—</strong></div>
+                <div><span>Hệ số thanh toán hiện hành</span><strong id="stockStatCurrentRatio">—</strong></div>
+                <div><span>Trạng thái dữ liệu</span><strong><span id="stockStatStatus" class="financial-status financial-status-pending">Đang tải</span></strong></div>
+              </div>
+              <p class="financial-stat-foot">Các tỷ số cần đủ mẫu số và trường dữ liệu cùng kỳ mới được tính.</p>
+            </article>
+          </div>
+          <div class="financial-overview-source"><span id="stockStatsSourceNote">Nguồn và trạng thái kiểm chứng sẽ hiển thị sau khi tải dữ liệu.</span><a id="stockStatsSource" href="#" target="_blank" rel="noopener noreferrer" hidden>Mở báo cáo gốc ↗</a></div>
+        </section>
+      <div class="stock-charts-grid" aria-label="Biểu đồ phân tích tài chính">
+      <div class="currency-panel stock-chart-panel"><div class="currency-panel-heading"><div><h3>Doanh thu và lợi nhuận theo quý</h3><p class="muted">Chuỗi quý từ snapshot VietstockFinance; các kỳ cần rà soát được ghi trạng thái trong bảng.</p></div></div><div class="chart-canvas-wrap"><canvas id="stockProfitChart" role="img" aria-label="Biểu đồ doanh thu và lợi nhuận theo quý"></canvas></div><p class="muted data-chart-note" id="stockProfitNote">Đang kiểm tra dữ liệu offline.</p></div>
+      <div class="currency-panel stock-chart-panel"><div class="currency-panel-heading"><div><h3>Tài sản, nợ và vốn chủ sở hữu</h3><p class="muted">Theo dõi quy mô và cơ cấu nguồn vốn theo từng quý.</p></div></div><div class="chart-canvas-wrap"><canvas id="stockBalanceChart" role="img" aria-label="Biểu đồ tài sản, nợ và vốn chủ sở hữu"></canvas></div><p class="muted data-chart-note" id="stockBalanceNote">Đang kiểm tra dữ liệu offline.</p></div>
+      <div class="currency-panel stock-chart-panel"><div class="currency-panel-heading"><div><h3>ROA và ROE theo quý</h3><p class="muted">Tỷ số chỉ hiển thị nếu có trong snapshot và có cơ sở tính được kiểm chứng.</p></div></div><div class="chart-canvas-wrap"><canvas id="stockRatiosChart" role="img" aria-label="Biểu đồ ROA và ROE"></canvas></div><p class="muted data-chart-note" id="stockRatiosNote">Đang kiểm tra dữ liệu offline.</p></div>
+      <div class="currency-panel stock-chart-panel"><div class="currency-panel-heading"><div><h3>So sánh các mã cổ phiếu</h3><p class="muted">So sánh cùng kỳ và cùng chỉ tiêu; mã không có dữ liệu sẽ không được tự điền.</p></div></div><div class="stock-controls stock-compare-controls"><label>Chỉ tiêu<select id="stockCompareMetric"><option value="net_profit">Lợi nhuận sau thuế</option><option value="pretax_profit">Lợi nhuận trước thuế</option><option value="revenue">Doanh thu</option><option value="total_assets">Tổng tài sản</option><option value="total_liabilities">Nợ phải trả</option><option value="equity">Vốn chủ sở hữu</option><option value="roa">ROA (%)</option><option value="roe">ROE (%)</option><option value="pb">P/B (lần)</option></select></label><label>Phạm vi ngành<select id="stockCompareIndustry"><option value="all">Tất cả ngành</option><option value="same">Cùng ngành với mã đang chọn</option></select></label><label>Kỳ so sánh<select id="stockComparePeriod"><option value="">Đang tìm kỳ có dữ liệu…</option></select></label></div><div class="chart-canvas-wrap"><canvas id="stockCompareChart" role="img" aria-label="Biểu đồ so sánh các mã cổ phiếu"></canvas></div><p class="muted data-chart-note" id="stockCompareNote">Đang kiểm tra dữ liệu offline.</p><div id="stockCompareTable" class="table-scroll"></div></div>
+      </div>
+      <div class="currency-panel research-panel" id="stockResearchPanel">
+        <div class="currency-panel-heading"><div><h3>Thư viện báo cáo phân tích &amp; dự báo</h3><p class="muted">Danh mục nghiên cứu riêng biệt; không trộn dự phóng với báo cáo tài chính thực tế.</p></div><span class="status-pill neutral" id="researchStatus">Đang tải danh mục…</span></div>
+        <div class="stock-controls research-filters">
+          <label>Mã chứng khoán<select id="researchSymbol"><option value="">Tất cả mã</option><option>MBB</option><option>ACB</option><option>FPT</option><option>SHB</option><option>TCX</option><option>HCM</option><option>VND</option><option>SHS</option><option>NLG</option><option>BSR</option><option>TCB</option><option>VHM</option></select></label>
+          <label>Danh mục<select id="researchCategory"><option value="">Tất cả danh mục</option><option value="stock_analysis">Báo cáo phân tích cổ phiếu</option><option value="forecast_earnings">Dự phóng kết quả kinh doanh</option><option value="recommendation_valuation">Khuyến nghị và định giá</option><option value="industry_report">Báo cáo phân tích ngành</option><option value="market_strategy">Chiến lược thị trường và vĩ mô</option><option value="brokerage_research">Báo cáo nghiên cứu khác</option></select></label>
+          <label>Tìm công ty chứng khoán / tiêu đề<input id="researchSearch" type="search" placeholder="Ví dụ: MBB, giá mục tiêu, ngành ngân hàng"></label>
+        </div>
+        <div id="researchReportList" class="research-report-list"><div class="empty-state"><h3>Đang tải danh mục</h3><p>Chỉ hiển thị tài liệu có liên kết nguồn công khai.</p></div></div>
+        <p class="small muted">Lưu ý: danh mục là các liên kết báo cáo tìm thấy từ nguồn công khai. Trước khi sử dụng dự phóng hoặc khuyến nghị, hãy kiểm tra ngày phát hành, đơn vị phân tích và nội dung gốc.</p>
+      </div>
+      <p class="small muted">Lưu ý: doanh thu có thể chưa có trong snapshot hiện tại. P/E, P/B và tỷ suất sinh lời cổ đông cần thêm giá cổ phiếu theo ngày, số cổ phiếu lưu hành, cổ tức và quy ước tính thống nhất. Không hiển thị tỷ số khi thiếu dữ liệu đầu vào.</p>
+      <div class="currency-panel report-queue-panel" id="reportQueuePanel">
+        <div class="currency-panel-heading"><div><h3>Kho báo cáo &amp; hàng chờ</h3><p class="muted">Thêm mã chứng khoán và tạo yêu cầu thu thập báo cáo. Tệp hàng chờ cần được đưa vào repository để GitHub Actions xử lý.</p></div><span class="status-pill neutral" id="queueSummary">Đang tải hàng chờ…</span></div>
+        <form id="reportQueueForm" class="queue-form">
+          <label>Mã chứng khoán<input id="queueSymbol" name="symbol" required maxlength="10" pattern="[A-Za-z0-9]{3,10}" placeholder="Ví dụ: VNM"></label>
+          <label>Tên doanh nghiệp (tùy chọn)<input id="queueCompany" name="company" maxlength="120" placeholder="Tên công ty"></label>
+          <label>Tìm báo cáo từ năm<select id="queueStartYear" name="startYear"><option value="2022">2022</option><option value="2023">2023</option><option value="2024" selected>2024</option></select></label>
+          <label>Loại báo cáo<select id="queueReportType" name="reportType"><option value="consolidated">Hợp nhất</option><option value="separate">Riêng lẻ</option><option value="both">Cả hai</option></select></label>
+          <button class="button primary" type="submit">Tạo yêu cầu hàng chờ</button>
+        </form>
+        <div class="queue-actions"><button class="button" id="downloadQueue" type="button">Tải tệp hàng chờ JSON</button><span class="small muted" id="queueNotice">Chưa có yêu cầu mới trong phiên này.</span></div>
+        <div class="table-scroll"><table><thead><tr><th>Mã</th><th>Phạm vi</th><th>Trạng thái</th><th>Ngày tạo</th></tr></thead><tbody id="reportQueueBody"><tr><td colspan="4">Đang đọc danh sách…</td></tr></tbody></table></div>
+        <p class="small muted">Bảo mật: website tĩnh không lưu trực tiếp vào GitHub vì không được phép đặt GitHub token trong trình duyệt. Hãy tải JSON và commit vào <code>config/report-queue.json</code>; không có báo cáo nào được coi là đã tải hoặc xác minh chỉ vì đã tạo yêu cầu.</p>
+      </div>
+    </section>
+
+    <section class="section" id="vi-mo">
+      <div class="section-heading">
+        <div><p class="eyebrow">CHỈ TIÊU QUỐC GIA</p><h2>Kinh tế vĩ mô Việt Nam</h2><p class="muted">Dữ liệu theo tháng, quý hoặc năm từ cơ quan công bố chính thức.</p></div>
+        <span class="section-index">03 / MACRO</span>
+      </div>
+      <div class="macro-grid" id="macroGrid">
+        <article class="macro-card"><span>GDP</span><strong>Chưa có dữ liệu</strong><small>Nguồn: NSO</small></article>
+        <article class="macro-card"><span>CPI</span><strong>Chưa có dữ liệu</strong><small>Nguồn: NSO</small></article>
+        <article class="macro-card"><span>Xuất nhập khẩu</span><strong>Chưa có dữ liệu</strong><small>Nguồn: Hải quan</small></article>
+        <article class="macro-card"><span>Lãi suất & tỷ giá</span><strong>Chưa có dữ liệu</strong><small>Nguồn: NHNN</small></article>
+      </div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Chỉ số giá tiêu dùng (CPI)</h3><p class="muted">CPI lũy kế từ đầu năm theo chuỗi NSO; không phải tỷ lệ CPI so tháng trước.</p></div><span id="cpiUpdated" class="status-pill neutral">Đang tải…</span></div><div id="cpiDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải CPI</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="cpiHistoryChart" role="img" aria-label="Biểu đồ CPI lũy kế từ đầu năm"></canvas></div><p class="muted" id="cpiChartNote">Nguồn: Cục Thống kê (NSO).</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Tổng mức bán lẻ hàng hóa và dịch vụ</h3><p class="muted">Doanh thu danh nghĩa theo tháng, đơn vị theo nguồn công bố.</p></div><span id="retailUpdated" class="status-pill neutral">Đang tải…</span></div><div id="retailDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải bán lẻ</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="retailHistoryChart" role="img" aria-label="Biểu đồ tổng mức bán lẻ hàng hóa và dịch vụ"></canvas></div><p class="muted" id="retailChartNote">Nguồn: Cục Thống kê (NSO).</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Tổng kim ngạch xuất khẩu</h3><p class="muted">Giá trị xuất khẩu hàng hóa theo tháng, đơn vị triệu USD.</p></div><span id="exportsUpdated" class="status-pill neutral">Đang tải…</span></div><div id="exportsDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải xuất khẩu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="exportsHistoryChart" role="img" aria-label="Biểu đồ kim ngạch xuất khẩu"></canvas></div><p class="muted" id="exportsChartNote">Nguồn: Tổng cục Hải quan.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Tổng kim ngạch nhập khẩu</h3><p class="muted">Giá trị nhập khẩu hàng hóa theo tháng, đơn vị triệu USD.</p></div><span id="importsUpdated" class="status-pill neutral">Đang tải…</span></div><div id="importsDataTable" class="table-scroll"><div class="empty-state"><h3>Đang tải nhập khẩu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="importsHistoryChart" role="img" aria-label="Biểu đồ kim ngạch nhập khẩu"></canvas></div><p class="muted" id="importsChartNote">Nguồn: Tổng cục Hải quan.</p></div></div>
+      <div class="economic-chart-panel" style="margin-top:18px;background:#fff;border:1px solid #e8e2da;border-radius:12px;padding:16px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px"><div><h3 style="margin:0;font-size:18px">Biểu đồ chuỗi thời gian kinh tế</h3><p class="muted" style="margin:3px 0 0;font-size:12px">Chỉ vẽ dữ liệu đã đồng bộ từ API; không có dữ liệu thì để trống.</p></div><label for="economicSeriesSelect" style="font-size:12px">Chỉ tiêu <select id="economicSeriesSelect" style="margin-left:6px;max-width:100%;padding:8px;border:1px solid #e8e2da;border-radius:8px;background:#fff"><option value="gdp_quarterly">GDP theo quý</option><option value="cpi">CPI</option><option value="retail">Bán lẻ</option><option value="exchange_rate">Tỷ giá</option><option value="interest_rate">Lãi suất</option></select></label></div>
+        <div style="height:270px;position:relative"><canvas id="economicChart" aria-label="Biểu đồ chỉ tiêu kinh tế"></canvas><div id="economicChartEmpty" class="chart-empty" style="display:grid">Chưa có chuỗi dữ liệu đã xác minh. Cần cấu hình series ID từ API.</div></div>
+        <p id="economicChartSource" class="muted" style="font-size:11px;margin:8px 0 0">Nguồn: dulieukinhte.com API · Chưa đồng bộ</p>
+      </div>
+    </section>
+
+
+    <section class="section alt-section category-data-section" id="bo-sung-chi-tieu">
+      <div class="section-heading"><div><p class="eyebrow">MỞ RỘNG DỮ LIỆU</p><h2>Các chỉ tiêu bổ sung đã xác định nguồn</h2><p class="muted">Chuỗi có nguồn cụ thể, hiển thị kỳ và đơn vị theo dữ liệu API.</p></div><span class="section-index">13 / DATA</span></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Chỉ số vận tải kho bãi</h3><p class="muted">Chỉ báo vận tải kho bãi theo quý; không phải chỉ số LPI quốc tế.</p></div><span id="logisticsIndexUpdated" class="status-pill neutral">Đang tải…</span></div><div id="logisticsIndexTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="logisticsIndexChart" role="img" aria-label="Chỉ số vận tải kho bãi"></canvas></div><p class="muted" id="logisticsIndexNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Luân chuyển hàng hóa đường biển</h3><p class="muted">Đơn vị triệu tấn-km; không phải lượng container thông qua cảng.</p></div><span id="seaFreightUpdated" class="status-pill neutral">Đang tải…</span></div><div id="seaFreightTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="seaFreightChart" role="img" aria-label="Luân chuyển hàng hóa đường biển"></canvas></div><p class="muted" id="seaFreightNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Phát hành TPDN ngành bất động sản</h3><p class="muted">Không đại diện tổng phát hành trái phiếu doanh nghiệp toàn thị trường.</p></div><span id="propertyBondsUpdated" class="status-pill neutral">Đang tải…</span></div><div id="propertyBondsTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="propertyBondsChart" role="img" aria-label="Phát hành TPDN ngành bất động sản"></canvas></div><p class="muted" id="propertyBondsNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Giá xuất khẩu bình quân cao su</h3><p class="muted">USD/tấn theo thống kê hải quan; không phải giá giao ngay.</p></div><span id="rubberExportsUpdated" class="status-pill neutral">Đang tải…</span></div><div id="rubberExportsTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="rubberExportsChart" role="img" aria-label="Giá xuất khẩu bình quân cao su"></canvas></div><p class="muted" id="rubberExportsNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Giá nhập khẩu bình quân cao su</h3><p class="muted">USD/tấn theo thống kê hải quan; không phải giá giao ngay.</p></div><span id="rubberImportsUpdated" class="status-pill neutral">Đang tải…</span></div><div id="rubberImportsTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="rubberImportsChart" role="img" aria-label="Giá nhập khẩu bình quân cao su"></canvas></div><p class="muted" id="rubberImportsNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Dư nợ tín dụng toàn nền kinh tế</h3><p class="muted">Dư nợ cuối kỳ; không phải doanh số giải ngân.</p></div><span id="creditBalanceUpdated" class="status-pill neutral">Đang tải…</span></div><div id="creditBalanceTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="creditBalanceChart" role="img" aria-label="Dư nợ tín dụng toàn nền kinh tế"></canvas></div><p class="muted" id="creditBalanceNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Tăng trưởng tín dụng so đầu năm</h3><p class="muted">Chỉ tiêu lũy kế từ đầu năm; không phải mức tăng riêng trong tháng.</p></div><span id="creditGrowthUpdated" class="status-pill neutral">Đang tải…</span></div><div id="creditGrowthTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="creditGrowthChart" role="img" aria-label="Tăng trưởng tín dụng so đầu năm"></canvas></div><p class="muted" id="creditGrowthNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Lực lượng lao động</h3><p class="muted">Tổng lực lượng lao động theo quý, đơn vị theo nguồn API.</p></div><span id="laborForceUpdated" class="status-pill neutral">Đang tải…</span></div><div id="laborForceTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="laborForceChart" role="img" aria-label="Lực lượng lao động"></canvas></div><p class="muted" id="laborForceNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Giá gạo thế giới</h3><p class="muted">Giá hàng hóa quốc tế; đơn vị và kỳ được lấy trực tiếp từ API.</p></div><span id="globalRiceUpdated" class="status-pill neutral">Đang tải…</span></div><div id="globalRiceTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="globalRiceChart" role="img" aria-label="Giá gạo thế giới"></canvas></div><p class="muted" id="globalRiceNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Giá cao su TSR20 thế giới</h3><p class="muted">Giá tham chiếu quốc tế; không đồng nhất với giá xuất khẩu bình quân của Việt Nam.</p></div><span id="globalRubberUpdated" class="status-pill neutral">Đang tải…</span></div><div id="globalRubberTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="globalRubberChart" role="img" aria-label="Giá cao su TSR20 thế giới"></canvas></div><p class="muted" id="globalRubberNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Giá thép thanh thế giới</h3><p class="muted">Giá tham chiếu hàng hóa; đơn vị theo dữ liệu nguồn.</p></div><span id="globalSteelUpdated" class="status-pill neutral">Đang tải…</span></div><div id="globalSteelTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="globalSteelChart" role="img" aria-label="Giá thép thanh thế giới"></canvas></div><p class="muted" id="globalSteelNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>CPI nhà ở và vật liệu xây dựng</h3><p class="muted">Chỉ số chi phí tiêu dùng liên quan nhà ở/vật liệu; không phải giá giao dịch bất động sản.</p></div><span id="housingCpiUpdated" class="status-pill neutral">Đang tải…</span></div><div id="housingCpiTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="housingCpiChart" role="img" aria-label="CPI nhà ở và vật liệu xây dựng"></canvas></div><p class="muted" id="housingCpiNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+      <div class="currency-panel"><div class="currency-panel-heading"><div><h3>Chỉ số vận tải đường ven biển và viễn dương</h3><p class="muted">Chỉ số hoạt động vận tải theo quý; không phải sản lượng hàng qua cảng.</p></div><span id="coastalShippingUpdated" class="status-pill neutral">Đang tải…</span></div><div id="coastalShippingTable" class="table-scroll"><div class="empty-state"><h3>Đang tải dữ liệu</h3></div></div><div class="chart-panel"><div class="chart-canvas-wrap"><canvas id="coastalShippingChart" role="img" aria-label="Chỉ số vận tải đường ven biển và viễn dương"></canvas></div><p class="muted" id="coastalShippingNote">Dữ liệu lấy từ API đã đồng bộ.</p></div></div>
+    </section>
+
+    <section class="section source-section" id="nguon">
+      <div class="section-heading"><div><p class="eyebrow">MINH BẠCH VÀ KIỂM CHỨNG</p><h2>Nguồn số liệu & phương pháp</h2><p class="muted">Mỗi chỉ tiêu cần nguồn gốc, phạm vi, đơn vị, tần suất và ngày cập nhật rõ ràng.</p></div><span class="section-index">04 / SOURCES</span></div>
+      <div class="source-grid">
+        <article><span class="source-number">01</span><h3>Cục Thống kê (NSO)</h3><p>GDP, CPI, bán lẻ, vận tải, dân số, lao động và sản xuất công nghiệp.</p><a href="https://www.nso.gov.vn/" target="_blank" rel="noopener">Truy cập nguồn ↗</a></article>
+        <article><span class="source-number">02</span><h3>Tổng cục Hải quan</h3><p>Xuất khẩu, nhập khẩu, cán cân thương mại theo mặt hàng và thị trường.</p><a href="https://www.customs.gov.vn/" target="_blank" rel="noopener">Truy cập nguồn ↗</a></article>
+        <article><span class="source-number">03</span><h3>Ngân hàng Nhà nước</h3><p>Tiền tệ, tín dụng, lãi suất và tỷ giá theo phạm vi công bố.</p><a href="https://www.sbv.gov.vn/" target="_blank" rel="noopener">Truy cập nguồn ↗</a></article>
+        <article><span class="source-number">04</span><h3>Bộ Tài chính</h3><p>Thu chi ngân sách, bội chi, nợ công và trái phiếu chính phủ.</p><a href="https://mof.gov.vn/" target="_blank" rel="noopener">Truy cập nguồn ↗</a></article>
+        <article><span class="source-number">05</span><h3>S&P Global</h3><p>Chỉ số PMI sản xuất Việt Nam; lưu ý điều kiện cấp phép và quyền sử dụng.</p><a href="https://www.spglobal.com/marketintelligence/" target="_blank" rel="noopener">Truy cập nguồn ↗</a></article>
+        <article><span class="source-number">06</span><h3>Yahoo Finance</h3><p>Nguồn tham khảo lịch sử thị trường; tính sẵn có và điều kiện sử dụng cần được xác minh.</p><a href="https://finance.yahoo.com/" target="_blank" rel="noopener">Truy cập nguồn ↗</a></article>
+      </div>
+      <div class="method-box"><h3>Nguyên tắc tổng hợp</h3><ol><li>Thu thập từ API được phép, dữ liệu mở hoặc báo cáo công bố chính thức.</li><li>Chuẩn hóa tên chỉ tiêu, đơn vị, tần suất và mốc thời gian; giữ lại giá trị gốc.</li><li>Không nội suy hoặc tự điền dữ liệu thiếu. Nếu nguồn lỗi, giữ trạng thái thiếu và báo lỗi.</li><li>Lưu thời gian lấy dữ liệu, thời gian nguồn công bố và phiên bản/điều chỉnh nếu có.</li><li>Các chỉ số dẫn xuất phải công khai công thức và các trường dữ liệu đầu vào.</li></ol></div>
+    </section>
+    <section class="highlight-strip" aria-label="Dữ liệu nổi bật">
+      <div class="highlight-heading"><b>Dữ liệu nổi bật gần đây</b><span>Chỉ hiển thị khi có dữ liệu được xác minh</span></div>
+      <div class="highlight-grid"><article><span class="highlight-icon blue">▥</span><div><small>GDP Việt Nam</small><strong>Chưa có dữ liệu</strong><em>Nguồn: NSO</em></div></article><article><span class="highlight-icon green">▤</span><div><small>CPI</small><strong>Chưa có dữ liệu</strong><em>Nguồn: NSO</em></div></article><article><span class="highlight-icon purple">⇄</span><div><small>Xuất nhập khẩu</small><strong>Chưa có dữ liệu</strong><em>Nguồn: Hải quan</em></div></article><article><span class="highlight-icon orange">◉</span><div><small>Dầu Brent</small><strong>Chưa có dữ liệu</strong><em>Nguồn: chưa xác minh</em></div></article></div>
+    </section>
+  </main>
+  <div id="xuat-nhap-khau" class="anchor-target" aria-hidden="true"></div><div id="tien-te" class="anchor-target" aria-hidden="true"></div><div id="bat-dong-san" class="anchor-target" aria-hidden="true"></div>
+  <footer><div class="footer-brand">DỮ LIỆU KINH TẾ</div><p>Thông tin tham khảo, không phải khuyến nghị đầu tư. Luôn kiểm tra tài liệu gốc trước khi sử dụng.</p><span id="footerBuild">Phiên bản khởi tạo mới · Không dùng dữ liệu mẫu</span></footer>
+</body>
+</html>

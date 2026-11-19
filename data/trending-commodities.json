@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "fetchedAt": "2026-11-17T21:12:00+07:00",
+  "data": [
+    {
+      "name": "Dầu thô Dubai",
+      "label": "DUBAI CRUDE OIL",
+      "category": "Năng lượng",
+      "price": 93.81,
+      "unit": "USD/bbl",
+      "changePct": 1.79,
+      "url": "https://www.thitruonghanghoa.com/gia-hang-hoa/gia-dau-tho-dubai?notation=1&period=3m",
+      "observedAt": "2026-11-16"
+    },
+    {
+      "name": "Giá gạo thế giới – CBOT No.2",
+      "label": "ROUGH RICE FUTURES",
+      "category": "Nông sản",
+      "price": 402.56,
+      "unit": "USD/tấn",
+      "changePct": -0.01,
+      "url": "https://www.thitruonghanghoa.com/gia-hang-hoa/gia-gao-the-gioi?notation=2&period=1",
+      "observedAt": "2026-11-17"
+    },
+    {
+      "name": "Bạc thế giới",
+      "label": "SILVER",
+      "category": "Kim loại",
+      "price": 47.35,
+      "unit": "USD/toz",
+      "changePct": -0.11,
+      "url": "https://www.thitruonghanghoa.com/gia-hang-hoa/gia-bac-the-gioi",
+      "observedAt": "2026-11-16"
+    },
+    {
+      "name": "LNG Nhật Bản",
+      "label": "LIQUEFIED NATURAL GAS, JAPAN",
+      "category": "Năng lượng",
+      "price": 31.35,
+      "unit": "USD/MMBTU",
+      "changePct": 5.91,
+      "url": "https://www.thitruonghanghoa.com/id/harga-komoditas/lng-jepang?notation=1&period=3",
+      "observedAt": "2026-11-16"
+    }
+  ]
+}

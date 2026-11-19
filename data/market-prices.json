@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "fetchedAt": "2026-11-17T21:12:00+07:00",
+  "sourceName": "Thị Trường Hàng Hóa và Dữ Liệu Kinh Tế; nguồn gốc từng chuỗi ghi tại mỗi dòng",
+  "data": [
+    {
+      "id": 37827,
+      "name": "Dầu thô Brent",
+      "label": "BRENT CRUDE",
+      "value": 93.71,
+      "unit": "USD/bbl",
+      "date": "2026-11-17",
+      "changePct": 1.4,
+      "source": "Reuters (17/11/2026 intraday quote at 1340 GMT; not settlement)",
+      "sourceUrl": "https://www.reuters.com/business/energy/oil-slips-supply-surplus-outlook-despite-gulf-tensions-2026-11-17/",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "value": 93.71
+        }
+      ]
+    },
+    {
+      "id": 66457,
+      "name": "Cao su TSR20 – INE",
+      "label": "RUBBER TSR20",
+      "value": 16695,
+      "unit": "CNY/tấn",
+      "date": "2026-11-13",
+      "source": "Dữ Liệu Kinh Tế",
+      "sourceUrl": "https://dulieukinhte.com/du-lieu-dong/gia-cao-su-tsr20-ine-the-gioi-66457",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "value": 15685
+        },
+        {
+          "date": "2026-11-09",
+          "value": 15770
+        },
+        {
+          "date": "2026-11-10",
+          "value": 15895
+        },
+        {
+          "date": "2026-11-11",
+          "value": 16530
+        },
+        {
+          "date": "2026-11-12",
+          "value": 16495
+        },
+        {
+          "date": "2026-11-13",
+          "value": 16695
+        }
+      ]
+    },
+    {
+      "id": 33392,
+      "name": "Giá xuất khẩu bình quân cao su",
+      "label": "RUBBER EXPORT UNIT VALUE",
+      "value": 2370.45,
+      "unit": "USD/tấn",
+      "date": "2026-10-01",
+      "source": "Tổng cục Hải quan qua Dữ Liệu Kinh Tế",
+      "sourceUrl": "https://dulieukinhte.com/du-lieu-dong/gia-xuat-khau-binh-quan-cao-su-33392",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 1767.07
+        },
+        {
+          "date": "2026-02-01",
+          "value": 1855.19
+        },
+        {
+          "date": "2026-03-01",
+          "value": 1931.66
+        },
+        {
+          "date": "2026-04-01",
+          "value": 1997.71
+        },
+        {
+          "date": "2026-05-01",
+          "value": 2030.91
+        },
+        {
+          "date": "2026-06-01",
+          "value": 2129.89
+        },
+        {
+          "date": "2026-07-01",
+          "value": 2131.88
+        },
+        {
+          "date": "2026-08-01",
+          "value": 2117.57
+        },
+        {
+          "date": "2026-09-01",
+          "value": 2231.92
+        },
+        {
+          "date": "2026-10-01",
+          "value": 2370.45
+        }
+      ]
+    },
+    {
+      "id": 33408,
+      "name": "Giá nhập khẩu bình quân cao su",
+      "label": "RUBBER IMPORT UNIT VALUE",
+      "value": 1948.49,
+      "unit": "USD/tấn",
+      "date": "2026-10-01",
+      "source": "Tổng cục Hải quan qua Dữ Liệu Kinh Tế",
+      "sourceUrl": "https://dulieukinhte.com/du-lieu-dong/gia-nhap-khau-binh-quan-cao-su-33408",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 1522.74
+        },
+        {
+          "date": "2026-02-01",
+          "value": 1531.39
+        },
+        {
+          "date": "2026-03-01",
+          "value": 1770.65
+        },
+        {
+          "date": "2026-04-01",
+          "value": 1867.05
+        },
+        {
+          "date": "2026-05-01",
+          "value": 2027.53
+        },
+        {
+          "date": "2026-06-01",
+          "value": 1856.92
+        },
+        {
+          "date": "2026-07-01",
+          "value": 1980.15
+        },
+        {
+          "date": "2026-08-01",
+          "value": 1914.64
+        },
+        {
+          "date": "2026-09-01",
+          "value": 1974.14
+        },
+        {
+          "date": "2026-10-01",
+          "value": 1948.49
+        }
+      ]
+    }
+  ]
+}

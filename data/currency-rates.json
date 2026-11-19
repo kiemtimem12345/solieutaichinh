@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "lastUpdatedUtc": "2026-11-17T00:00:00+07:00",
+  "sourceName": "Ngân hàng TMCP Quốc Dân (NCB)",
+  "sourceUrl": "https://www.ncb-bank.vn/en/exchange-rates",
+  "rateType": "Tỷ giá bán chuyển khoản (Offer Rate – Transfer) do NCB niêm yết, hiệu lực 17/11/2026. Không phải tỷ giá trung tâm NHNN, tỷ giá liên ngân hàng hoặc tỷ giá mua vào.",
+  "usdReferenceLabel": "USD/VND bán chuyển khoản tại NCB",
+  "data": [
+    {
+      "code": "USD",
+      "name": "Đô la Mỹ",
+      "vndPerUnit": 26000,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "vndPerUnit": 29503,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    },
+    {
+      "code": "GBP",
+      "name": "Bảng Anh",
+      "vndPerUnit": 34646,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    },
+    {
+      "code": "JPY",
+      "name": "Yên Nhật",
+      "vndPerUnit": 166.92,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    },
+    {
+      "code": "CHF",
+      "name": "Franc Thụy Sĩ",
+      "vndPerUnit": 31333,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    },
+    {
+      "code": "CAD",
+      "name": "Đô la Canada",
+      "vndPerUnit": 18438,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    },
+    {
+      "code": "AUD",
+      "name": "Đô la Úc",
+      "vndPerUnit": 17807,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    },
+    {
+      "code": "SGD",
+      "name": "Đô la Singapore",
+      "vndPerUnit": 20403,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    },
+    {
+      "code": "KRW",
+      "name": "Won Hàn Quốc",
+      "vndPerUnit": 23.29,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    },
+    {
+      "code": "THB",
+      "name": "Baht Thái Lan",
+      "vndPerUnit": 802.59,
+      "method": "direct",
+      "effectiveDate": "2026-11-17"
+    }
+  ],
+  "effectiveDate": "2026-11-17"
+}

@@ -1,0 +1,1266 @@
+{
+  "symbol": "TPB",
+  "sourceName": "VietstockFinance — báo cáo tài chính theo quý TPB (2024-Q1 đến 2026-Q2)",
+  "fetchedAt": "2026-10-24T05:30:00Z",
+  "items": [
+    {
+      "symbol": "TPB",
+      "period": "2025-Q1",
+      "total_assets": 388891150,
+      "total_liabilities": 349399554,
+      "equity": 39491596,
+      "pretax_profit": 2108875,
+      "net_profit": 1686691,
+      "net_profit_attributable": null,
+      "revenue": 4482468,
+      "roa": 1.67,
+      "roe": 17.5,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/TPB_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất TPB 2025-Q1 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "B02a/TCTD-HN: bảng cân đối hợp nhất PDF trang 7–8; LNTT/LNST từ B03a/TCTD-HN của cùng báo cáo VietstockFinance.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "auto_extracted_pending_visual_review",
+      "source_validation": {
+        "reviewed_at": "2026-10-24",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/TPB_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 1 năm 2025  | BCTC Hợp nhất quý 1 năm 2025  | https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY 1/TPB_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+        "document_id": "504275",
+        "manually_visual_reviewed": false,
+        "last_extraction_attempt_at": "2026-10-22T07:35:26+00:00",
+        "extraction_attempt_count": 1,
+        "last_extraction_error": "Không tìm được ba dòng tài sản/nợ/vốn cùng một cột thỏa phương trình cân đối.",
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất Quý I/2025",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit"
+        ],
+        "accounting_equation_difference_million_vnd": 0,
+        "accounting_equation_matches": true,
+        "review_method": "OCR/text reconciliation; visual PDF review pending"
+      },
+      "published_at": "2025-04-29",
+      "source_archive_file": "reports/raw/TPB/auto-tpb-20261021/f95e7cacd969ceb0.pdf",
+      "source_archive_match": "matched_report_queue_url",
+      "fixed_assets": 1172615,
+      "bank_cash_on_hand": 1698877,
+      "bank_customer_loans": 259070461,
+      "bank_trading_securities": 10931,
+      "bank_investment_securities": 59909064,
+      "bank_other_assets": 5590919,
+      "financial_line_items_extracted_fields": [
+        "bank_cash_on_hand",
+        "bank_customer_loans",
+        "bank_investment_securities",
+        "bank_net_service_income",
+        "bank_operating_expenses",
+        "bank_other_assets",
+        "bank_pre_provision_operating_profit",
+        "bank_provision_expense",
+        "bank_service_expense",
+        "bank_service_income",
+        "bank_trading_securities",
+        "cash_beginning",
+        "cash_ending",
+        "cashflow_period_basis",
+        "fixed_assets",
+        "income_tax",
+        "revenue"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:28:26+00:00",
+      "financial_line_items_source": "reports/raw/TPB/auto-tpb-20261021/f95e7cacd969ceb0.pdf",
+      "financial_line_items_updated_at": "2026-10-26T07:06:10+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Số dư tiền đầu/cuối kỳ bị ẩn do không khớp biến động tiền theo quý. Dòng tiền tự trích xuất bị ẩn vì tổng các luồng tiền không khớp biến động tiền thuần. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "financial_line_items_prior_values": {
+        "bank_operating_expenses": -1883976,
+        "bank_provision_expense": -489617
+      },
+      "financial_line_items_rejected_values": {
+        "operating_cash_flow": {
+          "value": 6286794,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow": {
+          "value": -71757,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow": {
+          "value": -30000,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change": {
+          "value": -41578162,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "operating_cash_flow_ytd": {
+          "value": 6286794,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow_ytd": {
+          "value": -71757,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow_ytd": {
+          "value": -30000,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change_ytd": {
+          "value": -41578162,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        }
+      },
+      "core_financial_extraction_attempt_count": 4,
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-25T08:14:40+00:00",
+      "cashflow_period_basis": "year_to_date",
+      "operating_cash_flow_calculation": "Q1 equals YTD Q1",
+      "investing_cash_flow_calculation": "Q1 equals YTD Q1",
+      "financing_cash_flow_calculation": "Q1 equals YTD Q1",
+      "net_cash_change_calculation": "Q1 equals YTD Q1",
+      "financial_line_items_cash_check": "opening/closing cash hidden because the cash bridge did not reconcile",
+      "financial_line_items_rejected_fields": [
+        "financing_cash_flow",
+        "financing_cash_flow_ytd",
+        "investing_cash_flow",
+        "investing_cash_flow_ytd",
+        "net_cash_change",
+        "net_cash_change_ytd",
+        "operating_cash_flow",
+        "operating_cash_flow_ytd"
+      ],
+      "cash_beginning": 86148639,
+      "cash_ending": 44780913,
+      "core_financial_extraction_note": "Không còn trang PDF/ZIP đang chờ trích xuất tự động nhưng bộ chỉ tiêu lõi vẫn thiếu hoặc chưa cân đối. Giữ trống chỉ tiêu chưa xác minh và yêu cầu đối chiếu trực quan với báo cáo VietstockFinance.",
+      "core_financial_extraction_evidence_fingerprint": "32c47459e68e09d1080dde65067a27626f8af727d24cd0637abcd1b78ffafb02",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "core_financial_extracted_fields": [
+        "equity",
+        "net_profit",
+        "pretax_profit",
+        "total_assets",
+        "total_liabilities"
+      ],
+      "core_financial_extraction_source": "reports/raw/TPB/auto-tpb-20261021/f95e7cacd969ceb0.pdf",
+      "core_financial_extraction_pages": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "core_financial_extraction_calculations": {
+        "balance_totals_withheld": "asset/liability/equity totals did not fully reconcile"
+      },
+      "bank_service_income": 1175572,
+      "bank_service_expense": -265634,
+      "bank_operating_expenses": 1883976,
+      "bank_provision_expense": 489617,
+      "bank_net_service_income": 909938,
+      "bank_net_service_income_calculation": "Thu nhập dịch vụ - |chi phí dịch vụ| theo BCTC ngân hàng.",
+      "income_tax": 422184,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "average_total_assets": 403459770.5,
+      "average_equity": 38544003.5,
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity": 0,
+        "beginning_total_assets_million_vnd": 418028391,
+        "ending_total_assets_million_vnd": 388891150,
+        "beginning_equity_million_vnd": 37596411,
+        "ending_equity_million_vnd": 39491596,
+        "liabilities_derivation": "Tổng nợ phải trả = tổng tài sản - vốn chủ sở hữu; phương trình cân đối bằng 0.",
+        "raw_values_as_reported_million_vnd": {
+          "total_assets": 388891150,
+          "equity": 39491596,
+          "pretax_profit": 2108875,
+          "net_profit": 1686691
+        }
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-24",
+        "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/TPB_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+        "source_scope": "BCTC hợp nhất Quý I/2025 do danh mục VietstockFinance liên kết",
+        "source_pages": "B02a/TCTD-HN PDF trang 7–8; B03a/TCTD-HN cùng báo cáo",
+        "checks": {
+          "source_catalog_matches_single_source": true,
+          "balance_equation_million_vnd": 0,
+          "assets_equals_liabilities_plus_equity": true,
+          "recalculated_roa_percent": 1.67,
+          "recalculated_roe_percent": 17.5
+        },
+        "note": "Đã bổ sung số liệu từ OCR của báo cáo VietstockFinance; cần kiểm tra trực quan PDF."
+      },
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
+      "cash_beginning_reported_ytd": 86148639,
+      "financial_line_items_value_corrections": {
+        "bank_operating_expenses": {
+          "previous_value": -1883976,
+          "new_value": 1883976,
+          "reason": "Normalized bank operating expenses to the positive expense convention used in subtotal reconciliation."
+        },
+        "bank_provision_expense": {
+          "previous_value": -489617,
+          "new_value": 489617,
+          "reason": "Normalized the report's parenthesized credit-provision expense to the positive expense convention used throughout bank-category calculations."
+        }
+      },
+      "bank_pre_provision_operating_profit": 2598492,
+      "bank_pre_provision_operating_profit_calculation": "Tổng thu nhập hoạt động - |chi phí hoạt động| theo BCTC ngân hàng.",
+      "revenue_calculation": "Lợi nhuận trước dự phòng + chi phí hoạt động; đối chiếu theo tổng phụ BCTC ngân hàng.",
+      "bank_provision_expense_calculation": "Lợi nhuận trước dự phòng - lợi nhuận trước thuế; chi phí dự phòng ghi dương như BCTC."
+    },
+    {
+      "symbol": "TPB",
+      "period": "2025-Q2",
+      "total_assets": 428589979,
+      "total_liabilities": 390360071,
+      "equity": 38229908,
+      "pretax_profit": 2037358,
+      "net_profit": 1629604,
+      "net_profit_attributable": null,
+      "revenue": null,
+      "roa": 1.59,
+      "roe": 16.77,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/TPB_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất TPB 2025-Q2 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "B02a/TCTD-HN: bảng cân đối hợp nhất PDF trang 5–6; B03a/TCTD-HN KQKD hợp nhất PDF trang 8, cột Quý II.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "auto_extracted_pending_visual_review",
+      "source_validation": {
+        "reviewed_at": "2026-10-24",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/TPB_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 2 năm 2025  | BCTC Hợp nhất quý 2 năm 2025  | https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY 2/TPB_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+        "document_id": "513873",
+        "manually_visual_reviewed": false,
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất Quý II/2025",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit"
+        ],
+        "accounting_equation_difference_million_vnd": 0,
+        "accounting_equation_matches": true,
+        "review_method": "OCR/text reconciliation; visual PDF review pending"
+      },
+      "published_at": "2025-07-30",
+      "source_archive_file": "reports/raw/TPB/auto-tpb-20261021/b30bb9d09e613f27.pdf",
+      "source_archive_match": "matched_report_queue_url",
+      "fixed_assets": 1189484,
+      "bank_deposits_at_state_bank": 10000595,
+      "bank_customer_loans": 281188723,
+      "bank_trading_securities": 8833,
+      "bank_investment_securities": 60147095,
+      "bank_other_assets": 13672162,
+      "operating_profit": 2862102,
+      "bank_net_interest_income": 3151325,
+      "bank_service_income": 1340032,
+      "bank_service_expense": -351269,
+      "income_tax_current": -407754,
+      "income_tax": 407754,
+      "financial_line_items_extracted_fields": [
+        "bank_customer_deposits",
+        "bank_customer_loans",
+        "bank_deposits_and_borrowings_from_credit_institutions",
+        "bank_deposits_at_state_bank",
+        "bank_investment_securities",
+        "bank_net_interest_income",
+        "bank_net_service_income",
+        "bank_operating_expenses",
+        "bank_other_assets",
+        "bank_other_liabilities",
+        "bank_service_expense",
+        "bank_service_income",
+        "bank_trading_securities",
+        "bank_valuable_papers",
+        "cashflow_period_basis",
+        "fixed_assets",
+        "income_tax",
+        "income_tax_current",
+        "operating_profit",
+        "retained_earnings"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:28:29+00:00",
+      "financial_line_items_source": "reports/raw/TPB/auto-tpb-20261021/b30bb9d09e613f27.pdf",
+      "financial_line_items_updated_at": "2026-10-25T20:28:39+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Dòng tiền tự trích xuất bị ẩn vì tổng các luồng tiền không khớp biến động tiền thuần. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "financial_line_items_prior_values": {
+        "income_tax": -407754,
+        "bank_operating_expenses": -1753628
+      },
+      "financial_line_items_rejected_values": {
+        "operating_cash_flow": {
+          "value": 6497786,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow": {
+          "value": -62378,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow": {
+          "value": 1014444,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change": {
+          "value": 22707921,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "operating_cash_flow_ytd": {
+          "value": 12784580,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow_ytd": {
+          "value": -134135,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow_ytd": {
+          "value": 984444,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change_ytd": {
+          "value": -18870241,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "cash_beginning": {
+          "value": 44780913,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        }
+      },
+      "bank_net_service_income": 988763,
+      "bank_net_service_income_calculation": "Thu nhập dịch vụ - |chi phí dịch vụ| theo BCTC ngân hàng.",
+      "retained_earnings": 6874202,
+      "bank_deposits_and_borrowings_from_credit_institutions": 86542116,
+      "bank_customer_deposits": 246844312,
+      "bank_valuable_papers": 43958600,
+      "bank_other_liabilities": 1884347,
+      "core_financial_extraction_attempt_count": 4,
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-25T08:14:41+00:00",
+      "cashflow_period_basis": "year_to_date",
+      "operating_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "investing_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "financing_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "net_cash_change_calculation": "current YTD minus previous quarter YTD",
+      "cash_beginning_calculation": "previous quarter closing cash",
+      "financial_line_items_rejected_fields": [
+        "cash_beginning",
+        "financing_cash_flow",
+        "financing_cash_flow_ytd",
+        "investing_cash_flow",
+        "investing_cash_flow_ytd",
+        "net_cash_change",
+        "net_cash_change_ytd",
+        "operating_cash_flow",
+        "operating_cash_flow_ytd"
+      ],
+      "cash_beginning": 44780913,
+      "core_financial_extraction_note": "Không còn trang PDF/ZIP đang chờ trích xuất tự động nhưng bộ chỉ tiêu lõi vẫn thiếu hoặc chưa cân đối. Giữ trống chỉ tiêu chưa xác minh và yêu cầu đối chiếu trực quan với báo cáo VietstockFinance.",
+      "core_financial_extraction_evidence_fingerprint": "66760b08ac1f9433d23c5c6a22dbfe659b58b85ee628a803fb9ad01c98542e11",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "core_financial_extracted_fields": [
+        "equity",
+        "net_profit",
+        "pretax_profit",
+        "total_assets",
+        "total_liabilities"
+      ],
+      "core_financial_extraction_source": "reports/raw/TPB/auto-tpb-20261021/b30bb9d09e613f27.pdf",
+      "core_financial_extraction_pages": [
+        5,
+        6,
+        7,
+        8,
+        14
+      ],
+      "core_financial_extraction_calculations": {
+        "balance_totals_withheld": "asset/liability/equity totals did not fully reconcile"
+      },
+      "bank_operating_expenses": 1753628,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "average_total_assets": 408740564.5,
+      "average_equity": 38860752,
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity": 0,
+        "beginning_total_assets_million_vnd": 388891150,
+        "ending_total_assets_million_vnd": 428589979,
+        "beginning_equity_million_vnd": 39491596,
+        "ending_equity_million_vnd": 38229908,
+        "liabilities_derivation": "Tổng nợ phải trả = tổng tài sản - vốn chủ sở hữu; phương trình cân đối bằng 0.",
+        "raw_values_as_reported_million_vnd": {
+          "total_assets": 428589979,
+          "equity": 38229908,
+          "pretax_profit": 2037358,
+          "net_profit": 1629604
+        }
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-24",
+        "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/TPB_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+        "source_scope": "BCTC hợp nhất Quý II/2025 do danh mục VietstockFinance liên kết",
+        "source_pages": "B02a/TCTD-HN PDF trang 5–6; B03a/TCTD-HN PDF trang 8",
+        "checks": {
+          "source_catalog_matches_single_source": true,
+          "balance_equation_million_vnd": 0,
+          "assets_equals_liabilities_plus_equity": true,
+          "recalculated_roa_percent": 1.59,
+          "recalculated_roe_percent": 16.77
+        },
+        "note": "Đã bổ sung số liệu từ OCR của báo cáo VietstockFinance; cần kiểm tra trực quan PDF."
+      },
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
+      "cash_beginning_reported_ytd": 44780913,
+      "financial_line_items_value_corrections": {
+        "bank_operating_expenses": {
+          "previous_value": -1753628,
+          "new_value": 1753628,
+          "reason": "Normalized bank operating expenses to the positive expense convention used in subtotal reconciliation."
+        }
+      }
+    },
+    {
+      "symbol": "TPB",
+      "period": "2025-Q3",
+      "total_assets": null,
+      "total_liabilities": null,
+      "equity": null,
+      "pretax_profit": null,
+      "net_profit": null,
+      "net_profit_attributable": null,
+      "revenue": null,
+      "roa": null,
+      "roe": null,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/TPB_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất TPB 2025-Q3 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "Chưa trích xuất được đủ chỉ tiêu; xem PDF/ZIP trong đường dẫn VietstockFinance.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "manual_review_required_pending_extraction",
+      "source_validation": {
+        "reviewed_at": "2026-10-21T12:06:45+00:00",
+        "single_source_policy": "Chỉ danh mục VietstockFinance và tệp do danh mục đó liên kết.",
+        "source_catalog_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/TPB_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 3 năm 2025  | BCTC Hợp nhất quý 3 năm 2025  | https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY 3/TPB_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+        "document_id": "523539",
+        "manually_visual_reviewed": false
+      },
+      "published_at": "2025-10-30",
+      "source_archive_file": "reports/raw/TPB/auto-tpb-20261021/3849167a56b8ea2a.pdf",
+      "source_archive_match": "matched_report_queue_url",
+      "fixed_assets": 1253386,
+      "bank_deposits_at_state_bank": 20659033,
+      "bank_customer_loans": 292020111,
+      "bank_trading_securities": 57321,
+      "bank_investment_securities": 57166207,
+      "bank_other_assets": 13092245,
+      "operating_profit": 2811135,
+      "bank_net_interest_income": 3237619,
+      "bank_service_income": 1375773,
+      "bank_service_expense": -340799,
+      "income_tax_current": -381217,
+      "income_tax": 381217,
+      "financial_line_items_extracted_fields": [
+        "bank_customer_deposits",
+        "bank_customer_loans",
+        "bank_deposits_and_borrowings_from_credit_institutions",
+        "bank_deposits_at_state_bank",
+        "bank_investment_securities",
+        "bank_net_interest_income",
+        "bank_net_service_income",
+        "bank_operating_expenses",
+        "bank_other_assets",
+        "bank_other_liabilities",
+        "bank_other_operating_net",
+        "bank_service_expense",
+        "bank_service_income",
+        "bank_trading_securities",
+        "bank_valuable_papers",
+        "cash_beginning",
+        "cash_ending",
+        "cashflow_period_basis",
+        "fixed_assets",
+        "income_tax",
+        "income_tax_current",
+        "operating_profit",
+        "retained_earnings"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:28:33+00:00",
+      "financial_line_items_source": "reports/raw/TPB/auto-tpb-20261021/3849167a56b8ea2a.pdf",
+      "financial_line_items_updated_at": "2026-10-25T20:28:39+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Số dư tiền đầu/cuối kỳ bị ẩn do không khớp biến động tiền theo quý. Dòng tiền tự trích xuất bị ẩn vì tổng các luồng tiền không khớp biến động tiền thuần. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "financial_line_items_prior_values": {
+        "income_tax": -381217,
+        "bank_operating_expenses": -1713927
+      },
+      "financial_line_items_rejected_values": {
+        "operating_cash_flow": {
+          "value": 8181267,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow": {
+          "value": -27948,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow": {
+          "value": 1347200,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change": {
+          "value": 19081894,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "operating_cash_flow_ytd": {
+          "value": 20965847,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow_ytd": {
+          "value": -162083,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow_ytd": {
+          "value": 2331644,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change_ytd": {
+          "value": 211653,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        }
+      },
+      "bank_net_service_income": 1034974,
+      "bank_net_service_income_calculation": "Thu nhập dịch vụ - |chi phí dịch vụ| theo BCTC ngân hàng.",
+      "retained_earnings": 8385337,
+      "bank_deposits_and_borrowings_from_credit_institutions": 99689552,
+      "bank_customer_deposits": 260245786,
+      "bank_valuable_papers": 44305800,
+      "bank_other_liabilities": 7269688,
+      "core_financial_extracted_fields": [
+        "net_profit",
+        "pretax_profit"
+      ],
+      "core_financial_extraction_source": "reports/raw/TPB/auto-tpb-20261021/3849167a56b8ea2a.pdf",
+      "core_financial_extraction_pages": [
+        5,
+        6,
+        7,
+        8,
+        16,
+        17,
+        18
+      ],
+      "core_financial_extraction_status": "manual_review_required_pending_extraction",
+      "core_financial_extraction_updated_at": "2026-10-26T07:06:04+00:00",
+      "core_financial_extraction_note": "Đã có đủ trang nguồn mục tiêu nhưng hai lượt phân tích trên cùng văn bản vẫn không tạo được bộ chỉ tiêu lõi cân đối. Các số OCR chưa cân đối được lưu riêng để đối chiếu; chỉ tiêu chính chưa xác minh được để trống.",
+      "cashflow_period_basis": "year_to_date",
+      "operating_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "investing_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "financing_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "net_cash_change_calculation": "current YTD minus previous quarter YTD",
+      "financial_line_items_cash_check": "opening/closing cash hidden because the cash bridge did not reconcile",
+      "financial_line_items_rejected_fields": [
+        "financing_cash_flow",
+        "financing_cash_flow_ytd",
+        "investing_cash_flow",
+        "investing_cash_flow_ytd",
+        "net_cash_change",
+        "net_cash_change_ytd",
+        "operating_cash_flow",
+        "operating_cash_flow_ytd"
+      ],
+      "cash_beginning": 86148639,
+      "cash_ending": 86612489,
+      "verification_status_note": "Cần đối chiếu trực quan với PDF VietstockFinance trước khi công bố các chỉ tiêu lõi.",
+      "bank_operating_expenses": 1713927,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "ratio_calculation_notes": {
+        "roe": "Lợi nhuận sau thuế quý / vốn chủ sở hữu bình quân đầu-cuối kỳ × 4; dùng net_profit do net_profit_attributable chưa được trích xuất; OCR từ báo cáo hợp nhất VietstockFinance, cần rà soát trực quan."
+      },
+      "ratio_source_pages": [
+        5,
+        6,
+        7
+      ],
+      "ratio_verification_status": "derived_from_vietstock_ocr_pending_visual_review",
+      "ratio_calculations": {
+        "roa": "Lợi nhuận sau thuế riêng quý III/2025 1,520,640 / bình quân tổng tài sản cuối Q2/2025 428,589,979 và cuối Q3/2025 451,893,195 × 4 × 100."
+      },
+      "ratio_note": "Tổng tài sản cuối quý và đầu quý đối chiếu từ BCTC hợp nhất Q3/2025 do VietstockFinance liên kết; ROA tính theo lợi nhuận quý riêng, chưa xác minh trực quan PDF.",
+      "core_financial_extraction_unverified_values": {
+        "total_assets": 451893195,
+        "total_liabilities": 411899955,
+        "equity": 39993240,
+        "pretax_profit": 1901857,
+        "net_profit": 1520640,
+        "roa": 1.38,
+        "roe": 15.68
+      },
+      "core_financial_extraction_unverified_values_parser_version": "legacy-parser-before-ngan-vnd-unit-fix",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "core_financial_extraction_evidence_fingerprint": "086209a6bd835fbac8a0093f9bdc8409930687e28a0286b100ea8a1fe06189d8",
+      "core_financial_extraction_evidence_attempt_count": 1,
+      "core_financial_extraction_calculations": {
+        "balance_totals_withheld": "asset/liability/equity totals did not fully reconcile"
+      },
+      "core_financial_extraction_attempt_count": 1,
+      "core_financial_extraction_stable_evidence_count": 4,
+      "core_financial_extraction_stable_evidence_updated_at": "2026-10-26T07:06:04+00:00",
+      "core_financial_extraction_manual_terminal": true,
+      "bank_other_operating_net": 229138,
+      "cash_beginning_reported_ytd": 86148639,
+      "financial_line_items_value_corrections": {
+        "bank_operating_expenses": {
+          "previous_value": -1713927,
+          "new_value": 1713927,
+          "reason": "Normalized bank operating expenses to the positive expense convention used in subtotal reconciliation."
+        }
+      }
+    },
+    {
+      "symbol": "TPB",
+      "period": "2025-Q4",
+      "total_assets": 505926663,
+      "total_liabilities": 459968547,
+      "equity": 45958116,
+      "pretax_profit": 3155047,
+      "net_profit": 2542763,
+      "net_profit_attributable": null,
+      "revenue": null,
+      "roa": 2.12,
+      "roe": 23.67,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/TPB_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất TPB 2025-Q4 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "B02a/TCTD-HN: bảng cân đối hợp nhất PDF trang 7–8; LNTT/LNST từ B03a/TCTD-HN của cùng báo cáo. Số cuối kỳ đã cập nhật theo số so sánh trình bày lại trong BCTC Q1/2026 và Q2/2026.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "auto_extracted_pending_visual_review",
+      "source_validation": {
+        "reviewed_at": "2026-10-24",
+        "single_source_policy": "Chỉ danh mục VietstockFinance và PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/TPB_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 4 năm 2025  | BCTC Hợp nhất quý 4 năm 2025  | https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY 4/TPB_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+        "document_id": "530462",
+        "manually_visual_reviewed": false,
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất Quý IV/2025",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit"
+        ],
+        "accounting_equation_difference_million_vnd": 0,
+        "accounting_equation_matches": true,
+        "review_method": "OCR/text reconciliation; visual PDF review pending",
+        "restatement_basis": "Số so sánh 31/12/2025 trình bày lại trong BCTC hợp nhất Q1/2026 và Q2/2026 trên VietstockFinance.",
+        "ratio_recalculation_after_restatement": {
+          "roa_percent": 2.12,
+          "roe_percent": 23.67
+        }
+      },
+      "published_at": "2026-01-30",
+      "source_archive_file": "reports/raw/TPB/auto-tpb-20261021/7035db49b3b4ca6b.pdf",
+      "source_archive_match": "matched_report_queue_url",
+      "fixed_assets": 1212704,
+      "bank_cash_on_hand": 1704704,
+      "bank_deposits_at_state_bank": 20459657,
+      "bank_customer_loans": 302175438,
+      "bank_trading_securities": 2098259,
+      "bank_investment_securities": 51613170,
+      "bank_other_assets": 21788586,
+      "financial_line_items_extracted_fields": [
+        "bank_cash_on_hand",
+        "bank_customer_deposits",
+        "bank_customer_loans",
+        "bank_deposits_and_borrowings_from_credit_institutions",
+        "bank_deposits_at_state_bank",
+        "bank_investment_securities",
+        "bank_net_service_income",
+        "bank_operating_expenses",
+        "bank_other_assets",
+        "bank_other_liabilities",
+        "bank_other_operating_net",
+        "bank_service_expense",
+        "bank_service_income",
+        "bank_trading_securities",
+        "bank_valuable_papers",
+        "cash_beginning",
+        "cash_ending",
+        "cashflow_period_basis",
+        "financing_cash_flow_ytd",
+        "fixed_assets",
+        "income_tax",
+        "income_tax_current",
+        "investing_cash_flow_ytd",
+        "net_cash_change_ytd",
+        "operating_cash_flow_ytd",
+        "operating_profit",
+        "retained_earnings"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-26T07:06:06+00:00",
+      "financial_line_items_source": "reports/raw/TPB/auto-tpb-20261021/7035db49b3b4ca6b.pdf",
+      "financial_line_items_updated_at": "2026-10-26T07:06:06+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "financial_line_items_prior_values": {
+        "cash_beginning": 86612489,
+        "income_tax": -617872,
+        "bank_operating_expenses": -1221879
+      },
+      "financial_line_items_rejected_values": {},
+      "retained_earnings": 9607192,
+      "bank_deposits_and_borrowings_from_credit_institutions": 112055311,
+      "bank_customer_deposits": 279050251,
+      "bank_valuable_papers": 58825000,
+      "bank_other_liabilities": 8140102,
+      "core_financial_extraction_attempt_count": 4,
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-25T08:14:42+00:00",
+      "operating_cash_flow_ytd": 30133067,
+      "investing_cash_flow_ytd": -405174,
+      "financing_cash_flow_ytd": 1372844,
+      "net_cash_change_ytd": 29598685,
+      "cash_beginning": 86612489,
+      "cash_ending": 115747324,
+      "cashflow_period_basis": "year_to_date",
+      "cash_beginning_calculation": "previous quarter closing cash",
+      "core_financial_extraction_note": "Không còn trang PDF/ZIP đang chờ trích xuất tự động nhưng bộ chỉ tiêu lõi vẫn thiếu hoặc chưa cân đối. Giữ trống chỉ tiêu chưa xác minh và yêu cầu đối chiếu trực quan với báo cáo VietstockFinance.",
+      "core_financial_extraction_evidence_fingerprint": "77b16e01fd3aa73a138fa1c43ad9b7313ba02d44b8da6b3edbdd563168616dbf",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "core_financial_extracted_fields": [
+        "equity",
+        "net_profit",
+        "pretax_profit",
+        "total_assets",
+        "total_liabilities"
+      ],
+      "core_financial_extraction_source": "reports/raw/TPB/auto-tpb-20261021/7035db49b3b4ca6b.pdf",
+      "core_financial_extraction_pages": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "core_financial_extraction_calculations": {
+        "balance_totals_withheld": "asset/liability/equity totals did not fully reconcile"
+      },
+      "operating_profit": 4132631,
+      "bank_service_income": 1627573,
+      "bank_service_expense": -403491,
+      "bank_operating_expenses": 1221879,
+      "income_tax_current": -617872,
+      "income_tax": 612284,
+      "financial_line_items_value_corrections": {
+        "cash_beginning": {
+          "previous_value": 86612489,
+          "new_value": 86148639,
+          "reason": "Reparsed from the explicit opening cash balance row in the bank B04/TCTD statement."
+        },
+        "bank_operating_expenses": {
+          "previous_value": -1221879,
+          "new_value": 1221879,
+          "reason": "Normalized bank operating expenses to the positive expense convention used in subtotal reconciliation."
+        }
+      },
+      "bank_net_service_income": 1224082,
+      "bank_net_service_income_calculation": "Thu nhập dịch vụ - |chi phí dịch vụ| theo BCTC ngân hàng.",
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "average_total_assets": 478909929,
+      "average_equity": 42975678,
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity": 0,
+        "beginning_total_assets_million_vnd": 451893195,
+        "ending_total_assets_million_vnd": 505871568,
+        "beginning_equity_million_vnd": 39993240,
+        "ending_equity_million_vnd": 46018759,
+        "liabilities_derivation": "Tổng nợ phải trả = tổng tài sản - vốn chủ sở hữu; phương trình cân đối bằng 0.",
+        "raw_values_as_reported_million_vnd": {
+          "total_assets": 505871568,
+          "equity": 46018759,
+          "pretax_profit": 3155047,
+          "net_profit": 2542763
+        },
+        "originally_reported_values_million_vnd": {
+          "total_assets": 505871568,
+          "total_liabilities": 459852809,
+          "equity": 46018759
+        },
+        "restated_comparative_values_million_vnd": {
+          "total_assets": 505926663,
+          "total_liabilities": 459968547,
+          "equity": 45958116
+        },
+        "restatement_basis": "BCTC hợp nhất Q1/2026 và Q2/2026 do VietstockFinance liên kết trình bày lại số so sánh 31/12/2025; dùng số đã trình bày lại cho chuỗi dữ liệu nhất quán.",
+        "average_total_assets_million_vnd": 478909929,
+        "average_equity_million_vnd": 42975678,
+        "ratio_recalculation_after_restatement": {
+          "roa_percent": 2.12,
+          "roe_percent": 23.67,
+          "formula": "LNST quý / bình quân đầu-cuối kỳ × 4 × 100"
+        }
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-24",
+        "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/TPB_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+        "source_scope": "BCTC hợp nhất Q4/2025; số cuối kỳ đã cập nhật theo báo cáo VietstockFinance Q1/Q2 2026",
+        "source_pages": "B02a/TCTD-HN PDF trang 7–8; B03a/TCTD-HN cùng báo cáo",
+        "checks": {
+          "source_catalog_matches_single_source": true,
+          "balance_equation_million_vnd": 0,
+          "assets_equals_liabilities_plus_equity": true,
+          "recalculated_roa_percent": 2.12,
+          "recalculated_roe_percent": 23.67
+        },
+        "note": "Giữ dấu vết số báo cáo ban đầu và số so sánh trình bày lại trong reconciliation; cần kiểm tra trực quan trước khi nâng trạng thái xác minh."
+      },
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
+      "bank_other_operating_net": 21861,
+      "cash_beginning_reported_ytd": 86148639
+    },
+    {
+      "symbol": "TPB",
+      "period": "2026-Q1",
+      "total_assets": 527169377,
+      "total_liabilities": 479135059,
+      "equity": 48034318,
+      "pretax_profit": 2105819,
+      "net_profit": 1682225,
+      "net_profit_attributable": null,
+      "revenue": null,
+      "roa": 1.3,
+      "roe": 14.32,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/TPB_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất TPB 2026-Q1 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "B02a/TCTD-HN PDF trang 5–6; B03a/TCTD-HN cùng báo cáo.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "auto_extracted_pending_visual_review",
+      "source_validation": {
+        "reviewed_at": "2026-10-24",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/TPB_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 1 năm 2026  | BCTC Hợp nhất quý 1 năm 2026  | https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY 1/TPB_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+        "document_id": "544711",
+        "manually_visual_reviewed": false,
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất 2026-Q1",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit"
+        ],
+        "accounting_equation_difference_million_vnd": 0,
+        "accounting_equation_matches": true,
+        "review_method": "OCR/text reconciliation; visual PDF review pending"
+      },
+      "published_at": "2026-05-04",
+      "source_archive_file": "reports/raw/TPB/auto-tpb-20261021/d8f4e25a6a4b8054.pdf",
+      "source_archive_match": "matched_report_queue_url",
+      "fixed_assets": 724961,
+      "bank_cash_on_hand": 2592698,
+      "bank_customer_loans": 312044784,
+      "bank_trading_securities": 1482130,
+      "bank_investment_securities": 57531215,
+      "bank_contributions_and_long_term_investments": 13200,
+      "bank_other_assets": 31231723,
+      "operating_profit": 2652781,
+      "bank_interest_income": 9308076,
+      "bank_net_interest_income": 3459591,
+      "bank_service_income": 1624198,
+      "bank_service_expense": -371769,
+      "income_tax_current": -475390,
+      "income_tax": 423594,
+      "financial_line_items_extracted_fields": [
+        "bank_cash_on_hand",
+        "bank_contributions_and_long_term_investments",
+        "bank_customer_deposits",
+        "bank_customer_loans",
+        "bank_deposits_and_borrowings_from_credit_institutions",
+        "bank_interest_income",
+        "bank_investment_securities",
+        "bank_net_interest_income",
+        "bank_net_service_income",
+        "bank_operating_expenses",
+        "bank_other_assets",
+        "bank_other_liabilities",
+        "bank_other_operating_net",
+        "bank_service_expense",
+        "bank_service_income",
+        "bank_trading_securities",
+        "cash_beginning",
+        "cash_ending",
+        "cashflow_period_basis",
+        "fixed_assets",
+        "income_tax",
+        "income_tax_current",
+        "operating_profit",
+        "retained_earnings"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:28:37+00:00",
+      "financial_line_items_source": "reports/raw/TPB/auto-tpb-20261021/d8f4e25a6a4b8054.pdf",
+      "financial_line_items_updated_at": "2026-10-25T20:28:39+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Số dư tiền đầu/cuối kỳ bị ẩn do không khớp biến động tiền theo quý. Dòng tiền tự trích xuất bị ẩn vì tổng các luồng tiền không khớp biến động tiền thuần. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "financial_line_items_prior_values": {
+        "income_tax": -475390,
+        "bank_operating_expenses": -2246554
+      },
+      "financial_line_items_rejected_values": {
+        "operating_cash_flow": {
+          "value": 471388,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow": {
+          "value": -81784,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow": {
+          "value": -192100,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change": {
+          "value": -7567017,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "operating_cash_flow_ytd": {
+          "value": 471388,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow_ytd": {
+          "value": -81784,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow_ytd": {
+          "value": -192100,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change_ytd": {
+          "value": -7567017,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        }
+      },
+      "bank_net_service_income": 1252429,
+      "bank_net_service_income_calculation": "Thu nhập dịch vụ - |chi phí dịch vụ| theo BCTC ngân hàng.",
+      "retained_earnings": 11305830,
+      "bank_deposits_and_borrowings_from_credit_institutions": 134159815,
+      "bank_customer_deposits": 267038156,
+      "bank_other_liabilities": 9570280,
+      "core_financial_extraction_attempt_count": 4,
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-25T08:14:43+00:00",
+      "core_financial_extraction_note": "Không còn trang PDF/ZIP đang chờ trích xuất tự động nhưng bộ chỉ tiêu lõi vẫn thiếu hoặc chưa cân đối. Giữ trống chỉ tiêu chưa xác minh và yêu cầu đối chiếu trực quan với báo cáo VietstockFinance.",
+      "cashflow_period_basis": "year_to_date",
+      "operating_cash_flow_calculation": "Q1 equals YTD Q1",
+      "investing_cash_flow_calculation": "Q1 equals YTD Q1",
+      "financing_cash_flow_calculation": "Q1 equals YTD Q1",
+      "net_cash_change_calculation": "Q1 equals YTD Q1",
+      "financial_line_items_cash_check": "opening/closing cash hidden because the cash bridge did not reconcile",
+      "financial_line_items_rejected_fields": [
+        "financing_cash_flow",
+        "financing_cash_flow_ytd",
+        "investing_cash_flow",
+        "investing_cash_flow_ytd",
+        "net_cash_change",
+        "net_cash_change_ytd",
+        "operating_cash_flow",
+        "operating_cash_flow_ytd"
+      ],
+      "cash_beginning": 115747324,
+      "cash_ending": 108553424,
+      "core_financial_extraction_evidence_fingerprint": "a06a9101cbb8f7925b3b06776bc590fe8104a0daa0eb47b055e0ac400aec9e02",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "core_financial_extracted_fields": [
+        "equity",
+        "net_profit",
+        "pretax_profit",
+        "total_assets",
+        "total_liabilities"
+      ],
+      "core_financial_extraction_source": "reports/raw/TPB/auto-tpb-20261021/d8f4e25a6a4b8054.pdf",
+      "core_financial_extraction_pages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "core_financial_extraction_calculations": {
+        "balance_totals_withheld": "asset/liability/equity totals did not fully reconcile"
+      },
+      "bank_operating_expenses": 2246554,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "average_total_assets": 516548020,
+      "average_equity": 46996217,
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity": 0,
+        "beginning_total_assets_million_vnd": 505926663,
+        "ending_total_assets_million_vnd": 527169377,
+        "beginning_equity_million_vnd": 45958116,
+        "ending_equity_million_vnd": 48034318,
+        "liabilities_derivation": "Tổng nợ phải trả = tổng tài sản - vốn chủ sở hữu; phương trình cân đối bằng 0.",
+        "raw_values_as_reported_million_vnd": {
+          "total_assets": 527169377,
+          "equity": 48034318,
+          "pretax_profit": 2105819,
+          "net_profit": 1682225
+        }
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-24",
+        "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/TPB_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+        "source_scope": "BCTC hợp nhất 2026-Q1 do danh mục VietstockFinance liên kết",
+        "source_pages": "B02a/TCTD-HN PDF trang 5–6; B03a/TCTD-HN cùng báo cáo.",
+        "checks": {
+          "source_catalog_matches_single_source": true,
+          "balance_equation_million_vnd": 0,
+          "assets_equals_liabilities_plus_equity": true,
+          "recalculated_roa_percent": 1.3,
+          "recalculated_roe_percent": 14.32
+        },
+        "note": "Số liệu trích từ BCTC hợp nhất VietstockFinance; báo cáo Q1/2026 trình bày lại số so sánh 31/12/2025."
+      },
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
+      "bank_other_operating_net": 270038,
+      "cash_beginning_reported_ytd": 115747324,
+      "financial_line_items_value_corrections": {
+        "bank_operating_expenses": {
+          "previous_value": -2246554,
+          "new_value": 2246554,
+          "reason": "Normalized bank operating expenses to the positive expense convention used in subtotal reconciliation."
+        }
+      }
+    },
+    {
+      "symbol": "TPB",
+      "period": "2026-Q2",
+      "total_assets": 547664403,
+      "total_liabilities": 498098578,
+      "equity": 49565825,
+      "pretax_profit": 2377476,
+      "net_profit": 1890968,
+      "net_profit_attributable": null,
+      "revenue": null,
+      "roa": 1.41,
+      "roe": 15.5,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/TPB_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất TPB 2026-Q2 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "B02a/TCTD-HN PDF trang 7–8; B03a/TCTD-HN cùng báo cáo.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "auto_extracted_pending_visual_review",
+      "source_validation": {
+        "reviewed_at": "2026-10-24",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/TPB_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 2 năm 2026  | BCTC Hợp nhất quý 2 năm 2026  | https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY 2/TPB_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+        "document_id": "555564",
+        "manually_visual_reviewed": false,
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất 2026-Q2",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit"
+        ],
+        "accounting_equation_difference_million_vnd": 0,
+        "accounting_equation_matches": true,
+        "review_method": "OCR/text reconciliation; visual PDF review pending"
+      },
+      "published_at": "2026-07-31",
+      "source_archive_file": "reports/raw/TPB/auto-tpb-20261021/36160cdcecbd2382.pdf",
+      "source_archive_match": "matched_report_queue_url",
+      "fixed_assets": 677035,
+      "bank_cash_on_hand": 1771148,
+      "bank_deposits_at_state_bank": 13444607,
+      "bank_customer_loans": 333970520,
+      "bank_trading_securities": 4714695,
+      "bank_investment_securities": 59281266,
+      "bank_contributions_and_long_term_investments": 13200,
+      "bank_other_assets": 33938582,
+      "financial_line_items_extracted_fields": [
+        "bank_cash_on_hand",
+        "bank_contributions_and_long_term_investments",
+        "bank_customer_deposits",
+        "bank_customer_loans",
+        "bank_deposits_and_borrowings_from_credit_institutions",
+        "bank_deposits_at_state_bank",
+        "bank_investment_securities",
+        "bank_net_service_income",
+        "bank_operating_expenses",
+        "bank_other_assets",
+        "bank_other_liabilities",
+        "bank_other_operating_net",
+        "bank_service_expense",
+        "bank_service_income",
+        "bank_trading_securities",
+        "bank_valuable_papers",
+        "cash_beginning",
+        "cash_ending",
+        "cashflow_period_basis",
+        "financing_cash_flow_ytd",
+        "fixed_assets",
+        "income_tax",
+        "income_tax_current",
+        "investing_cash_flow_ytd",
+        "net_cash_change_ytd",
+        "operating_cash_flow_ytd",
+        "operating_profit",
+        "retained_earnings"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-26T07:06:10+00:00",
+      "financial_line_items_source": "reports/raw/TPB/auto-tpb-20261021/36160cdcecbd2382.pdf",
+      "financial_line_items_updated_at": "2026-10-26T07:06:10+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "financial_line_items_prior_values": {
+        "cash_beginning": 108553424,
+        "bank_operating_expenses": -2043366
+      },
+      "financial_line_items_rejected_values": {},
+      "retained_earnings": 11755939,
+      "bank_deposits_and_borrowings_from_credit_institutions": 143343728,
+      "bank_customer_deposits": 288477683,
+      "bank_valuable_papers": 54157381,
+      "bank_other_liabilities": 11810147,
+      "core_financial_extracted_fields": [
+        "eps",
+        "equity",
+        "net_profit",
+        "pretax_profit",
+        "total_assets",
+        "total_liabilities"
+      ],
+      "core_financial_extraction_source": "reports/raw/TPB/auto-tpb-20261021/36160cdcecbd2382.pdf",
+      "core_financial_extraction_pages": [
+        2,
+        7,
+        8,
+        9,
+        10
+      ],
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-25T08:14:43+00:00",
+      "core_financial_extraction_note": "Không còn trang PDF/ZIP đang chờ trích xuất tự động nhưng bộ chỉ tiêu lõi vẫn thiếu hoặc chưa cân đối. Giữ trống chỉ tiêu chưa xác minh và yêu cầu đối chiếu trực quan với báo cáo VietstockFinance.",
+      "core_financial_extraction_calculations": {
+        "balance_totals_withheld": "asset/liability/equity totals did not fully reconcile"
+      },
+      "core_financial_extraction_attempt_count": 4,
+      "income_tax": 486508,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "operating_cash_flow_ytd": 18171212,
+      "investing_cash_flow_ytd": -114798,
+      "financing_cash_flow_ytd": 920000,
+      "net_cash_change_ytd": -18723989,
+      "cash_beginning": 108553424,
+      "cash_ending": 97023335,
+      "cashflow_period_basis": "year_to_date",
+      "cash_beginning_calculation": "previous quarter closing cash",
+      "core_financial_extraction_evidence_fingerprint": "feeace1938045a3416ca382fc5c2e779cc297d9576b32c77a934de239538a3ea",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "eps": 1195,
+      "operating_profit": 3151816,
+      "bank_service_income": 1768135,
+      "bank_service_expense": -636614,
+      "bank_operating_expenses": 2043366,
+      "income_tax_current": -501009,
+      "financial_line_items_value_corrections": {
+        "cash_beginning": {
+          "previous_value": 108553424,
+          "new_value": 115747324,
+          "reason": "Reparsed from the explicit opening cash balance row in the bank B04/TCTD statement."
+        },
+        "bank_operating_expenses": {
+          "previous_value": -2043366,
+          "new_value": 2043366,
+          "reason": "Normalized bank operating expenses to the positive expense convention used in subtotal reconciliation."
+        }
+      },
+      "bank_net_service_income": 1131521,
+      "bank_net_service_income_calculation": "Thu nhập dịch vụ - |chi phí dịch vụ| theo BCTC ngân hàng.",
+      "average_total_assets": 537416890,
+      "average_equity": 48800071.5,
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity": 0,
+        "beginning_total_assets_million_vnd": 527169377,
+        "ending_total_assets_million_vnd": 547664403,
+        "beginning_equity_million_vnd": 48034318,
+        "ending_equity_million_vnd": 49565825,
+        "liabilities_derivation": "Tổng nợ phải trả = tổng tài sản - vốn chủ sở hữu; phương trình cân đối bằng 0.",
+        "raw_values_as_reported_million_vnd": {
+          "total_assets": 547664403,
+          "equity": 49565825,
+          "pretax_profit": 2377476,
+          "net_profit": 1890968
+        }
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-24",
+        "source_index_url": "https://finance.vietstock.vn/TPB/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/TPB_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+        "source_scope": "BCTC hợp nhất 2026-Q2 do danh mục VietstockFinance liên kết",
+        "source_pages": "B02a/TCTD-HN PDF trang 7–8; B03a/TCTD-HN cùng báo cáo.",
+        "checks": {
+          "source_catalog_matches_single_source": true,
+          "balance_equation_million_vnd": 0,
+          "assets_equals_liabilities_plus_equity": true,
+          "recalculated_roa_percent": 1.41,
+          "recalculated_roe_percent": 15.5
+        },
+        "note": "Số liệu trích từ BCTC hợp nhất VietstockFinance; số so sánh 31/12/2025 được trình bày lại trong báo cáo."
+      },
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
+      "bank_other_operating_net": 184196,
+      "cash_beginning_reported_ytd": 115747324
+    }
+  ],
+  "sync_status": "records_found",
+  "bootstrap_last_attempt_at": "2026-10-22T07:35:26+00:00",
+  "bootstrap_attempt_count": 1,
+  "bootstrap_status": "complete_needs_manual_review",
+  "bootstrap_completed_at": "2026-10-22T16:41:46+00:00",
+  "bootstrap_completion_note": "Các kỳ báo cáo có thể tự trích xuất đã được lưu; một số kỳ còn cần đối chiếu thủ công."
+}

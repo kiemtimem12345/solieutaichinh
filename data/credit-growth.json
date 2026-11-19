@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "sourceName": "Ngân hàng Nhà nước Việt Nam (phát biểu Thống đốc, dẫn tin Nhân Dân/VNA)",
+  "sourceUrl": "https://en.nhandan.vn/minister-pledges-higher-capital-efficiency-sufficient-resources-for-growth-post168524.html",
+  "observationDate": "2026-10-31",
+  "sourceUpdatedDate": "2026-10-31",
+  "data": [
+    {
+      "name": "Tăng trưởng tín dụng so đầu năm",
+      "value": 12.27,
+      "unit": "%"
+    }
+  ],
+  "note": "Khoảng 12,27% YTD tại 31/10/2026 theo phát biểu Thống đốc NHNN. Đây là mức tăng lũy kế so đầu năm, không phải mức tăng riêng trong tháng; số được nêu ở dạng khoảng."
+}

@@ -1,0 +1,1525 @@
+{
+  "symbol": "KDH",
+  "sourceName": "VietstockFinance — báo cáo tài chính theo quý KDH (2024-Q3 đến 2024-Q2)",
+  "fetchedAt": "2026-10-23T14:22:23.772Z",
+  "items": [
+    {
+      "symbol": "KDH",
+      "period": "2025-Q1",
+      "total_assets": null,
+      "total_liabilities": null,
+      "equity": null,
+      "pretax_profit": null,
+      "net_profit": null,
+      "net_profit_attributable": null,
+      "revenue": 709885,
+      "roa": null,
+      "roe": null,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/KDH_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất KDH 2025-Q1 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "Chưa trích xuất được đủ chỉ tiêu; xem PDF/ZIP trong đường dẫn VietstockFinance.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "manual_review_required_pending_extraction",
+      "source_validation": {
+        "reviewed_at": "2026-10-23T13:04:38+00:00",
+        "single_source_policy": "Chỉ danh mục VietstockFinance và tệp do danh mục đó liên kết.",
+        "source_catalog_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/KDH_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 1 năm 2025  | BCTC Hợp nhất quý 1 năm 2025  | https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY 1/KDH_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+        "document_id": "504295",
+        "manually_visual_reviewed": false,
+        "extraction_deferred_for_short_batch": true
+      },
+      "published_at": "2025-04-29",
+      "source_archive_file": "reports/raw/KDH/auto-kdh-20261021/addeec12aa06e16f.pdf",
+      "source_archive_source": "VietstockFinance document index",
+      "source_archive_title": "Báo cáo tài chính Hợp nhất quý 1 năm 2025 Báo cáo tài chính Hợp nhất quý 1 năm 2025  ",
+      "source_archive_linked_at": "2026-10-23T13:18:31.690489+00:00",
+      "core_financial_extracted_fields": [
+        "net_profit",
+        "pretax_profit"
+      ],
+      "core_financial_extraction_source": "reports/raw/KDH/auto-kdh-20261021/addeec12aa06e16f.pdf",
+      "core_financial_extraction_pages": [
+        5,
+        6,
+        7
+      ],
+      "core_financial_extraction_status": "manual_review_required_pending_extraction",
+      "core_financial_extraction_updated_at": "2026-10-25T21:23:01+00:00",
+      "core_financial_extraction_note": "Đã có đủ trang nguồn mục tiêu nhưng hai lượt phân tích trên cùng văn bản vẫn không tạo được bộ chỉ tiêu lõi cân đối. Các số OCR chưa cân đối được lưu riêng để đối chiếu; chỉ tiêu chính chưa xác minh được để trống.",
+      "current_assets": 28282880,
+      "cash_and_equivalents": 2106996,
+      "short_term_investments": 259981,
+      "short_term_receivables": 3302543,
+      "non_current_assets": 1918837,
+      "fixed_assets": 71933,
+      "current_liabilities": 3214020,
+      "long_term_liabilities": 7419595,
+      "retained_earnings": 121945,
+      "cost_of_goods_sold": -403198,
+      "gross_profit": 306687,
+      "financial_income": 19643,
+      "financial_expense": -47828,
+      "selling_expense": -62529,
+      "admin_expense": -54418,
+      "operating_profit": 161555,
+      "income_tax_current": -37607,
+      "income_tax_deferred": -286,
+      "income_tax": 37893,
+      "operating_cash_flow_ytd": 281,
+      "financing_cash_flow_ytd": 298425,
+      "capital_expenditure_ytd": -31140,
+      "net_cash_change_ytd": 5,
+      "cashflow_period_basis": "quarterly_reported",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "capital_expenditure_ytd",
+        "cash_and_equivalents",
+        "cashflow_period_basis",
+        "cost_of_goods_sold",
+        "current_assets",
+        "current_liabilities",
+        "financial_expense",
+        "financial_income",
+        "financing_cash_flow_ytd",
+        "fixed_assets",
+        "gross_profit",
+        "income_tax",
+        "income_tax_current",
+        "income_tax_deferred",
+        "long_term_liabilities",
+        "net_cash_change_ytd",
+        "non_current_assets",
+        "operating_cash_flow_ytd",
+        "operating_profit",
+        "retained_earnings",
+        "revenue",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T21:23:00+00:00",
+      "financial_line_items_source": "reports/raw/KDH/auto-kdh-20261021/addeec12aa06e16f.pdf",
+      "financial_line_items_updated_at": "2026-10-23T14:23:55+00:00",
+      "financial_line_items_note": "Đang trích xuất lại các chỉ tiêu chi tiết sau khi sửa nhận diện đơn vị Ngàn/Nghìn VND. Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "operating_cash_flow": 0,
+      "operating_cash_flow_calculation": "reported as standalone quarter",
+      "financing_cash_flow": 298,
+      "financing_cash_flow_calculation": "reported as standalone quarter",
+      "capital_expenditure": -31,
+      "capital_expenditure_calculation": "reported as standalone quarter",
+      "net_cash_change": 0,
+      "net_cash_change_calculation": "reported as standalone quarter",
+      "financial_line_items_prior_values": {
+        "inventory": 22404,
+        "current_liabilities": 3214,
+        "revenue": 710,
+        "cost_of_goods_sold": -403,
+        "admin_expense": -54,
+        "financing_cash_flow_ytd": 298,
+        "capital_expenditure_ytd": -31,
+        "income_tax": -38
+      },
+      "financial_line_items_rejected_values": {
+        "cash_beginning": {
+          "value": 3096,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "cash_ending": {
+          "value": 2107,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "inventory": {
+          "value": 22404478,
+          "reason": "asset component exceeds current assets"
+        }
+      },
+      "financial_line_items_rejected_fields": [
+        "cash_beginning",
+        "cash_ending",
+        "inventory"
+      ],
+      "core_financial_extraction_stable_evidence_updated_at": "2026-10-25T21:23:01+00:00",
+      "core_financial_extraction_unverified_values": {
+        "pretax_profit": 156561,
+        "net_profit": 118668
+      },
+      "core_financial_extraction_unverified_values_parser_version": "2026-10-23-ngan-vnd-unit-v1",
+      "verification_status_note": "Cần đối chiếu trực quan với PDF VietstockFinance trước khi công bố các chỉ tiêu lõi.",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "financial_line_items_value_corrections": {
+        "inventory": {
+          "previous_value": 22404,
+          "new_value": 22404478,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "current_liabilities": {
+          "previous_value": 3214,
+          "new_value": 3214020,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "cost_of_goods_sold": {
+          "previous_value": -403,
+          "new_value": -403198,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "admin_expense": {
+          "previous_value": -54,
+          "new_value": -54418,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "financing_cash_flow_ytd": {
+          "previous_value": 298,
+          "new_value": 298425,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "capital_expenditure_ytd": {
+          "previous_value": -31,
+          "new_value": -31140,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        }
+      },
+      "financial_line_items_overrides": {
+        "revenue": {
+          "previous_value": 710,
+          "new_value": 709885,
+          "reason": "Dòng doanh thu thuần trong báo cáo gốc khớp với giá vốn và lợi nhuận gộp."
+        }
+      },
+      "revenue_calculation": "Lợi nhuận gộp + |giá vốn hàng bán|; tái lập từ hai dòng của BCTC do doanh thu OCR không khớp.",
+      "financial_line_items_revenue_reconciliation": {
+        "previous_value": 709885,
+        "reconstructed_value": 403505,
+        "formula": "gross_profit + abs(cost_of_goods_sold)",
+        "difference_from_parsed_value": 306380
+      },
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "financial_line_items_unverified_values": {
+        "admin_expense": -54418,
+        "capital_expenditure_ytd": -31140,
+        "cash_and_equivalents": 2107,
+        "cashflow_period_basis": "quarterly_reported",
+        "cost_of_goods_sold": -403198,
+        "current_assets": 28283,
+        "current_liabilities": 3214020,
+        "financial_expense": -48,
+        "financial_income": 20,
+        "financing_cash_flow_ytd": 298425,
+        "fixed_assets": 72,
+        "gross_profit": 307,
+        "income_tax": 37893,
+        "income_tax_current": -38,
+        "income_tax_deferred": 0,
+        "long_term_liabilities": 7420,
+        "net_cash_change_ytd": 0,
+        "non_current_assets": 1919,
+        "operating_cash_flow_ytd": 0,
+        "operating_profit": 162,
+        "retained_earnings": 122,
+        "revenue": 403505,
+        "selling_expense": -63,
+        "short_term_investments": 260,
+        "short_term_receivables": 3303
+      },
+      "financial_line_items_unverified_values_note": "Giá trị OCR trước khi sửa nhận diện đơn vị Ngàn VND; giữ để kiểm toán, không dùng hiển thị trong quá trình tái trích xuất.",
+      "core_financial_extraction_evidence_fingerprint": "a320bbf1e2795adc10adeb0832478331a91e7eb6b8b1634143c76052b3ac075f",
+      "core_financial_extraction_evidence_attempt_count": 1,
+      "core_financial_extraction_calculations": {
+        "balance_totals_withheld": "asset/liability/equity totals did not fully reconcile"
+      },
+      "core_financial_extraction_stable_evidence_count": 4,
+      "core_financial_extraction_attempt_count": 1,
+      "core_financial_extraction_manual_terminal": true
+    },
+    {
+      "symbol": "KDH",
+      "period": "2025-Q2",
+      "total_assets": 31251083,
+      "total_liabilities": 11543732,
+      "equity": 19707351,
+      "pretax_profit": 245241,
+      "net_profit": 195978,
+      "net_profit_attributable": 198736,
+      "revenue": 1046771,
+      "roa": null,
+      "roe": null,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/KDH_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất KDH 2025-Q2 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "Chưa trích xuất được đủ chỉ tiêu; xem PDF/ZIP trong đường dẫn VietstockFinance.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "auto_extracted_pending_visual_review",
+      "source_validation": {
+        "reviewed_at": "2026-10-23T13:04:38+00:00",
+        "single_source_policy": "Chỉ danh mục VietstockFinance và tệp do danh mục đó liên kết.",
+        "source_catalog_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/KDH_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 2 năm 2025  | BCTC Hợp nhất quý 2 năm 2025  | https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY 2/KDH_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+        "document_id": "514167",
+        "manually_visual_reviewed": false,
+        "extraction_deferred_for_short_batch": true
+      },
+      "published_at": "2025-07-30",
+      "source_archive_file": "reports/raw/KDH/auto-kdh-20261021/6c09a943765f4d6e.pdf",
+      "source_archive_source": "VietstockFinance document index",
+      "source_archive_title": "Báo cáo tài chính Hợp nhất quý 2 năm 2025 Báo cáo tài chính Hợp nhất quý 2 năm 2025  ",
+      "source_archive_linked_at": "2026-10-23T13:18:31.690489+00:00",
+      "core_financial_extracted_fields": [
+        "equity",
+        "net_profit",
+        "pretax_profit",
+        "total_assets",
+        "total_liabilities"
+      ],
+      "core_financial_extraction_source": "reports/raw/KDH/auto-kdh-20261021/6c09a943765f4d6e.pdf",
+      "core_financial_extraction_pages": [
+        5,
+        6,
+        7
+      ],
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-23T14:23:51+00:00",
+      "core_financial_extraction_note": "Chỉ tiêu lõi được trích xuất từ văn bản PDF/ZIP đã lưu; chưa xác minh thủ công trên bản PDF.",
+      "current_assets": 29315182,
+      "cash_and_equivalents": 2461198,
+      "short_term_investments": 370456,
+      "short_term_receivables": 3366718,
+      "inventory": 23007642,
+      "non_current_assets": 1935901,
+      "fixed_assets": 69987,
+      "retained_earnings": 320682,
+      "cost_of_goods_sold": -641919,
+      "gross_profit": 404852,
+      "financial_income": 4186,
+      "financial_expense": -53925,
+      "interest_expense": 830,
+      "selling_expense": -58592,
+      "admin_expense": -53890,
+      "operating_profit": 242631,
+      "income_tax": 49263,
+      "cashflow_period_basis": "quarterly_reported",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "cash_and_equivalents",
+        "cashflow_period_basis",
+        "cost_of_goods_sold",
+        "current_assets",
+        "financial_expense",
+        "financial_income",
+        "fixed_assets",
+        "gross_profit",
+        "income_tax",
+        "interest_expense",
+        "inventory",
+        "net_profit_attributable",
+        "non_current_assets",
+        "operating_profit",
+        "retained_earnings",
+        "revenue",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T21:23:01+00:00",
+      "financial_line_items_source": "reports/raw/KDH/auto-kdh-20261021/6c09a943765f4d6e.pdf",
+      "financial_line_items_updated_at": "2026-10-25T21:23:07+00:00",
+      "financial_line_items_note": "Đang trích xuất lại các chỉ tiêu chi tiết sau khi sửa nhận diện đơn vị Ngàn/Nghìn VND. Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế. Dòng tiền tự trích xuất bị ẩn vì tổng các luồng tiền không khớp biến động tiền thuần.",
+      "investing_cash_flow_calculation": "reported as standalone quarter",
+      "financing_cash_flow_calculation": "reported as standalone quarter",
+      "capital_expenditure_calculation": "reported as standalone quarter",
+      "net_cash_change_calculation": "reported as standalone quarter",
+      "financial_line_items_prior_values": {
+        "current_assets": 29315,
+        "cash_and_equivalents": 2461,
+        "short_term_investments": 370,
+        "long_term_liabilities": 8030,
+        "revenue": 1047,
+        "financial_income": 4,
+        "income_tax": -58
+      },
+      "financial_line_items_rejected_values": {
+        "cash_beginning": {
+          "value": 3096,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "cash_ending": {
+          "value": 2461,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "current_liabilities": {
+          "value": 3514,
+          "reason": "liability subtotals do not reconcile"
+        },
+        "long_term_liabilities": {
+          "value": 8030169,
+          "reason": "liability subtotals do not reconcile"
+        },
+        "operating_cash_flow": {
+          "value": -2577910,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow": {
+          "value": -27,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow": {
+          "value": 2041,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change": {
+          "value": 0,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure": {
+          "value": -38,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "operating_cash_flow_ytd": {
+          "value": -2577910,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow_ytd": {
+          "value": -26629,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow_ytd": {
+          "value": 2040883,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change_ytd": {
+          "value": 5,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure_ytd": {
+          "value": -37966,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        }
+      },
+      "financial_line_items_rejected_fields": [
+        "capital_expenditure",
+        "capital_expenditure_ytd",
+        "cash_beginning",
+        "cash_ending",
+        "current_liabilities",
+        "financing_cash_flow",
+        "financing_cash_flow_ytd",
+        "investing_cash_flow",
+        "investing_cash_flow_ytd",
+        "long_term_liabilities",
+        "net_cash_change",
+        "net_cash_change_ytd",
+        "operating_cash_flow",
+        "operating_cash_flow_ytd"
+      ],
+      "core_financial_extraction_stable_evidence_updated_at": "2026-10-23T14:07:56+00:00",
+      "core_financial_extraction_unverified_values": {
+        "total_assets": 31251083,
+        "total_liabilities": 11543732,
+        "equity": 19707351,
+        "net_profit": 195978
+      },
+      "core_financial_extraction_unverified_values_parser_version": "2026-10-23-ngan-vnd-unit-v1",
+      "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "financial_line_items_value_corrections": {
+        "current_assets": {
+          "previous_value": 29315,
+          "new_value": 29315182,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "cash_and_equivalents": {
+          "previous_value": 2461,
+          "new_value": 2461198,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "short_term_investments": {
+          "previous_value": 370,
+          "new_value": 370456,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "long_term_liabilities": {
+          "previous_value": 8030,
+          "new_value": 8030169,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "financial_income": {
+          "previous_value": 4,
+          "new_value": 4186,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "income_tax": {
+          "previous_value": -58,
+          "new_value": -58448,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        }
+      },
+      "financial_line_items_overrides": {
+        "revenue": {
+          "previous_value": 1047,
+          "new_value": 1046771,
+          "reason": "Dòng doanh thu thuần trong báo cáo gốc khớp với giá vốn và lợi nhuận gộp."
+        }
+      },
+      "revenue_calculation": "Lợi nhuận gộp + |giá vốn hàng bán|; tái lập từ hai dòng của BCTC do doanh thu OCR không khớp.",
+      "financial_line_items_revenue_reconciliation": {
+        "previous_value": 1046771,
+        "reconstructed_value": 1047,
+        "formula": "gross_profit + abs(cost_of_goods_sold)",
+        "difference_from_parsed_value": 1045724
+      },
+      "financial_line_items_unverified_values": {
+        "admin_expense": -54,
+        "capital_expenditure_ytd": -38,
+        "cash_and_equivalents": 2461198,
+        "cashflow_period_basis": "quarterly_reported",
+        "cost_of_goods_sold": -642,
+        "current_assets": 29315182,
+        "financial_expense": -54,
+        "financial_income": 4186,
+        "financing_cash_flow_ytd": 2041,
+        "fixed_assets": 70,
+        "gross_profit": 405,
+        "income_tax": -58448,
+        "interest_expense": 1,
+        "inventory": 23008,
+        "investing_cash_flow_ytd": -27,
+        "net_cash_change_ytd": 0,
+        "net_profit_attributable": 199,
+        "non_current_assets": 1936,
+        "operating_profit": 243,
+        "retained_earnings": 321,
+        "revenue": 1047,
+        "selling_expense": -59,
+        "short_term_investments": 370456,
+        "short_term_receivables": 3367
+      },
+      "financial_line_items_unverified_values_note": "Giá trị OCR trước khi sửa nhận diện đơn vị Ngàn VND; giữ để kiểm toán, không dùng hiển thị trong quá trình tái trích xuất.",
+      "core_financial_extraction_evidence_fingerprint": "fa322935981abc4e49d9bbfce49f069474ba69855a36eb0bc5ea116d51ad4dca",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "operating_cash_flow_calculation": "reported as standalone quarter"
+    },
+    {
+      "symbol": "KDH",
+      "period": "2025-Q3",
+      "total_assets": 33080868,
+      "total_liabilities": 12703075,
+      "equity": 20377793,
+      "pretax_profit": 653535,
+      "net_profit": 525904,
+      "net_profit_attributable": 235765,
+      "revenue": 1098244,
+      "roa": null,
+      "roe": null,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/KDH_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất KDH 2025-Q3 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "Chưa trích xuất được đủ chỉ tiêu; xem PDF/ZIP trong đường dẫn VietstockFinance.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "auto_extracted_pending_visual_review",
+      "source_validation": {
+        "reviewed_at": "2026-10-23T13:04:38+00:00",
+        "single_source_policy": "Chỉ danh mục VietstockFinance và tệp do danh mục đó liên kết.",
+        "source_catalog_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/KDH_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 3 năm 2025  | BCTC Hợp nhất quý 3 năm 2025  | https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY 3/KDH_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+        "document_id": "523310",
+        "manually_visual_reviewed": false,
+        "extraction_deferred_for_short_batch": true
+      },
+      "published_at": "2025-10-29",
+      "source_archive_file": "reports/raw/KDH/auto-kdh-20261021/6cb159cdb6dd308a.pdf",
+      "source_archive_source": "VietstockFinance document index",
+      "source_archive_title": "Báo cáo tài chính Hợp nhất quý 3 năm 2025 Báo cáo tài chính Hợp nhất quý 3 năm 2025  ",
+      "source_archive_linked_at": "2026-10-23T13:09:11.277624+00:00",
+      "core_financial_extracted_fields": [
+        "equity",
+        "net_profit",
+        "pretax_profit",
+        "total_assets",
+        "total_liabilities"
+      ],
+      "core_financial_extraction_source": "reports/raw/KDH/auto-kdh-20261021/6cb159cdb6dd308a.pdf",
+      "core_financial_extraction_pages": [
+        5,
+        6,
+        7
+      ],
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-23T14:23:51+00:00",
+      "core_financial_extraction_note": "Chỉ tiêu lõi được trích xuất từ văn bản PDF/ZIP đã lưu; chưa xác minh thủ công trên bản PDF.",
+      "current_liabilities": 3380943,
+      "long_term_liabilities": 9322132,
+      "retained_earnings": 3106703,
+      "cost_of_goods_sold": -322523,
+      "gross_profit": 775721,
+      "financial_income": 4923,
+      "financial_expense": -2690,
+      "selling_expense": -71470,
+      "admin_expense": -47715,
+      "operating_profit": 658770,
+      "income_tax": 127631,
+      "investing_cash_flow_ytd": 90,
+      "financing_cash_flow_ytd": 144240,
+      "capital_expenditure_ytd": -41489,
+      "net_cash_change_ytd": 5,
+      "eps": 356430,
+      "diluted_eps": 469875,
+      "cashflow_period_basis": "quarterly_reported",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "capital_expenditure_ytd",
+        "cash_and_equivalents",
+        "cashflow_period_basis",
+        "cost_of_goods_sold",
+        "current_assets",
+        "current_liabilities",
+        "diluted_eps",
+        "eps",
+        "financial_expense",
+        "financial_income",
+        "financing_cash_flow_ytd",
+        "fixed_assets",
+        "gross_profit",
+        "income_tax",
+        "inventory",
+        "investing_cash_flow_ytd",
+        "long_term_liabilities",
+        "net_cash_change_ytd",
+        "net_profit_attributable",
+        "non_current_assets",
+        "operating_profit",
+        "retained_earnings",
+        "revenue",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T21:23:01+00:00",
+      "financial_line_items_source": "reports/raw/KDH/auto-kdh-20261021/6cb159cdb6dd308a.pdf",
+      "financial_line_items_updated_at": "2026-10-23T14:23:55+00:00",
+      "financial_line_items_note": "Đang trích xuất lại các chỉ tiêu chi tiết sau khi sửa nhận diện đơn vị Ngàn/Nghìn VND. Một số chỉ tiêu bị giữ trống vì không vượt qua kiểm tra cân đối kế toán hoặc đối chiếu chéo; xem danh sách trường bị loại. Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "investing_cash_flow": 0,
+      "investing_cash_flow_calculation": "reported as standalone quarter",
+      "financing_cash_flow": 144,
+      "financing_cash_flow_calculation": "reported as standalone quarter",
+      "capital_expenditure": -41,
+      "capital_expenditure_calculation": "reported as standalone quarter",
+      "net_cash_change": 0,
+      "net_cash_change_calculation": "reported as standalone quarter",
+      "financial_line_items_prior_values": {
+        "long_term_liabilities": 9322,
+        "revenue": 1098,
+        "selling_expense": -71,
+        "financing_cash_flow_ytd": 144,
+        "capital_expenditure_ytd": -41
+      },
+      "financial_line_items_rejected_values": {
+        "cash_beginning": {
+          "value": 3096,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "cash_ending": {
+          "value": 3295,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        }
+      },
+      "financial_line_items_rejected_fields": [
+        "cash_beginning",
+        "cash_ending",
+        "income_tax_tax_reconciliation_check"
+      ],
+      "core_financial_extraction_stable_evidence_updated_at": "2026-10-23T14:07:57+00:00",
+      "core_financial_extraction_unverified_values": {
+        "net_profit": 525904
+      },
+      "core_financial_extraction_unverified_values_parser_version": "2026-10-23-ngan-vnd-unit-v1",
+      "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "financial_line_items_value_corrections": {
+        "long_term_liabilities": {
+          "previous_value": 9322,
+          "new_value": 9322132,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "revenue": {
+          "previous_value": 1098,
+          "new_value": 1098244,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "selling_expense": {
+          "previous_value": -71,
+          "new_value": -71470,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "financing_cash_flow_ytd": {
+          "previous_value": 144,
+          "new_value": 144240,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "capital_expenditure_ytd": {
+          "previous_value": -41,
+          "new_value": -41489,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        }
+      },
+      "revenue_calculation": "Lợi nhuận gộp + |giá vốn hàng bán|; tái lập từ hai dòng của BCTC do doanh thu OCR không khớp.",
+      "financial_line_items_revenue_reconciliation": {
+        "previous_value": 1098244,
+        "reconstructed_value": 1099,
+        "formula": "gross_profit + abs(cost_of_goods_sold)",
+        "difference_from_parsed_value": 1097145
+      },
+      "financial_line_items_unverified_values": {
+        "admin_expense": -48,
+        "capital_expenditure_ytd": -41489,
+        "cashflow_period_basis": "quarterly_reported",
+        "cost_of_goods_sold": -323,
+        "current_liabilities": 3381,
+        "diluted_eps": 469875,
+        "eps": 356430,
+        "financial_expense": -3,
+        "financial_income": 5,
+        "financing_cash_flow_ytd": 144240,
+        "gross_profit": 776,
+        "income_tax": -80,
+        "investing_cash_flow_ytd": 0,
+        "long_term_liabilities": 9322132,
+        "net_cash_change_ytd": 0,
+        "net_profit_attributable": 236,
+        "operating_profit": 659,
+        "retained_earnings": 3107,
+        "revenue": 1099,
+        "selling_expense": -71470
+      },
+      "financial_line_items_unverified_values_note": "Giá trị OCR trước khi sửa nhận diện đơn vị Ngàn VND; giữ để kiểm toán, không dùng hiển thị trong quá trình tái trích xuất.",
+      "core_financial_extraction_evidence_fingerprint": "8372c94c74823dd4a13bca3bd60e5b2dc730baea7840a594fb69d26c7c653f72",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "financial_line_items_rejected_updated_at": "2026-10-23T14:23:51+00:00",
+      "current_assets": 30594375,
+      "cash_and_equivalents": 2378236,
+      "short_term_investments": 304523,
+      "short_term_receivables": 4715721,
+      "inventory": 23086436,
+      "non_current_assets": 2486493,
+      "fixed_assets": 68421,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có."
+    },
+    {
+      "symbol": "KDH",
+      "period": "2025-Q4",
+      "total_assets": null,
+      "total_liabilities": null,
+      "equity": null,
+      "pretax_profit": null,
+      "net_profit": null,
+      "net_profit_attributable": 495955,
+      "revenue": 1816336,
+      "roa": null,
+      "roe": null,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/KDH_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất KDH 2025-Q4 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "Chưa trích xuất được đủ chỉ tiêu; xem PDF/ZIP trong đường dẫn VietstockFinance.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "manual_review_required_pending_extraction",
+      "source_validation": {
+        "reviewed_at": "2026-10-23T13:04:38+00:00",
+        "single_source_policy": "Chỉ danh mục VietstockFinance và tệp do danh mục đó liên kết.",
+        "source_catalog_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/KDH_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 4 năm 2025  | BCTC Hợp nhất quý 4 năm 2025  | https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY 4/KDH_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+        "document_id": "530768",
+        "manually_visual_reviewed": false,
+        "extraction_deferred_for_short_batch": true
+      },
+      "published_at": "2026-02-02",
+      "source_archive_file": "reports/raw/KDH/auto-kdh-20261021/32da0601f1f04025.pdf",
+      "source_archive_source": "VietstockFinance document index",
+      "source_archive_title": "Báo cáo tài chính Hợp nhất quý 4 năm 2025 Báo cáo tài chính Hợp nhất quý 4 năm 2025  ",
+      "source_archive_linked_at": "2026-10-23T13:08:18.845421+00:00",
+      "eps": 88,
+      "core_financial_extracted_fields": [
+        "eps",
+        "net_profit",
+        "pretax_profit"
+      ],
+      "core_financial_extraction_source": "reports/raw/KDH/auto-kdh-20261021/32da0601f1f04025.pdf",
+      "core_financial_extraction_pages": [
+        5,
+        6,
+        7
+      ],
+      "core_financial_extraction_status": "manual_review_required_pending_extraction",
+      "core_financial_extraction_updated_at": "2026-10-25T21:23:03+00:00",
+      "core_financial_extraction_note": "Đã có đủ trang nguồn mục tiêu nhưng hai lượt phân tích trên cùng văn bản vẫn không tạo được bộ chỉ tiêu lõi cân đối. Các số OCR chưa cân đối được lưu riêng để đối chiếu; chỉ tiêu chính chưa xác minh được để trống.",
+      "current_liabilities": 3498975,
+      "long_term_liabilities": 9394483,
+      "retained_earnings": 2549958,
+      "cost_of_goods_sold": -526744,
+      "gross_profit": 1289593,
+      "financial_income": 11667,
+      "financial_expense": -75431,
+      "selling_expense": -211935,
+      "admin_expense": -56272,
+      "operating_profit": 957621,
+      "income_tax": 190237,
+      "diluted_eps": 88,
+      "cashflow_period_basis": "quarterly_reported",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "cash_and_equivalents",
+        "cashflow_period_basis",
+        "cost_of_goods_sold",
+        "current_assets",
+        "current_liabilities",
+        "diluted_eps",
+        "financial_expense",
+        "financial_income",
+        "fixed_assets",
+        "gross_profit",
+        "income_tax",
+        "inventory",
+        "long_term_liabilities",
+        "net_profit_attributable",
+        "non_current_assets",
+        "operating_profit",
+        "retained_earnings",
+        "revenue",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T21:23:03+00:00",
+      "financial_line_items_source": "reports/raw/KDH/auto-kdh-20261021/32da0601f1f04025.pdf",
+      "financial_line_items_updated_at": "2026-10-25T21:23:07+00:00",
+      "financial_line_items_note": "Đang trích xuất lại các chỉ tiêu chi tiết sau khi sửa nhận diện đơn vị Ngàn/Nghìn VND. Một số chỉ tiêu bị giữ trống vì không vượt qua kiểm tra cân đối kế toán hoặc đối chiếu chéo; xem danh sách trường bị loại. Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế. Dòng tiền tự trích xuất bị ẩn vì tổng các luồng tiền không khớp biến động tiền thuần.",
+      "operating_cash_flow_calculation": "reported as standalone quarter",
+      "financing_cash_flow_calculation": "reported as standalone quarter",
+      "capital_expenditure_calculation": "reported as standalone quarter",
+      "net_cash_change_calculation": "reported as standalone quarter",
+      "financial_line_items_prior_values": {
+        "long_term_liabilities": 9394,
+        "revenue": 1816,
+        "financial_expense": -75,
+        "admin_expense": -56,
+        "income_tax": -136,
+        "financing_cash_flow_ytd": 3192,
+        "capital_expenditure_ytd": -57
+      },
+      "financial_line_items_rejected_values": {
+        "cash_beginning": {
+          "value": 3096,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "cash_ending": {
+          "value": 2547,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "operating_cash_flow": {
+          "value": 0,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow": {
+          "value": -566417,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow": {
+          "value": 3192,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change": {
+          "value": 0,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure": {
+          "value": -57,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "operating_cash_flow_ytd": {
+          "value": 5,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow_ytd": {
+          "value": -566417,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow_ytd": {
+          "value": 3192123,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change_ytd": {
+          "value": 5,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure_ytd": {
+          "value": -57283,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        }
+      },
+      "financial_line_items_rejected_fields": [
+        "capital_expenditure",
+        "capital_expenditure_ytd",
+        "cash_beginning",
+        "cash_ending",
+        "financing_cash_flow",
+        "financing_cash_flow_ytd",
+        "income_tax_tax_reconciliation_check",
+        "investing_cash_flow",
+        "investing_cash_flow_ytd",
+        "net_cash_change",
+        "net_cash_change_ytd",
+        "operating_cash_flow",
+        "operating_cash_flow_ytd"
+      ],
+      "core_financial_extraction_stable_evidence_updated_at": "2026-10-25T21:23:03+00:00",
+      "core_financial_extraction_unverified_values": {
+        "net_profit": 793018,
+        "pretax_profit": 983255
+      },
+      "core_financial_extraction_unverified_values_parser_version": "2026-10-23-ngan-vnd-unit-v1",
+      "verification_status_note": "Cần đối chiếu trực quan với PDF VietstockFinance trước khi công bố các chỉ tiêu lõi.",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "financial_line_items_value_corrections": {
+        "long_term_liabilities": {
+          "previous_value": 9394,
+          "new_value": 9394483,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "revenue": {
+          "previous_value": 1816,
+          "new_value": 1816336,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "financial_expense": {
+          "previous_value": -75,
+          "new_value": -75431,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "admin_expense": {
+          "previous_value": -56,
+          "new_value": -56272,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "income_tax": {
+          "previous_value": -136,
+          "new_value": -136459,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "financing_cash_flow_ytd": {
+          "previous_value": 3192,
+          "new_value": 3192123,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "capital_expenditure_ytd": {
+          "previous_value": -57,
+          "new_value": -57283,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        }
+      },
+      "revenue_calculation": "Lợi nhuận gộp + |giá vốn hàng bán|; tái lập từ hai dòng của BCTC do doanh thu OCR không khớp.",
+      "financial_line_items_revenue_reconciliation": {
+        "previous_value": 1816336,
+        "reconstructed_value": 1817,
+        "formula": "gross_profit + abs(cost_of_goods_sold)",
+        "difference_from_parsed_value": 1814519
+      },
+      "financial_line_items_unverified_values": {
+        "admin_expense": -56272,
+        "capital_expenditure_ytd": -57283,
+        "cashflow_period_basis": "quarterly_reported",
+        "cost_of_goods_sold": -527,
+        "current_liabilities": 3499,
+        "diluted_eps": 88,
+        "financial_expense": -75431,
+        "financial_income": 12,
+        "financing_cash_flow_ytd": 3192123,
+        "gross_profit": 1290,
+        "income_tax": -136459,
+        "long_term_liabilities": 9394483,
+        "net_cash_change_ytd": 0,
+        "net_profit_attributable": 496,
+        "operating_cash_flow_ytd": 0,
+        "operating_profit": 958,
+        "retained_earnings": 2550,
+        "revenue": 1817,
+        "selling_expense": -212
+      },
+      "financial_line_items_unverified_values_note": "Giá trị OCR trước khi sửa nhận diện đơn vị Ngàn VND; giữ để kiểm toán, không dùng hiển thị trong quá trình tái trích xuất.",
+      "core_financial_extraction_evidence_fingerprint": "51ffb9e0b80f7e801596cacaa6943f519457e1866d3bba7565a8dfeb1ddfad11",
+      "core_financial_extraction_evidence_attempt_count": 1,
+      "core_financial_extraction_calculations": {
+        "balance_totals_withheld": "asset/liability/equity totals did not fully reconcile"
+      },
+      "financial_line_items_rejected_updated_at": "2026-10-23T14:23:52+00:00",
+      "current_assets": 31619492,
+      "cash_and_equivalents": 2546646,
+      "short_term_investments": 208645,
+      "short_term_receivables": 5478040,
+      "inventory": 23264372,
+      "non_current_assets": 355439,
+      "fixed_assets": 66632,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "core_financial_extraction_stable_evidence_count": 4,
+      "core_financial_extraction_attempt_count": 1,
+      "core_financial_extraction_manual_terminal": true,
+      "investing_cash_flow_calculation": "reported as standalone quarter"
+    },
+    {
+      "symbol": "KDH",
+      "period": "2026-Q1",
+      "total_assets": 39861897,
+      "total_liabilities": 18337717,
+      "equity": 21524181,
+      "pretax_profit": 355653,
+      "net_profit": 327045,
+      "net_profit_attributable": null,
+      "revenue": 281361,
+      "roa": null,
+      "roe": null,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/KDH_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất KDH 2026-Q1 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "Chưa trích xuất được đủ chỉ tiêu; xem PDF/ZIP trong đường dẫn VietstockFinance.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "auto_extracted_pending_visual_review",
+      "source_validation": {
+        "reviewed_at": "2026-10-23T13:04:38+00:00",
+        "single_source_policy": "Chỉ danh mục VietstockFinance và tệp do danh mục đó liên kết.",
+        "source_catalog_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/KDH_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 1 năm 2026  | BCTC Hợp nhất quý 1 năm 2026  | https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY 1/KDH_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+        "document_id": "544588",
+        "manually_visual_reviewed": false,
+        "extraction_deferred_for_short_batch": true
+      },
+      "published_at": "2026-04-29",
+      "source_archive_file": "reports/raw/KDH/auto-kdh-20261021/d2fe8d8130ad6e4a.pdf",
+      "source_archive_source": "VietstockFinance document index",
+      "source_archive_title": "Báo cáo tài chính Hợp nhất quý 1 năm 2026 Báo cáo tài chính Hợp nhất quý 1 năm 2026  ",
+      "source_archive_linked_at": "2026-10-23T13:27:36.071293+00:00",
+      "core_financial_extracted_fields": [
+        "equity",
+        "net_profit",
+        "pretax_profit",
+        "total_assets",
+        "total_liabilities"
+      ],
+      "core_financial_extraction_source": "reports/raw/KDH/auto-kdh-20261021/d2fe8d8130ad6e4a.pdf",
+      "core_financial_extraction_pages": [
+        5,
+        6,
+        7
+      ],
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-23T14:23:52+00:00",
+      "core_financial_extraction_note": "Chỉ tiêu lõi được trích xuất từ văn bản PDF/ZIP đã lưu; chưa xác minh thủ công trên bản PDF.",
+      "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
+      "cash_and_equivalents": 3613809,
+      "short_term_investments": 210765,
+      "short_term_receivables": 4260598,
+      "inventory": 29125945,
+      "fixed_assets": 64865,
+      "retained_earnings": 3876815,
+      "cost_of_goods_sold": -98524,
+      "gross_profit": 182837,
+      "financial_income": 7083,
+      "financial_expense": -17347,
+      "interest_expense": -17347,
+      "selling_expense": -36083,
+      "admin_expense": -59976,
+      "operating_profit": -31665,
+      "income_tax_current": -31665,
+      "income_tax": 28608,
+      "operating_cash_flow_ytd": 355653,
+      "investing_cash_flow_ytd": -1396816,
+      "financing_cash_flow_ytd": 3100039,
+      "capital_expenditure_ytd": -39522,
+      "net_cash_change_ytd": 1069524,
+      "cashflow_period_basis": "quarterly_reported",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "capital_expenditure_ytd",
+        "cash_and_equivalents",
+        "cashflow_period_basis",
+        "cost_of_goods_sold",
+        "financial_expense",
+        "financial_income",
+        "financing_cash_flow_ytd",
+        "fixed_assets",
+        "gross_profit",
+        "income_tax",
+        "income_tax_current",
+        "interest_expense",
+        "inventory",
+        "investing_cash_flow_ytd",
+        "net_cash_change_ytd",
+        "operating_cash_flow_ytd",
+        "operating_profit",
+        "retained_earnings",
+        "revenue",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T21:23:03+00:00",
+      "financial_line_items_source": "reports/raw/KDH/auto-kdh-20261021/d2fe8d8130ad6e4a.pdf",
+      "financial_line_items_updated_at": "2026-10-23T14:23:55+00:00",
+      "financial_line_items_note": "Đang trích xuất lại các chỉ tiêu chi tiết sau khi sửa nhận diện đơn vị Ngàn/Nghìn VND. Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "operating_cash_flow": 356,
+      "operating_cash_flow_calculation": "reported as standalone quarter",
+      "investing_cash_flow": -1397,
+      "investing_cash_flow_calculation": "reported as standalone quarter",
+      "financing_cash_flow": 3100,
+      "financing_cash_flow_calculation": "reported as standalone quarter",
+      "capital_expenditure": -40,
+      "capital_expenditure_calculation": "reported as standalone quarter",
+      "net_cash_change": 1070,
+      "net_cash_change_calculation": "reported as standalone quarter",
+      "financial_line_items_prior_values": {
+        "current_liabilities": 3394,
+        "revenue": 281,
+        "financial_income": 7,
+        "financial_expense": -17,
+        "interest_expense": -17,
+        "selling_expense": -36,
+        "financing_cash_flow_ytd": 3100,
+        "income_tax": -32
+      },
+      "financial_line_items_rejected_values": {
+        "cash_beginning": {
+          "value": 2544,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "cash_ending": {
+          "value": 3644,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "current_assets": {
+          "value": 37311,
+          "reason": "asset subtotals do not reconcile"
+        },
+        "non_current_assets": {
+          "value": 349,
+          "reason": "asset subtotals do not reconcile"
+        },
+        "current_liabilities": {
+          "value": 3394097,
+          "reason": "liability subtotals do not reconcile"
+        },
+        "long_term_liabilities": {
+          "value": 14944,
+          "reason": "liability subtotals do not reconcile"
+        }
+      },
+      "financial_line_items_rejected_fields": [
+        "cash_beginning",
+        "cash_ending",
+        "current_assets",
+        "current_liabilities",
+        "long_term_liabilities",
+        "non_current_assets"
+      ],
+      "core_financial_extraction_unverified_values": {
+        "total_assets": 39861897,
+        "total_liabilities": 18337717,
+        "equity": 21524181,
+        "pretax_profit": 355653,
+        "net_profit": 327045
+      },
+      "core_financial_extraction_unverified_values_parser_version": "2026-10-23-ngan-vnd-unit-v1",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "financial_line_items_value_corrections": {
+        "current_liabilities": {
+          "previous_value": 3394,
+          "new_value": 3394097,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "revenue": {
+          "previous_value": 281,
+          "new_value": 281361,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "financial_income": {
+          "previous_value": 7,
+          "new_value": 7083,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "financial_expense": {
+          "previous_value": -17,
+          "new_value": -17347,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "interest_expense": {
+          "previous_value": -17,
+          "new_value": -17347,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "selling_expense": {
+          "previous_value": -36,
+          "new_value": -36083,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "financing_cash_flow_ytd": {
+          "previous_value": 3100,
+          "new_value": 3100039,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        }
+      },
+      "revenue_calculation": "Lợi nhuận gộp + |giá vốn hàng bán|; tái lập từ hai dòng của BCTC do doanh thu OCR không khớp.",
+      "financial_line_items_revenue_reconciliation": {
+        "previous_value": 281361,
+        "reconstructed_value": 282,
+        "formula": "gross_profit + abs(cost_of_goods_sold)",
+        "difference_from_parsed_value": 281079
+      },
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "financial_line_items_unverified_values": {
+        "admin_expense": -60,
+        "capital_expenditure_ytd": -40,
+        "cash_and_equivalents": 3614,
+        "cashflow_period_basis": "quarterly_reported",
+        "cost_of_goods_sold": -99,
+        "financial_expense": -17347,
+        "financial_income": 7083,
+        "financing_cash_flow_ytd": 3100039,
+        "fixed_assets": 65,
+        "gross_profit": 183,
+        "income_tax": 28608,
+        "income_tax_current": -32,
+        "interest_expense": -17347,
+        "inventory": 29126,
+        "investing_cash_flow_ytd": -1397,
+        "net_cash_change_ytd": 1070,
+        "operating_cash_flow_ytd": 356,
+        "operating_profit": -32,
+        "retained_earnings": 3877,
+        "revenue": 282,
+        "selling_expense": -36083,
+        "short_term_investments": 211,
+        "short_term_receivables": 4261
+      },
+      "financial_line_items_unverified_values_note": "Giá trị OCR trước khi sửa nhận diện đơn vị Ngàn VND; giữ để kiểm toán, không dùng hiển thị trong quá trình tái trích xuất.",
+      "core_financial_extraction_evidence_fingerprint": "7b6b5a5984183cc851e803e899ff68e8d50e05d35f1884047b5c8a326d7874b2",
+      "core_financial_extraction_evidence_attempt_count": 0
+    },
+    {
+      "symbol": "KDH",
+      "period": "2026-Q2",
+      "total_assets": 39470753,
+      "total_liabilities": 19497023,
+      "equity": 19973730,
+      "pretax_profit": 800309,
+      "net_profit": 770051,
+      "net_profit_attributable": 263,
+      "revenue": 160643,
+      "roa": null,
+      "roe": null,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/KDH_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+      "report_type": "BCTC hợp nhất KDH 2026-Q2 (phát hiện tự động qua VietstockFinance; chờ trích xuất)",
+      "source_pages": "Chưa trích xuất được đủ chỉ tiêu; xem PDF/ZIP trong đường dẫn VietstockFinance.",
+      "quarter_profit_basis": "Chỉ lưu số liệu khi cột phát sinh riêng của quý được trích xuất và cân đối hợp lệ.",
+      "verification_status": "auto_extracted_pending_visual_review",
+      "source_validation": {
+        "reviewed_at": "2026-10-23T13:04:38+00:00",
+        "single_source_policy": "Chỉ danh mục VietstockFinance và tệp do danh mục đó liên kết.",
+        "source_catalog_url": "https://finance.vietstock.vn/KDH/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/KDH_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+        "listing_title": "Báo cáo tài chính Hợp nhất quý 2 năm 2026  | BCTC Hợp nhất quý 2 năm 2026  | https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY 2/KDH_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+        "document_id": "555502",
+        "manually_visual_reviewed": false,
+        "extraction_deferred_for_short_batch": true
+      },
+      "published_at": "2026-07-31",
+      "source_archive_file": "reports/raw/KDH/auto-kdh-20261021/aba42de2731a352e.pdf",
+      "source_archive_source": "VietstockFinance document index",
+      "source_archive_title": "Báo cáo tài chính Hợp nhất quý 2 năm 2026 Báo cáo tài chính Hợp nhất quý 2 năm 2026  ",
+      "source_archive_linked_at": "2026-10-23T13:26:56.083933+00:00",
+      "eps": 62,
+      "core_financial_extracted_fields": [
+        "eps",
+        "equity",
+        "net_profit",
+        "pretax_profit",
+        "total_assets",
+        "total_liabilities"
+      ],
+      "core_financial_extraction_source": "reports/raw/KDH/auto-kdh-20261021/aba42de2731a352e.pdf",
+      "core_financial_extraction_pages": [
+        5,
+        6,
+        7
+      ],
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-23T14:23:52+00:00",
+      "core_financial_extraction_note": "Chỉ tiêu lõi được trích xuất từ văn bản PDF/ZIP đã lưu; chưa xác minh thủ công trên bản PDF.",
+      "current_assets": 35453468,
+      "cash_and_equivalents": 2605261,
+      "short_term_investments": 284502,
+      "short_term_receivables": 2978496,
+      "inventory": 29488131,
+      "non_current_assets": 4017285,
+      "fixed_assets": 63037,
+      "retained_earnings": 2647529,
+      "cost_of_goods_sold": -80040,
+      "gross_profit": 80603,
+      "financial_expense": -29713,
+      "interest_expense": -19305,
+      "selling_expense": -73988,
+      "admin_expense": -59930,
+      "operating_profit": 823139,
+      "income_tax": 30258,
+      "operating_cash_flow_ytd": -1480160,
+      "investing_cash_flow_ytd": -2645482,
+      "financing_cash_flow_ytd": 4186618,
+      "net_cash_change_ytd": 60977,
+      "diluted_eps": 62,
+      "cashflow_period_basis": "quarterly_reported",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "cash_and_equivalents",
+        "cashflow_period_basis",
+        "cost_of_goods_sold",
+        "current_assets",
+        "diluted_eps",
+        "financial_expense",
+        "financing_cash_flow_ytd",
+        "fixed_assets",
+        "gross_profit",
+        "income_tax",
+        "interest_expense",
+        "inventory",
+        "investing_cash_flow_ytd",
+        "net_cash_change_ytd",
+        "net_profit_attributable",
+        "non_current_assets",
+        "operating_cash_flow_ytd",
+        "operating_profit",
+        "retained_earnings",
+        "revenue",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T21:23:04+00:00",
+      "financial_line_items_source": "reports/raw/KDH/auto-kdh-20261021/aba42de2731a352e.pdf",
+      "financial_line_items_updated_at": "2026-10-23T14:23:55+00:00",
+      "financial_line_items_note": "Đang trích xuất lại các chỉ tiêu chi tiết sau khi sửa nhận diện đơn vị Ngàn/Nghìn VND. Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "operating_cash_flow": -1480,
+      "operating_cash_flow_calculation": "reported as standalone quarter",
+      "investing_cash_flow": -2645,
+      "investing_cash_flow_calculation": "reported as standalone quarter",
+      "financing_cash_flow": 4187,
+      "financing_cash_flow_calculation": "reported as standalone quarter",
+      "net_cash_change": 61,
+      "net_cash_change_calculation": "reported as standalone quarter",
+      "financial_line_items_prior_values": {
+        "current_assets": 35453,
+        "cash_and_equivalents": 2605,
+        "short_term_receivables": 2978,
+        "inventory": 29488,
+        "non_current_assets": 4017,
+        "fixed_assets": 63,
+        "long_term_liabilities": 15972,
+        "revenue": 161,
+        "cost_of_goods_sold": -80,
+        "interest_expense": -19,
+        "operating_profit": 823,
+        "operating_cash_flow_ytd": -1480,
+        "investing_cash_flow_ytd": -2645,
+        "cash_beginning": 2544,
+        "cash_ending": 2605,
+        "income_tax": -29598
+      },
+      "financial_line_items_rejected_values": {
+        "current_liabilities": {
+          "value": 3525,
+          "reason": "liability subtotals do not reconcile"
+        },
+        "long_term_liabilities": {
+          "value": 15972361,
+          "reason": "liability subtotals do not reconcile"
+        },
+        "cash_beginning": {
+          "value": 2544285,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        },
+        "cash_ending": {
+          "value": 2605261,
+          "reason": "cash balance bridge does not reconcile to net cash change"
+        }
+      },
+      "core_financial_extraction_unverified_values": {
+        "total_assets": 39470753,
+        "total_liabilities": 19497023,
+        "equity": 19973730,
+        "net_profit": 770051
+      },
+      "core_financial_extraction_unverified_values_parser_version": "2026-10-23-ngan-vnd-unit-v1",
+      "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "financial_line_items_value_corrections": {
+        "current_assets": {
+          "previous_value": 35453,
+          "new_value": 35453468,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "cash_and_equivalents": {
+          "previous_value": 2605,
+          "new_value": 2605261,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "short_term_receivables": {
+          "previous_value": 2978,
+          "new_value": 2978496,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "inventory": {
+          "previous_value": 29488,
+          "new_value": 29488131,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "non_current_assets": {
+          "previous_value": 4017,
+          "new_value": 4017285,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "fixed_assets": {
+          "previous_value": 63,
+          "new_value": 63037,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "long_term_liabilities": {
+          "previous_value": 15972,
+          "new_value": 15972361,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "cost_of_goods_sold": {
+          "previous_value": -80,
+          "new_value": -80040,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "interest_expense": {
+          "previous_value": -19,
+          "new_value": -19305,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "operating_profit": {
+          "previous_value": 823,
+          "new_value": 823139,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "operating_cash_flow_ytd": {
+          "previous_value": -1480,
+          "new_value": -1480160,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "investing_cash_flow_ytd": {
+          "previous_value": -2645,
+          "new_value": -2645482,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "cash_beginning": {
+          "previous_value": 2544,
+          "new_value": 2544285,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        },
+        "cash_ending": {
+          "previous_value": 2605,
+          "new_value": 2605261,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        }
+      },
+      "financial_line_items_overrides": {
+        "revenue": {
+          "previous_value": 161,
+          "new_value": 160643,
+          "reason": "Dòng doanh thu thuần trong báo cáo gốc khớp với giá vốn và lợi nhuận gộp."
+        }
+      },
+      "revenue_calculation": "Lợi nhuận gộp + |giá vốn hàng bán|; tái lập từ hai dòng của BCTC do doanh thu OCR không khớp.",
+      "financial_line_items_revenue_reconciliation": {
+        "previous_value": 160643,
+        "reconstructed_value": 80121,
+        "formula": "gross_profit + abs(cost_of_goods_sold)",
+        "difference_from_parsed_value": 80522
+      },
+      "financial_line_items_rejected_fields": [
+        "cash_beginning",
+        "cash_ending",
+        "current_liabilities",
+        "long_term_liabilities"
+      ],
+      "financial_line_items_unverified_values": {
+        "admin_expense": -60,
+        "cash_and_equivalents": 2605261,
+        "cashflow_period_basis": "quarterly_reported",
+        "cost_of_goods_sold": -80040,
+        "current_assets": 35453468,
+        "diluted_eps": 62,
+        "financial_expense": -30,
+        "financing_cash_flow_ytd": 4187,
+        "fixed_assets": 63037,
+        "gross_profit": 81,
+        "income_tax": -30,
+        "interest_expense": -19305,
+        "inventory": 29488131,
+        "investing_cash_flow_ytd": -2645482,
+        "net_cash_change_ytd": 61,
+        "net_profit_attributable": 0,
+        "non_current_assets": 4017285,
+        "operating_cash_flow_ytd": -1480160,
+        "operating_profit": 823139,
+        "retained_earnings": 2648,
+        "revenue": 80121,
+        "selling_expense": -74,
+        "short_term_investments": 285,
+        "short_term_receivables": 2978496
+      },
+      "financial_line_items_unverified_values_note": "Giá trị OCR trước khi sửa nhận diện đơn vị Ngàn VND; giữ để kiểm toán, không dùng hiển thị trong quá trình tái trích xuất.",
+      "core_financial_extraction_evidence_fingerprint": "fe2ee6c589e382f33c9a5bf737d3aee36a45475c87b7619491a526345b8bd7b2",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có."
+    }
+  ],
+  "sync_status": "records_found",
+  "bootstrap_last_attempt_at": "2026-10-23T13:04:51+00:00",
+  "bootstrap_attempt_count": 1,
+  "bootstrap_status": "complete_needs_manual_review",
+  "parserMigration": {
+    "version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+    "changedAt": "2026-10-23T14:22:23.772Z",
+    "source": "VietstockFinance linked PDF/ZIP archives already stored under reports/raw/KDH",
+    "reason": "Expanded unit recognition for 'Ngàn VND', statement form B01a-DN/HN OCR variants, and fallback extraction by income statement row codes 50/60.",
+    "mode": "Core and automatically extracted detail fields are hidden from display, old values preserved, KDH remains active until corrected extraction reconciles or reaches explicit manual review."
+  },
+  "bootstrap_completed_at": "2026-10-23T14:29:23+00:00",
+  "bootstrap_completion_note": "Các kỳ báo cáo có thể tự trích xuất đã được lưu; một số kỳ còn cần đối chiếu thủ công."
+}

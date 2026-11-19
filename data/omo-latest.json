@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "fetchedAt": "2026-11-17T13:00:00+07:00",
+  "sourceName": "Ngân hàng Nhà nước Việt Nam (NHNN), dữ liệu qua Dữ Liệu Kinh Tế",
+  "data": [
+    {
+      "category": "omo-buy-total",
+      "name": "Tổng trúng thầu mua OMO (bơm tiền)",
+      "value": 9679.81,
+      "unit": "Tỷ đồng",
+      "date": "2026-11-16",
+      "url": "https://dulieukinhte.com/du-lieu-dong/tong-mua-bom-tien-nghiep-vu-thi-truong-mo-omo-27690"
+    },
+    {
+      "category": "omo-net-outstanding",
+      "name": "Chênh lệch lưu hành OMO − tín phiếu NHNN",
+      "value": 92914.44,
+      "unit": "Tỷ đồng",
+      "date": "2026-11-16",
+      "url": "https://dulieukinhte.com/du-lieu-dong/chenh-lech-luu-hanh-omo-va-tin-phieu-nhnn-53631"
+    }
+  ],
+  "note": "Giá trị mua là tổng trúng thầu trong ngày, không phải bơm ròng. Chênh lệch lưu hành là tồn lượng OMO trừ tín phiếu NHNN, không phải dòng tiền ròng ngày."
+}
