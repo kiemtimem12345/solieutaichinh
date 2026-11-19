@@ -16,7 +16,7 @@ import fitz
 
 SOURCES=[
  ("ISSUER","https://www.vdsc.com.vn/data/api/app/file-storage/8308ae9d-cdf4-47da-21e6-08de5fe7b04e/VDSC_Cong%20bo%20BCTC%20HN%20Quy%204%20nam%202025.pdf?downloadFrom=ManagementDocument-983"),
- ("VIETSTOCK", "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/VDS_Baocaotaichinh_Q4_2025_Hopnhat.pdf"),
+ ("VIETSTOCK", "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/VDS_Baocaotaichinh_Q4_2025_Hopnhat.pdf"),
 ]
 HOSTS={"www.vdsc.com.vn","vdsc.com.vn","staticfile.hsx.vn","static2.vietstock.vn"}
 MAX_BYTES=45*1024*1024
