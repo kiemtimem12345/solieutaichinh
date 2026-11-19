@@ -1,0 +1,40 @@
+name: Recover IDC Q2 2025 original source pages
+on:
+  push:
+    branches:
+      - work/idc-2025q2-original-page-recovery-20261119
+    paths:
+      - scripts/recover_idc_2025_q2_original_pages.py
+      - .github/workflows/recover-idc-q2-2025-pages.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - scripts/recover_idc_2025_q2_original_pages.py
+      - .github/workflows/recover-idc-q2-2025-pages.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recover-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Independently verify exact 2025 Q2 signed source fields and source-vintage classifications
+        run: |
+          python scripts/verify_idc_q2_2025_original.py
+          python scripts/verify_idc_q3_2025_original.py
+      - name: Recover HNX original and render signed B01 B02 B03 pages
+        run: python -u scripts/recover_idc_2025_q2_original_pages.py
+      - name: Upload original PDF-page images for manual source inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: idc-q2-2025-hnx-original-source-pages
+          path: idc-q2-2025-source-pages/*.png
+          if-no-files-found: warn
+          retention-days: 7

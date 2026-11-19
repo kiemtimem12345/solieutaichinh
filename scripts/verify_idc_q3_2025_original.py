@@ -60,9 +60,9 @@ assert V(q,"cash_beginning")==h1_expected["cash_ending"]
 assert S(q,"operating_cash_flow","investing_cash_flow","financing_cash_flow")==V(q,"net_cash_change")
 assert V(q,"cash_beginning")+V(q,"net_cash_change")+V(q,"foreign_exchange_effect")==V(q,"cash_ending")
 assert all(int(value)==0 for value in h1["residuals_vnd"].values())
-assert rows["2025-Q2"]["verification_status"]=="partially_reconciled_from_archived_source_text"
-assert rows["2025-Q2"]["source_validation"]["manually_visual_reviewed"] is False
-assert rows["2025-Q2"]["source_validation"]["reviewed_h1_2025_consolidated_b03_visual"]["status"]=="verified_B03_only_other_Q2_original_pages_pending"
+assert rows["2025-Q2"]["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_6m_ytd_q2_standalone_cash_deferred"
+assert rows["2025-Q2"]["source_validation"]["manually_visual_reviewed"] is True
+assert rows["2025-Q2"]["source_validation"]["reviewed_h1_2025_consolidated_b03_visual"]["status"]=="verified_ey_reviewed_B03_separate_vintage_Q2_original_also_visual_verified"
 fixture={
 "total_assets":21293030253931,"current_assets":9562532464360,"non_current_assets":11730497789571,
 "total_liabilities":12926247964300,"current_liabilities":4317438822891,
