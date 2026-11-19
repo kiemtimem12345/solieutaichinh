@@ -7,6 +7,7 @@ May run immediately after a Hostinger Git deployment (bounded HTTP retries).
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 import time
 from urllib.error import HTTPError, URLError
@@ -15,7 +16,8 @@ from urllib.request import Request, urlopen
 
 SITE = "https://solieutaichinh.online"
 ALLOWED_HOSTS = {"solieutaichinh.online", "www.solieutaichinh.online"}
-RETRIES = (0, 2, 5, 9)
+RETRIES = (0, 2, 5, 9, 15, 25)  # Auto-deploy and edge caches can lag GitHub main by ~1 min
+VERIFY_TOKEN = (os.environ.get("GITHUB_SHA") or "local-verify")[:16]
 
 def validate_checkout():
     snapshots = sorted(Path("data").glob("*.json"))
@@ -51,7 +53,7 @@ def check_one(relative_path):
         if delay:
             time.sleep(delay)
         try:
-            req = Request(url + "?verify=20261119", headers={
+            req = Request(url + "?verify=" + VERIFY_TOKEN, headers={
                 "Accept": "*/*",
                 "Accept-Encoding": "identity",
                 "Cache-Control": "no-cache",
