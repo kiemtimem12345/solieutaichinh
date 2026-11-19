@@ -675,7 +675,22 @@
         "difference_vs_2026q2_q3_audited_comparative_2025cash_vnd": "11422218903",
         "source_vintage_discrepancy_unresolved": true,
         "q4_standalone_cashflow_status": "deferred_until_2025Q3_original_9m_cash_flow_verified",
-        "pdf_sha256": "not_yet_computed_retain_source_url"
+        "pdf_sha256": "not_yet_computed_retain_source_url",
+        "cash_2025yearend_original_vs_2026q2_comparator_component_proof": {
+          "original_2025q4_cash_only_vnd": "46702358323",
+          "original_2025q4_cash_equivalents_vnd": "39662304925",
+          "original_2025q4_total_cash_vnd": "86364663248",
+          "q2_2026_comparative_cash_only_vnd": "46702358323",
+          "q2_2026_comparative_cash_equivalents_vnd": "28240086022",
+          "q2_2026_comparative_total_cash_vnd": "74942444345",
+          "cash_only_difference_vnd": "0",
+          "cash_equivalents_difference_vnd": "11422218903",
+          "total_cash_difference_vnd": "11422218903",
+          "line_item_reconciliation_status": "numerically_located_in_cash_equivalents_code_112; cause_and_destination_unverified",
+          "first_release_evidence": "GEG Q4 2025 signed PDF p6, original 2026Q1 signed PDF p6; same cash and equivalents 31 Dec/1 Jan",
+          "later_comparative_evidence": "GEG consolidated Q2 2026 signed PDF B01 01/01/2026 (cash code111 and equivalents code112); Q3 2026 similarly retains total 74,942,444,345",
+          "cash_vintage_classification": "Confirmed component difference is in cash equivalents, not cash. Do not infer transfer to investments/receivables or an audit adjustment without 2025 audited note."
+        }
       },
       "published_at": "2026-01-28",
       "source_archive_file": "reports/raw/GEG/auto-geg-20261021/a5dc3fd9e734420f.pdf",
@@ -1230,7 +1245,22 @@
         },
         "original_source_quarters_unchanged": true,
         "comparable_q2_quarter_cash_flow_blocked": true,
-        "fiscal_2026_source_revision_warning": "2026 Q1 original opening corporate cash 86,364,663,248 VND; Q2 original H1 6M (and Q3 comparator) opening 74,942,444,345 VND, gap 11,422,218,903 VND even though total opening assets match. Cannot bridge Q2 standalone cash as 6M minus 3M without verified restatement/cash reclassification."
+        "fiscal_2026_source_revision_warning": "2026 Q1 original opening corporate cash 86,364,663,248 VND; Q2 original H1 6M (and Q3 comparator) opening 74,942,444,345 VND, gap 11,422,218,903 VND even though total opening assets match. Cannot bridge Q2 standalone cash as 6M minus 3M without verified restatement/cash reclassification.",
+        "cash_2025yearend_original_vs_2026q2_comparator_component_proof": {
+          "original_2025q4_cash_only_vnd": "46702358323",
+          "original_2025q4_cash_equivalents_vnd": "39662304925",
+          "original_2025q4_total_cash_vnd": "86364663248",
+          "q2_2026_comparative_cash_only_vnd": "46702358323",
+          "q2_2026_comparative_cash_equivalents_vnd": "28240086022",
+          "q2_2026_comparative_total_cash_vnd": "74942444345",
+          "cash_only_difference_vnd": "0",
+          "cash_equivalents_difference_vnd": "11422218903",
+          "total_cash_difference_vnd": "11422218903",
+          "line_item_reconciliation_status": "numerically_located_in_cash_equivalents_code_112; cause_and_destination_unverified",
+          "first_release_evidence": "GEG Q4 2025 signed PDF p6, original 2026Q1 signed PDF p6; same cash and equivalents 31 Dec/1 Jan",
+          "later_comparative_evidence": "GEG consolidated Q2 2026 signed PDF B01 01/01/2026 (cash code111 and equivalents code112); Q3 2026 similarly retains total 74,942,444,345",
+          "cash_vintage_classification": "Confirmed component difference is in cash equivalents, not cash. Do not infer transfer to investments/receivables or an audit adjustment without 2025 audited note."
+        }
       },
       "published_at": "2026-05-04",
       "source_archive_file": "reports/raw/GEG/auto-geg-20261021/d8dade2f27045243.pdf",
@@ -1717,7 +1747,22 @@
           "foreign_exchange_effect": "-12574718"
         },
         "q2_quarter_only_cash_flow_status": "blocked_cross_source_year_opening_cash_difference_11422218903_vnd",
-        "action_needed": "Find GEG H1 reviewed 2026 cash note 5 or restatement/compare signed 2025FY closing; do not insert provisional Q2 quarterly CFO/CFI/CFF fields in canonical dataset."
+        "action_needed": "Find GEG H1 reviewed 2026 cash note 5 or restatement/compare signed 2025FY closing; do not insert provisional Q2 quarterly CFO/CFI/CFF fields in canonical dataset.",
+        "cash_2025yearend_original_vs_2026q2_comparator_component_proof": {
+          "original_2025q4_cash_only_vnd": "46702358323",
+          "original_2025q4_cash_equivalents_vnd": "39662304925",
+          "original_2025q4_total_cash_vnd": "86364663248",
+          "q2_2026_comparative_cash_only_vnd": "46702358323",
+          "q2_2026_comparative_cash_equivalents_vnd": "28240086022",
+          "q2_2026_comparative_total_cash_vnd": "74942444345",
+          "cash_only_difference_vnd": "0",
+          "cash_equivalents_difference_vnd": "11422218903",
+          "total_cash_difference_vnd": "11422218903",
+          "line_item_reconciliation_status": "numerically_located_in_cash_equivalents_code_112; cause_and_destination_unverified",
+          "first_release_evidence": "GEG Q4 2025 signed PDF p6, original 2026Q1 signed PDF p6; same cash and equivalents 31 Dec/1 Jan",
+          "later_comparative_evidence": "GEG consolidated Q2 2026 signed PDF B01 01/01/2026 (cash code111 and equivalents code112); Q3 2026 similarly retains total 74,942,444,345",
+          "cash_vintage_classification": "Confirmed component difference is in cash equivalents, not cash. Do not infer transfer to investments/receivables or an audit adjustment without 2025 audited note."
+        }
       },
       "published_at": "2026-07-30",
       "source_archive_file": "reports/raw/GEG/auto-geg-20261021/e5c84e9cb42b1698.pdf",
