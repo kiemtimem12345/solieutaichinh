@@ -19,6 +19,10 @@ jobs:
           node-version: '22'
       - name: Validate Python scripts syntax
         run: python -m py_compile scripts/*.py
+      - name: Validate original dashboard JS and 41 tracked JSON files
+        run: |
+          node --check assets/app.js
+          python -c 'from scripts.verify_live_site import validate_checkout; validate_checkout()'
       - name: Validate SFTP scripts syntax
         run: bash -n scripts/check_sftp.sh scripts/deploy_sftp.sh scripts/verify_hostinger_ssh_hostkey.sh
       - name: Validate production JSON and archived JS syntax
