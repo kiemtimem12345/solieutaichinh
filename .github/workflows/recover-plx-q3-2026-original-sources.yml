@@ -1,15 +1,5 @@
 name: Inspect signed original PLX Q3 parent B03 PDF
 on:
-  push:
-    branches: [work/plx-q3-2026-parent-b03-visual-recovery-20261120]
-    paths:
-      - scripts/recover_plx_q3_2026_original_sources.py
-      - .github/workflows/recover-plx-q3-2026-original-sources.yml
-  pull_request:
-    branches: [main]
-    paths:
-      - scripts/recover_plx_q3_2026_original_sources.py
-      - .github/workflows/recover-plx-q3-2026-original-sources.yml
   workflow_dispatch:
 permissions:
   contents: read
