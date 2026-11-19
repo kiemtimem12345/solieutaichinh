@@ -7,6 +7,7 @@ Never extract, upload, overwrite, execute archive contents, or show secrets.
 """
 import base64
 import hashlib
+import gzip
 import os
 import re
 import shlex
@@ -23,7 +24,7 @@ USER = "u154814653"
 DOMAIN_ROOT = "/home/u154814653/domains/solieutaichinh.online"
 UPLOAD_DIR = DOMAIN_ROOT + "/restore-source"
 FINGERPRINT = "SHA256:Wx4FFdj6dNVE5k+J6ubNerKOELb8xPqfPNVJ2ofhCHA"
-EXTENSIONS = (".tar.gz", ".tgz", ".zip", ".tar")
+EXTENSIONS = (".tar.gz", ".tgz", ".zip", ".tar", ".gz")
 PUBLIC_LAYOUT = re.compile(
     r"(^|/)(?:domains/solieutaichinh[.]online/)?public_html/"
     r"(?:index[.]html|index[.]php|index[.]htm|assets/|css/|js/|"
@@ -48,11 +49,36 @@ def matches(filename):
     return bool(PUBLIC_LAYOUT.search(normalized))
 
 
+def classify_gzip_stream(sftp, path):
+    # Gzip files may contain a tar archive OR a database dump. Peek only at
+    # the first 512 *decompressed* bytes, do not stream multi-GB contents.
+    with sftp.open(path, "rb") as src:
+        first = src.read(2)
+        if first != b"\x1f\x8b":
+            print("::error::File ends in .gz but does not contain a gzip header.")
+            return "unknown"
+        src.seek(0)
+        with gzip.GzipFile(fileobj=src, mode="rb") as stream:
+            first_block = stream.read(512)
+    if len(first_block) >= 262 and first_block[257:262] == b"ustar":
+        print("PASS: .gz contains a gzip-compressed TAR archive (USTAR header)")
+        return "tar"
+    if first_block.startswith((b"-- MySQL", b"-- MariaDB", b"CREATE TABLE",
+                               b"INSERT INTO", b"DROP TABLE", b"/*M!", b"SET ")):
+        print("INFO: .gz appears to contain database SQL text, not a TAR archive")
+        return "sql"
+    if first_block.startswith(b"PK\x03\x04"):
+        print("INFO: .gz contains a nested ZIP signature, not a TAR header")
+        return "zip"
+    print("INFO: gzip stream is valid, but the initial content is not a TAR header")
+    return "other"
+
+
 def list_tar_via_remote_ssh(transport, path, compressed):
     # The archive path is derived from a directory listing, quoted as one arg.
     # Read-only: tar -t lists entries, never tar -x.
     options = "-tzf" if compressed else "-tf"
-    command = "timeout 540 tar " + options + " " + shlex.quote(path)
+    command = "timeout 540 tar " + options + " " + shlex.quote(path) + " 2>/dev/null"
     channel = transport.open_session(timeout=15)
     channel.settimeout(30)
     channel.exec_command(command)
@@ -150,8 +176,13 @@ def main():
         lower = item.filename.lower()
         if lower.endswith(".zip"):
             return list_zip_via_sftp(sftp, path)
+        if lower.endswith((".tar.gz", ".tgz", ".gz")):
+            kind = classify_gzip_stream(sftp, path)
+            if kind != "tar":
+                print("No extraction attempted. Backup is not confirmed to contain original frontend.")
+                return 0
         return list_tar_via_remote_ssh(
-            transport, path, lower.endswith((".tar.gz", ".tgz"))
+            transport, path, lower.endswith((".tar.gz", ".tgz", ".gz"))
         )
     except Exception as exc:
         print(f"::error::Read-only backup inspection failed: {type(exc).__name__}.")
