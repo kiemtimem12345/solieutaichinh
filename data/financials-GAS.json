@@ -1347,7 +1347,122 @@
             "liabilities": "0",
             "current_asset_composition": "0"
           },
-          "quarterly_series_handling": "2026-Q2 original standalone quarterly B02 retained; H1 reviewed is later source-vintage, which does not independently attribute the 10,160,150,278 VND H1-vs-Q1+Q2 mismatch to Q1 or Q2. Avoid speculative per-quarter rewrite."
+          "quarterly_series_handling": "2026-Q2 original standalone quarterly B02 retained; H1 reviewed is later source-vintage, which does not independently attribute the 10,160,150,278 VND H1-vs-Q1+Q2 mismatch to Q1 or Q2. Avoid speculative per-quarter rewrite.",
+          "q3_source_nine_month_consistency": {
+            "report_date": "2026-10-30",
+            "report_scope": "GAS BCTC hợp nhất Q3/2026, signed issuer B02, PDF p.5",
+            "issuer_url": "https://www.pvgas.com.vn/DesktopModules/EasyDNNNews/DocumentDownload.ashx?articleid=14699&documentid=3432&moduleid=648&portalid=0",
+            "mirror_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%203/GAS_Baocaotaichinh_Q3_2026_Hopnhat.pdf",
+            "source_consistency": "For nine fields, 9M minus Q3 matches the earlier H1 cumulative exactly, except 1 VND split of parent/NCI that nets to 0 in consolidated profit.",
+            "b02_vnd_by_metric": {
+              "revenue": {
+                "nine_month_ytd_vnd": "120977138230990",
+                "q3_standalone_vnd": "39708393248033",
+                "implied_h1_from_nine_minus_q3_vnd": "81268744982957",
+                "originally_published_h1_vnd": "81268744982957",
+                "original_q1_plus_q2_vnd": "81268744982957",
+                "nine_month_implied_h1_minus_published_h1_vnd": "0",
+                "published_h1_minus_original_quarters_vnd": "0",
+                "q2_if_q1_unchanged_vnd": "43249135951689",
+                "q2_if_q1_unchanged_minus_original_q2_vnd": "0"
+              },
+              "cost_of_goods_sold": {
+                "nine_month_ytd_vnd": "102456747387133",
+                "q3_standalone_vnd": "33489588538355",
+                "implied_h1_from_nine_minus_q3_vnd": "68967158848778",
+                "originally_published_h1_vnd": "68967158848778",
+                "original_q1_plus_q2_vnd": "68977318999056",
+                "nine_month_implied_h1_minus_published_h1_vnd": "0",
+                "published_h1_minus_original_quarters_vnd": "-10160150278",
+                "q2_if_q1_unchanged_vnd": "35455741142285",
+                "q2_if_q1_unchanged_minus_original_q2_vnd": "-10160150278"
+              },
+              "gross_profit": {
+                "nine_month_ytd_vnd": "18520390843857",
+                "q3_standalone_vnd": "6218804709678",
+                "implied_h1_from_nine_minus_q3_vnd": "12301586134179",
+                "originally_published_h1_vnd": "12301586134179",
+                "original_q1_plus_q2_vnd": "12291425983901",
+                "nine_month_implied_h1_minus_published_h1_vnd": "0",
+                "published_h1_minus_original_quarters_vnd": "10160150278",
+                "q2_if_q1_unchanged_vnd": "7793394809404",
+                "q2_if_q1_unchanged_minus_original_q2_vnd": "10160150278"
+              },
+              "pretax_profit": {
+                "nine_month_ytd_vnd": "16980511052183",
+                "q3_standalone_vnd": "5772611091561",
+                "implied_h1_from_nine_minus_q3_vnd": "11207899960622",
+                "originally_published_h1_vnd": "11207899960622",
+                "original_q1_plus_q2_vnd": "11197739810344",
+                "nine_month_implied_h1_minus_published_h1_vnd": "0",
+                "published_h1_minus_original_quarters_vnd": "10160150278",
+                "q2_if_q1_unchanged_vnd": "7453216304771",
+                "q2_if_q1_unchanged_minus_original_q2_vnd": "10160150278"
+              },
+              "net_profit": {
+                "nine_month_ytd_vnd": "13594648848851",
+                "q3_standalone_vnd": "4568974088511",
+                "implied_h1_from_nine_minus_q3_vnd": "9025674760340",
+                "originally_published_h1_vnd": "9025674760340",
+                "original_q1_plus_q2_vnd": "9015514610062",
+                "nine_month_implied_h1_minus_published_h1_vnd": "0",
+                "published_h1_minus_original_quarters_vnd": "10160150278",
+                "q2_if_q1_unchanged_vnd": "6031559487763",
+                "q2_if_q1_unchanged_minus_original_q2_vnd": "10160150278"
+              },
+              "net_profit_attributable": {
+                "nine_month_ytd_vnd": "13381162041937",
+                "q3_standalone_vnd": "4576462445604",
+                "implied_h1_from_nine_minus_q3_vnd": "8804699596333",
+                "originally_published_h1_vnd": "8804699596334",
+                "original_q1_plus_q2_vnd": "8794539446056",
+                "nine_month_implied_h1_minus_published_h1_vnd": "-1",
+                "published_h1_minus_original_quarters_vnd": "10160150278",
+                "q2_if_q1_unchanged_vnd": "5860096460006",
+                "q2_if_q1_unchanged_minus_original_q2_vnd": "10160150278"
+              },
+              "non_controlling_interest_profit": {
+                "nine_month_ytd_vnd": "213486806914",
+                "q3_standalone_vnd": "-7488357093",
+                "implied_h1_from_nine_minus_q3_vnd": "220975164007",
+                "originally_published_h1_vnd": "220975164006",
+                "original_q1_plus_q2_vnd": "220975164006",
+                "nine_month_implied_h1_minus_published_h1_vnd": "1",
+                "published_h1_minus_original_quarters_vnd": "0",
+                "q2_if_q1_unchanged_vnd": "171463027757",
+                "q2_if_q1_unchanged_minus_original_q2_vnd": "0"
+              },
+              "income_tax_current": {
+                "nine_month_ytd_vnd": "3391122703113",
+                "q3_standalone_vnd": "1201321393743",
+                "implied_h1_from_nine_minus_q3_vnd": "2189801309370",
+                "originally_published_h1_vnd": "2189801309370",
+                "original_q1_plus_q2_vnd": "2189801309370",
+                "nine_month_implied_h1_minus_published_h1_vnd": "0",
+                "published_h1_minus_original_quarters_vnd": "0",
+                "q2_if_q1_unchanged_vnd": "1425659139801",
+                "q2_if_q1_unchanged_minus_original_q2_vnd": "0"
+              },
+              "income_tax_deferred": {
+                "nine_month_ytd_vnd": "-5260499781",
+                "q3_standalone_vnd": "2315609307",
+                "implied_h1_from_nine_minus_q3_vnd": "-7576109088",
+                "originally_published_h1_vnd": "-7576109088",
+                "original_q1_plus_q2_vnd": "-7576109088",
+                "nine_month_implied_h1_minus_published_h1_vnd": "0",
+                "published_h1_minus_original_quarters_vnd": "0",
+                "q2_if_q1_unchanged_vnd": "-4002322793",
+                "q2_if_q1_unchanged_minus_original_q2_vnd": "0"
+              }
+            },
+            "nine_month_minus_q3_matches_published_h1_for_total_profit": true,
+            "profit_allocation_to_one_quarter_unresolved": true,
+            "anomaly_scope": "Published Q2/2026 B02 quarterly column versus same-report H1 cumulative; Q3/2026 9M/YTD later confirmed H1. Difference concentrated in cost of goods sold (10,160,150,278 VND), with exact offset in gross, PBT, net, parent-attributable profit. Current-tax and deferred-tax additions match H1.",
+            "q2_implied_numbers_are_hypothetical": true,
+            "action": "Preserve original verified Q1/Q2 quarter columns. Do not overwrite quarterly financials with inferred Q2 unless issuer explicitly confirms quarter attribution. Expose discrepancy provenance and compare to next reports.",
+            "visually_checked": "Original Q1/2026 PDF page 6 and Q2/2026 page 5, earlier visual QA; Q3/2026 consolidated original/mirror page 5 visually reviewed on 2026-11-19",
+            "reviewed_on": "2026-11-19"
+          }
         }
       },
       "published_at": "2026-07-31",
