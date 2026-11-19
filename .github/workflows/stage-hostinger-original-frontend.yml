@@ -1,0 +1,26 @@
+name: Stage original frontend from Hostinger backup (private only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/stage_hostinger_original_frontend.py'
+      - '.github/workflows/stage-hostinger-original-frontend.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install SSH/SFTP library
+        run: python -m pip install --disable-pip-version-check 'paramiko>=3.5,<5'
+      - name: Extract allowlisted original UI only into private staging
+        env:
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: python -u scripts/stage_hostinger_original_frontend.py
