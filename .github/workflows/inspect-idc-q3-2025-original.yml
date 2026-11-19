@@ -1,0 +1,31 @@
+name: Inspect IDC 2025 Q3 consolidated issuer original PDF
+on:
+  push:
+    branches: [work/idc-2025q3-original-20261119]
+    paths:
+      - 'scripts/inspect_idc_q3_2025_original.py'
+      - '.github/workflows/inspect-idc-q3-2025-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install ephemeral PDF renderer
+        run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Read issuer original IDC Q3 2025 consolidated B01 B02 B03 pages
+        run: python -u scripts/inspect_idc_q3_2025_original.py
+      - name: Upload public original statement images for manual QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: idc-2025-q3-consolidated-original-pages
+          path: idc-q3-original-pages/*.png
+          if-no-files-found: warn
+          retention-days: 3
