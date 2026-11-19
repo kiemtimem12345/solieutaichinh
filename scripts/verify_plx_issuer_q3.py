@@ -51,6 +51,20 @@ for r in q:
   assert r["source_validation"]["b03_cashflow_discrepancy_vnd"]=="87654015000"
   assert r["source_validation"]["b03_cff_components_vnd"]=="6053755558718"
   assert r["source_validation"]["b03_cff_printed_vnd"]=="5966101543718"
+  # Preserve the original nine-month B03 anomaly, without publishing a
+  # guessed financing subtotal. Detailed signed-source rows 31..36 from PDF.
+  financing_rows_vnd=(844158780900,-1134759693,71733162995138,
+                       -65128441186058,0,-1393990271569)
+  sum_cff=sum(financing_rows_vnd)
+  printed_cff=5966101543718
+  original_cfo=-3435516597061
+  original_cfi=-2575747123895
+  reported_net=42491837762
+  assert sum_cff==6053755558718
+  assert sum_cff-printed_cff==87654015000
+  assert original_cfo+original_cfi+sum_cff==reported_net
+  assert original_cfo+original_cfi+printed_cff==reported_net-87654015000
+  assert r["source_validation"]["b03_net_cashflow_reported_vnd"]==str(reported_net)
   assert r["source_validation"]["b03_component_cfo_cfi_cff_reconciles_net_change"]
 assert {r["source_validation"]["scope"] for r in q}==set(expected)
 previous=next(r for r in obj["items"] if r["period"]=="2025-Q3" and "hợp nhất" in r["report_type"].lower())
