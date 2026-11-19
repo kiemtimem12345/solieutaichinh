@@ -71,3 +71,5 @@ jobs:
         run: python scripts/validate.py
       - name: Stage JSON and verify package
         run: python scripts/prepare_deploy.py
+      - name: Ensure staged JSON matches latest Git data exactly (no ZIP rollback)
+        run: python scripts/verify_deploy_stage.py

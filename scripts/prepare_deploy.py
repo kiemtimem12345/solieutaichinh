@@ -1,39 +1,81 @@
 #!/usr/bin/env python3
-"""Stage only verified JSON, filtering financial periods before 2025-Q1."""
+"""Stage precisely 41 *current Git-tracked* JSON files for guarded Hostinger FTPS.
+
+The immutable November 18 recovery ZIP is provenance only and must NEVER be
+used as the deployment payload after financial snapshots are corrected in Git.
+No HTML/JS/CSS or private paths are staged; no remote deletion is done.
+Staged bytes must be SHA-256-identical to the source-controlled data/*.json.
+"""
+import hashlib
 import json
-import pathlib
+from pathlib import Path
 import shutil
 import sys
-import zipfile
-from validate import check, ARCHIVE, ROOT, FINANCIAL, normalized_financial, FIRST_ALLOWED, MAX_PERIODS
+
+try:
+    from validate import ROOT, FIRST_ALLOWED, MAX_PERIODS, normalized_financial, check
+except ImportError:
+    from scripts.validate import ROOT, FIRST_ALLOWED, MAX_PERIODS, normalized_financial, check
+
 
 def main():
-    names = check()
+    # Preserve original archive integrity as independent provenance. It does
+    # not authorize or supply bytes to the publish staging directory.
+    check()
+
+    src = ROOT / "data"
+    if not src.is_dir():
+        raise ValueError("Missing source-controlled data directory")
+    files = sorted(src.glob("*.json"))
+    financial = [p for p in files if p.name.startswith("financials-")]
+    if len(files) != 41 or len(financial) != 32:
+        raise ValueError(
+            f"Expected 41 current Git JSON files and 32 financials, "
+            f"found {len(files)} and {len(financial)}"
+        )
+
     target = ROOT / "deploy" / "data"
     if target.exists():
         shutil.rmtree(target)
     target.mkdir(parents=True, exist_ok=True)
-    excluded = 0
-    with zipfile.ZipFile(ARCHIVE) as archive:
-        for name in names:
-            dest = target / pathlib.PurePosixPath(name).name
-            raw = archive.read(name)
-            obj = json.loads(raw.decode("utf-8-sig"))
-            if FINANCIAL.fullmatch(name):
-                obj, count = normalized_financial(obj, name)
-                excluded += count
-                raw = (json.dumps(obj, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-            dest.write_bytes(raw)
-    staged = sorted(target.glob("*.json"))
-    if len(staged) != 41:
-        sys.exit(f"Expected 41 staged JSON files, got {len(staged)}")
-    for path in staged:
-        obj = json.loads(path.read_text(encoding="utf-8-sig"))
+
+    for path in files:
+        if path.parent != src:
+            raise ValueError("Nested or non-data source rejected")
+        raw = path.read_bytes()
+        doc = json.loads(raw.decode("utf-8-sig"))
         if path.name.startswith("financials-"):
-            periods = [row["period"] for row in obj["items"]]
-            if not periods or len(set(periods)) > MAX_PERIODS or any(p < FIRST_ALLOWED for p in periods):
-                sys.exit(f"Invalid staged periods in {path.name}")
-    print(f"PASS: staged 41 JSON; excluded {excluded} pre-2025/excess periods; no UI files staged.")
+            rel = "data/" + path.name
+            normalized, excluded = normalized_financial(doc, rel)
+            if excluded:
+                raise ValueError(
+                    f"Current Git financial JSON contains excluded historical rows: {rel}"
+                )
+            # normalized_financial returns a sorted view for cutoff validation,
+            # but staging MUST NOT rewrite source JSON or shuffle report scopes.
+            periods = [r["period"] for r in doc["items"]]
+            if (
+                not periods
+                or any(period < FIRST_ALLOWED for period in periods)
+                or len(set(periods)) > MAX_PERIODS
+            ):
+                raise ValueError(f"Out-of-scope report periods in {rel}")
+            if normalized.get("symbol") != path.stem.removeprefix("financials-"):
+                raise ValueError(f"Ticker mismatch in {rel}")
+        staged = target / path.name
+        staged.write_bytes(raw)
+        if hashlib.sha256(staged.read_bytes()).digest() != hashlib.sha256(raw).digest():
+            raise ValueError(f"Staged JSON bytes differ from Git source: {path.name}")
+
+    print(
+        "PASS: staged exactly 41 current Git-tracked JSON (32 financial + 9 auxiliary); "
+        "all SHA-256 match. Immutable restore ZIP checked but NEVER staged. "
+        "No UI, secrets or earlier-period data uploaded."
+    )
+
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (ValueError, OSError, KeyError, TypeError, UnicodeError) as exc:
+        sys.exit(f"FAIL: safe JSON staging aborted: {exc}")
