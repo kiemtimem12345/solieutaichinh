@@ -1,0 +1,38 @@
+name: Inspect VDS original consolidated 2026 Q1 PDF
+on:
+  push:
+    branches: [main, work/vds-2026q1-b01b02-original-visual-20261119]
+    paths:
+      - 'scripts/inspect_vds_q1_2026_pdf.py'
+      - '.github/workflows/inspect-vds-q1-2026-pdf.yml'
+  pull_request:
+    paths:
+      - 'scripts/inspect_vds_q1_2026_pdf.py'
+      - '.github/workflows/inspect-vds-q1-2026-pdf.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install ephemeral PDF renderer and local OCR fallback
+        run: |
+          python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr
+      - name: Render official HOSE VDS Q1 consolidated B01 B02 B03 without any data writes
+        run: python -u scripts/inspect_vds_q1_2026_pdf.py
+      - name: Upload public statement pages for independent visual QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vds-2026-q1-original-consolidated-statement-pages
+          path: vds-q1-renders/*.png
+          if-no-files-found: warn
+          retention-days: 3
