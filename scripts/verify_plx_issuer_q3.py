@@ -65,9 +65,22 @@ for r in q:
   assert original_cfo+original_cfi+sum_cff==reported_net
   assert original_cfo+original_cfi+printed_cff==reported_net-87654015000
   assert r["source_validation"]["b03_net_cashflow_reported_vnd"]==str(reported_net)
+  src=r["source_validation"]
+  assert r["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_printed_cff_arithmetic_anomaly_blocked"
+  assert src["issuer_original_signed_pdf_sha256"]=="a8073e73803664a01601be8b4e416cb33ec90bfd3eca05560bbed454edcbefef"
+  assert src["issuer_original_signed_pdf_bytes"]==14198075 and src["issuer_original_signed_pdf_pages"]==39
+  assert src["visually_reviewed_pdf_pages"]==[2,3,4,5,6,7,8]
+  assert src["b01_b02_visual_reviewed"] and src["b03_original_visual_reviewed"]
+  assert src["b03_error_confirmed_on_signed_original"] and src["b03_source_text_ocr_error_ruled_out"]
+  assert sum(int(v) for v in src["b03_financing_detail_lines_vnd"].values())==sum_cff
+  assert src["b03_source_identity_checks_vnd"]["net_using_components_minus_printed_net"]=="0"
+  assert src["b03_source_identity_checks_vnd"]["net_using_printed_cff_minus_printed_net"]=="-87654015000"
+  assert src["full_b01_b02_b03_visual_reviewed"] is False
+  assert src["separate_parent_h1_2026_reviewed_pdf_still_pending"] is True
+
   assert r["source_validation"]["b03_component_cfo_cfi_cff_reconciles_net_change"]
 assert {r["source_validation"]["scope"] for r in q}==set(expected)
 previous=next(r for r in obj["items"] if r["period"]=="2025-Q3" and "hợp nhất" in r["report_type"].lower())
 prev_issuer=Decimal("705970.238434")
 assert abs(Decimal(str(previous["net_profit"]))-prev_issuer)/prev_issuer*100<=Decimal("0.01")
-print("PASS: PLX Q3 consolidated issuer LNST; parent B01/B02 31 numeric fields and 8 exact reconciliations; B03 discrepancy blocked")
+print("PASS: PLX Q3 parent issuer original 39p PDF pages 2-8 visual checked; B01/B02 numeric exact reconciliations; source-printed B03 CFF mismatch 87,654,015,000 VND quarantined; consolidated profit untouched")
