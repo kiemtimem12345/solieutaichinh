@@ -774,7 +774,7 @@
         "q1_core_B01_B02_pending": false,
         "reviewed_on": "2026-11-19",
         "original_issuer_listing": "https://www.vdsc.com.vn/quan-he-co-dong/cong-bo-thong-tin/rong-viet-cong-bo-bao-cao-tai-chinh-hop-nhat-quy-1-2026-va-giai-trinh-chenh-lech-loi-nhuan-i1019",
-        "original_issuer_pdf_sha256": "",
+        "original_issuer_pdf_sha256": "f48b349d51f0158185764b8862648386b9560c271fdb11c65c8bb5710b8e90ec",
         "issuer_pdf_pages": [
           6,
           7,
@@ -818,7 +818,9 @@
         "h1_vs_sum_q1q2_b02_anomaly_to_be_preserved": true,
         "h1_FVTPL_revenue_and_operating_expense_netting_difference_vnd": "-6063861335",
         "h1_parent_nci_profit_allocation_difference_vnd": "141501685",
-        "h1_comparison_handling": "Q1 original and Q2 original quarter columns remain immutable. Cumulative H1 source nets -6,063,861,335 of FVTPL revenue and same operating expenses; no impact on operating profit or net, 141,501,685 VND owner/NCI redistribution in H1; keep source vintages and flag until issuer confirmed."
+        "h1_comparison_handling": "Q1 original and Q2 original quarter columns remain immutable. Cumulative H1 source nets -6,063,861,335 of FVTPL revenue and same operating expenses; no impact on operating profit or net, 141,501,685 VND owner/NCI redistribution in H1; keep source vintages and flag until issuer confirmed.",
+        "visual_source_run": "GitHub Actions 44506806233, artifact 14519881822, original pages 6–16; independent web PDF screenshots",
+        "issuer_original_pdf_bytes": 5424585
       },
       "published_at": "2026-04-25",
       "source_archive_file": "reports/raw/VDS/auto-vds-20261021/2720dd850acfbd95.pdf",
