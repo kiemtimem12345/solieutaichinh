@@ -67,6 +67,8 @@ jobs:
         run: python scripts/verify_geg_q4_2025_original.py
       - name: Verify GEG Q3 2025 signed B01 B02 9M B03 and standalone Q4 cash
         run: python scripts/verify_geg_q3_2025_original.py
+      - name: Verify GEG Q2 2025 issuer original and Q3 standalone cash bridge
+        run: python scripts/verify_geg_q2_2025_original.py
       - name: Validate SFTP scripts syntax
         run: bash -n scripts/check_sftp.sh scripts/deploy_sftp.sh scripts/verify_hostinger_ssh_hostkey.sh
       - name: Validate production JSON and archived JS syntax
