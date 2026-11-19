@@ -15,8 +15,8 @@ from urllib.request import Request, urlopen
 import fitz
 
 SOURCES=[
- ("HOSE", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2458785/20260429%20-%20GEG%20-%20Bao%20cao%20tai%20chinh%20hop%20nhat%20Q1.2026%20%2B%20giai%20trinh%20%28song%20ngu%29.pdf"),
  ("VIETSTOCK", "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/GEG_Baocaotaichinh_Q1_2026_Hopnhat.pdf"),
+ ("HOSE", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2458785/20260429%20-%20GEG%20-%20Bao%20cao%20tai%20chinh%20hop%20nhat%20Q1.2026%20%2B%20giai%20trinh%20%28song%20ngu%29.pdf"),
 ]
 HOSTS={"staticfile.hsx.vn","static2.vietstock.vn"}
 MAX_BYTES=45*1024*1024
@@ -51,7 +51,7 @@ def inspect(blob,name):
     doc=fitz.open(stream=blob,filetype="pdf")
     print(f"PDF_OK source={name} total_pages={len(doc)}",flush=True)
     out=Path("geg-q1-renders");out.mkdir(exist_ok=True)
-    for ix in range(0,min(len(doc),24)):
+    for ix in range(0,min(len(doc),18)):
         page=doc[ix]
         txt=page.get_text(sort=True)
         pix=page.get_pixmap(matrix=fitz.Matrix(1.45,1.45),alpha=False)
