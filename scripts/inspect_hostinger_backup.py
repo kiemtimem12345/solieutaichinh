@@ -54,7 +54,7 @@ def classify_gzip_stream(sftp, path):
     # the first 512 *decompressed* bytes, do not stream multi-GB contents.
     with sftp.open(path, "rb") as src:
         first = src.read(2)
-        if first != b"\\x1f\\x8b":
+        if first != b"\x1f\x8b":
             print("::error::File ends in .gz but does not contain a gzip header.")
             return "unknown"
         src.seek(0)
@@ -67,7 +67,7 @@ def classify_gzip_stream(sftp, path):
                                b"INSERT INTO", b"DROP TABLE", b"/*M!", b"SET ")):
         print("INFO: .gz appears to contain database SQL text, not a TAR archive")
         return "sql"
-    if first_block.startswith(b"PK\\x03\\x04"):
+    if first_block.startswith(b"PK\x03\x04"):
         print("INFO: .gz contains a nested ZIP signature, not a TAR header")
         return "zip"
     print("INFO: gzip stream is valid, but the initial content is not a TAR header")
