@@ -26,24 +26,22 @@
     return new Intl.NumberFormat('vi-VN', { maximumFractionDigits }).format(Number(value));
   };
 
-  const DATA_CDN_BASE = 'https://cdn.jsdelivr.net/gh/kiemtimem123/so-lieu@main/data/';
-  const DATA_FALLBACK_BASE = 'https://raw.githubusercontent.com/kiemtimem123/so-lieu/main/data/';
+  const DATA_CDN_BASE = 'https://cdn.jsdelivr.net/gh/kiemtimem12345/solieutaichinh@main/data/';
+  const DATA_FALLBACK_BASE = 'https://raw.githubusercontent.com/kiemtimem12345/solieutaichinh/main/data/';
 
   // Some shared-hosting configurations return index.html with HTTP 200 for a
   // missing JSON file. Validate the body, not only the status/content-type,
   // before accepting a same-origin snapshot. Then try two public repo mirrors.
   async function fetchDataFile(filename) {
-    // Always prefer the GitHub snapshot as the source of truth. A fixed cache
-    // key allowed jsDelivr/Hostinger to keep serving an older financial JSON
-    // after the repository had been corrected.
+    // The versioned same-origin /data snapshots are deployed from the same
+    // Git commit as the frontend. Prefer them over third-party mirrors, which
+    // may lag or point to older data; retain GitHub Raw/CDN as fallbacks.
     const cacheKey = Date.now().toString(36);
     const encoded = encodeURIComponent(filename);
     const candidates = [
-      // Raw GitHub is checked first so a valid-but-stale jsDelivr response
-      // cannot mask a newer financial/data snapshot.
-      { url: DATA_FALLBACK_BASE + encoded + '?v=' + cacheKey, label: 'GitHub Raw' },
-      { url: DATA_CDN_BASE + encoded + '?v=' + cacheKey, label: 'GitHub CDN' },
-      { url: 'data/' + encoded + '?v=' + cacheKey, label: 'website fallback' }
+      { url: 'data/' + encoded + '?v=' + cacheKey, label: 'website' },
+      { url: DATA_FALLBACK_BASE + encoded + '?v=' + cacheKey, label: 'GitHub Raw fallback' },
+      { url: DATA_CDN_BASE + encoded + '?v=' + cacheKey, label: 'GitHub CDN fallback' }
     ];
     const failures = [];
     for (const candidate of candidates) {
@@ -1162,25 +1160,24 @@
       const encoded = encodeURIComponent(filename);
       const candidates = [
         {
-          label: 'GitHub Raw',
+          label: 'website',
+          url: 'data/' + encoded + '?v=' + cacheKey,
+          timeoutMs: 8000
+        },
+        {
+          label: 'GitHub Raw fallback',
           url: DATA_FALLBACK_BASE + encoded + '?v=' + cacheKey,
           timeoutMs: 8000
         },
         {
-          label: 'GitHub CDN',
+          label: 'GitHub CDN fallback',
           url: DATA_CDN_BASE + encoded + '?v=' + cacheKey,
           timeoutMs: 8000
-        },
-        {
-          label: 'website',
-          url: 'data/' + encoded + '?v=' + cacheKey,
-          timeoutMs: 5000
         }
       ];
 
-      // Sequential loading keeps a deterministic fallback path. Prefer the
-      // live GitHub file, then its CDN mirror, and use the uploaded Hostinger
-      // snapshot only when both public sources are unavailable.
+      // The website JSON is the Git-tracked deployment for this same commit.
+      // Use GitHub Raw/CDN only if the website file cannot be loaded.
       const errors = [];
       for (const candidate of candidates) {
         const controller = new AbortController();
@@ -2875,7 +2872,7 @@
       }
       if (!payload) {
         const res = await fetchDataFile('analysis-reports.json');
-        payload = res && typeof res === 'object' ? res : {};
+        payload = await res.json();
       }
       reports = Array.isArray(payload.reports) ? payload.reports : [];
       status.textContent = reports.length ? reports.length + ' tài liệu trong danh mục' : 'Chưa có tài liệu';
