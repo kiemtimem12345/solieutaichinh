@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Read-only recovery of original PLX Q3/2026 parent B03 and reviewed H1 PDF.
+"""Read-only recovery of exact PLX Q3/2026 parent signed B03 original only.
 
 Exact issuer/HOSE financial reports ONLY. No numeric production changes.
 The B03 printed CFF differs from sum of its component rows by VND 87,654,015,000;
-images of the original pages are necessary to distinguish printing vs OCR.
+images of original pages distinguish signed-printing inconsistencies from OCR.
 Never use a subsidiary's report or silently correct original values.
 """
 from __future__ import annotations
@@ -15,8 +15,6 @@ import fitz
 
 SOURCES=[
  ("PLX_Q3_2026_PARENT_ISSUER","https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/5011693c3c5240a0833bfaea0e7983a5/20261030%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20Cong%20ty%20m%E1%BA%B9%20Q3%20nam%202026.pdf"),
- ("PLX_H1_2026_PARENT_HOSE_REVIEWED","https://staticfile.hsx.vn/Uploads/UploadDocuments/2493840/20260828%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20Cong%20ty%20me%206%20thang%20nam%202026%20sau%20soat%20xet.pdf"),
- ("PLX_Q3_2026_CONSOLIDATED_HOSE","https://staticfile.hsx.vn/Uploads/UploadDocuments/2510747/20261030%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20Hop%20nhat%20Q3%20nam%202026.pdf"),
 ]
 HOSTS={"files.petrolimex.com.vn","staticfile.hsx.vn"}
 CAP=38*1024*1024
