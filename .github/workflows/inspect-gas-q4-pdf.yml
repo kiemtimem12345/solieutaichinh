@@ -1,0 +1,38 @@
+name: Inspect original GAS Q4 2025 consolidated PDF
+on:
+  push:
+    branches: [main, work/gas-q4-2025-pdf-source-inspection-20261119]
+    paths:
+      - 'scripts/inspect_gas_q4_pdf.py'
+      - '.github/workflows/inspect-gas-q4-pdf.yml'
+  pull_request:
+    paths:
+      - 'scripts/inspect_gas_q4_pdf.py'
+      - '.github/workflows/inspect-gas-q4-pdf.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install ephemeral PDF renderer and local OCR
+        run: |
+          python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr
+      - name: Inspect official issuer, HOSE or mirrored signed source
+        run: python -u scripts/inspect_gas_q4_pdf.py
+      - name: Upload bounded report page images for visual QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gas-2025-q4-original-report-pages
+          path: gas-q4-renders/*.png
+          if-no-files-found: warn
+          retention-days: 3
