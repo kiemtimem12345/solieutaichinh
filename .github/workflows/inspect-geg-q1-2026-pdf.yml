@@ -24,8 +24,6 @@ jobs:
       - name: Install short-lived PDF renderer and optional local OCR
         run: |
           python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq tesseract-ocr
       - name: Read and render GEG Q1 2026 consolidated original disclosure without data writes
         run: python -u scripts/inspect_geg_q1_2026_pdf.py
       - name: Export original public statement pages for visual verification
