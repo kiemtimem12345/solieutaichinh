@@ -39,3 +39,11 @@
 3. Inspect official FY2025 audited (HOSE 30 March 2026) and H1 2026 reviewed (HOSE 25 August 2026) original PDFs. Determine where initial 11.422bn cash comparative was revised; preserve both source vintages.
 4. Once GEG complete/blocked with source-specific explanation, move IDC Q3/2026. Independent prior exceptions: PLX parent Q3/2026 CFF difference 87.654.015.000 VND; GAS H1/2026 COGS 10.160.150.278 VND not allocated.
 5. All periods >=2025Q1, <=20 periods/ticker; tolerance <=0.01%; signed issuer sources and exact-VND accounting checks; durable checkpoints and no reprocessing completed periods.
+
+## Addendum: exact comparative change in cash equivalents (code 112)
+- Two independent original consolidated reports show **same 2025-end cash (code111) = 46,702,358,323 VND**:
+  - Signed GEG 2025Q4 original B01 p6, cash 46,702,358,323 + cash equivalents 39,662,304,925 = cash&equivalents **86,364,663,248**.
+  - GEG original 2026Q1 signed B01 p6 repeats original FY2025 opening 86,364,663,248.
+- The later GEG 2026Q2 original B01 at 01/01/2026 shows **cash 46,702,358,323 (unchanged)** + **cash equivalents 28,240,086,022** = **74,942,444,345**.
+- Therefore the whole difference **11,422,218,903 VND = original cash equivalents 39,662,304,925 - later comparative cash equivalents 28,240,086,022**, while cash-only difference is **0 VND**. Source-vintage disagreement is **precisely localized to cash equivalents component (B01 code112)**. This is **not proof of destination account/reclassification cause**; require FY2025 audited note to trace. Q2 standalone B03 remains blocked.
+- The source-vintage accounting proof was stored in `source_validation.cash_2025yearend_original_vs_2026q2_comparator_component_proof` under 2025Q4, 2026Q1, 2026Q2, and pinned in `scripts/verify_geg_q4_2025_original.py` without changing previously verified core 2026 numbers.
