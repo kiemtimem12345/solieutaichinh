@@ -1,0 +1,38 @@
+name: Inspect VDS reviewed consolidated H1 2025 original PDF
+on:
+  push:
+    branches: [main, work/vds-h1-2025-reviewed-attribution-source-20261119]
+    paths:
+      - scripts/inspect_vds_h1_2025_reviewed_pdf.py
+      - .github/workflows/inspect-vds-h1-2025-reviewed.yml
+  pull_request:
+    paths:
+      - scripts/inspect_vds_h1_2025_reviewed_pdf.py
+      - .github/workflows/inspect-vds-h1-2025-reviewed.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source rendering tools on ephemeral runner
+        run: |
+          python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr
+      - name: Read issuer reviewed H1 source without changing canonical quarter data
+        run: python -u scripts/inspect_vds_h1_2025_reviewed_pdf.py
+      - name: Preserve original publicly filed statement pages briefly
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vds-2025-reviewed-H1-consolidated-original-pages
+          path: vds-2025-h1-reviewed-pages/*.png
+          if-no-files-found: warn
+          retention-days: 3
