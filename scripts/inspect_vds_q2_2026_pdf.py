@@ -51,7 +51,7 @@ def read_pdf(name,url):
 def inspect(blob,name):
     doc=fitz.open(stream=blob,filetype="pdf")
     print(f"PDF_OK source={name} total_pages={len(doc)}",flush=True)
-    out=Path("vds-Q2-renders");out.mkdir(exist_ok=True)
+    out=Path("vds-q2-renders");out.mkdir(exist_ok=True)
     for ix in range(2,min(len(doc),18)):
         page=doc[ix]
         txt=page.get_text(sort=True)
