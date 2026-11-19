@@ -1,0 +1,44 @@
+name: Verify GAS audited 2025 and reviewed H1 2026 report version difference
+on:
+  push:
+    branches: [main, work/gas-audited-2025-reviewed-h1-2026-reconciliation]
+    paths:
+      - 'scripts/inspect_gas_comparative_sources.py'
+      - '.github/workflows/inspect-gas-comparative-sources.yml'
+  pull_request:
+    paths:
+      - 'scripts/inspect_gas_comparative_sources.py'
+      - '.github/workflows/inspect-gas-comparative-sources.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        label: ['2025-AUDITED', '2026-H1-REVIEWED']
+    env:
+      GAS_SOURCE: ${{ matrix.label }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF renderer and local scan fallback
+        run: |
+          python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr
+      - name: Inspect official PV GAS originals without production writes
+        run: python -u scripts/inspect_gas_comparative_sources.py
+      - name: Upload short-lived page renders
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gas-${{ matrix.label }}-original-pages
+          path: source-pages/*.png
+          if-no-files-found: warn
+          retention-days: 3
