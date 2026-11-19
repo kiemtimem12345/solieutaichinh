@@ -1,10 +1,5 @@
 name: Bootstrap missing Hostinger JSON data (create-only recovery)
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/bootstrap_missing_json_data.py'
-      - '.github/workflows/bootstrap-missing-json.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -13,6 +8,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   restore-missing:
+    # Emergency only: never race Hostinger's managed Git deployment.
+    if: ${{ vars.LEGACY_SFTP_REPAIR_ALLOW == 'YES_MANUAL_REPAIR' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
