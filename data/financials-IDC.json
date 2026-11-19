@@ -242,7 +242,7 @@
         ],
         "review_note": "2026-11-19 original Q2/2025 signed consolidated PDF page images independently inspected; prior rounded OCR values retained in legacy_q2_unverified_values; 30 exact VND identities all 0. Later H1 reviewed source is separate vintage.",
         "reviewed_h1_2025_consolidated_b03_visual": {
-          "status": "verified_B03_only_other_Q2_original_pages_pending",
+          "status": "verified_ey_reviewed_B03_separate_vintage_Q2_original_also_visual_verified",
           "issuer": "Tổng công ty IDICO - CTCP",
           "source_type": "H1/2025 consolidated interim financial statements reviewed by EY",
           "dated": "2025-08-28",
@@ -266,7 +266,7 @@
             "dividends_paid_ytd": "-588587063470",
             "cash_ending": "863253933107"
           },
-          "source_visual_evidence": "B03a-DN/HN PDF pages 14-15 viewed on 2026-11-19; page 14 printed CFO CFI CFF and page 15 opening FX closing; not whole Q2 report",
+          "source_visual_evidence": "EY-reviewed H1 B03 pages 14-15 independently visually checked; original 29/07/2025 B01/B02/B03 independently verified as separate source version; printed B03 CFO/CFI/CFF totals agree although operating components differ.",
           "math_residuals_vnd": {
             "h1_cashflow_sections": "0",
             "h1_cash_open_fx_close": "0"
@@ -475,8 +475,8 @@
         "net_profit_attributable",
         "eps"
       ],
-      "core_financial_extraction_status": "reconciled_from_archived_source_text_not_visual",
-      "core_financial_extraction_note": "KQKD quý II phục hồi từ cột quý; dòng tiền tách từ YTD 6 tháng trừ Q1. Các trường placeholder/OCR đơn vị sai được thay bằng số đúng. Chưa xem ảnh PDF trực tiếp.",
+      "core_financial_extraction_status": "verified_exact_issuer_original_visual_b01_b02_b03",
+      "core_financial_extraction_note": "Q2 2025 signed original PDF visually verified; source figures exact to VND; B03 YTD 6M. Prior 2026-10-25 OCR source values superseded by exact source.",
       "verification_status_note": "Original HNX IDC consolidated 63-page signed Q2/2025: B01 pp8-11, B02 p12, B03 pp13-14 visually verified, 30 exact-VND identities zero. CFO/CFI/CFF top-level matches EY reviewed H1, but some 6M operating cash components were reclassified; original and reviewed versions stay distinct. Q2 standalone cashflow pending signed visual Q1 comparator. No inferred ROA/ROE.",
       "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
       "core_financial_extraction_evidence_fingerprint": "72ba617e2be9f04f3431e581be2e405eb95ee419761482f8fef5e27c6ff1c436",
@@ -620,14 +620,14 @@
       "financial_line_items_status": "issuer_original_visual_B01_B02_B03_6m_ytd_verified_Q2_cash_pending",
       "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
       "financial_line_items_schema_updated_at": "2026-10-25T21:29:05+00:00",
-      "financial_line_items_source": "reports/raw/IDC/auto-idc-20261021/48616c2bb9d17c99.zip",
+      "financial_line_items_source": "https://static2.vietstock.vn/data/HNX/2025/BCTC/VN/QUY%202/IDC_Baocaotaichinh_Q2_2025_Hopnhat.zip",
       "financial_line_items_updated_at": "2026-11-19",
       "operating_cash_flow": null,
-      "operating_cash_flow_calculation": "Q2 standalone = reported first-half YTD operating cash flow minus Q1 standalone cash flow",
+      "operating_cash_flow_calculation": "Deferred: calculate standalone Q2 as exact signed 6M YTD less signed visual Q1/2025 of same consolidated scope (Q1 source pending); do not use legacy rounded OCR.",
       "investing_cash_flow": null,
-      "investing_cash_flow_calculation": "Q2 standalone = reported first-half YTD investing cash flow minus Q1 standalone cash flow",
+      "investing_cash_flow_calculation": "Deferred: calculate standalone Q2 as exact signed 6M YTD less signed visual Q1/2025 of same consolidated scope (Q1 source pending); do not use legacy rounded OCR.",
       "financing_cash_flow": null,
-      "financing_cash_flow_calculation": "Q2 standalone = reported first-half YTD financing cash flow minus Q1 standalone cash flow",
+      "financing_cash_flow_calculation": "Deferred: calculate standalone Q2 as exact signed 6M YTD less signed visual Q1/2025 of same consolidated scope (Q1 source pending); do not use legacy rounded OCR.",
       "financial_line_items_prior_values": {},
       "financial_line_items_rejected_values": {
         "cost_of_goods_sold": {
@@ -663,10 +663,10 @@
       "net_cash_change": null,
       "capital_expenditure": null,
       "foreign_exchange_effect": null,
-      "net_cash_change_calculation": "Q2 standalone = reported first-half YTD net cash change minus Q1 net cash change",
-      "capital_expenditure_calculation": "Q2 standalone = reported first-half YTD cash payments for fixed assets minus Q1 cash payments for fixed assets",
-      "foreign_exchange_effect_calculation": "Q2 standalone = first-half YTD FX effect minus Q1 FX effect",
-      "cash_beginning_calculation": "Q1 report's closing cash balance",
+      "net_cash_change_calculation": "Deferred: calculate standalone Q2 as exact signed 6M YTD less signed visual Q1/2025 of same consolidated scope (Q1 source pending); do not use legacy rounded OCR.",
+      "capital_expenditure_calculation": "Deferred: calculate standalone Q2 as exact signed 6M YTD less signed visual Q1/2025 of same consolidated scope (Q1 source pending); do not use legacy rounded OCR.",
+      "foreign_exchange_effect_calculation": "Deferred: calculate standalone Q2 as exact signed 6M YTD less signed visual Q1/2025 of same consolidated scope (Q1 source pending); do not use legacy rounded OCR.",
+      "cash_beginning_calculation": "Deferred: calculate standalone Q2 as exact signed 6M YTD less signed visual Q1/2025 of same consolidated scope (Q1 source pending); do not use legacy rounded OCR.",
       "cash_ending_calculation": "Reported 30 June 2025 cash and cash equivalents in IDC Q2 consolidated balance sheet",
       "cash_only": 147706.249545,
       "cash_equivalents_only": 715547.683562,
