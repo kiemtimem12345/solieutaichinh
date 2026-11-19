@@ -2609,7 +2609,6 @@
           "cash_investing": "0",
           "cash_financing": "0"
         },
-        "q3_standalone_cashflow_blocker": "Q2 2026 IDC record is auto-extracted and its B03 six-month YTD not source-verified; cannot subtract to obtain quarterly Q3 cash.",
         "q3_standalone_cashflow_source_q2_pdf_sha256": "f0bee9c4554b166380098034650b09c0e45f85da55fd016086f0ef08a596354c",
         "q3_standalone_cashflow_source_q2_pdf_url": "https://static2.vietstock.vn/data/HNX/2026/BCTC/VN/QUY%202/IDC_Baocaotaichinh_Q2_2026_Hopnhat.zip?ver=fec9e0e5",
         "q3_standalone_cashflow_derived_vnd": {
@@ -2629,7 +2628,11 @@
           "q3_dividends": "0"
         },
         "q3_cashflow_derivation": "Original IDC Q3 9M B03 less verified original IDC 2026 Q2 H1 6M B03; source-comparable consolidated scope",
-        "standalone_cashflow_validated_on": "2026-11-19"
+        "standalone_cashflow_validated_on": "2026-11-19",
+        "q3_standalone_cashflow_prior_blocker_resolved": "Q2 2026 IDC record is auto-extracted and its B03 six-month YTD not source-verified; cannot subtract to obtain quarterly Q3 cash.",
+        "q3_standalone_cashflow_current_status": "verified_9m_minus_signed_6m_h1_same_consolidated_scope",
+        "q3_standalone_cashflow_blocker_resolved_on": "2026-11-19",
+        "q3_standalone_cashflow_resolution_note": "Q2/2026 signed consolidated issuer PDF now visually checked (SHA256 f0bee9c4554b166380098034650b09c0e45f85da55fd016086f0ef08a596354c). Original Q3 9M less signed Q2 H1 yields quarter Q3 CFO/CFI/CFF with 4 exact-VND identities residual 0; retained earlier blocker as historical note only. Separate Q2 standalone cash remains blocked by unrelated opening cash source-vintage 890,796,892 VND."
       },
       "total_assets": 23631671.909723,
       "current_assets": 16599453.089891,
