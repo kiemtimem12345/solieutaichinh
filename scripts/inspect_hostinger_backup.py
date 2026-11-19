@@ -13,6 +13,7 @@ import re
 import shlex
 import socket
 import sys
+import time
 import zipfile
 from pathlib import PurePosixPath
 
@@ -78,10 +79,12 @@ def list_tar_via_remote_ssh(transport, path, compressed):
     # The archive path is derived from a directory listing, quoted as one arg.
     # Read-only: tar -t lists entries, never tar -x.
     options = "-tzf" if compressed else "-tf"
-    command = "timeout 540 tar " + options + " " + shlex.quote(path) + " 2>/dev/null"
+    command = "timeout 660 tar " + options + " " + shlex.quote(path) + " 2>/dev/null"
     channel = transport.open_session(timeout=15)
-    channel.settimeout(30)
+    channel.settimeout(20)
     channel.exec_command(command)
+    start = time.monotonic()
+    last_update = 0
     hits = []
     count = 0
     # Process entries in memory only; do not log unrelated/private archive paths.
@@ -90,9 +93,15 @@ def list_tar_via_remote_ssh(transport, path, compressed):
         try:
             chunk = channel.recv(65536)
         except socket.timeout:
-            print("::error::Archive listing stalled; not extracting or modifying files.")
-            channel.close()
-            return 1
+            elapsed = int(time.monotonic() - start)
+            if elapsed >= 680:
+                print("::error::Archive listing exceeded guarded time budget.")
+                channel.close()
+                return 1
+            if elapsed - last_update >= 60:
+                print(f"SCAN_PROGRESS: still scanning on Hostinger, seconds={elapsed}, matching UI paths so far={count}", flush=True)
+                last_update = elapsed
+            continue
         if not chunk:
             break
         buffered += chunk
@@ -181,6 +190,9 @@ def main():
             if kind != "tar":
                 print("No extraction attempted. Backup is not confirmed to contain original frontend.")
                 return 0
+        if os.getenv("BACKUP_FULL_SCAN", "").lower() != "true":
+            print("INFO: scheduled check ends after archive classification; full TAR scan is manual/push only.")
+            return 0
         return list_tar_via_remote_ssh(
             transport, path, lower.endswith((".tar.gz", ".tgz", ".gz"))
         )
