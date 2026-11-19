@@ -15,10 +15,11 @@ from urllib.request import Request, urlopen
 import fitz
 
 SOURCES=[
+ ("ISSUER","https://www.vdsc.com.vn/data/api/app/file-storage/0a48e73d-8e80-4aeb-52c9-08df35c2eb9d/VDSC_Cong%20bo%20BCTC%20HN%20Quy%203.2026.pdf?downloadFrom=ManagementDocument-1061"),
  ("HOSE", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2510196/20261030%20-%20VDS%20-%20BCTC%20HN%20Quy%203%20nam%202026%20va%20Giai%20trinh%20CLLN.pdf"),
  ("VIETSTOCK", "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%203/VDS_Baocaotaichinh_Q3_2026_Hopnhat.pdf"),
 ]
-HOSTS={"staticfile.hsx.vn","static2.vietstock.vn"}
+HOSTS={"www.vdsc.com.vn","vdsc.com.vn","staticfile.hsx.vn","static2.vietstock.vn"}
 MAX_BYTES=45*1024*1024
 
 
@@ -26,9 +27,9 @@ def read_pdf(name,url):
     request=Request(url,headers={
        "User-Agent":"Mozilla/5.0 (compatible; OriginalFinancialStatementQA/1.0)",
        "Accept":"application/pdf,application/octet-stream,*/*",
-       "Referer":"https://www.hsx.vn/",
+       "Referer":"https://www.vdsc.com.vn/",
     })
-    with urlopen(request,timeout=60) as resp:
+    with urlopen(request,timeout=35) as resp:
         final=urlparse(resp.url)
         if final.scheme!="https" or final.hostname not in HOSTS:
             raise ValueError("Disallowed redirect")
