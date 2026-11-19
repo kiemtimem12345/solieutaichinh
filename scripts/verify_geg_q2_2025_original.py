@@ -46,15 +46,26 @@ source={
 for k,amount in source.items():assert v(q,k)==amount,(k,v(q,k),amount)
 assert q["unit"]=="triệu VND" and q["eps"]==356 and q["diluted_eps"]==356
 assert q["cashflow_period_basis"]=="year_to_date"
-assert q["verification_status"]=="issuer_signed_original_visual_verified_B01_B02_B03_H1_ytd_Q2_standalone_cash_deferred"
+assert q["verification_status"]=="issuer_signed_original_visual_verified_B01_B02_B03_H1_ytd_and_Q2_standalone_cash"
 assert q["source_validation"]["manually_visual_reviewed"] is True
 assert q["source_validation"]["original_pdf_total_pages"]==85
 assert q["source_validation"]["original_visual_page_numbers"]==[7,8,9,10,11]
 assert q["source_validation"]["signed_report_date"]=="2025-07-24"
 assert q["source_validation"]["original_pdf_sha256"]=="not_computed_source_url_and_images_verified"
-assert len(q["financial_line_items_extracted_fields"])==96
+assert len(q["financial_line_items_extracted_fields"])==104
 assert q["financial_line_items_extracted_fields"]==q["financial_line_items_manually_verified_fields"]
-assert all(q.get(k) is None for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","cash_beginning","capital_expenditure","foreign_exchange_effect","dividends_paid"))
+assert v(q,"operating_cash_flow")==493110540478
+assert v(q,"investing_cash_flow")==399539538641
+assert v(q,"financing_cash_flow")==-594553494740
+assert v(q,"net_cash_change")==298096584379
+assert v(q,"cash_beginning")==175400032558
+assert v(q,"capital_expenditure")==-15469177804
+assert v(q,"foreign_exchange_effect")==52733093
+assert v(q,"dividends_paid")==-75482900
+assert q["source_validation"]["q2_standalone_cashflow_status"]=="derived_from_verified_original_H1_6m_minus_Q1_3m"
+assert all(x=="0" for x in q["source_validation"]["q2_standalone_residuals_vnd"].values())
+assert v(q,"cash_beginning")+v(q,"net_cash_change")+v(q,"foreign_exchange_effect")==v(q,"cash_ending")
+assert v(q,"net_cash_change")==s(q,"operating_cash_flow","investing_cash_flow","financing_cash_flow")
 assert q["roa"] is None and q["roe"] is None
 assert q["financial_line_items_rejected_values"]["auto_eps_prior_vnd"]==70
 assert q["financial_line_items_prior_values"]["prior_auto_2025Q2_unverified_before_original_20261119"]["operating_cash_flow_ytd"]==555421
