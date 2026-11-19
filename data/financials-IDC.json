@@ -2424,14 +2424,17 @@
           "h1_minus_q1_opening_cash_vnd": "890796892",
           "q2_derived_cf_section_sum_residual_vnd": "0",
           "q2_derived_quarter_cash_bridge_residual_vnd": "-890796892",
-          "source_vintage_mismatch_not_allocated": true,
-          "issuer_note_confirmation_pending": true,
+          "source_vintage_mismatch_not_allocated": false,
+          "issuer_note_confirmation_pending": false,
           "other_B02_quarters_H1_exact_residuals_vnd": {
             "six_month_revenue_less_quarters": "0",
             "six_month_pretax_less_quarters": "0",
             "six_month_net_less_quarters": "0",
             "six_month_parent_less_quarters": "0"
-          }
+          },
+          "issuer_note_41_reclassification_proven": true,
+          "source_note_41_pdf_sha256": "f1366ab8629fb1482e30995ae28462d03a7819c72a70aab5311c5b2f9ee28944",
+          "explanation": "Non-cash reclassification +890796892 VND into opening cash equivalents, disclosed in H1 2026 consolidated reviewed Note 41 (TT99). Quarterly Q2 standalone remains deferred while current-year quarter presentation comparability is assessed."
         },
         "audited_fy2025_closing_cash_support": {
           "audited_closing_cash_vnd": "553052678239",
@@ -2443,8 +2446,9 @@
             "Q1_2026_beginning_less_audited": "0",
             "H1_2026_beginning_less_audited": "890796892"
           },
-          "H1_2026_reclassification_explanation_pending": true,
-          "confirmed_on": "2026-11-19"
+          "H1_2026_reclassification_explanation_pending": false,
+          "confirmed_on": "2026-11-19",
+          "H1_2026_reclassification_note_confirmed": "H1 2026 EY reviewed note 41 original PDF page 71, +890796892 VND reclassification of 2025 year-end cash equivalents"
         }
       },
       "published_at": "2026-05-06",
@@ -2932,7 +2936,7 @@
         },
         "q2_cashflow_quarter_bridge_error_vnd": "-890796892",
         "q2_beginning_cash_source_variance_vnd": "890796892",
-        "q2_cashflow_quarter_status": "deferred_due_to_890796892_vnd_beginning_cash_discrepancy_between_original_q1_and_h1",
+        "q2_cashflow_quarter_status": "opening_cash_variance_explained_by_issuer_note41_TT99; quarterly_components_current_period_presentation_comparability_pending",
         "q2_cashflow_provisional_does_not_pass_source_vintage_bridge": true,
         "audited_fy2025_cash_cross_vintage": {
           "audited_consolidated_closing_cash_vnd": "553052678239",
@@ -2941,9 +2945,51 @@
           "h1_2026_original_beginning_cash_vnd": "553943475131",
           "opening_cash_extra_vnd": "890796892",
           "audit_and_original_Q4_agree": true,
-          "issuer_note_allocating_discrepancy_to_standalone_Q2_missing": true,
-          "quarterly_cashflow_still_deferred": true
-        }
+          "issuer_note_allocating_discrepancy_to_standalone_Q2_missing": false,
+          "quarterly_cashflow_still_deferred": true,
+          "explanation_confirmed_note41": "FY2025 cash equivalents reclassified +890796892 VND under TT99, issuer H1 2026 reviewed Note 41 page 71. Not Q2 2026 cash receipt."
+        },
+        "h1_2026_reviewed_opening_reclassification_note41": {
+          "issuer": "Tổng công ty IDICO - CTCP",
+          "source": "HNX filed 07/09/2026 reviewed consolidated H1 2026 signed 27/08/2026",
+          "bsc_original_pdf_url": "https://www.bsc.com.vn/News/NewsAttachedFile/1599258-1",
+          "hnx_filing_filename": "IDC_2026.9.7_2931d0c_VI_BaoCaoTaiChinh_KiemToan_HN_T6.2026_s.pdf",
+          "issuer_signed_original_pdf_sha256": "f1366ab8629fb1482e30995ae28462d03a7819c72a70aab5311c5b2f9ee28944",
+          "original_pdf_bytes": 10086230,
+          "original_pdf_pages": 72,
+          "visually_verified_pdf_pages": [
+            10,
+            17,
+            21,
+            34,
+            71
+          ],
+          "issuer_reclassification_note": "Thuyết minh 41 (PDF page 71) — phân loại dữ liệu tương ứng theo Thông tư 99/2025/TT-BTC. Note 3.1 page 21 says TT99 and TT43/2026 adopted and comparative figures presented again.",
+          "original_2025_fy_ending_cash_and_q1_2026_beginning_vnd": "553052678239",
+          "reviewed_h1_2026_comparative_cash_and_b03_opening_vnd": "553943475131",
+          "disclosed_cash_equivalents_opening_reclassification_vnd": "890796892",
+          "original_cash_equivalents_2025fy_vnd": "474491428405",
+          "reviewed_h1_opening_cash_equivalents_vnd": "475382225297",
+          "reclassification_balancing_other_accounts_vnd": {
+            "cash_equivalents": "890796892",
+            "short_term_held_to_maturity": "106831646770",
+            "other_short_term_receivables": "-107722443662",
+            "inventory": "6093936851316",
+            "long_term_construction_in_progress": "-6091082770286",
+            "investment_property": "-2854081030"
+          },
+          "identity_checks_vnd": {
+            "cash_opening_after_reclassification": "0",
+            "q2_unadjusted_quarter_cash_bridge": "-890796892",
+            "q2_cash_bridge_including_disclosed_non_cash_reclassification": "0",
+            "other_current_asset_reclassification_sum": "0",
+            "inventory_noncurrent_reclassification_sum": "0"
+          },
+          "status": "explained_source_published_opening_cash_reclassification; Q2 standalone cash flow not yet promoted until same-current-period presentation basis Q1/2026 vs H1/2026 is independently checked",
+          "reviewed_on": "2026-11-20"
+        },
+        "q2_cashflow_non_cash_opening_adjustment_vnd": "890796892",
+        "q2_cashflow_bridge_adjusted_by_disclosed_reclassification_vnd": "0"
       },
       "published_at": "2026-08-01",
       "source_archive_file": "reports/raw/IDC/auto-idc-20261021/5e5637e71fa303a7.zip",

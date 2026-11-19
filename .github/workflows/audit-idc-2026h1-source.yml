@@ -1,0 +1,31 @@
+name: Diagnose IDC 2026 reviewed H1 cash opening source vintage
+on:
+  push:
+    branches: [work/idc-2026h1-opening-cash-source-audit-20261120]
+    paths: [scripts/recover_idc_2026_h1_reviewed_source.py, .github/workflows/audit-idc-2026h1-source.yml]
+  pull_request:
+    branches: [main]
+    paths: [scripts/recover_idc_2026_h1_reviewed_source.py, .github/workflows/audit-idc-2026h1-source.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  issuer-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Read and render HNX-disclosed IDC 2026 H1 attachment original
+        run: python -u scripts/recover_idc_2026_h1_reviewed_source.py
+      - name: Preserve signed source images and hashes for visual QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: idc-2026h1-original-source-review-pages
+          path: idc-2026h1-original-audit/*
+          if-no-files-found: warn
+          retention-days: 7

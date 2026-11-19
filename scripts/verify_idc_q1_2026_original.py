@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """IDC consolidated Q1/2026 source images 8–14, 22 exact VND identities.
 
-Flags a material 890,796,892 VND conflict between Q1 original 2025 year-end
-cash and H1 original year-end cash. Does NOT publish Q2 standalone CFO/CFI/CFF
-as a validated quarter when its issuer-source cash bridge cannot reconcile.
+Source version difference 890,796,892 VND is expressly disclosed in 2026 H1
+reviewed issuer Note 41 TT99 as a noncash opening reclassification. Q2 cash
+bridge reconciles with this separately disclosed noncash movement, but do not
+publish Q2 current-year components until presentation-basis check is complete.
 """
 import json
 from decimal import Decimal
@@ -86,15 +87,16 @@ assert set(checks)==set(q["source_validation"]["statement_identity_residuals_vnd
 assert all(x=="0" for x in q["source_validation"]["statement_identity_residuals_vnd"].values())
 
 comparison=q["source_validation"]["h1_2026_opening_cash_comparison"]
-assert comparison["source_vintage_mismatch_not_allocated"] is True
-assert comparison["issuer_note_confirmation_pending"] is True
+assert comparison["source_vintage_mismatch_not_allocated"] is False
+assert comparison["issuer_note_confirmation_pending"] is False
+assert comparison["issuer_note_41_reclassification_proven"] is True
 assert int(comparison["q1_2026_original_cash_start_vnd"])==553052678239
 assert int(comparison["h1_2026_original_cash_start_vnd"])==553943475131
 opening=v(h,"cash_beginning_reported_ytd")-v(q,"cash_beginning_reported_ytd")
 assert opening==890796892
 assert int(comparison["h1_minus_q1_opening_cash_vnd"])==opening
 assert h["source_validation"]["q2_cashflow_provisional_does_not_pass_source_vintage_bridge"] is True
-assert h["source_validation"]["q2_cashflow_quarter_status"].startswith("deferred_due_to_890796892")
+assert h["source_validation"]["q2_cashflow_quarter_status"].startswith("opening_cash_variance_explained_by_issuer_note41_TT99")
 assert all(h.get(k) is None for k in (
    "operating_cash_flow","investing_cash_flow","financing_cash_flow",
    "net_cash_change","cash_beginning","foreign_exchange_effect"))
@@ -110,7 +112,9 @@ assert gap==-890796892
 assert int(h["source_validation"]["q2_cashflow_quarter_bridge_error_vnd"])==gap
 assert int(comparison["q2_derived_quarter_cash_bridge_residual_vnd"])==gap
 assert gap+opening==0
+assert int(h["source_validation"]["q2_cashflow_bridge_adjusted_by_disclosed_reclassification_vnd"])==0
+assert h["source_validation"]["h1_2026_reviewed_opening_reclassification_note41"]["issuer_signed_original_pdf_sha256"]==comparison["source_note_41_pdf_sha256"]
 for k in ("revenue","pretax_profit","net_profit","net_profit_attributable"):
     assert v(q,k)+v(h,k)==v(h,k+"_ytd"),k
 assert set(comparison["other_B02_quarters_H1_exact_residuals_vnd"].values())=={"0"}
-print("PASS: IDC 2026 Q1 original B01/B02/B03 22 exact-VND source checks; EPS 713 corrected; cross-vintage Q2 cash bridge -890,796,892 VND flagged, no fabricated Q2 standalone cash")
+print("PASS: IDC Q1 2026 original 22 exact-VND identities; H1 Note41 proves +890,796,892 noncash opening cash reclassification, adjusted Q2 bridge 0; Q2 standalone remains deferred pending comparative basis")
