@@ -695,7 +695,65 @@
           "cash_delta_vnd": "0",
           "visual_source_sha256": "b1cfb676ad81cabb6a0ebcd4b9955f33c9644964ef894c985228694a2d5aef6c",
           "evidence": "Issuer original audited 2025 PDF; Actions run 44493346638 artifact 14514061182",
-          "handling": "Preserve original Q4/2025 unaudited source; audited version used for 2026 balance-sheet opening comparator."
+          "handling": "Preserve original Q4/2025 unaudited source; audited version used for 2026 balance-sheet opening comparator.",
+          "audited_b03_values_vnd": {
+            "operating_cash_flow_ytd": "13040237870138",
+            "investing_cash_flow_ytd": "-6468619501015",
+            "financing_cash_flow_ytd": "-5264541765224",
+            "net_cash_change_ytd": "1307076603899",
+            "foreign_exchange_effect_ytd": "1408246718",
+            "cash_beginning_reported_ytd": "5567983431468",
+            "cash_ending": "6876468282085",
+            "capital_expenditure_ytd": "-2314735009692",
+            "dividends_paid_ytd": "-5011650250256"
+          },
+          "original_q4_report_b03_values_vnd": {
+            "operating_cash_flow_ytd": "13378374377362",
+            "investing_cash_flow_ytd": "-6718543866192",
+            "financing_cash_flow_ytd": "-5352162410986",
+            "net_cash_change_ytd": "1307668100184",
+            "foreign_exchange_effect_ytd": "816750433",
+            "cash_beginning_reported_ytd": "5567983431468",
+            "cash_ending": "6876468282085",
+            "capital_expenditure_ytd": "-2330869042369",
+            "dividends_paid_ytd": "-5109438694779"
+          },
+          "audited_minus_original_b03_delta_vnd": {
+            "operating_cash_flow_ytd": "-338136507224",
+            "investing_cash_flow_ytd": "249924365177",
+            "financing_cash_flow_ytd": "87620645762",
+            "net_cash_change_ytd": "-591496285",
+            "foreign_exchange_effect_ytd": "591496285",
+            "cash_beginning_reported_ytd": "0",
+            "cash_ending": "0",
+            "capital_expenditure_ytd": "16134032677",
+            "dividends_paid_ytd": "97788444523"
+          },
+          "audited_b03_exact_identity_residuals_vnd": {
+            "audit_fy_b03_section_sum_vnd": "0",
+            "audit_fy_b03_cash_bridge_vnd": "0",
+            "audit_fy_b03_financing_components_vnd": "0",
+            "audit_fy_b03_investing_components_vnd": "0",
+            "original_fy_b03_section_sum_vnd": "0",
+            "delta_net_cash_and_fx_cancel_vnd": "0"
+          },
+          "audited_b03_source_pages": "PV GAS audited consolidated 2025 PDF original scanned page 12 B03 operating/investing, page 13 B03 financing/cash bridge (published 2026-03-04); visually cross-checked",
+          "audited_profit_unchanged_from_q4_original": true,
+          "b03_version_handling": "Original Q4 standalone CFO/CFI/CFF remain quarter-release snapshot; audited FY reports changed cashflow section classification and FX. Preserve both vintages and defer replacing Q4 isolated cash flow with FY-audited minus Q3 until 9M same-vintage basis confirmed.",
+          "audited_b01_component_deltas_vnd": {
+            "current_assets": "41048624111",
+            "non_current_assets": "-4362380997",
+            "short_term_receivables": "40109533369",
+            "inventory": "34827618390",
+            "other_current_assets": "-33888527648",
+            "current_liabilities": "36686243113",
+            "equity": "1"
+          },
+          "audited_b01_visual_pages": [
+            9,
+            10
+          ],
+          "audited_profit_and_revenue_check": "Audited B02 FY2025 pages 11 reported revenue 135129055328395, pretax 14359435183859, net 11571631226008 VND, identical to Q4 original year-to-date reported and Q1–Q4 summed quarterly; B01/B03 adjusted without changing FY net profit."
         }
       },
       "published_at": "2026-02-03",
@@ -1272,7 +1330,24 @@
           "reviewed_h1_revenue_matches_original_h1": true,
           "reviewed_h1_vs_q1_plus_q2_profit_difference_vnd": "10160150278",
           "evidence_status": "reviewed_h1_source_comparison_exact_arithmetic_verified_but_quarterly_reallocation_unresolved",
-          "handling": "Keep original 2026 Q1/Q2 standalone quarter values. Reviewed H1 represents later revision; do not allocate 6M cashflow reclassification to Q2 until same-basis Q1 is available."
+          "handling": "Keep original 2026 Q1/Q2 standalone quarter values. Reviewed H1 represents later revision; do not allocate 6M cashflow reclassification to Q2 until same-basis Q1 is available.",
+          "reviewed_b01_classes_vnd": {
+            "current_assets": "78914646165198",
+            "non_current_assets": "23939313900981",
+            "current_liabilities": "27504885450553",
+            "long_term_liabilities": "5063343570284",
+            "cash_and_equivalents": "11055638145352",
+            "short_term_investments": "34401167727963",
+            "short_term_receivables": "27567423047252",
+            "inventory": "5134985299572",
+            "other_current_assets": "755431945059"
+          },
+          "reviewed_b01_exact_check_residuals_vnd": {
+            "classes": "0",
+            "liabilities": "0",
+            "current_asset_composition": "0"
+          },
+          "quarterly_series_handling": "2026-Q2 original standalone quarterly B02 retained; H1 reviewed is later source-vintage, which does not independently attribute the 10,160,150,278 VND H1-vs-Q1+Q2 mismatch to Q1 or Q2. Avoid speculative per-quarter rewrite."
         }
       },
       "published_at": "2026-07-31",
