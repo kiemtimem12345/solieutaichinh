@@ -39,6 +39,8 @@ jobs:
         run: python scripts/verify_gas_q4_visual.py
       - name: Verify GAS Q1/Q2 2026 B01 B02 and quarterly cash flow with flagged comparatives
         run: python scripts/verify_gas_2026_q1_q2_visual.py
+      - name: Verify GAS audited 2025 and reviewed H1 2026 source differences
+        run: python scripts/verify_gas_reviewed_h1_versions.py
       - name: Validate SFTP scripts syntax
         run: bash -n scripts/check_sftp.sh scripts/deploy_sftp.sh scripts/verify_hostinger_ssh_hostkey.sh
       - name: Validate production JSON and archived JS syntax
