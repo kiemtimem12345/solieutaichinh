@@ -22,15 +22,25 @@ def s(row,*keys):
     return sum(v(row,k) for k in keys)
 
 assert q["unit"]=="triệu VND" and q["eps"]==111 and q["diluted_eps"]==570
-assert q["verification_status"]=="issuer_signed_original_visual_verified_B01_B02_B03_FY_ytd_Q4_standalone_cash_deferred"
+assert q["verification_status"]=="issuer_signed_original_visual_verified_B01_B02_B03_FY_and_Q4_standalone_cash"
 assert q["source_validation"]["manually_visual_reviewed"] is True
 assert q["source_validation"]["original_report_signed_on"]=="2026-01-26"
 assert q["source_validation"]["original_pdf_total_pages"]==84
 assert q["source_validation"]["visual_page_numbers"]==[6,7,8,9,10]
 assert "GEG_Baocaotaichinh_Q4_2025_Hopnhat.pdf" in q["source_url"]
-assert len(q["financial_line_items_extracted_fields"])==96
+assert len(q["financial_line_items_extracted_fields"])==103
 assert q["financial_line_items_extracted_fields"]==q["financial_line_items_manually_verified_fields"]
-assert all(q.get(k) is None for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","cash_beginning","foreign_exchange_effect","capital_expenditure"))
+assert v(q,"operating_cash_flow")==76675312018
+assert v(q,"investing_cash_flow")==-242110753232
+assert v(q,"financing_cash_flow")==-154260611123
+assert v(q,"net_cash_change")==-319696052337
+assert v(q,"foreign_exchange_effect")==7418532
+assert v(q,"cash_beginning")==406053297053
+assert v(q,"capital_expenditure")==-288511522757
+assert v(q,"cash_beginning")+v(q,"net_cash_change")+v(q,"foreign_exchange_effect")==v(q,"cash_ending")
+assert v(q,"net_cash_change")==s(q,"operating_cash_flow","investing_cash_flow","financing_cash_flow")
+assert all(x=="0" for x in q["source_validation"]["q4_standalone_residuals_vnd"].values())
+assert all(x=="0" for x in q["source_validation"]["q4_B02_12M_minus_9M_vs_original_quarter_residuals_vnd"].values())
 assert q["cashflow_period_basis"]=="year_to_date"
 source={
  "total_assets":15110888031702,"total_liabilities":8613176165875,"equity":6497711865827,
@@ -108,7 +118,7 @@ assert v(june,"cash_beginning_reported_ytd")==74942444345
 assert v(q,"cash_ending")-v(june,"cash_beginning_reported_ytd")==11422218903
 assert q["source_validation"]["difference_vs_2026q2_q3_audited_comparative_2025cash_vnd"]=="11422218903"
 assert q["source_validation"]["source_vintage_discrepancy_unresolved"] is True
-assert q["source_validation"]["q4_standalone_cashflow_status"].startswith("deferred")
+assert q["source_validation"]["q4_standalone_cashflow_status"]=="verified_FY_12M_minus_Q3_9M_original_source"
 # The later comparator changed cash equivalents alone, NOT original cash.
 proof=q["source_validation"]["cash_2025yearend_original_vs_2026q2_comparator_component_proof"]
 assert proof == nextq["source_validation"]["cash_2025yearend_original_vs_2026q2_comparator_component_proof"]
@@ -124,4 +134,4 @@ assert int(proof["total_cash_difference_vnd"])==11422218903
 assert int(proof["q2_2026_comparative_cash_only_vnd"]) + int(proof["q2_2026_comparative_cash_equivalents_vnd"]) == int(proof["q2_2026_comparative_total_cash_vnd"])
 assert int(proof["original_2025q4_cash_equivalents_vnd"]) - int(proof["q2_2026_comparative_cash_equivalents_vnd"]) == 11422218903
 assert proof["line_item_reconciliation_status"].endswith("cause_and_destination_unverified")
-print("PASS: GEG 2025 Q4 original signed 96 fields, 29 zero VND B01/B02/FY B03 identities; Q4 original matches 2026Q1 opening; 11,422,218,903 source vintage divergence is flagged")
+print("PASS: GEG 2025 Q4 original signed 103 source/quarter fields, 29 original VND identities, exact Q4 CFO CFI CFF 12M minus verified 9M, original 2026Q1 cash and 11,422,218,903 source-vintage discrepancy preserved")
