@@ -1213,10 +1213,10 @@
       "published_at": "2026-11-02",
       "source_url": "https://files.petrolimex.com.vn/files/6783dc1271ff449e95b74a9520964169/application%3Dpdf/5011693c3c5240a0833bfaea0e7983a5/20261030%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20Cong%20ty%20m%E1%BA%B9%20Q3%20nam%202026.pdf",
       "source_index_url": "https://plx.petrolimex.com.vn/quan-he-nha-dau-tu.html",
-      "source_pages": "B01 công ty mẹ: trang 1–4; B02 công ty mẹ: trang 5; B03 công ty mẹ: trang 6–7, chưa được duyệt do sai lệch CFF",
+      "source_pages": "Issuer signed Q3 2026 parent original PDF 39 pages; B01 PDF pp2-5, B02 p6, B03 pp7-8 visually inspected. B03 subtotal anomaly on original PDF page 8.",
       "quarter_profit_basis": "B02-DN công ty mẹ: cột Quý 3 → Năm nay, tuyệt đối không dùng lũy kế 9 tháng; B01 tại 30/09/2026",
-      "verification_status": "issuer_pdf_text_exact_arithmetic_reconciled_b01_b02_b03_blocked",
-      "financial_line_items_status": "issuer_original_pdf_text_b01_b02_reconciled_b03_blocked_pending_visual",
+      "verification_status": "issuer_original_visual_verified_b01_b02_b03_printed_cff_arithmetic_anomaly_blocked",
+      "financial_line_items_status": "issuer_original_visual_B01_B02_verified_B03_9m_source_anomaly_quarantined",
       "financial_line_items_extracted_fields": [
         "admin_expense",
         "cash_and_equivalents",
@@ -1253,16 +1253,16 @@
       "financial_line_items_manually_verified_fields": [
         "net_profit"
       ],
-      "financial_line_items_note": "B01/B02 công ty mẹ Q3/2026 từ PDF gốc của Petrolimex: 9 phương trình số học đối chiếu chính xác từng VND, 30 trường trực tiếp. PDF web chỉ trích xuất được văn bản, bước chụp ảnh trang trả Cache miss; chưa gắn trạng thái rà soát trực quan. B03 không đưa số vì CFF in 5.966.101.543.718 VND khác tổng cấu phần 6.053.755.558.718 VND đúng 87.654.015.000 VND, và tổng cấu phần mới khớp dòng tiền thuần in; phải làm rõ báo cáo và lấy 6 tháng cùng phạm vi trước khi tính Q3 riêng.",
+      "financial_line_items_note": "B01/B02 công ty mẹ Q3/2026 từ PDF gốc của Petrolimex: 9 phương trình số học đối chiếu chính xác từng VND, 30 trường trực tiếp. PDF web chỉ trích xuất được văn bản, bước chụp ảnh trang trả Cache miss; chưa gắn trạng thái rà soát trực quan. B03 không đưa số vì CFF in 5.966.101.543.718 VND khác tổng cấu phần 6.053.755.558.718 VND đúng 87.654.015.000 VND, và tổng cấu phần mới khớp dòng tiền thuần in; phải làm rõ báo cáo và lấy 6 tháng cùng phạm vi trước khi tính Q3 riêng. Signed issuer original PDF source pages 2-8 visually verified 2026-11-20; printed B03 line 40 CFF is inconsistent with rows 31–36 and printed net change. B03 is excluded until issuer correction; do not substitute computed subtotal.",
       "source_validation": {
-        "reviewed_at": "2026-11-19",
+        "reviewed_at": "2026-11-20",
         "source_type": "issuer_original_q3_parent_pdf_with_official_issuer_explanation",
         "source_scope_verified": true,
         "source_figures_unit": "VND",
         "signed_source_profit_reconciliation": "Số công bố quý III/2026; không dùng chỉ số tổng hợp làm nguồn cho các khoản mục khác",
         "quarter_not_ytd": true,
         "full_b01_b02_b03_visual_reviewed": false,
-        "remaining_pdf_retrieval_needed": true,
+        "remaining_pdf_retrieval_needed": false,
         "scope": "parent_company",
         "reported_vnd": 1315029909162,
         "source_comparison_q3_2025_vnd": 527524735210,
@@ -1277,7 +1277,7 @@
           6,
           7
         ],
-        "reviewed_on": "2026-11-19",
+        "reviewed_on": "2026-11-20",
         "manually_visual_reviewed": false,
         "statement_text_extracted": true,
         "b01_b02_vnd_exact_checks": [
@@ -1298,7 +1298,48 @@
         "b03_cashflow_discrepancy_vnd": "87654015000",
         "b03_net_cashflow_reported_vnd": "42491837762",
         "b03_component_cfo_cfi_cff_reconciles_net_change": true,
-        "requires_h1_2026_same_scope_before_q3_quarter_cashflow": true
+        "requires_h1_2026_same_scope_before_q3_quarter_cashflow": true,
+        "issuer_original_signed_pdf_sha256": "a8073e73803664a01601be8b4e416cb33ec90bfd3eca05560bbed454edcbefef",
+        "issuer_original_signed_pdf_bytes": 14198075,
+        "issuer_original_signed_pdf_pages": 39,
+        "original_source_recovery_workflow_run": 44584975199,
+        "original_source_recovery_artifact_id": 14559633962,
+        "visually_reviewed_pdf_pages": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "b01_b02_visual_reviewed": true,
+        "b03_original_visual_reviewed": true,
+        "b03_error_confirmed_on_signed_original": true,
+        "b03_error_category": "issuer_original_printed_cash_flow_financing_subtotal_inconsistent_with_components_and_net_change; no evidence of correction",
+        "b03_source_text_ocr_error_ruled_out": true,
+        "b03_financing_detail_lines_vnd": {
+          "31": "844158780900",
+          "32": "-1134759693",
+          "33": "71733162995138",
+          "34": "-65128441186058",
+          "35": "0",
+          "36": "-1393990271569"
+        },
+        "b03_source_identity_checks_vnd": {
+          "financing_components_sum": "6053755558718",
+          "printed_financing_subtotal": "5966101543718",
+          "financing_difference": "87654015000",
+          "cashflow_net_using_components": "42491837762",
+          "cashflow_net_using_printed_subtotal": "-45162177238",
+          "printed_net_change": "42491837762",
+          "net_using_components_minus_printed_net": "0",
+          "net_using_printed_cff_minus_printed_net": "-87654015000"
+        },
+        "b03_repair_policy": "DO NOT overwrite printed financing subtotal, assign a guessed source correction, publish B03 quarter cash flows or use H1 comparator until official issuer correction or context clarifies source anomaly.",
+        "q3_parent_original_pdf_retrieved": true,
+        "separate_parent_h1_2026_reviewed_pdf_still_pending": true,
+        "consolidated_q3_pdf_still_pending": true
       },
       "net_profit": 1315029.909162,
       "report_type": "BCTC riêng lẻ công ty mẹ PLX Q3/2026 — LNST xác nhận từ công bố chính thức, B01/B02/B03 chi tiết chờ PDF gốc",
