@@ -1,0 +1,1952 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-17T21:12:00+07:00",
+  "source_name": "Dữ Liệu Kinh Tế — nguồn dữ liệu từng chuỗi được ghi riêng tại source/url",
+  "data_cutoff": "2026-11-17",
+  "coverage_note": "42 chuỗi dữ liệu; ngày quan sát được giữ riêng theo từng chỉ tiêu, không nội suy. Một số chuỗi chỉ có giá trị mới nhất/quan sát ít do nguồn công khai.",
+  "data": [
+    {
+      "category": "agri-exports-rubber",
+      "name": "Giá xuất khẩu bình quân cao su",
+      "unit": "USD/tấn",
+      "source": "Tổng cục Hải quan",
+      "url": "https://dulieukinhte.com/du-lieu-dong/gia-xuat-khau-binh-quan-cao-su-33392",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 1767.07
+        },
+        {
+          "date": "2026-02-01",
+          "value": 1855.19
+        },
+        {
+          "date": "2026-03-01",
+          "value": 1931.66
+        },
+        {
+          "date": "2026-04-01",
+          "value": 1997.71
+        },
+        {
+          "date": "2026-05-01",
+          "value": 2030.91
+        },
+        {
+          "date": "2026-06-01",
+          "value": 2129.89
+        },
+        {
+          "date": "2026-07-01",
+          "value": 2131.88
+        },
+        {
+          "date": "2026-08-01",
+          "value": 2117.57
+        },
+        {
+          "date": "2026-09-01",
+          "value": 2231.92
+        },
+        {
+          "date": "2026-10-01",
+          "value": 2370.45
+        }
+      ],
+      "note": "Giá đơn vị bình quân cao su xuất khẩu thực tế; không phải giá chuẩn của một chủng loại cao su cụ thể.",
+      "source_updated_at": "2026-11-05",
+      "value": 2370.45,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "agri-imports-rubber",
+      "name": "Giá nhập khẩu bình quân cao su",
+      "unit": "USD/tấn",
+      "source": "Tổng cục Hải quan",
+      "url": "https://dulieukinhte.com/du-lieu-dong/gia-nhap-khau-binh-quan-cao-su-33408",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 1522.74
+        },
+        {
+          "date": "2026-02-01",
+          "value": 1531.39
+        },
+        {
+          "date": "2026-03-01",
+          "value": 1770.65
+        },
+        {
+          "date": "2026-04-01",
+          "value": 1867.05
+        },
+        {
+          "date": "2026-05-01",
+          "value": 2027.53
+        },
+        {
+          "date": "2026-06-01",
+          "value": 1856.92
+        },
+        {
+          "date": "2026-07-01",
+          "value": 1980.15
+        },
+        {
+          "date": "2026-08-01",
+          "value": 1914.64
+        },
+        {
+          "date": "2026-09-01",
+          "value": 1974.14
+        },
+        {
+          "date": "2026-10-01",
+          "value": 1948.49
+        }
+      ],
+      "note": "Giá đơn vị bình quân cao su nhập khẩu thực tế; không phải báo giá chuẩn thị trường quốc tế.",
+      "source_updated_at": "2026-11-05",
+      "value": 1948.49,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "agri-price",
+      "name": "Giá gạo nguyên liệu OM 18 bình quân tại ĐBSCL",
+      "unit": "VND/kg",
+      "source": "Sưu tầm",
+      "url": "https://dulieukinhte.com/du-lieu-dong/gia-gao-nguyen-lieu-om-18-tai-dbscl-35307",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "value": 8775
+        },
+        {
+          "date": "2026-11-07",
+          "value": 8775
+        },
+        {
+          "date": "2026-11-08",
+          "value": 8775
+        },
+        {
+          "date": "2026-11-09",
+          "value": 8775
+        },
+        {
+          "date": "2026-11-10",
+          "value": 8775
+        },
+        {
+          "date": "2026-11-11",
+          "value": 8775
+        },
+        {
+          "date": "2026-11-12",
+          "value": 8775
+        },
+        {
+          "date": "2026-11-13",
+          "value": 8775
+        },
+        {
+          "date": "2026-11-14",
+          "value": 8775
+        },
+        {
+          "date": "2026-11-15",
+          "value": 8775
+        }
+      ],
+      "note": "Giá bình quân OM18 tại Đồng bằng sông Cửu Long; nguồn trang ghi “Sưu tầm”, không phải giá công bố chính thức của cơ quan nhà nước.",
+      "source_updated_at": "2026-11-15",
+      "value": 8775,
+      "date": "2026-11-15"
+    },
+    {
+      "category": "agriculture",
+      "name": "Sản lượng thủy sản nuôi trồng",
+      "unit": "Nghìn tấn",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/san-luong-thuy-san-nuoi-trong-30205",
+      "observations": [
+        {
+          "date": "2026-03-31",
+          "value": 1296.8
+        },
+        {
+          "date": "2026-06-30",
+          "value": 1680.4
+        },
+        {
+          "date": "2026-09-30",
+          "value": 1822.9
+        }
+      ],
+      "note": "Số liệu quý; chuỗi tổng sản lượng thủy sản nuôi trồng, không phải tổng sản lượng khai thác.",
+      "source_updated_at": "2026-10-03",
+      "value": 1822.9,
+      "date": "2026-09-30"
+    },
+    {
+      "category": "coastal-shipping-index",
+      "name": "Chỉ số dịch vụ vận tải đường ven biển và viễn dương QoQ",
+      "unit": "%",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/chi-so-van-tai-duong-ven-bien-va-vien-duong-so-quy-truoc-22870",
+      "observations": [
+        {
+          "date": "2024-06-30",
+          "value": 0.56
+        },
+        {
+          "date": "2024-09-30",
+          "value": 2.39
+        },
+        {
+          "date": "2024-12-31",
+          "value": 3.32
+        },
+        {
+          "date": "2025-03-31",
+          "value": 2.43
+        },
+        {
+          "date": "2025-06-30",
+          "value": 3.79
+        },
+        {
+          "date": "2025-09-30",
+          "value": 3.33
+        },
+        {
+          "date": "2025-12-31",
+          "value": 4.12
+        },
+        {
+          "date": "2026-03-31",
+          "value": 5.11
+        },
+        {
+          "date": "2026-06-30",
+          "value": 12.39
+        },
+        {
+          "date": "2026-09-30",
+          "value": 11.88
+        }
+      ],
+      "note": "Mức thay đổi chỉ số dịch vụ vận tải ven biển và viễn dương so quý trước; không phải DWT hoặc doanh thu cảng.",
+      "source_updated_at": "2026-10-03",
+      "value": 11.88,
+      "date": "2026-09-30"
+    },
+    {
+      "category": "corporate-bonds-property",
+      "name": "Phát hành trái phiếu doanh nghiệp ngành bất động sản",
+      "unit": "Tỷ đồng",
+      "source": "SSIAM (tháng 10/2026); lịch sử từ Dữ Liệu Kinh Tế",
+      "url": "https://ssiam.com.vn/en/ssiam/news/view-detail/market-insights-october-2026",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 190
+        },
+        {
+          "date": "2026-02-01",
+          "value": 79.5
+        },
+        {
+          "date": "2026-03-01",
+          "value": 10195.5
+        },
+        {
+          "date": "2026-04-01",
+          "value": 19935
+        },
+        {
+          "date": "2026-05-01",
+          "value": 7180
+        },
+        {
+          "date": "2026-06-01",
+          "value": 11649
+        },
+        {
+          "date": "2026-07-01",
+          "value": 5000
+        },
+        {
+          "date": "2026-08-01",
+          "value": 3958
+        },
+        {
+          "date": "2026-09-01",
+          "value": 19800
+        },
+        {
+          "date": "2026-10-01",
+          "value": 1200
+        }
+      ],
+      "note": "Dữ liệu tháng 10/2026: phát hành riêng lẻ TPDN ngành bất động sản 1.200 tỷ đồng theo báo cáo thị trường SSIAM ngày 11/11/2026. Các kỳ lịch sử trước đó theo chuỗi Dữ Liệu Kinh Tế; không cộng nhầm phát hành ngân hàng hoặc tổng thị trường.",
+      "source_updated_at": "2026-11-11",
+      "value": 1200,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "cpi",
+      "name": "CPI so cùng kỳ năm trước (YoY)",
+      "unit": "%",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu/cpi-so-cung-ky-319",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 2.53
+        },
+        {
+          "date": "2026-02-01",
+          "value": 3.35
+        },
+        {
+          "date": "2026-03-01",
+          "value": 4.65
+        },
+        {
+          "date": "2026-04-01",
+          "value": 5.46
+        },
+        {
+          "date": "2026-05-01",
+          "value": 5.6
+        },
+        {
+          "date": "2026-06-01",
+          "value": 4.69
+        },
+        {
+          "date": "2026-07-01",
+          "value": 4.45
+        },
+        {
+          "date": "2026-08-01",
+          "value": 4.89
+        },
+        {
+          "date": "2026-09-01",
+          "value": 5.08
+        },
+        {
+          "date": "2026-10-01",
+          "value": 5.09
+        }
+      ],
+      "note": "Chỉ tiêu là tốc độ CPI so cùng kỳ (YoY), nên snapshot dùng đơn vị % theo định nghĩa chỉ tiêu; trang nguồn có metadata đơn vị chung “Điểm” của bảng CPI.",
+      "source_updated_at": "2026-11-03",
+      "value": 5.09,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "credit-balance",
+      "name": "Tổng dư nợ tín dụng đối với nền kinh tế",
+      "unit": "Tỷ đồng",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/tong-du-no-tin-dung-doi-voi-nen-kinh-te-33265",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 18815882.09
+        },
+        {
+          "date": "2026-02-01",
+          "value": 18842357
+        },
+        {
+          "date": "2026-03-01",
+          "value": 19186824
+        },
+        {
+          "date": "2026-04-01",
+          "value": 19447521
+        },
+        {
+          "date": "2026-05-01",
+          "value": 19703851
+        },
+        {
+          "date": "2026-06-01",
+          "value": 20150411
+        },
+        {
+          "date": "2026-07-01",
+          "value": 20262110
+        },
+        {
+          "date": "2026-08-01",
+          "value": 20489434
+        }
+      ],
+      "note": "Dư nợ tín dụng toàn nền kinh tế; nguồn hiện cập nhật đến 08/2026.",
+      "source_updated_at": "2026-10-13",
+      "value": 20489434,
+      "date": "2026-08-01"
+    },
+    {
+      "category": "credit-growth",
+      "name": "Tăng trưởng tín dụng so đầu năm",
+      "unit": "%",
+      "source": "Ngân hàng Nhà nước Việt Nam (phát biểu Thống đốc, dẫn tin Nhân Dân/VNA)",
+      "url": "https://en.nhandan.vn/minister-pledges-higher-capital-efficiency-sufficient-resources-for-growth-post168524.html",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 1.19
+        },
+        {
+          "date": "2026-02-01",
+          "value": 1.33
+        },
+        {
+          "date": "2026-03-01",
+          "value": 3.18
+        },
+        {
+          "date": "2026-04-01",
+          "value": 4.59
+        },
+        {
+          "date": "2026-05-01",
+          "value": 5.96
+        },
+        {
+          "date": "2026-06-01",
+          "value": 8.37
+        },
+        {
+          "date": "2026-07-01",
+          "value": 8.97
+        },
+        {
+          "date": "2026-08-01",
+          "value": 10.19
+        },
+        {
+          "date": "2026-10-31",
+          "value": 12.27
+        }
+      ],
+      "note": "Thống đốc NHNN cho biết tăng trưởng tín dụng toàn hệ thống khoảng 12,27% tính đến 31/10/2026; đây là số ước tính lũy kế so đầu năm (YTD), không phải tốc độ tăng riêng tháng 10. Nguồn báo chí dẫn phát biểu của Thống đốc.",
+      "source_updated_at": "2026-10-31",
+      "date": "2026-10-31",
+      "value": 12.27
+    },
+    {
+      "category": "exports",
+      "name": "Kim ngạch xuất khẩu – tổng",
+      "unit": "Triệu USD",
+      "source": "Tổng cục Hải quan",
+      "url": "https://dulieukinhte.com/du-lieu/tong-xuat-khau-292",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 43189.64
+        },
+        {
+          "date": "2026-02-01",
+          "value": 33090.03
+        },
+        {
+          "date": "2026-03-01",
+          "value": 46435.72
+        },
+        {
+          "date": "2026-04-01",
+          "value": 45986.23
+        },
+        {
+          "date": "2026-05-01",
+          "value": 46929.35
+        },
+        {
+          "date": "2026-06-01",
+          "value": 50787.25
+        },
+        {
+          "date": "2026-07-01",
+          "value": 53095.48
+        },
+        {
+          "date": "2026-08-01",
+          "value": 54794.76
+        },
+        {
+          "date": "2026-09-01",
+          "value": 59506.12
+        },
+        {
+          "date": "2026-10-01",
+          "value": 64670.43
+        }
+      ],
+      "note": "Tổng kim ngạch xuất khẩu hàng hóa theo tháng.",
+      "source_updated_at": "2026-11-05",
+      "value": 64670.43,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "global-rice",
+      "name": "Giá gạo thế giới – hợp đồng gạo thô CBOT No.2",
+      "unit": "USD/tấn",
+      "source": "Thị Trường Hàng Hóa (CBOT Rough Rice No.2)",
+      "url": "https://www.thitruonghanghoa.com/gia-hang-hoa/gia-gao-the-gioi?notation=2&period=1",
+      "observations": [
+        {
+          "date": "2026-11-16",
+          "value": 403.71
+        },
+        {
+          "date": "2026-11-17",
+          "value": 402.56
+        }
+      ],
+      "note": "Giá hợp đồng gạo thô CBOT No.2, đơn vị USD/tấn; khác với giá gạo nguyên liệu trong nước.",
+      "source_updated_at": "2026-11-16",
+      "value": 402.56,
+      "date": "2026-11-17",
+      "changePct": -0.01
+    },
+    {
+      "category": "global-rubber",
+      "name": "Giá cao su TSR20 (INE) thế giới",
+      "unit": "CNY/tấn",
+      "source": "Sưu tầm",
+      "url": "https://dulieukinhte.com/du-lieu-dong/gia-cao-su-tsr20-ine-the-gioi-66457",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "value": 15685
+        },
+        {
+          "date": "2026-11-09",
+          "value": 15770
+        },
+        {
+          "date": "2026-11-10",
+          "value": 15895
+        },
+        {
+          "date": "2026-11-11",
+          "value": 16530
+        },
+        {
+          "date": "2026-11-12",
+          "value": 16495
+        },
+        {
+          "date": "2026-11-13",
+          "value": 16695
+        }
+      ],
+      "note": "Giá TSR20 trên INE bằng CNY/tấn; dữ liệu sưu tầm, các ngày không có quan sát được giữ trống, không nội suy.",
+      "source_updated_at": "2026-11-13",
+      "value": 16695,
+      "date": "2026-11-13"
+    },
+    {
+      "category": "global-steel",
+      "name": "Thép thanh vằn Hòa Phát D10 CB300 – miền Bắc",
+      "unit": "VND/kg",
+      "source": "Sưu tầm",
+      "url": "https://dulieukinhte.com/du-lieu-dong/gia-thep-hoa-phat-mien-bac-thep-thanh-van-d10-cb300-68347",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "value": 14720
+        },
+        {
+          "date": "2026-11-07",
+          "value": 14720
+        },
+        {
+          "date": "2026-11-08",
+          "value": 14720
+        },
+        {
+          "date": "2026-11-09",
+          "value": 14720
+        },
+        {
+          "date": "2026-11-10",
+          "value": 14720
+        },
+        {
+          "date": "2026-11-11",
+          "value": 14720
+        },
+        {
+          "date": "2026-11-12",
+          "value": 14720
+        },
+        {
+          "date": "2026-11-13",
+          "value": 14720
+        },
+        {
+          "date": "2026-11-14",
+          "value": 14720
+        },
+        {
+          "date": "2026-11-15",
+          "value": 14720
+        }
+      ],
+      "note": "Giá thép thanh vằn Hòa Phát D10 CB300 tại miền Bắc; đây không phải chỉ số giá thép toàn cầu.",
+      "source_updated_at": "2026-11-15",
+      "value": 14720,
+      "date": "2026-11-15"
+    },
+    {
+      "category": "housing-cpi",
+      "name": "CPI nhóm nhà ở và vật liệu xây dựng",
+      "unit": "Điểm",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/chi-so-gia-tieu-dung-nha-o-va-vat-lieu-xay-dung-18699",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 107.3
+        },
+        {
+          "date": "2026-02-01",
+          "value": 107.9
+        },
+        {
+          "date": "2026-03-01",
+          "value": 108.73
+        },
+        {
+          "date": "2026-04-01",
+          "value": 111.54
+        },
+        {
+          "date": "2026-05-01",
+          "value": 112.61
+        },
+        {
+          "date": "2026-06-01",
+          "value": 113.13
+        },
+        {
+          "date": "2026-07-01",
+          "value": 113.05
+        },
+        {
+          "date": "2026-08-01",
+          "value": 113.17
+        },
+        {
+          "date": "2026-09-01",
+          "value": 113.48
+        },
+        {
+          "date": "2026-10-01",
+          "value": 113.53
+        }
+      ],
+      "note": "Chỉ số giá nhóm nhà ở và vật liệu xây dựng (điểm), không phải CPI chung.",
+      "source_updated_at": "2026-11-03",
+      "value": 113.53,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "imports",
+      "name": "Kim ngạch nhập khẩu – tổng",
+      "unit": "Triệu USD",
+      "source": "Tổng cục Hải quan",
+      "url": "https://dulieukinhte.com/du-lieu/tong-nhap-khau-293",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 44974.08
+        },
+        {
+          "date": "2026-02-01",
+          "value": 34102.37
+        },
+        {
+          "date": "2026-03-01",
+          "value": 47112.55
+        },
+        {
+          "date": "2026-04-01",
+          "value": 49979.63
+        },
+        {
+          "date": "2026-05-01",
+          "value": 52141.01
+        },
+        {
+          "date": "2026-06-01",
+          "value": 53431.72
+        },
+        {
+          "date": "2026-07-01",
+          "value": 56668.26
+        },
+        {
+          "date": "2026-08-01",
+          "value": 54907.98
+        },
+        {
+          "date": "2026-09-01",
+          "value": 58206.56
+        },
+        {
+          "date": "2026-10-01",
+          "value": 57363.69
+        }
+      ],
+      "note": "Tổng kim ngạch nhập khẩu hàng hóa theo tháng.",
+      "source_updated_at": "2026-11-03",
+      "value": 57363.69,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "labor",
+      "name": "Tỷ lệ thất nghiệp trong độ tuổi lao động",
+      "unit": "%",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu/lao-dong-viec-lam-399",
+      "observations": [
+        {
+          "date": "2023-09-30",
+          "value": 2.3
+        },
+        {
+          "date": "2023-12-31",
+          "value": 2.26
+        },
+        {
+          "date": "2024-03-31",
+          "value": 2.24
+        },
+        {
+          "date": "2024-06-30",
+          "value": 2.29
+        },
+        {
+          "date": "2024-09-30",
+          "value": 2.23
+        },
+        {
+          "date": "2024-12-31",
+          "value": 2.22
+        },
+        {
+          "date": "2025-03-31",
+          "value": 2.2
+        },
+        {
+          "date": "2025-06-30",
+          "value": 2.24
+        },
+        {
+          "date": "2025-09-30",
+          "value": 2.21
+        },
+        {
+          "date": "2025-12-31",
+          "value": 2.22
+        },
+        {
+          "date": "2026-03-31",
+          "value": 2.21
+        },
+        {
+          "date": "2026-06-30",
+          "value": 2.23
+        },
+        {
+          "date": "2026-09-30",
+          "value": 2.22
+        }
+      ],
+      "note": "Tỷ lệ thất nghiệp trong độ tuổi lao động; đơn vị phần trăm, chuỗi theo quý.",
+      "source_updated_at": "2026-10-03",
+      "value": 2.22,
+      "date": "2026-09-30"
+    },
+    {
+      "category": "labor-force",
+      "name": "Lực lượng lao động",
+      "unit": "Nghìn người",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu/lao-dong-viec-lam-399",
+      "observations": [
+        {
+          "date": "2023-09-30",
+          "value": 52416.1
+        },
+        {
+          "date": "2023-12-31",
+          "value": 52529.61
+        },
+        {
+          "date": "2024-03-31",
+          "value": 52392.18
+        },
+        {
+          "date": "2024-06-30",
+          "value": 52540.8
+        },
+        {
+          "date": "2024-09-30",
+          "value": 52764.86
+        },
+        {
+          "date": "2024-12-31",
+          "value": 53154.93
+        },
+        {
+          "date": "2025-03-31",
+          "value": 52924.2
+        },
+        {
+          "date": "2025-06-30",
+          "value": 53094
+        },
+        {
+          "date": "2025-09-30",
+          "value": 53356.22
+        },
+        {
+          "date": "2025-12-31",
+          "value": 53844.89
+        },
+        {
+          "date": "2026-03-31",
+          "value": 53612
+        },
+        {
+          "date": "2026-06-30",
+          "value": 53787.5
+        },
+        {
+          "date": "2026-09-30",
+          "value": 54065.9
+        }
+      ],
+      "note": "Quy mô lực lượng lao động theo quý; đơn vị nghìn người. Chuỗi từ Q3/2023 đến Q3/2026.",
+      "source_updated_at": "2026-10-03",
+      "value": 54065.9,
+      "date": "2026-09-30"
+    },
+    {
+      "category": "logistics-index",
+      "name": "Chỉ số vận tải, kho bãi – chỉ số chung QoQ",
+      "unit": "%",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/chi-so-van-tai-kho-bai-so-quy-truoc-22865",
+      "observations": [
+        {
+          "date": "2024-06-30",
+          "value": 0.76
+        },
+        {
+          "date": "2024-09-30",
+          "value": 12.47
+        },
+        {
+          "date": "2024-12-31",
+          "value": 7.84
+        },
+        {
+          "date": "2025-03-31",
+          "value": 6.22
+        },
+        {
+          "date": "2025-06-30",
+          "value": 6.23
+        },
+        {
+          "date": "2025-09-30",
+          "value": 7.21
+        },
+        {
+          "date": "2025-12-31",
+          "value": 5.94
+        },
+        {
+          "date": "2026-03-31",
+          "value": 8.77
+        },
+        {
+          "date": "2026-06-30",
+          "value": 10.54
+        },
+        {
+          "date": "2026-09-30",
+          "value": 6.93
+        }
+      ],
+      "note": "Mức thay đổi hoạt động vận tải, kho bãi so với quý liền trước (QoQ); không phải doanh thu hoặc sản lượng.",
+      "source_updated_at": "2026-10-03",
+      "value": 6.93,
+      "date": "2026-09-30"
+    },
+    {
+      "category": "passengers",
+      "name": "Khách quốc tế đến Việt Nam – tổng số",
+      "unit": "Nghìn người",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu/khach-quoc-te-theo-loai-hinh-295",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 2453.72
+        },
+        {
+          "date": "2026-02-01",
+          "value": 2228.37
+        },
+        {
+          "date": "2026-03-01",
+          "value": 2080.08
+        },
+        {
+          "date": "2026-04-01",
+          "value": 2031.52
+        },
+        {
+          "date": "2026-05-01",
+          "value": 1779.88
+        },
+        {
+          "date": "2026-06-01",
+          "value": 1678.28
+        },
+        {
+          "date": "2026-07-01",
+          "value": 1665.85
+        },
+        {
+          "date": "2026-08-01",
+          "value": 1994.47
+        },
+        {
+          "date": "2026-09-01",
+          "value": 1768.55
+        },
+        {
+          "date": "2026-10-01",
+          "value": 1854.68
+        }
+      ],
+      "note": "Tổng lượt khách quốc tế theo tháng, đơn vị nghìn người.",
+      "source_updated_at": "2026-11-03",
+      "value": 1854.68,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "ports",
+      "name": "DWT tàu vào Cảng vụ Hải Phòng",
+      "unit": "DWT",
+      "source": "Cục Hàng hải Việt Nam (các Cảng vụ Hàng hải)",
+      "url": "https://dulieukinhte.com/du-lieu/tong-dwt-tau-vao-cang-374",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 16403544
+        },
+        {
+          "date": "2026-02-01",
+          "value": 13002452
+        },
+        {
+          "date": "2026-03-01",
+          "value": 16933569
+        },
+        {
+          "date": "2026-04-01",
+          "value": 16776634
+        },
+        {
+          "date": "2026-05-01",
+          "value": 17583695
+        },
+        {
+          "date": "2026-06-01",
+          "value": 16908072
+        },
+        {
+          "date": "2026-07-01",
+          "value": 16184582
+        },
+        {
+          "date": "2026-08-01",
+          "value": 15893031
+        },
+        {
+          "date": "2026-09-01",
+          "value": 14421599
+        },
+        {
+          "date": "2026-10-01",
+          "value": 15022373
+        },
+        {
+          "date": "2026-11-15",
+          "value": 8252263
+        }
+      ],
+      "note": "Chỉ tiêu con tại Cảng vụ Hải Phòng; điểm 15/11/2026 là số cập nhật lũy kế đến ngày 15, không phải cả tháng 11.",
+      "source_updated_at": "2026-11-15",
+      "value": 8252263,
+      "date": "2026-11-15"
+    },
+    {
+      "category": "property",
+      "name": "Số lượng căn, căn hộ, lô tồn kho bất động sản",
+      "unit": "Căn/căn hộ/lô",
+      "source": "Bộ Xây dựng",
+      "url": "https://dulieukinhte.com/du-lieu/tong-quan-thi-truong-bat-dong-san-ca-nuoc-368",
+      "observations": [
+        {
+          "date": "2025-12-31",
+          "value": 3967
+        },
+        {
+          "date": "2026-03-31",
+          "value": 3835
+        },
+        {
+          "date": "2026-06-30",
+          "value": 7401
+        },
+        {
+          "date": "2026-09-30",
+          "value": 6277
+        }
+      ],
+      "note": "Tồn kho trên thị trường bất động sản toàn quốc. Chỉ đưa các quý đã kết thúc; loại Q4/2026 vì đang là quý dở dang.",
+      "source_updated_at": "2026-11-01",
+      "value": 6277,
+      "date": "2026-09-30"
+    },
+    {
+      "category": "retail",
+      "name": "Tổng mức bán lẻ hàng hóa và dịch vụ",
+      "unit": "Tỷ đồng",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu/ban-le-hang-hoa-va-dich-vu-273",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 622892.93
+        },
+        {
+          "date": "2026-02-01",
+          "value": 633032.03
+        },
+        {
+          "date": "2026-03-01",
+          "value": 635665.55
+        },
+        {
+          "date": "2026-04-01",
+          "value": 643765.07
+        },
+        {
+          "date": "2026-05-01",
+          "value": 658641.54
+        },
+        {
+          "date": "2026-06-01",
+          "value": 662837.51
+        },
+        {
+          "date": "2026-07-01",
+          "value": 668997.3
+        },
+        {
+          "date": "2026-08-01",
+          "value": 679369.5
+        },
+        {
+          "date": "2026-09-01",
+          "value": 688362.94
+        },
+        {
+          "date": "2026-10-01",
+          "value": 695471.88
+        }
+      ],
+      "note": "Giá trị tháng, đơn vị tỷ đồng.",
+      "source_updated_at": "2026-11-10",
+      "value": 695471.88,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "sea-freight",
+      "name": "Luân chuyển hàng hóa đường biển",
+      "unit": "Triệu tấn-km",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/luan-chuyen-hang-hoa-duong-bien-22613",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 33317.56
+        },
+        {
+          "date": "2026-02-01",
+          "value": 25618.91
+        },
+        {
+          "date": "2026-03-01",
+          "value": 30727.09
+        },
+        {
+          "date": "2026-04-01",
+          "value": 28879.28
+        },
+        {
+          "date": "2026-05-01",
+          "value": 30122.71
+        },
+        {
+          "date": "2026-06-01",
+          "value": 26182.13
+        },
+        {
+          "date": "2026-07-01",
+          "value": 32460.88
+        },
+        {
+          "date": "2026-08-01",
+          "value": 30420.43
+        },
+        {
+          "date": "2026-09-01",
+          "value": 30919.01
+        }
+      ],
+      "note": "Luân chuyển hàng hóa bằng đường biển; số liệu mới nhất nguồn hiện có đến tháng 09/2026.",
+      "source_updated_at": "2026-10-03",
+      "value": 30919.01,
+      "date": "2026-09-01"
+    },
+    {
+      "category": "transport",
+      "name": "Vận chuyển hàng hóa – tổng số",
+      "unit": "Nghìn tấn",
+      "source": "Cục Thống kê (NSO)",
+      "url": "https://dulieukinhte.com/du-lieu/van-chuyen-hang-hoa-299",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 279049.08
+        },
+        {
+          "date": "2026-02-01",
+          "value": 269972.44
+        },
+        {
+          "date": "2026-03-01",
+          "value": 272547.45
+        },
+        {
+          "date": "2026-04-01",
+          "value": 274166.92
+        },
+        {
+          "date": "2026-05-01",
+          "value": 275803.9
+        },
+        {
+          "date": "2026-06-01",
+          "value": 272054.28
+        },
+        {
+          "date": "2026-07-01",
+          "value": 294282.02
+        },
+        {
+          "date": "2026-08-01",
+          "value": 324004.27
+        },
+        {
+          "date": "2026-09-01",
+          "value": 321910.54
+        },
+        {
+          "date": "2026-10-01",
+          "value": 313798.2
+        }
+      ],
+      "note": "Số liệu tháng; chỉ tiêu tổng số vận chuyển hàng hóa toàn quốc.",
+      "source_updated_at": "2026-11-03",
+      "value": 313798.2,
+      "date": "2026-10-01"
+    },
+    {
+      "category": "m2",
+      "name": "Tổng phương tiện thanh toán (M2)",
+      "unit": "Tỷ đồng",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/tong-phuong-tien-thanh-toan-m2-33445",
+      "value": 20774696,
+      "date": "2026-08-01",
+      "observations": [
+        {
+          "date": "2025-11-01",
+          "value": 18938260
+        },
+        {
+          "date": "2025-12-01",
+          "value": 19444476
+        },
+        {
+          "date": "2026-01-01",
+          "value": 19578695
+        },
+        {
+          "date": "2026-02-01",
+          "value": 19641068
+        },
+        {
+          "date": "2026-03-01",
+          "value": 19635094
+        },
+        {
+          "date": "2026-04-01",
+          "value": 19818534
+        },
+        {
+          "date": "2026-05-01",
+          "value": 19974985
+        },
+        {
+          "date": "2026-06-01",
+          "value": 20414616
+        },
+        {
+          "date": "2026-07-01",
+          "value": 20455644
+        },
+        {
+          "date": "2026-08-01",
+          "value": 20774696
+        }
+      ],
+      "note": "Số dư M2 theo tháng; kỳ mới nhất hiện có là 08/2026. Không quy đổi thành tốc độ tăng trưởng.",
+      "source_updated_at": "2026-10-16"
+    },
+    {
+      "category": "household-deposits",
+      "name": "Tiền gửi của dân cư",
+      "unit": "Tỷ đồng",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/tien-gui-cua-dan-cu-trong-cung-tien-m2-33446",
+      "value": 11434266,
+      "date": "2026-08-01",
+      "observations": [
+        {
+          "date": "2025-11-01",
+          "value": 10224973
+        },
+        {
+          "date": "2025-12-01",
+          "value": 10335383
+        },
+        {
+          "date": "2026-01-01",
+          "value": 10381508
+        },
+        {
+          "date": "2026-02-01",
+          "value": 10543901
+        },
+        {
+          "date": "2026-03-01",
+          "value": 10561351
+        },
+        {
+          "date": "2026-04-01",
+          "value": 10718801
+        },
+        {
+          "date": "2026-05-01",
+          "value": 10826998
+        },
+        {
+          "date": "2026-06-01",
+          "value": 11068825
+        },
+        {
+          "date": "2026-07-01",
+          "value": 11220486
+        },
+        {
+          "date": "2026-08-01",
+          "value": 11434266
+        }
+      ],
+      "note": "Tiền gửi dân cư trong M2; kỳ mới nhất 08/2026.",
+      "source_updated_at": "2026-10-16"
+    },
+    {
+      "category": "corporate-deposits",
+      "name": "Tiền gửi của các tổ chức kinh tế",
+      "unit": "Tỷ đồng",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/tien-gui-cua-cac-tckt-trong-cung-tien-m2-33447",
+      "value": 6337186,
+      "date": "2026-08-01",
+      "observations": [
+        {
+          "date": "2025-11-01",
+          "value": 5839701
+        },
+        {
+          "date": "2025-12-01",
+          "value": 6180504
+        },
+        {
+          "date": "2026-01-01",
+          "value": 6080119
+        },
+        {
+          "date": "2026-02-01",
+          "value": 5871211
+        },
+        {
+          "date": "2026-03-01",
+          "value": 6014229
+        },
+        {
+          "date": "2026-04-01",
+          "value": 6074860
+        },
+        {
+          "date": "2026-05-01",
+          "value": 6168130
+        },
+        {
+          "date": "2026-06-01",
+          "value": 6371536
+        },
+        {
+          "date": "2026-07-01",
+          "value": 6240841
+        },
+        {
+          "date": "2026-08-01",
+          "value": 6337186
+        }
+      ],
+      "note": "Tiền gửi các TCKT trong M2; kỳ mới nhất 08/2026.",
+      "source_updated_at": "2026-10-16"
+    },
+    {
+      "category": "deposit-mb-12m",
+      "name": "Lãi suất tiết kiệm khách hàng cá nhân MB – 12 tháng",
+      "unit": "%/năm",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/lai-suat-tiet-kiem-khach-hang-ca-nhan-mb-12-thang-33340",
+      "value": 5.7,
+      "date": "2026-10-21",
+      "observations": [
+        {
+          "date": "2025-10-15",
+          "value": 4.9
+        },
+        {
+          "date": "2025-11-01",
+          "value": 4.9
+        },
+        {
+          "date": "2025-11-15",
+          "value": 5.2
+        },
+        {
+          "date": "2025-12-01",
+          "value": 5.35
+        },
+        {
+          "date": "2025-12-15",
+          "value": 5.35
+        },
+        {
+          "date": "2026-01-01",
+          "value": 5.55
+        },
+        {
+          "date": "2026-01-15",
+          "value": 5.55
+        },
+        {
+          "date": "2026-02-01",
+          "value": 5.55
+        },
+        {
+          "date": "2026-06-25",
+          "value": 6.2
+        },
+        {
+          "date": "2026-10-21",
+          "value": 5.7
+        }
+      ],
+      "note": "Mức lãi suất tiền gửi khách hàng cá nhân kỳ hạn 12 tháng, theo chuỗi dữ liệu nguồn; không phải lãi suất cho vay. Quan sát mới nhất 21/10/2026.",
+      "source_updated_at": "2026-10-21"
+    },
+    {
+      "category": "gold-doji-buy",
+      "name": "Giá vàng miếng SJC DOJI mua vào",
+      "unit": "Triệu VND/lượng",
+      "source": "Vietnam.vn (bản tin giá vàng chiều 17/11/2026; DOJI Group SJC gold bar)",
+      "url": "https://www.vietnam.vn/en/cap-nhat-gia-vang-chieu-17-11-2026-sjc-nhan-9999-doji-btmc-pnj-phu-quy-thu-ba",
+      "value": 134.7,
+      "date": "2026-11-17",
+      "observations": [
+        {
+          "date": "2026-11-07",
+          "value": 138
+        },
+        {
+          "date": "2026-11-08",
+          "value": 138
+        },
+        {
+          "date": "2026-11-09",
+          "value": 138.2
+        },
+        {
+          "date": "2026-11-10",
+          "value": 137.9
+        },
+        {
+          "date": "2026-11-11",
+          "value": 137
+        },
+        {
+          "date": "2026-11-12",
+          "value": 136
+        },
+        {
+          "date": "2026-11-13",
+          "value": 135
+        },
+        {
+          "date": "2026-11-14",
+          "value": 134.5
+        },
+        {
+          "date": "2026-11-15",
+          "value": 134.5
+        },
+        {
+          "date": "2026-11-16",
+          "value": 134.5
+        },
+        {
+          "date": "2026-11-17",
+          "value": 134.7
+        }
+      ],
+      "note": "Giá vàng miếng SJC do DOJI niêm yết; triệu đồng/lượng, theo bản tin chiều 17/11/2026.",
+      "source_updated_at": "2026-11-17"
+    },
+    {
+      "category": "gold-btmc-buy",
+      "name": "Giá vàng Bảo Tín Minh Châu mua vào",
+      "unit": "Triệu VND/lượng",
+      "source": "Vietnam.vn (bản tin giá vàng chiều 17/11/2026; Bảo Tín Minh Châu)",
+      "url": "https://www.vietnam.vn/en/cap-nhat-gia-vang-chieu-17-11-2026-sjc-nhan-9999-doji-btmc-pnj-phu-quy-thu-ba",
+      "value": 133.5,
+      "date": "2026-11-17",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "value": 136.5
+        },
+        {
+          "date": "2026-11-07",
+          "value": 136.5
+        },
+        {
+          "date": "2026-11-08",
+          "value": 136.5
+        },
+        {
+          "date": "2026-11-09",
+          "value": 136.8
+        },
+        {
+          "date": "2026-11-10",
+          "value": 136.8
+        },
+        {
+          "date": "2026-11-11",
+          "value": 135.5
+        },
+        {
+          "date": "2026-11-12",
+          "value": 134.7
+        },
+        {
+          "date": "2026-11-13",
+          "value": 134
+        },
+        {
+          "date": "2026-11-14",
+          "value": 133.8
+        },
+        {
+          "date": "2026-11-15",
+          "value": 133.8
+        },
+        {
+          "date": "2026-11-17",
+          "value": 133.5
+        }
+      ],
+      "note": "Giá mua vàng Bảo Tín Minh Châu; triệu đồng/lượng, theo bản tin chiều 17/11/2026.",
+      "source_updated_at": "2026-11-17"
+    },
+    {
+      "category": "gold-btmc-sell",
+      "name": "Giá vàng Bảo Tín Minh Châu bán ra",
+      "unit": "Triệu VND/lượng",
+      "source": "Vietnam.vn (bản tin giá vàng chiều 17/11/2026; Bảo Tín Minh Châu)",
+      "url": "https://www.vietnam.vn/en/cap-nhat-gia-vang-chieu-17-11-2026-sjc-nhan-9999-doji-btmc-pnj-phu-quy-thu-ba",
+      "value": 137.7,
+      "date": "2026-11-17",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "value": 141
+        },
+        {
+          "date": "2026-11-07",
+          "value": 141
+        },
+        {
+          "date": "2026-11-08",
+          "value": 141.2
+        },
+        {
+          "date": "2026-11-09",
+          "value": 140.9
+        },
+        {
+          "date": "2026-11-10",
+          "value": 140
+        },
+        {
+          "date": "2026-11-11",
+          "value": 139
+        },
+        {
+          "date": "2026-11-12",
+          "value": 138
+        },
+        {
+          "date": "2026-11-13",
+          "value": 137.5
+        },
+        {
+          "date": "2026-11-14",
+          "value": 137.5
+        },
+        {
+          "date": "2026-11-15",
+          "value": 137.5
+        },
+        {
+          "date": "2026-11-17",
+          "value": 137.7
+        }
+      ],
+      "note": "Giá bán vàng Bảo Tín Minh Châu; triệu đồng/lượng, theo bản tin chiều 17/11/2026.",
+      "source_updated_at": "2026-11-17"
+    },
+    {
+      "category": "omo-buy-total",
+      "name": "Tổng trúng thầu mua OMO (bơm tiền)",
+      "unit": "Tỷ đồng",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/tong-mua-bom-tien-nghiep-vu-thi-truong-mo-omo-27690",
+      "value": 9679.81,
+      "date": "2026-11-16",
+      "observations": [
+        {
+          "date": "2026-11-03",
+          "value": 3226.2
+        },
+        {
+          "date": "2026-11-04",
+          "value": 3198.56
+        },
+        {
+          "date": "2026-11-05",
+          "value": 5521.82
+        },
+        {
+          "date": "2026-11-06",
+          "value": 44976.78
+        },
+        {
+          "date": "2026-11-09",
+          "value": 8684.6
+        },
+        {
+          "date": "2026-11-10",
+          "value": 2716.63
+        },
+        {
+          "date": "2026-11-11",
+          "value": 1261.4
+        },
+        {
+          "date": "2026-11-13",
+          "value": 22123.63
+        },
+        {
+          "date": "2026-11-16",
+          "value": 9679.81
+        }
+      ],
+      "note": "Tổng giá trị trúng thầu mua trong ngày; không phải bơm ròng sau khi trừ đáo hạn.",
+      "source_updated_at": "2026-11-16"
+    },
+    {
+      "category": "omo-net-outstanding",
+      "name": "Chênh lệch lưu hành OMO − tín phiếu NHNN",
+      "unit": "Tỷ đồng",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "url": "https://dulieukinhte.com/du-lieu-dong/chenh-lech-luu-hanh-omo-va-tin-phieu-nhnn-53631",
+      "value": 92914.44,
+      "date": "2026-11-16",
+      "observations": [
+        {
+          "date": "2026-11-03",
+          "value": 116381.24
+        },
+        {
+          "date": "2026-11-04",
+          "value": 109238.03
+        },
+        {
+          "date": "2026-11-05",
+          "value": 105591.75
+        },
+        {
+          "date": "2026-11-06",
+          "value": 119213.4
+        },
+        {
+          "date": "2026-11-09",
+          "value": 124861.59
+        },
+        {
+          "date": "2026-11-10",
+          "value": 115500.61
+        },
+        {
+          "date": "2026-11-11",
+          "value": 112608.42
+        },
+        {
+          "date": "2026-11-12",
+          "value": 105805.75
+        },
+        {
+          "date": "2026-11-13",
+          "value": 87652.08
+        },
+        {
+          "date": "2026-11-16",
+          "value": 92914.44
+        }
+      ],
+      "note": "Chỉ tiêu tồn lượng = OMO đang lưu hành trừ tín phiếu NHNN đang lưu hành; không phải dòng bơm/hút ròng trong ngày.",
+      "source_updated_at": "2026-11-16"
+    },
+    {
+      "category": "gdp",
+      "name": "GDP theo giá hiện hành",
+      "unit": "Tỷ đồng",
+      "source": "Cục Thống kê (NSO) qua Dữ Liệu Kinh Tế",
+      "url": "https://dulieukinhte.com/du-lieu/gdp-hien-hanh-theo-quy-268",
+      "value": 3698333.99,
+      "date": "2026-09-30",
+      "observations": [
+        {
+          "date": "2025-03-31",
+          "value": 2809521.92
+        },
+        {
+          "date": "2025-06-30",
+          "value": 3099631.83
+        },
+        {
+          "date": "2025-09-30",
+          "value": 3237106.7
+        },
+        {
+          "date": "2025-12-31",
+          "value": 3710894.93
+        },
+        {
+          "date": "2026-03-31",
+          "value": 3143977.94
+        },
+        {
+          "date": "2026-06-30",
+          "value": 3497355.71
+        },
+        {
+          "date": "2026-09-30",
+          "value": 3698333.99
+        }
+      ],
+      "note": "GDP danh nghĩa theo giá hiện hành từng quý; quý gần nhất Q3/2026. Đây là quy mô GDP trong quý, không phải tốc độ tăng trưởng thực. Nguồn bảng ghi Cục Thống kê (NSO); các quý gần nhất có thể được điều chỉnh khi có số chính thức cập nhật.",
+      "source_updated_at": "2026-10-03"
+    },
+    {
+      "category": "lending-rate",
+      "name": "Lãi suất cho vay bình quân Vietcombank",
+      "unit": "%/năm",
+      "source": "Sưu tầm (chuỗi Vietcombank qua Dữ Liệu Kinh Tế)",
+      "url": "https://dulieukinhte.com/du-lieu/lai-suat-cho-vay-binh-quan-ngan-hang-700",
+      "value": 7.4,
+      "date": "2026-09-01",
+      "observations": [
+        {
+          "date": "2026-01-01",
+          "value": 6.1
+        },
+        {
+          "date": "2026-02-01",
+          "value": 6.4
+        },
+        {
+          "date": "2026-03-01",
+          "value": 6.6
+        },
+        {
+          "date": "2026-04-01",
+          "value": 6.9
+        },
+        {
+          "date": "2026-05-01",
+          "value": 7.2
+        },
+        {
+          "date": "2026-06-01",
+          "value": 7.5
+        },
+        {
+          "date": "2026-07-01",
+          "value": 7.4
+        },
+        {
+          "date": "2026-08-01",
+          "value": 7.4
+        },
+        {
+          "date": "2026-09-01",
+          "value": 7.4
+        }
+      ],
+      "note": "Lãi suất cho vay bình quân Vietcombank; kỳ mới nhất 09/2026, trang nguồn ghi cập nhật 31/10/2026 và nguồn chuỗi “Sưu tầm”. Không đại diện cho lãi suất cho vay bình quân toàn hệ thống ngân hàng.",
+      "source_updated_at": "2026-10-31"
+    },
+    {
+      "category": "black-market-usd-buy",
+      "name": "Tỷ giá USD chợ đen mua vào",
+      "unit": "VND/USD",
+      "source": "Vietnam.vn (khảo sát một số điểm đổi ngoại tệ, 17/11/2026 lúc 08:40)",
+      "url": "https://www.vietnam.vn/en/ty-gia-usd-hom-nay-17-11-gia-usd-tang-manh-cho-den-van-chung-gia-nguoi-mua-usd-can-luu-y-gi",
+      "value": 25957,
+      "date": "2026-11-17",
+      "observations": [
+        {
+          "date": "2026-11-04",
+          "value": 26030
+        },
+        {
+          "date": "2026-11-05",
+          "value": 26070
+        },
+        {
+          "date": "2026-11-07",
+          "value": 25860
+        },
+        {
+          "date": "2026-11-08",
+          "value": 25900
+        },
+        {
+          "date": "2026-11-09",
+          "value": 26000
+        },
+        {
+          "date": "2026-11-10",
+          "value": 25800
+        },
+        {
+          "date": "2026-11-11",
+          "value": 25840
+        },
+        {
+          "date": "2026-11-12",
+          "value": 25830
+        },
+        {
+          "date": "2026-11-13",
+          "value": 26080
+        },
+        {
+          "date": "2026-11-16",
+          "value": 25830
+        },
+        {
+          "date": "2026-11-17",
+          "value": 25957
+        }
+      ],
+      "note": "Giá mua USD chợ đen mang tính khảo sát tại một số điểm đổi ngoại tệ; không phải tỷ giá chính thức hoặc tỷ giá ngân hàng.",
+      "source_updated_at": "2026-11-16"
+    },
+    {
+      "category": "bond-yield-1y",
+      "name": "Lợi suất TPCP thứ cấp kỳ hạn 1 năm",
+      "unit": "%/năm",
+      "source": "World Government Bonds",
+      "url": "https://www.worldgovernmentbonds.com/country/vietnam/",
+      "value": 3.683,
+      "date": "2026-11-16",
+      "observations": [
+        {
+          "date": "2026-11-16",
+          "value": 3.683
+        }
+      ],
+      "note": "Lợi suất đường cong TPCP thị trường thứ cấp; Cập nhật 16/11/2026. Không phải lãi suất trúng thầu sơ cấp; nguồn dữ liệu tổng hợp thị trường.",
+      "source_updated_at": "2026-11-16"
+    },
+    {
+      "category": "bond-yield-2y",
+      "name": "Lợi suất TPCP thứ cấp kỳ hạn 2 năm",
+      "unit": "%/năm",
+      "source": "World Government Bonds",
+      "url": "https://www.worldgovernmentbonds.com/country/vietnam/",
+      "value": 3.784,
+      "date": "2026-11-16",
+      "observations": [
+        {
+          "date": "2026-11-16",
+          "value": 3.784
+        }
+      ],
+      "note": "Lợi suất đường cong TPCP thị trường thứ cấp; Cập nhật 16/11/2026. Không phải lãi suất trúng thầu sơ cấp; nguồn dữ liệu tổng hợp thị trường.",
+      "source_updated_at": "2026-11-16"
+    },
+    {
+      "category": "bond-yield-10y",
+      "name": "Lợi suất TPCP thứ cấp kỳ hạn 10 năm",
+      "unit": "%/năm",
+      "source": "World Government Bonds",
+      "url": "https://www.worldgovernmentbonds.com/country/vietnam/",
+      "value": 4.573,
+      "date": "2026-11-16",
+      "observations": [
+        {
+          "date": "2026-11-16",
+          "value": 4.573
+        }
+      ],
+      "note": "Lợi suất đường cong TPCP thị trường thứ cấp; Cập nhật 16/11/2026. Không phải lãi suất trúng thầu sơ cấp; nguồn dữ liệu tổng hợp thị trường.",
+      "source_updated_at": "2026-11-16"
+    },
+    {
+      "category": "bond-yield-20y",
+      "name": "Lợi suất TPCP thứ cấp kỳ hạn 20 năm",
+      "unit": "%/năm",
+      "source": "World Government Bonds",
+      "url": "https://www.worldgovernmentbonds.com/country/vietnam/",
+      "value": 4.806,
+      "date": "2026-11-13",
+      "observations": [
+        {
+          "date": "2026-11-13",
+          "value": 4.806
+        }
+      ],
+      "note": "Lợi suất đường cong TPCP thị trường thứ cấp; Bảng nguồn ghi cập nhật 13/11/2026 cho kỳ hạn 20 năm. Không phải lãi suất trúng thầu sơ cấp; nguồn dữ liệu tổng hợp thị trường.",
+      "source_updated_at": "2026-11-13"
+    },
+    {
+      "category": "remittance-hcm",
+      "name": "Kiều hối chuyển về TP. Hồ Chí Minh trong quý",
+      "unit": "Triệu USD",
+      "source": "NHNN Chi nhánh Khu vực 2 (dẫn tin Cổng TTĐT Chính phủ)",
+      "url": "https://tphcm.chinhphu.vn/kieu-hoi-chuyen-ve-tphcm-dat-gan-69-ty-usd-101261019212322544.htm",
+      "value": 2835.4,
+      "date": "2026-09-30",
+      "observations": [
+        {
+          "date": "2026-09-30",
+          "value": 2835.4
+        }
+      ],
+      "note": "Quan sát quý III/2026: 2.835,4 triệu USD. Báo cáo NHNN Chi nhánh Khu vực 2 công bố số quý; không coi đây là số tháng hoặc cộng thêm vào giá trị lũy kế 9 tháng 6.872,5 triệu USD.",
+      "source_updated_at": "2026-10-20"
+    },
+    {
+      "category": "corporate-bonds-total",
+      "name": "Tổng phát hành TPDN lũy kế 10 tháng năm 2026",
+      "unit": "Tỷ đồng",
+      "source": "VBMA (báo cáo tháng 10/2026; tổng hợp dữ liệu HNX và SSC)",
+      "url": "https://finance.vietstock.vn/downloadedoc/22947",
+      "value": 479113,
+      "date": "2026-10-31",
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "value": 479113
+        }
+      ],
+      "note": "Lũy kế 10 tháng đầu năm 2026: 479.113 tỷ đồng (riêng lẻ 419.309 tỷ; công chúng 59.804 tỷ), theo bản tin VBMA tổng hợp HNX và SSC. Đây là số lũy kế 10 tháng, không phải phát hành riêng tháng 10. Số tháng 10 trong bản tin công bố ngày 30/10 là snapshot giữa kỳ, không dùng như số trọn tháng.",
+      "source_updated_at": "2026-10-30"
+    }
+  ],
+  "summary_sync_count": 21,
+  "summary_sync_categories": [
+    "agri-exports-rubber",
+    "agri-imports-rubber",
+    "agri-price",
+    "agriculture",
+    "coastal-shipping-index",
+    "cpi",
+    "credit-balance",
+    "exports",
+    "global-rubber",
+    "global-steel",
+    "housing-cpi",
+    "imports",
+    "labor",
+    "labor-force",
+    "logistics-index",
+    "passengers",
+    "ports",
+    "property",
+    "retail",
+    "sea-freight",
+    "transport"
+  ]
+}

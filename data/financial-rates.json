@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.0",
+  "fetchedAt": "2026-11-17T13:00:00+07:00",
+  "sourceName": "NHNN qua Dữ Liệu Kinh Tế; HNX kết quả đấu thầu TPCP",
+  "data": [
+    {
+      "category": "interest",
+      "id": 1,
+      "name": "Lãi suất liên ngân hàng qua đêm",
+      "date": "2026-11-13",
+      "value": 5.54,
+      "unit": "%/năm",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "sourceUrl": "https://dulieukinhte.com/du-lieu-dong/lai-suat-thi-truong-lien-ngan-hang-qua-dem-34248",
+      "observations": [
+        {
+          "date": "2026-11-02",
+          "value": 4.74
+        },
+        {
+          "date": "2026-11-03",
+          "value": 3.81
+        },
+        {
+          "date": "2026-11-04",
+          "value": 5.02
+        },
+        {
+          "date": "2026-11-05",
+          "value": 4.51
+        },
+        {
+          "date": "2026-11-06",
+          "value": 6.07
+        },
+        {
+          "date": "2026-11-09",
+          "value": 4.65
+        },
+        {
+          "date": "2026-11-10",
+          "value": 4.4
+        },
+        {
+          "date": "2026-11-11",
+          "value": 4.33
+        },
+        {
+          "date": "2026-11-12",
+          "value": 4.76
+        },
+        {
+          "date": "2026-11-13",
+          "value": 5.54
+        }
+      ]
+    },
+    {
+      "category": "interest",
+      "id": 2,
+      "name": "Lãi suất liên ngân hàng 1 tuần",
+      "date": "2026-11-13",
+      "value": 5.29,
+      "unit": "%/năm",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "sourceUrl": "https://dulieukinhte.com/du-lieu-dong/lai-suat-thi-truong-lien-ngan-hang-1-tuan-34249",
+      "observations": [
+        {
+          "date": "2026-11-02",
+          "value": 4.82
+        },
+        {
+          "date": "2026-11-03",
+          "value": 4.26
+        },
+        {
+          "date": "2026-11-04",
+          "value": 5.79
+        },
+        {
+          "date": "2026-11-05",
+          "value": 5.0
+        },
+        {
+          "date": "2026-11-06",
+          "value": 5.7
+        },
+        {
+          "date": "2026-11-09",
+          "value": 4.93
+        },
+        {
+          "date": "2026-11-10",
+          "value": 4.74
+        },
+        {
+          "date": "2026-11-11",
+          "value": 4.66
+        },
+        {
+          "date": "2026-11-12",
+          "value": 4.83
+        },
+        {
+          "date": "2026-11-13",
+          "value": 5.29
+        }
+      ]
+    },
+    {
+      "category": "interest",
+      "id": 3,
+      "name": "Lãi suất liên ngân hàng 2 tuần",
+      "date": "2026-11-13",
+      "value": 4.41,
+      "unit": "%/năm",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "sourceUrl": "https://dulieukinhte.com/du-lieu-dong/lai-suat-thi-truong-lien-ngan-hang-2-tuan-34250",
+      "observations": [
+        {
+          "date": "2026-11-02",
+          "value": 4.73
+        },
+        {
+          "date": "2026-11-03",
+          "value": 5.02
+        },
+        {
+          "date": "2026-11-04",
+          "value": 5.03
+        },
+        {
+          "date": "2026-11-05",
+          "value": 5.1
+        },
+        {
+          "date": "2026-11-06",
+          "value": 5.38
+        },
+        {
+          "date": "2026-11-09",
+          "value": 4.84
+        },
+        {
+          "date": "2026-11-10",
+          "value": 5.06
+        },
+        {
+          "date": "2026-11-11",
+          "value": 6.05
+        },
+        {
+          "date": "2026-11-12",
+          "value": 5.2
+        },
+        {
+          "date": "2026-11-13",
+          "value": 4.41
+        }
+      ]
+    },
+    {
+      "category": "interest",
+      "id": 4,
+      "name": "Lãi suất liên ngân hàng 1 tháng",
+      "date": "2026-11-13",
+      "value": 5.31,
+      "unit": "%/năm",
+      "source": "Ngân hàng Nhà nước Việt Nam (NHNN)",
+      "sourceUrl": "https://dulieukinhte.com/du-lieu-dong/lai-suat-thi-truong-lien-ngan-hang-1-thang-34251",
+      "observations": [
+        {
+          "date": "2026-11-02",
+          "value": 5.74
+        },
+        {
+          "date": "2026-11-03",
+          "value": 4.85
+        },
+        {
+          "date": "2026-11-04",
+          "value": 4.46
+        },
+        {
+          "date": "2026-11-05",
+          "value": 5.27
+        },
+        {
+          "date": "2026-11-06",
+          "value": 4.97
+        },
+        {
+          "date": "2026-11-09",
+          "value": 5.07
+        },
+        {
+          "date": "2026-11-10",
+          "value": 5.66
+        },
+        {
+          "date": "2026-11-11",
+          "value": 5.59
+        },
+        {
+          "date": "2026-11-12",
+          "value": 5.53
+        },
+        {
+          "date": "2026-11-13",
+          "value": 5.31
+        }
+      ]
+    },
+    {
+      "category": "bond",
+      "id": 1,
+      "name": "Lợi suất trúng thầu TPCP kỳ hạn 3 năm (phiên cuối T10/2026)",
+      "date": "2026-11-06",
+      "value": 3.55,
+      "unit": "%/năm",
+      "source": "Sở Giao dịch Chứng khoán Hà Nội (HNX)",
+      "sourceUrl": "https://www.hnx.vn/vi-vn/m-tin-tuc-hnx/Thi%20truong%20trai%20phieu%20Chinh%20phu%20thang%20102026%20Huy%20dong%20hon%2069362%20ty%20dong%20qua%20dau%20thau%20giao%20dich%20thu%20cap%20tang%20684-60023812-0.html",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "value": 3.55
+        }
+      ],
+      "note": "Đây là lãi suất trúng thầu ở phiên cuối tháng 10, không phải lợi suất giao dịch thứ cấp cập nhật ngày 06/11."
+    },
+    {
+      "category": "bond",
+      "id": 2,
+      "name": "Lợi suất trúng thầu TPCP kỳ hạn 5 năm (phiên cuối T10/2026)",
+      "date": "2026-11-06",
+      "value": 4.27,
+      "unit": "%/năm",
+      "source": "Sở Giao dịch Chứng khoán Hà Nội (HNX)",
+      "sourceUrl": "https://www.hnx.vn/vi-vn/m-tin-tuc-hnx/Thi%20truong%20trai%20phieu%20Chinh%20phu%20thang%20102026%20Huy%20dong%20hon%2069362%20ty%20dong%20qua%20dau%20thau%20giao%20dich%20thu%20cap%20tang%20684-60023812-0.html",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "value": 4.27
+        }
+      ],
+      "note": "Đây là lãi suất trúng thầu ở phiên cuối tháng 10, không phải lợi suất giao dịch thứ cấp cập nhật ngày 06/11."
+    },
+    {
+      "category": "bond",
+      "id": 3,
+      "name": "Lợi suất trúng thầu TPCP kỳ hạn 10 năm (phiên cuối T10/2026)",
+      "date": "2026-11-06",
+      "value": 4.43,
+      "unit": "%/năm",
+      "source": "Sở Giao dịch Chứng khoán Hà Nội (HNX)",
+      "sourceUrl": "https://www.hnx.vn/vi-vn/m-tin-tuc-hnx/Thi%20truong%20trai%20phieu%20Chinh%20phu%20thang%20102026%20Huy%20dong%20hon%2069362%20ty%20dong%20qua%20dau%20thau%20giao%20dich%20thu%20cap%20tang%20684-60023812-0.html",
+      "observations": [
+        {
+          "date": "2026-11-06",
+          "value": 4.43
+        }
+      ],
+      "note": "Đây là lãi suất trúng thầu ở phiên cuối tháng 10, không phải lợi suất giao dịch thứ cấp cập nhật ngày 06/11."
+    }
+  ],
+  "notes": [
+    "Lãi suất liên ngân hàng: ngày quan sát gần nhất 13/11/2026, nguồn ghi cập nhật bảng 16/11/2026.",
+    "Lợi suất trái phiếu: mức lãi suất trúng thầu tại phiên cuối tháng 10/2026, công bố HNX ngày 06/11/2026; không ghép với lợi suất thứ cấp."
+  ]
+}

@@ -1,0 +1,1545 @@
+{
+  "symbol": "BSR",
+  "sourceName": "VietstockFinance — BCTC hợp nhất BSR Q1/2024 đến Q2/2026",
+  "fetchedAt": "2026-10-19T16:47:07.375Z",
+  "items": [
+    {
+      "symbol": "BSR",
+      "period": "2025-Q1",
+      "total_assets": 76971873,
+      "total_liabilities": 21034414,
+      "equity": 55937459,
+      "pretax_profit": 471294,
+      "net_profit": 399225,
+      "net_profit_attributable": 398494,
+      "roa": 1.93,
+      "roe": 2.87,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (thường niên hóa từ lợi nhuận quý)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+      "source_archive_file": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/2cb4c5df03423501.pdf",
+      "source_archive_sha256": "2cb4c5df0342350115a0ce5d8071d733655bb2aa849705bb62097283893251a1",
+      "published_at": "2025-05-05",
+      "publication_date_basis": "Ngày cập nhật tài liệu trên danh mục VietstockFinance (/data/getdocument); ngày ký báo cáo chỉ lưu khi xác nhận được từ trang PDF.",
+      "report_type": "BCTC hợp nhất Quý I/2025",
+      "source_pages": "Bảng cân đối và KQKD: B01a-DN/HN và B02a-DN/HN, dòng 270, 300, 400/440, 50, 60–62.",
+      "quarter_profit_basis": "Lợi nhuận lấy từ cột phát sinh riêng của quý, không dùng số lũy kế từ đầu năm.",
+      "average_total_assets": 82679370.210485,
+      "average_equity": 55737734.0617615,
+      "roa_formula": "LNST hợp nhất quý / bình quân tổng tài sản đầu và cuối quý × 4 × 100",
+      "roe_formula": "LNST hợp nhất quý / bình quân vốn chủ sở hữu đầu và cuối quý × 4 × 100",
+      "verification_status": "verified_reconciled_to_later_vietstock_comparative",
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity_vnd": 0,
+        "total_assets_minus_liabilities_equity": 0,
+        "raw_values_vnd": {
+          "total_assets": 76971872692172,
+          "total_liabilities": 21034413600788,
+          "equity": 55937459091384,
+          "pretax_profit": 471293997730,
+          "net_profit": 399225185551,
+          "net_profit_attributable": 398494361599
+        },
+        "equity_rounded_from_source_million": 55937459,
+        "equity_rounding_adjustment_million": 0,
+        "beginning_total_assets_vnd": 88386867728798,
+        "ending_total_assets_vnd": 76971872692172,
+        "beginning_equity_vnd": 55538009032139,
+        "ending_equity_vnd": 55937459091384,
+        "profit_reconciliation": {
+          "parent_profit_vnd": 398494361599,
+          "noncontrolling_profit_vnd": 730823952,
+          "total_net_profit_vnd": 399225185551,
+          "difference_vnd": 0,
+          "basis": "Số Q1 hài hòa ngược từ cột lũy kế H1/2025 đã điều chỉnh trong các BCTC VietstockFinance sau, trừ lợi nhuận quý II/2025 được báo cáo riêng"
+        },
+        "beginning_total_liabilities_vnd": 32848858696659,
+        "beginning_balance_basis": "Số đầu năm theo cột so sánh trong BCTC Q1/2025; khác nhẹ báo cáo Q4/2024 đã công bố trước đó.",
+        "beginning_net_profit_comparator_note": "Reported Q1 values revised to match H1 cumulative comparatives repeated in later VietstockFinance Q3/2025, Q4/2025 and Q2/2026 statements; original Q1 report values preserved in profit_reconciliation_original_report."
+      },
+      "profit_reconciliation_original_report": {
+        "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+        "pretax_profit_vnd": 471518871424,
+        "consolidated_net_profit_vnd": 399450059245,
+        "parent_net_profit_vnd": 398719235293,
+        "note": "Giá trị khi công bố trong BCTC Q1/2025 ban đầu. Báo cáo Q3/2025, Q4/2025 và Q2/2026 trên VietstockFinance hài hòa với số H1/2025 đã điều chỉnh, làm giảm các số Q1 suy ra 224.873.694 VND, đồng thời giữ nguyên ảnh hưởng thuế."
+      },
+      "profit_reconciliation": {
+        "source": "BCTC do VietstockFinance liên kết",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+        "pretax_profit_vnd": {
+          "quarter": 471293997730,
+          "cumulative": 1452527977413,
+          "sourceOriginalQuarter": 471518871424,
+          "adjustmentFromInitialReport": -224873694
+        },
+        "consolidated_net_profit_vnd": {
+          "quarter": 399225185551,
+          "cumulative": 1246137424799,
+          "sourceOriginalQuarter": 399450059245,
+          "adjustmentFromInitialReport": -224873694
+        },
+        "parent_net_profit_vnd": {
+          "quarter": 398494361599,
+          "cumulative": 1244383372937,
+          "sourceOriginalQuarter": 398719235293,
+          "adjustmentFromInitialReport": -224873694
+        },
+        "noncontrolling_profit_vnd": 730823952,
+        "note": "Q1 số đã hài hòa với lũy kế H1/2025 được dùng trong các BCTC VietstockFinance phát hành sau. Số đầu tiên công bố ở báo cáo Q1/2025 được lưu tại profit_reconciliation_original_report."
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-20",
+        "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+        "extracted_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/2cb4c5df03423501.pdf.extracted.json",
+        "source_scope": "Chỉ sử dụng danh mục VietstockFinance và báo cáo PDF/ZIP do danh mục đó liên kết",
+        "checks": {
+          "raw_balance_equation_vnd": 0,
+          "displayed_balance_equation_million": 0,
+          "stored_pretax_matches_raw_million": true,
+          "stored_consolidated_net_profit_matches_raw_million": true,
+          "stored_parent_profit_matches_raw_million": true,
+          "recomputed_roa_percent": 1.93,
+          "recomputed_roe_percent": 2.87,
+          "source_catalog_matches_single_source": true
+        },
+        "note": "Q1 số đã hài hòa với lũy kế H1/2025 được dùng trong các BCTC VietstockFinance phát hành sau. Số đầu tiên công bố ở báo cáo Q1/2025 được lưu tại profit_reconciliation_original_report. Các chênh lệch giữa báo cáo ban đầu và số so sánh trong báo cáo VietstockFinance phát hành sau được ghi rõ, không bị che giấu."
+      },
+      "source_validation": {
+        "reviewed_at": "2026-10-20",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và các PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+        "archived_source_path": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/2cb4c5df03423501.pdf",
+        "extraction_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/2cb4c5df03423501.pdf.extracted.json",
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất Quý I/2025",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit",
+          "net_profit_attributable"
+        ],
+        "balance_equation_difference_vnd": 0,
+        "balance_equation_matches": true,
+        "profit_basis": {
+          "consolidated_net_profit_vnd": 399225185551,
+          "net_profit_attributable_to_parent_vnd": 398494361599,
+          "implied_non_controlling_profit_vnd": 730823952,
+          "quarter_profit_reconciliation": {
+            "source": "BCTC do VietstockFinance liên kết",
+            "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+            "pretax_profit_vnd": {
+              "quarter": 471293997730,
+              "cumulative": 1452527977413,
+              "sourceOriginalQuarter": 471518871424,
+              "adjustmentFromInitialReport": -224873694
+            },
+            "consolidated_net_profit_vnd": {
+              "quarter": 399225185551,
+              "cumulative": 1246137424799,
+              "sourceOriginalQuarter": 399450059245,
+              "adjustmentFromInitialReport": -224873694
+            },
+            "parent_net_profit_vnd": {
+              "quarter": 398494361599,
+              "cumulative": 1244383372937,
+              "sourceOriginalQuarter": 398719235293,
+              "adjustmentFromInitialReport": -224873694
+            },
+            "noncontrolling_profit_vnd": 730823952,
+            "note": "Q1 số đã hài hòa với lũy kế H1/2025 được dùng trong các BCTC VietstockFinance phát hành sau. Số đầu tiên công bố ở báo cáo Q1/2025 được lưu tại profit_reconciliation_original_report."
+          }
+        },
+        "ratio_recalculation": {
+          "formula": "LNST hợp nhất của quý / bình quân tài sản đầu-cuối kỳ × 4 × 100; ROE tương tự dùng vốn chủ sở hữu",
+          "recalculated_roa_percent": 1.93,
+          "stored_roa_percent": 1.93,
+          "recalculated_roe_percent": 2.87,
+          "stored_roe_percent": 2.87,
+          "matches_after_rounding": true
+        },
+        "review_method": "OCR/text extraction and accounting reconciliation on VietstockFinance-linked PDF/ZIP",
+        "manually_visual_reviewed": false,
+        "known_anomalies": [
+          {
+            "type": "later_vietstockfinance_comparative_restatement",
+            "field": "pretax_profit,net_profit,net_profit_attributable",
+            "original_report": {
+              "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+              "pretax_profit_vnd": 471518871424,
+              "consolidated_net_profit_vnd": 399450059245,
+              "parent_net_profit_vnd": 398719235293,
+              "note": "Giá trị khi công bố trong BCTC Q1/2025 ban đầu. Báo cáo Q3/2025, Q4/2025 và Q2/2026 trên VietstockFinance hài hòa với số H1/2025 đã điều chỉnh, làm giảm các số Q1 suy ra 224.873.694 VND, đồng thời giữ nguyên ảnh hưởng thuế."
+            },
+            "stored_values_used": {
+              "source": "BCTC do VietstockFinance liên kết",
+              "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+              "pretax_profit_vnd": {
+                "quarter": 471293997730,
+                "cumulative": 1452527977413,
+                "sourceOriginalQuarter": 471518871424,
+                "adjustmentFromInitialReport": -224873694
+              },
+              "consolidated_net_profit_vnd": {
+                "quarter": 399225185551,
+                "cumulative": 1246137424799,
+                "sourceOriginalQuarter": 399450059245,
+                "adjustmentFromInitialReport": -224873694
+              },
+              "parent_net_profit_vnd": {
+                "quarter": 398494361599,
+                "cumulative": 1244383372937,
+                "sourceOriginalQuarter": 398719235293,
+                "adjustmentFromInitialReport": -224873694
+              },
+              "noncontrolling_profit_vnd": 730823952,
+              "note": "Q1 số đã hài hòa với lũy kế H1/2025 được dùng trong các BCTC VietstockFinance phát hành sau. Số đầu tiên công bố ở báo cáo Q1/2025 được lưu tại profit_reconciliation_original_report."
+            },
+            "explanation": "Số quý Q1/2025 đang lưu là số được suy ra/đối chiếu từ các cột so sánh lũy kế H1/2025 trong tài liệu VietstockFinance phát hành sau. Báo cáo Q1 đầu tiên có số gốc khác; giá trị gốc được giữ riêng để truy xuất."
+          }
+        ]
+      },
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_extracted_fields": [
+        "income_tax"
+      ],
+      "financial_line_items_source": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/2cb4c5df03423501.pdf",
+      "financial_line_items_updated_at": "2026-10-22T13:23:24+00:00",
+      "financial_line_items_note": "Không nhận diện chắc chắn được chỉ tiêu chi tiết từ văn bản đã lưu; giữ trống và cần đối chiếu báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "financial_line_items_prior_values": {},
+      "financial_line_items_rejected_values": {},
+      "income_tax": 72069,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:26:56+00:00",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "core_financial_extraction_evidence_fingerprint": "5e5b52bbb52e7b9a8bece19e25f232900ce8b86b2367b07666b7cb9d1f554468",
+      "core_financial_extraction_evidence_attempt_count": 0
+    },
+    {
+      "symbol": "BSR",
+      "period": "2025-Q2",
+      "total_assets": 84172019,
+      "total_liabilities": 27624646,
+      "equity": 56547373,
+      "pretax_profit": 981234,
+      "net_profit": 846912,
+      "net_profit_attributable": 845889,
+      "roa": 4.2,
+      "roe": 6.02,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (thường niên hóa từ lợi nhuận quý)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+      "source_archive_file": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/340663f567309e9f.pdf",
+      "source_archive_sha256": "340663f567309e9f12539c60cb5537efd136101d03439174f853b5902018dc20",
+      "published_at": "2025-07-30",
+      "publication_date_basis": "Ngày cập nhật tài liệu trên danh mục VietstockFinance (/data/getdocument); ngày ký báo cáo chỉ lưu khi xác nhận được từ trang PDF.",
+      "report_type": "BCTC hợp nhất Quý II/2025",
+      "source_pages": "Bảng cân đối và KQKD: B01a-DN/HN và B02a-DN/HN, dòng 270, 300, 400/440, 50, 60–62.",
+      "quarter_profit_basis": "Lợi nhuận lấy từ cột phát sinh riêng của quý, không dùng số lũy kế từ đầu năm.",
+      "average_total_assets": 80571945.9195135,
+      "average_equity": 56242416.0787025,
+      "roa_formula": "LNST hợp nhất quý / bình quân tổng tài sản đầu và cuối quý × 4 × 100",
+      "roe_formula": "LNST hợp nhất quý / bình quân vốn chủ sở hữu đầu và cuối quý × 4 × 100",
+      "verification_status": "verified_ocr_reconciled",
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity_vnd": 0,
+        "total_assets_minus_liabilities_equity": 0,
+        "raw_values_vnd": {
+          "total_assets": 84172019146855,
+          "total_liabilities": 27624646080834,
+          "equity": 56547373066021,
+          "pretax_profit": 981233979683,
+          "net_profit": 846912239248,
+          "net_profit_attributable": 845889011338
+        },
+        "equity_rounded_from_source_million": 56547373,
+        "equity_rounding_adjustment_million": 0,
+        "beginning_total_assets_vnd": 76971872692172,
+        "ending_total_assets_vnd": 84172019146855,
+        "beginning_equity_vnd": 55937459091384,
+        "ending_equity_vnd": 56547373066021,
+        "profit_reconciliation": {
+          "parent_profit_vnd": 845889011338,
+          "noncontrolling_profit_vnd": 1023227910,
+          "total_net_profit_vnd": 846912239248,
+          "difference_vnd": 0
+        }
+      },
+      "profit_reconciliation": {
+        "source": "BCTC do VietstockFinance liên kết",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+        "pretax_profit_vnd": {
+          "quarter": 981233979683,
+          "cumulative": 1452527977413,
+          "priorCumulative": 471293997730,
+          "derived": 981233979683,
+          "difference": 0
+        },
+        "consolidated_net_profit_vnd": {
+          "quarter": 846912239248,
+          "cumulative": 1246137424799,
+          "priorCumulative": 399225185551,
+          "derived": 846912239248,
+          "difference": 0
+        },
+        "parent_net_profit_vnd": {
+          "quarter": 845889011338,
+          "cumulative": 1244383372937,
+          "priorCumulative": 398494361599,
+          "derived": 845889011338,
+          "difference": 0
+        },
+        "noncontrolling_profit_vnd": 1023227910,
+        "note": "Q2/2025 riêng cộng với Q1/2025 đã điều chỉnh khớp với cột lũy kế H1/2025 trong các BCTC VietstockFinance sau."
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-20",
+        "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+        "extracted_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/340663f567309e9f.pdf.extracted.json",
+        "source_scope": "Chỉ sử dụng danh mục VietstockFinance và báo cáo PDF/ZIP do danh mục đó liên kết",
+        "checks": {
+          "raw_balance_equation_vnd": 0,
+          "displayed_balance_equation_million": 0,
+          "stored_pretax_matches_raw_million": true,
+          "stored_consolidated_net_profit_matches_raw_million": true,
+          "stored_parent_profit_matches_raw_million": true,
+          "recomputed_roa_percent": 4.2,
+          "recomputed_roe_percent": 6.02,
+          "source_catalog_matches_single_source": true
+        },
+        "note": "Q2/2025 riêng cộng với Q1/2025 đã điều chỉnh khớp với cột lũy kế H1/2025 trong các BCTC VietstockFinance sau. Các chênh lệch giữa báo cáo ban đầu và số so sánh trong báo cáo VietstockFinance phát hành sau được ghi rõ, không bị che giấu."
+      },
+      "source_validation": {
+        "reviewed_at": "2026-10-20",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và các PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+        "archived_source_path": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/340663f567309e9f.pdf",
+        "extraction_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/340663f567309e9f.pdf.extracted.json",
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất Quý II/2025",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit",
+          "net_profit_attributable"
+        ],
+        "balance_equation_difference_vnd": 0,
+        "balance_equation_matches": true,
+        "profit_basis": {
+          "consolidated_net_profit_vnd": 846912239248,
+          "net_profit_attributable_to_parent_vnd": 845889011338,
+          "implied_non_controlling_profit_vnd": 1023227910,
+          "quarter_profit_reconciliation": {
+            "source": "BCTC do VietstockFinance liên kết",
+            "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+            "pretax_profit_vnd": {
+              "quarter": 981233979683,
+              "cumulative": 1452527977413,
+              "priorCumulative": 471293997730,
+              "derived": 981233979683,
+              "difference": 0
+            },
+            "consolidated_net_profit_vnd": {
+              "quarter": 846912239248,
+              "cumulative": 1246137424799,
+              "priorCumulative": 399225185551,
+              "derived": 846912239248,
+              "difference": 0
+            },
+            "parent_net_profit_vnd": {
+              "quarter": 845889011338,
+              "cumulative": 1244383372937,
+              "priorCumulative": 398494361599,
+              "derived": 845889011338,
+              "difference": 0
+            },
+            "noncontrolling_profit_vnd": 1023227910,
+            "note": "Q2/2025 riêng cộng với Q1/2025 đã điều chỉnh khớp với cột lũy kế H1/2025 trong các BCTC VietstockFinance sau."
+          }
+        },
+        "ratio_recalculation": {
+          "formula": "LNST hợp nhất của quý / bình quân tài sản đầu-cuối kỳ × 4 × 100; ROE tương tự dùng vốn chủ sở hữu",
+          "recalculated_roa_percent": 4.2,
+          "stored_roa_percent": 4.2,
+          "recalculated_roe_percent": 6.02,
+          "stored_roe_percent": 6.02,
+          "matches_after_rounding": true
+        },
+        "review_method": "OCR/text extraction and accounting reconciliation on VietstockFinance-linked PDF/ZIP",
+        "manually_visual_reviewed": false,
+        "known_anomalies": []
+      },
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_extracted_fields": [
+        "income_tax"
+      ],
+      "financial_line_items_source": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/340663f567309e9f.pdf",
+      "financial_line_items_updated_at": "2026-10-22T13:23:24+00:00",
+      "financial_line_items_note": "Không nhận diện chắc chắn được chỉ tiêu chi tiết từ văn bản đã lưu; giữ trống và cần đối chiếu báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế.",
+      "financial_line_items_prior_values": {},
+      "financial_line_items_rejected_values": {},
+      "income_tax": 134322,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:26:56+00:00",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "core_financial_extraction_evidence_fingerprint": "f0c4a533f1461824878acaa5e4a82b553979e5b9c701dad6edea77353fd13aff",
+      "core_financial_extraction_evidence_attempt_count": 0
+    },
+    {
+      "symbol": "BSR",
+      "period": "2025-Q3",
+      "total_assets": 83843658,
+      "total_liabilities": 26389915,
+      "equity": 57453743,
+      "pretax_profit": 1051306,
+      "net_profit": 908595,
+      "net_profit_attributable": 907546,
+      "roa": 4.33,
+      "roe": 6.38,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (thường niên hóa từ lợi nhuận quý)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/BSR_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+      "source_archive_file": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/f138450bbaab1c4c.pdf",
+      "source_archive_sha256": "f138450bbaab1c4cf041e5dc9ee58c7ac2b29ddd2ffc06863f152bed0d62ad04",
+      "published_at": "2025-10-30",
+      "publication_date_basis": "Ngày cập nhật tài liệu trên danh mục VietstockFinance (/data/getdocument); ngày ký báo cáo chỉ lưu khi xác nhận được từ trang PDF.",
+      "report_type": "BCTC hợp nhất Quý III/2025",
+      "source_pages": "Bảng cân đối: PDF trang in 1–2; KQKD: PDF trang in 3. Đọc trực quan.",
+      "quarter_profit_basis": "Lợi nhuận lấy từ cột phát sinh riêng của quý, không dùng số lũy kế từ đầu năm.",
+      "average_total_assets": 84007838.616055,
+      "average_equity": 57000558.118569,
+      "roa_formula": "LNST hợp nhất quý / bình quân tổng tài sản đầu và cuối quý × 4 × 100",
+      "roe_formula": "LNST hợp nhất quý / bình quân vốn chủ sở hữu đầu và cuối quý × 4 × 100",
+      "verification_status": "verified_manual_visual_reconciliation",
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity_vnd": 0,
+        "total_assets_minus_liabilities_equity": 0,
+        "raw_values_vnd": {
+          "total_assets": 83843658085255,
+          "total_liabilities": 26389914914138,
+          "equity": 57453743171117,
+          "pretax_profit": 1051306046847,
+          "net_profit": 908594978790,
+          "net_profit_attributable": 907545618973
+        },
+        "equity_rounded_from_source_million": 57453743,
+        "equity_rounding_adjustment_million": 0,
+        "beginning_total_assets_vnd": 84172019146855,
+        "ending_total_assets_vnd": 83843658085255,
+        "beginning_equity_vnd": 56547373066021,
+        "ending_equity_vnd": 57453743171117,
+        "profit_reconciliation": {
+          "parent_profit_vnd": 907545618973,
+          "noncontrolling_profit_vnd": 1049359817,
+          "total_net_profit_vnd": 908594978790,
+          "difference_vnd": 0
+        }
+      },
+      "profit_reconciliation": {
+        "source": "BCTC do VietstockFinance liên kết",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/BSR_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+        "pretax_profit_vnd": {
+          "quarter": 1051306046847,
+          "cumulative": 2503834024260,
+          "priorCumulative": 1452527977413,
+          "derived": 1051306046847,
+          "difference": 0
+        },
+        "consolidated_net_profit_vnd": {
+          "quarter": 908594978790,
+          "cumulative": 2154732403589,
+          "priorCumulative": 1246137424799,
+          "derived": 908594978790,
+          "difference": 0
+        },
+        "parent_net_profit_vnd": {
+          "quarter": 907545618973,
+          "cumulative": 2151928991910,
+          "priorCumulative": 1244383372937,
+          "derived": 907545618973,
+          "difference": 0
+        },
+        "noncontrolling_profit_vnd": 1049359817,
+        "note": "Cột quý III và lũy kế trong BCTC Q3/2025 VietstockFinance xác nhận bộ số H1 đã điều chỉnh."
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-20",
+        "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/BSR_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+        "extracted_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/f138450bbaab1c4c.pdf.extracted.json",
+        "source_scope": "Chỉ sử dụng danh mục VietstockFinance và báo cáo PDF/ZIP do danh mục đó liên kết",
+        "checks": {
+          "raw_balance_equation_vnd": 0,
+          "displayed_balance_equation_million": 0,
+          "stored_pretax_matches_raw_million": true,
+          "stored_consolidated_net_profit_matches_raw_million": true,
+          "stored_parent_profit_matches_raw_million": true,
+          "recomputed_roa_percent": 4.33,
+          "recomputed_roe_percent": 6.38,
+          "source_catalog_matches_single_source": true
+        },
+        "note": "Cột quý III và lũy kế trong BCTC Q3/2025 VietstockFinance xác nhận bộ số H1 đã điều chỉnh. Các chênh lệch giữa báo cáo ban đầu và số so sánh trong báo cáo VietstockFinance phát hành sau được ghi rõ, không bị che giấu."
+      },
+      "source_validation": {
+        "reviewed_at": "2026-10-20",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và các PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/BSR_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+        "archived_source_path": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/f138450bbaab1c4c.pdf",
+        "extraction_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/f138450bbaab1c4c.pdf.extracted.json",
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất Quý III/2025",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit",
+          "net_profit_attributable"
+        ],
+        "balance_equation_difference_vnd": 0,
+        "balance_equation_matches": true,
+        "profit_basis": {
+          "consolidated_net_profit_vnd": 908594978790,
+          "net_profit_attributable_to_parent_vnd": 907545618973,
+          "implied_non_controlling_profit_vnd": 1049359817,
+          "quarter_profit_reconciliation": {
+            "source": "BCTC do VietstockFinance liên kết",
+            "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/BSR_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+            "pretax_profit_vnd": {
+              "quarter": 1051306046847,
+              "cumulative": 2503834024260,
+              "priorCumulative": 1452527977413,
+              "derived": 1051306046847,
+              "difference": 0
+            },
+            "consolidated_net_profit_vnd": {
+              "quarter": 908594978790,
+              "cumulative": 2154732403589,
+              "priorCumulative": 1246137424799,
+              "derived": 908594978790,
+              "difference": 0
+            },
+            "parent_net_profit_vnd": {
+              "quarter": 907545618973,
+              "cumulative": 2151928991910,
+              "priorCumulative": 1244383372937,
+              "derived": 907545618973,
+              "difference": 0
+            },
+            "noncontrolling_profit_vnd": 1049359817,
+            "note": "Cột quý III và lũy kế trong BCTC Q3/2025 VietstockFinance xác nhận bộ số H1 đã điều chỉnh."
+          }
+        },
+        "ratio_recalculation": {
+          "formula": "LNST hợp nhất của quý / bình quân tài sản đầu-cuối kỳ × 4 × 100; ROE tương tự dùng vốn chủ sở hữu",
+          "recalculated_roa_percent": 4.33,
+          "stored_roa_percent": 4.33,
+          "recalculated_roe_percent": 6.38,
+          "stored_roe_percent": 6.38,
+          "matches_after_rounding": true
+        },
+        "review_method": "manual_visual_review_of_VietstockFinance_linked_PDF",
+        "manually_visual_reviewed": true,
+        "known_anomalies": [],
+        "visual_review_pages": [
+          "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/BSR_Baocaotaichinh_Q3_2025_Hopnhat.pdf#page=3"
+        ],
+        "visual_review_note": "PDF trực tiếp từ danh mục VietstockFinance xác nhận LNTT Q3 = 1.051.306.046.847 VND; LNST hợp nhất = 908.594.978.790 VND; LNST cổ đông công ty mẹ = 907.545.618.973 VND. Số quý khớp với lũy kế chín tháng trừ lũy kế H1."
+      },
+      "cash_and_equivalents": 11009664,
+      "short_term_investments": 31111955,
+      "short_term_receivables": 14358837,
+      "inventory": 11870813,
+      "non_current_assets": 1209382,
+      "financial_income": 35290235,
+      "financial_expense": 163754,
+      "interest_expense": 13463,
+      "selling_expense": 195073,
+      "admin_expense": 195073,
+      "operating_profit": 1056884,
+      "operating_cash_flow_ytd": 266797,
+      "investing_cash_flow_ytd": -715062,
+      "financing_cash_flow_ytd": 95810652,
+      "capital_expenditure_ytd": -715062,
+      "net_cash_change_ytd": 20,
+      "cash_beginning": 28994991,
+      "cash_ending": 50,
+      "cashflow_period_basis": "year_to_date",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "capital_expenditure_ytd",
+        "cash_and_equivalents",
+        "cash_beginning",
+        "cash_ending",
+        "cashflow_period_basis",
+        "current_liabilities",
+        "financial_expense",
+        "financial_income",
+        "financing_cash_flow_ytd",
+        "foreign_exchange_effect_ytd",
+        "income_tax",
+        "interest_expense",
+        "inventory",
+        "investing_cash_flow_ytd",
+        "long_term_liabilities",
+        "net_cash_change_ytd",
+        "non_current_assets",
+        "operating_cash_flow_ytd",
+        "operating_profit",
+        "retained_earnings",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_source": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/f138450bbaab1c4c.pdf",
+      "financial_line_items_updated_at": "2026-10-24T04:22:57+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế. Một số chỉ tiêu bị giữ trống vì không vượt qua kiểm tra cân đối kế toán hoặc đối chiếu chéo; xem danh sách trường bị loại.",
+      "foreign_exchange_effect_ytd": 354813,
+      "financial_line_items_prior_values": {},
+      "financial_line_items_rejected_values": {},
+      "income_tax": 142711,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:26:56+00:00",
+      "financial_line_items_rejected_fields": [
+        "cost_of_goods_sold_gross_profit_equation_check",
+        "current_assets_current_assets_too_small",
+        "fixed_assets_fixed_asset_parent_check",
+        "gross_profit_gross_profit_equation_check",
+        "income_tax_tax_reconciliation_check",
+        "revenue_gross_profit_equation_check"
+      ],
+      "financial_line_items_rejected_updated_at": "2026-10-22T13:23:21+00:00",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "core_financial_extraction_evidence_fingerprint": "3925de63274d0ddaf92088b93a32285a6fe3441f7afba8744271e949d8893c08",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "eps": 70,
+      "core_financial_extracted_fields": [
+        "eps"
+      ],
+      "core_financial_extraction_source": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/f138450bbaab1c4c.pdf",
+      "core_financial_extraction_pages": [
+        2,
+        3,
+        4
+      ],
+      "core_financial_extraction_status": "auto_extracted_pending_visual_review",
+      "core_financial_extraction_updated_at": "2026-10-24T04:22:57+00:00",
+      "core_financial_extraction_note": "Chỉ tiêu lõi được trích xuất từ văn bản PDF/ZIP đã lưu; chưa xác minh thủ công trên bản PDF.",
+      "core_financial_extraction_calculations": {
+        "balance_totals_withheld": "asset/liability/equity totals did not fully reconcile"
+      },
+      "current_liabilities": 25530059,
+      "long_term_liabilities": 859856,
+      "retained_earnings": 13656536,
+      "cash_beginning_reported_ytd": 28994991
+    },
+    {
+      "symbol": "BSR",
+      "period": "2025-Q4",
+      "total_assets": 85068637,
+      "total_liabilities": 24583223,
+      "equity": 60485414,
+      "pretax_profit": 3443189,
+      "net_profit": 3034548,
+      "net_profit_attributable": 3034013,
+      "roa": 14.37,
+      "roe": 20.58,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (thường niên hóa từ lợi nhuận quý)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/BSR_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+      "source_archive_file": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/ae853ca90d8df884.pdf",
+      "source_archive_sha256": "ae853ca90d8df8847f59dabbfe87e407f0c8b5a6330de3602abf781e3bc8810a",
+      "published_at": "2026-01-30",
+      "publication_date_basis": "Ngày cập nhật tài liệu trên danh mục VietstockFinance (/data/getdocument); ngày ký báo cáo chỉ lưu khi xác nhận được từ trang PDF.",
+      "report_type": "BCTC hợp nhất Quý IV/2025",
+      "source_pages": "Bảng cân đối và KQKD: B01a-DN/HN và B02a-DN/HN, dòng 270, 300, 400/440, 50, 60–62.",
+      "quarter_profit_basis": "Lợi nhuận lấy từ cột phát sinh riêng của quý, không dùng số lũy kế từ đầu năm.",
+      "average_total_assets": 84456147.5991645,
+      "average_equity": 58969578.459849,
+      "roa_formula": "LNST hợp nhất quý / bình quân tổng tài sản đầu và cuối quý × 4 × 100",
+      "roe_formula": "LNST hợp nhất quý / bình quân vốn chủ sở hữu đầu và cuối quý × 4 × 100",
+      "verification_status": "verified_ocr_reconciled",
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity_vnd": 0,
+        "total_assets_minus_liabilities_equity": 0,
+        "raw_values_vnd": {
+          "total_assets": 85068637113074,
+          "total_liabilities": 24583223364493,
+          "equity": 60485413748581,
+          "pretax_profit": 3443189384809,
+          "net_profit": 3034548007464,
+          "net_profit_attributable": 3034013069975
+        },
+        "equity_rounded_from_source_million": 60485414,
+        "equity_rounding_adjustment_million": 0,
+        "beginning_total_assets_vnd": 83843658085255,
+        "ending_total_assets_vnd": 85068637113074,
+        "beginning_equity_vnd": 57453743171117,
+        "ending_equity_vnd": 60485413748581,
+        "profit_reconciliation": {
+          "parent_profit_vnd": 3034013069975,
+          "noncontrolling_profit_vnd": 534937489,
+          "total_net_profit_vnd": 3034548007464,
+          "difference_vnd": 0
+        }
+      },
+      "profit_reconciliation": {
+        "source": "BCTC do VietstockFinance liên kết",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/BSR_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+        "pretax_profit_vnd": {
+          "quarter": 3443189384809,
+          "cumulative": 5947023409069,
+          "priorCumulative": 2503834024260,
+          "derived": 3443189384809,
+          "difference": 0
+        },
+        "consolidated_net_profit_vnd": {
+          "quarter": 3034548007464,
+          "cumulative": 5189280411053,
+          "priorCumulative": 2154732403589,
+          "derived": 3034548007464,
+          "difference": 0
+        },
+        "parent_net_profit_vnd": {
+          "quarter": 3034013069975,
+          "cumulative": 5185942061885,
+          "priorCumulative": 2151928991910,
+          "derived": 3034013069975,
+          "difference": 0
+        },
+        "noncontrolling_profit_vnd": 534937489,
+        "note": "Q4/2025 riêng = số lũy kế cả năm trừ lũy kế chín tháng; số năm khớp BCTC VietstockFinance."
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-20",
+        "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/BSR_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+        "extracted_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/ae853ca90d8df884.pdf.extracted.json",
+        "source_scope": "Chỉ sử dụng danh mục VietstockFinance và báo cáo PDF/ZIP do danh mục đó liên kết",
+        "checks": {
+          "raw_balance_equation_vnd": 0,
+          "displayed_balance_equation_million": 0,
+          "stored_pretax_matches_raw_million": true,
+          "stored_consolidated_net_profit_matches_raw_million": true,
+          "stored_parent_profit_matches_raw_million": true,
+          "recomputed_roa_percent": 14.37,
+          "recomputed_roe_percent": 20.58,
+          "source_catalog_matches_single_source": true
+        },
+        "note": "Q4/2025 riêng = số lũy kế cả năm trừ lũy kế chín tháng; số năm khớp BCTC VietstockFinance. Các chênh lệch giữa báo cáo ban đầu và số so sánh trong báo cáo VietstockFinance phát hành sau được ghi rõ, không bị che giấu."
+      },
+      "source_validation": {
+        "reviewed_at": "2026-10-20",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và các PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/BSR_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+        "archived_source_path": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/ae853ca90d8df884.pdf",
+        "extraction_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/ae853ca90d8df884.pdf.extracted.json",
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất Quý IV/2025",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit",
+          "net_profit_attributable"
+        ],
+        "balance_equation_difference_vnd": 0,
+        "balance_equation_matches": true,
+        "profit_basis": {
+          "consolidated_net_profit_vnd": 3034548007464,
+          "net_profit_attributable_to_parent_vnd": 3034013069975,
+          "implied_non_controlling_profit_vnd": 534937489,
+          "quarter_profit_reconciliation": {
+            "source": "BCTC do VietstockFinance liên kết",
+            "source_report_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/BSR_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+            "pretax_profit_vnd": {
+              "quarter": 3443189384809,
+              "cumulative": 5947023409069,
+              "priorCumulative": 2503834024260,
+              "derived": 3443189384809,
+              "difference": 0
+            },
+            "consolidated_net_profit_vnd": {
+              "quarter": 3034548007464,
+              "cumulative": 5189280411053,
+              "priorCumulative": 2154732403589,
+              "derived": 3034548007464,
+              "difference": 0
+            },
+            "parent_net_profit_vnd": {
+              "quarter": 3034013069975,
+              "cumulative": 5185942061885,
+              "priorCumulative": 2151928991910,
+              "derived": 3034013069975,
+              "difference": 0
+            },
+            "noncontrolling_profit_vnd": 534937489,
+            "note": "Q4/2025 riêng = số lũy kế cả năm trừ lũy kế chín tháng; số năm khớp BCTC VietstockFinance."
+          }
+        },
+        "ratio_recalculation": {
+          "formula": "LNST hợp nhất của quý / bình quân tài sản đầu-cuối kỳ × 4 × 100; ROE tương tự dùng vốn chủ sở hữu",
+          "recalculated_roa_percent": 14.37,
+          "stored_roa_percent": 14.37,
+          "recalculated_roe_percent": 20.58,
+          "stored_roe_percent": 20.58,
+          "matches_after_rounding": true
+        },
+        "review_method": "OCR/text extraction and accounting reconciliation on VietstockFinance-linked PDF/ZIP",
+        "manually_visual_reviewed": false,
+        "known_anomalies": []
+      },
+      "cash_and_equivalents": 7625816,
+      "short_term_investments": 36135896,
+      "short_term_receivables": 13503943,
+      "inventory": 12634727,
+      "non_current_assets": 1020038,
+      "current_liabilities": 23726837,
+      "long_term_liabilities": 856386,
+      "retained_earnings": 7386665,
+      "revenue": 37621442,
+      "cost_of_goods_sold": 33979998,
+      "gross_profit": 3641445,
+      "financial_income": 450508,
+      "financial_expense": 92494,
+      "interest_expense": 74273,
+      "selling_expense": 281734,
+      "admin_expense": 281734,
+      "operating_profit": 3437708,
+      "cashflow_period_basis": "year_to_date",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "cash_and_equivalents",
+        "cash_beginning",
+        "cash_ending",
+        "cashflow_period_basis",
+        "cost_of_goods_sold",
+        "current_liabilities",
+        "eps",
+        "financial_expense",
+        "financial_income",
+        "gross_profit",
+        "income_tax",
+        "interest_expense",
+        "inventory",
+        "long_term_liabilities",
+        "non_current_assets",
+        "operating_profit",
+        "retained_earnings",
+        "revenue",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_source": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/ae853ca90d8df884.pdf",
+      "financial_line_items_updated_at": "2026-10-25T20:26:58+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Một số chỉ tiêu bị giữ trống vì không vượt qua kiểm tra cân đối kế toán hoặc đối chiếu chéo; xem danh sách trường bị loại.",
+      "operating_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "investing_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "financing_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "capital_expenditure_calculation": "current YTD minus previous quarter YTD",
+      "net_cash_change_calculation": "current YTD minus previous quarter YTD",
+      "cash_beginning_calculation": "previous quarter closing cash",
+      "financial_line_items_cash_check": "opening/closing cash hidden because the cash bridge did not reconcile",
+      "eps": 606,
+      "foreign_exchange_effect_calculation": "current YTD minus previous quarter YTD",
+      "financial_line_items_prior_values": {
+        "cash_beginning": 50
+      },
+      "financial_line_items_rejected_values": {
+        "operating_cash_flow": {
+          "value": 5680226,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow": {
+          "value": -139711,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow": {
+          "value": 32073452,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "foreign_exchange_effect": {
+          "value": 34670,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change": {
+          "value": -21758678,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure": {
+          "value": 1365349,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "operating_cash_flow_ytd": {
+          "value": 5947023,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow_ytd": {
+          "value": -854773,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow_ytd": {
+          "value": 127884104,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "foreign_exchange_effect_ytd": {
+          "value": 389483,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change_ytd": {
+          "value": -21758658,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure_ytd": {
+          "value": 650287,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        }
+      },
+      "income_tax": 408641,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "financial_line_items_rejected_fields": [
+        "capital_expenditure",
+        "capital_expenditure_ytd",
+        "current_assets_current_assets_too_small",
+        "financing_cash_flow",
+        "financing_cash_flow_ytd",
+        "fixed_assets_fixed_asset_parent_check",
+        "foreign_exchange_effect",
+        "foreign_exchange_effect_ytd",
+        "income_tax_tax_reconciliation_check",
+        "investing_cash_flow",
+        "investing_cash_flow_ytd",
+        "net_cash_change",
+        "net_cash_change_ytd",
+        "operating_cash_flow",
+        "operating_cash_flow_ytd"
+      ],
+      "cash_beginning": 50,
+      "cash_ending": 7625816,
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:26:58+00:00",
+      "financial_line_items_rejected_updated_at": "2026-10-22T13:23:22+00:00",
+      "financial_line_items_value_corrections": {
+        "cash_beginning": {
+          "previous_value": 50,
+          "new_value": 28994991,
+          "reason": "reparsed with corrected VND unit scale after detecting an OCR-corrupted statement unit header"
+        }
+      },
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "core_financial_extraction_evidence_fingerprint": "a91611c5a7b4f55f84f7e9e21f7172f79116c77d218af0fca909a838e836581e",
+      "core_financial_extraction_evidence_attempt_count": 0,
+      "cash_beginning_reported_ytd": 28994991
+    },
+    {
+      "symbol": "BSR",
+      "period": "2026-Q1",
+      "total_assets": 106786103,
+      "total_liabilities": 38007497,
+      "equity": 68778606,
+      "pretax_profit": 9248626,
+      "net_profit": 8265521,
+      "net_profit_attributable": 8264714,
+      "roa": 34.45,
+      "roe": 51.14,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (thường niên hóa từ lợi nhuận quý)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+      "source_archive_file": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/dd4f8c6376b3e6f7.pdf",
+      "source_archive_sha256": "dd4f8c6376b3e6f760fae3f9324b95a9467d41a3cdda5db19bfe255161fdaa33",
+      "published_at": "2026-05-04",
+      "publication_date_basis": "Ngày cập nhật tài liệu trên danh mục VietstockFinance (/data/getdocument); ngày ký báo cáo chỉ lưu khi xác nhận được từ trang PDF.",
+      "report_type": "BCTC hợp nhất Quý I/2026",
+      "source_pages": "Bảng cân đối và KQKD: B01a-DN/HN và B02a-DN/HN, dòng 280/440, 300, 400, 50, 60–62.",
+      "quarter_profit_basis": "Lợi nhuận lấy từ cột phát sinh riêng của quý, không dùng số lũy kế từ đầu năm.",
+      "average_total_assets": 95964665.4640325,
+      "average_equity": 64645845.9845575,
+      "roa_formula": "LNST hợp nhất quý / bình quân tổng tài sản đầu và cuối quý × 4 × 100",
+      "roe_formula": "LNST hợp nhất quý / bình quân vốn chủ sở hữu đầu và cuối quý × 4 × 100",
+      "verification_status": "verified_manual_visual_reconciliation",
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity_vnd": 0,
+        "total_assets_minus_liabilities_equity": 0,
+        "raw_values_vnd": {
+          "total_assets": 106786103441091,
+          "total_liabilities": 38007497105841,
+          "equity": 68778606335250,
+          "pretax_profit": 9248626076626,
+          "net_profit": 8265520701385,
+          "net_profit_attributable": 8264713781616
+        },
+        "equity_rounded_from_source_million": 68778606,
+        "equity_rounding_adjustment_million": 0,
+        "beginning_total_assets_vnd": 85143227486974,
+        "ending_total_assets_vnd": 106786103441091,
+        "beginning_equity_vnd": 60513085633865,
+        "ending_equity_vnd": 68778606335250,
+        "profit_reconciliation": {
+          "parent_profit_vnd": 8264713781616,
+          "noncontrolling_profit_vnd": 806919769,
+          "total_net_profit_vnd": 8265520701385,
+          "difference_vnd": 0
+        },
+        "beginning_total_liabilities_vnd": 24630141853109,
+        "beginning_balance_basis": "Số đầu năm theo cột so sánh trong BCTC Q1/2026; khác nhẹ báo cáo Q4/2025 đã công bố trước đó."
+      },
+      "profit_reconciliation": {
+        "source": "BCTC do VietstockFinance liên kết",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+        "pretax_profit_vnd": {
+          "quarter": 9248626076626
+        },
+        "consolidated_net_profit_vnd": {
+          "quarter": 8265520701385
+        },
+        "parent_net_profit_vnd": {
+          "quarter": 8264713781616
+        },
+        "noncontrolling_profit_vnd": 806919769,
+        "note": "Q1/2026 lấy từ cột quý trong BCTC hợp nhất VietstockFinance. Mức lợi nhuận cao được giữ theo số báo cáo; không tự hạ theo suy đoán."
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-20",
+        "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+        "extracted_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/dd4f8c6376b3e6f7.pdf.extracted.json",
+        "source_scope": "Chỉ sử dụng danh mục VietstockFinance và báo cáo PDF/ZIP do danh mục đó liên kết",
+        "checks": {
+          "raw_balance_equation_vnd": 0,
+          "displayed_balance_equation_million": 0,
+          "stored_pretax_matches_raw_million": true,
+          "stored_consolidated_net_profit_matches_raw_million": true,
+          "stored_parent_profit_matches_raw_million": true,
+          "recomputed_roa_percent": 34.45,
+          "recomputed_roe_percent": 51.14,
+          "source_catalog_matches_single_source": true
+        },
+        "note": "Q1/2026 lấy từ cột quý trong BCTC hợp nhất VietstockFinance. Mức lợi nhuận cao được giữ theo số báo cáo; không tự hạ theo suy đoán. Các chênh lệch giữa báo cáo ban đầu và số so sánh trong báo cáo VietstockFinance phát hành sau được ghi rõ, không bị che giấu."
+      },
+      "source_validation": {
+        "reviewed_at": "2026-10-20",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và các PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+        "archived_source_path": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/dd4f8c6376b3e6f7.pdf",
+        "extraction_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/dd4f8c6376b3e6f7.pdf.extracted.json",
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất Quý I/2026",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit",
+          "net_profit_attributable"
+        ],
+        "balance_equation_difference_vnd": 0,
+        "balance_equation_matches": true,
+        "profit_basis": {
+          "consolidated_net_profit_vnd": 8265520701385,
+          "net_profit_attributable_to_parent_vnd": 8264713781616,
+          "implied_non_controlling_profit_vnd": 806919769,
+          "quarter_profit_reconciliation": {
+            "source": "BCTC do VietstockFinance liên kết",
+            "source_report_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+            "pretax_profit_vnd": {
+              "quarter": 9248626076626
+            },
+            "consolidated_net_profit_vnd": {
+              "quarter": 8265520701385
+            },
+            "parent_net_profit_vnd": {
+              "quarter": 8264713781616
+            },
+            "noncontrolling_profit_vnd": 806919769,
+            "note": "Q1/2026 lấy từ cột quý trong BCTC hợp nhất VietstockFinance. Mức lợi nhuận cao được giữ theo số báo cáo; không tự hạ theo suy đoán."
+          }
+        },
+        "ratio_recalculation": {
+          "formula": "LNST hợp nhất của quý / bình quân tài sản đầu-cuối kỳ × 4 × 100; ROE tương tự dùng vốn chủ sở hữu",
+          "recalculated_roa_percent": 34.45,
+          "stored_roa_percent": 34.45,
+          "recalculated_roe_percent": 51.14,
+          "stored_roe_percent": 51.14,
+          "matches_after_rounding": true
+        },
+        "review_method": "manual_visual_review_of_VietstockFinance_linked_PDF",
+        "manually_visual_reviewed": true,
+        "known_anomalies": [],
+        "visual_review_pages": [
+          "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2026_Hopnhat.pdf#page=3",
+          "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2026_Hopnhat.pdf#page=4",
+          "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/BSR_Baocaotaichinh_Q1_2026_Hopnhat.pdf#page=5"
+        ],
+        "visual_review_note": "Đã kiểm tra trực tiếp trang bảng cân đối tài sản, nguồn vốn và KQKD của PDF VietstockFinance: tổng tài sản 106.786.103.441.091 VND; nợ phải trả 38.007.497.105.841 VND; vốn chủ sở hữu 68.778.606.335.250 VND; LNTT 9.248.626.076.626 VND; LNST hợp nhất 8.265.520.701.385 VND; LNST thuộc cổ đông công ty mẹ 8.264.713.781.616 VND. Số lợi nhuận cao khớp bảng gốc, không phải lỗi đọc OCR."
+      },
+      "cash_and_equivalents": 6634918,
+      "short_term_investments": 39912909,
+      "short_term_receivables": 24233908,
+      "inventory": 21573801,
+      "non_current_assets": 841131,
+      "current_liabilities": 37155770,
+      "long_term_liabilities": 851727,
+      "retained_earnings": 15679049,
+      "revenue": 45919538,
+      "cost_of_goods_sold": 36412960,
+      "gross_profit": 9506579,
+      "financial_income": 807,
+      "financial_expense": 250613,
+      "interest_expense": 250613,
+      "selling_expense": 277471,
+      "admin_expense": 272277,
+      "operating_profit": 9235439,
+      "cashflow_period_basis": "year_to_date",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "cash_and_equivalents",
+        "cashflow_period_basis",
+        "cost_of_goods_sold",
+        "current_liabilities",
+        "eps",
+        "financial_expense",
+        "financial_income",
+        "gross_profit",
+        "income_tax",
+        "interest_expense",
+        "inventory",
+        "long_term_liabilities",
+        "non_current_assets",
+        "operating_profit",
+        "retained_earnings",
+        "revenue",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_source": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/dd4f8c6376b3e6f7.pdf",
+      "financial_line_items_updated_at": "2026-10-21T08:33:52+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế. Dòng tiền tự trích xuất bị ẩn vì tổng các luồng tiền không khớp biến động tiền thuần. Một số chỉ tiêu bị giữ trống vì không vượt qua kiểm tra cân đối kế toán hoặc đối chiếu chéo; xem danh sách trường bị loại.",
+      "operating_cash_flow_calculation": "Q1 equals YTD Q1",
+      "investing_cash_flow_calculation": "Q1 equals YTD Q1",
+      "financing_cash_flow_calculation": "Q1 equals YTD Q1",
+      "capital_expenditure_calculation": "Q1 equals YTD Q1",
+      "net_cash_change_calculation": "Q1 equals YTD Q1",
+      "eps": 1651,
+      "foreign_exchange_effect_calculation": "Q1 equals YTD Q1",
+      "financial_line_items_prior_values": {},
+      "financial_line_items_rejected_values": {
+        "operating_cash_flow": {
+          "value": -597730,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow": {
+          "value": -208332,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow": {
+          "value": 2893539,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "foreign_exchange_effect": {
+          "value": -23809,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change": {
+          "value": -967095,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure": {
+          "value": 23,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "operating_cash_flow_ytd": {
+          "value": -597730,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow_ytd": {
+          "value": -208332,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow_ytd": {
+          "value": 2893539,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "foreign_exchange_effect_ytd": {
+          "value": -23809,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change_ytd": {
+          "value": -967095,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure_ytd": {
+          "value": 23,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "cash_beginning": {
+          "value": 7625823,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "cash_ending": {
+          "value": 6634918,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        }
+      },
+      "income_tax": 983105,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "financial_line_items_rejected_fields": [
+        "capital_expenditure",
+        "capital_expenditure_ytd",
+        "cash_beginning",
+        "cash_ending",
+        "current_assets_current_assets_too_small",
+        "financing_cash_flow",
+        "financing_cash_flow_ytd",
+        "fixed_assets_fixed_asset_parent_check",
+        "foreign_exchange_effect",
+        "foreign_exchange_effect_ytd",
+        "income_tax_deferred_tax_reconciliation_check",
+        "income_tax_tax_reconciliation_check",
+        "investing_cash_flow",
+        "investing_cash_flow_ytd",
+        "net_cash_change",
+        "net_cash_change_ytd",
+        "operating_cash_flow",
+        "operating_cash_flow_ytd"
+      ],
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:26:58+00:00",
+      "financial_line_items_rejected_updated_at": "2026-10-22T13:23:23+00:00",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "core_financial_extraction_evidence_fingerprint": "36b6f9556339ca14ac4d0481114def0424b08afef3a8ba4a2cb6ea641cabf7f1",
+      "core_financial_extraction_evidence_attempt_count": 0
+    },
+    {
+      "symbol": "BSR",
+      "period": "2026-Q2",
+      "total_assets": 105418650,
+      "total_liabilities": 31058819,
+      "equity": 74359831,
+      "pretax_profit": 8484066,
+      "net_profit": 7461026,
+      "net_profit_attributable": 7460078,
+      "roa": 31.32,
+      "roe": 44.26,
+      "unit": "triệu VND",
+      "ratio_unit": "%/năm (thường niên hóa từ lợi nhuận quý)",
+      "source_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+      "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+      "source_archive_file": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/539ad3ec85853f92.pdf",
+      "source_archive_sha256": "539ad3ec85853f923ea4cd50b280fb78c13c849dc3249f7a6c04856eec1a9c45",
+      "published_at": "2026-07-31",
+      "report_signed_at": "2026-07-30",
+      "publication_date_basis": "Ngày cập nhật từ danh mục VietstockFinance /data/getdocument; ngày ký đọc từ trang 1 PDF.",
+      "report_type": "BCTC hợp nhất Quý II/2026, chưa soát xét",
+      "source_pages": "Bảng cân đối: PDF OCR trang 4–5 (trang báo cáo in 5–6); KQKD: PDF OCR trang 6 (trang báo cáo in 7).",
+      "quarter_profit_basis": "Dùng cột riêng Quý II/2026; đối chiếu chéo với lũy kế 6T trừ Quý I.",
+      "average_total_assets": 95280938.592853,
+      "average_equity": 67436458.1453565,
+      "roa_formula": "LNST hợp nhất quý / bình quân tổng tài sản đầu và cuối quý × 4 × 100",
+      "roe_formula": "LNST hợp nhất quý / bình quân vốn chủ sở hữu đầu và cuối quý × 4 × 100",
+      "verification_status": "ocr_reconciled_pending_visual_review",
+      "reconciliation": {
+        "total_assets_minus_liabilities_equity_vnd": 0,
+        "total_assets_minus_liabilities_equity": 0,
+        "raw_values_vnd": {
+          "total_assets": 105418649698732,
+          "total_liabilities": 31058819041884,
+          "equity": 74359830656848,
+          "pretax_profit": 8484065876265,
+          "net_profit": 7461026305134,
+          "net_profit_attributable": 7460077717677
+        },
+        "beginning_total_assets_vnd": 85143227486974,
+        "beginning_total_liabilities_vnd": 24630141853109,
+        "beginning_equity_vnd": 60513085633865,
+        "quarter_to_ytd_check": {
+          "q1_pretax_profit_vnd": 9248626076626,
+          "q2_pretax_profit_vnd": 8484065876265,
+          "reported_6m_pretax_profit_vnd": 17732691952891,
+          "pretax_difference_vnd": 0,
+          "q1_net_profit_vnd": 8265520701385,
+          "q2_net_profit_vnd": 7461026305134,
+          "reported_6m_net_profit_vnd": 15726547006519,
+          "net_profit_difference_vnd": 0
+        },
+        "profit_reconciliation": {
+          "parent_profit_vnd": 7460077717677,
+          "noncontrolling_profit_vnd": 948587457,
+          "total_net_profit_vnd": 7461026305134,
+          "difference_vnd": 0
+        },
+        "note": "OCR bảng Q2 được đối chiếu bằng bảng cân đối và lũy kế 6T trừ Q1; cần rà soát trực quan cuối cùng.",
+        "ending_total_assets_vnd": 105418649698732,
+        "ending_equity_vnd": 74359830656848
+      },
+      "profit_reconciliation": {
+        "source": "BCTC do VietstockFinance liên kết",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+        "pretax_profit_vnd": {
+          "quarter": 8484065876265,
+          "cumulative": 17732691952891,
+          "priorCumulative": 9248626076626,
+          "derived": 8484065876265,
+          "difference": 0
+        },
+        "consolidated_net_profit_vnd": {
+          "quarter": 7461026305134,
+          "cumulative": 15726547006519,
+          "priorCumulative": 8265520701385,
+          "derived": 7461026305134,
+          "difference": 0
+        },
+        "parent_net_profit_vnd": {
+          "quarter": 7460077717677
+        },
+        "noncontrolling_profit_vnd": 948587457,
+        "note": "Q2/2026 riêng cộng với Q1/2026 khớp PBT và LNST hợp nhất lũy kế H1/2026 trong BCTC VietstockFinance."
+      },
+      "source_extract_review": {
+        "checked_at": "2026-10-20",
+        "source_index_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_report_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+        "archived_source_path": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/539ad3ec85853f92.pdf",
+        "single_source_policy": "Chỉ dùng tệp BCTC do danh mục VietstockFinance của mã BSR liên kết.",
+        "checks": {
+          "raw_balance_equation_vnd": 0,
+          "balance_equation_matches": true,
+          "total_assets_vnd": 105418649698732,
+          "total_liabilities_vnd": 31058819041884,
+          "equity_vnd": 74359830656848,
+          "pretax_profit_vnd": 8484065876265,
+          "net_profit_vnd": 7461026305134,
+          "quarter_to_ytd_pretax_difference_vnd": 0,
+          "quarter_to_ytd_net_profit_difference_vnd": 0
+        },
+        "note": "OCR số liệu Q2/2026 khớp phương trình cân đối và số lũy kế 6 tháng trừ Q1 trong chính chuỗi BCTC VietstockFinance; giữ trạng thái chờ kiểm tra hình ảnh vì công cụ không mở được PDF lớn trong lượt rà soát này.",
+        "manually_visual_reviewed": false
+      },
+      "source_validation": {
+        "reviewed_at": "2026-10-20",
+        "single_source_policy": "Chỉ danh mục tài liệu VietstockFinance và các PDF/ZIP được liên kết từ chính danh mục này",
+        "source_catalog_url": "https://finance.vietstock.vn/BSR/tai-tai-lieu.htm?doctype=1",
+        "source_document_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+        "archived_source_path": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/539ad3ec85853f92.pdf",
+        "extraction_sidecar": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/539ad3ec85853f92.pdf.extracted.json",
+        "source_catalog_single_source_confirmed": true,
+        "source_scope": "BCTC hợp nhất Quý II/2026, chưa soát xét",
+        "core_fields_checked": [
+          "total_assets",
+          "total_liabilities",
+          "equity",
+          "pretax_profit",
+          "net_profit",
+          "net_profit_attributable"
+        ],
+        "balance_equation_difference_vnd": 0,
+        "balance_equation_matches": true,
+        "profit_basis": {
+          "consolidated_net_profit_vnd": 7461026305134,
+          "net_profit_attributable_to_parent_vnd": 7460077717677,
+          "implied_non_controlling_profit_vnd": 948587457,
+          "quarter_profit_reconciliation": {
+            "source": "BCTC do VietstockFinance liên kết",
+            "source_report_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/BSR_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+            "pretax_profit_vnd": {
+              "quarter": 8484065876265,
+              "cumulative": 17732691952891,
+              "priorCumulative": 9248626076626,
+              "derived": 8484065876265,
+              "difference": 0
+            },
+            "consolidated_net_profit_vnd": {
+              "quarter": 7461026305134,
+              "cumulative": 15726547006519,
+              "priorCumulative": 8265520701385,
+              "derived": 7461026305134,
+              "difference": 0
+            },
+            "parent_net_profit_vnd": {
+              "quarter": 7460077717677
+            },
+            "noncontrolling_profit_vnd": 948587457,
+            "note": "Q2/2026 riêng cộng với Q1/2026 khớp PBT và LNST hợp nhất lũy kế H1/2026 trong BCTC VietstockFinance."
+          }
+        },
+        "ratio_recalculation": {
+          "formula": "LNST hợp nhất của quý / bình quân tài sản đầu-cuối kỳ × 4 × 100; ROE tương tự dùng vốn chủ sở hữu",
+          "recalculated_roa_percent": 31.32,
+          "stored_roa_percent": 31.32,
+          "recalculated_roe_percent": 44.26,
+          "stored_roe_percent": 44.26,
+          "matches_after_rounding": true
+        },
+        "review_method": "OCR/text extraction and accounting reconciliation on VietstockFinance-linked PDF/ZIP",
+        "manually_visual_reviewed": false,
+        "known_anomalies": []
+      },
+      "cash_and_equivalents": 6659657,
+      "short_term_investments": 47116384,
+      "short_term_receivables": 19731622,
+      "inventory": 14435930,
+      "fixed_assets": 10529428,
+      "current_liabilities": 30209860,
+      "long_term_liabilities": 848959,
+      "retained_earnings": 18656485,
+      "revenue": 58716466,
+      "cost_of_goods_sold": 50110214,
+      "gross_profit": 8606252,
+      "financial_expense": 280498,
+      "interest_expense": 280498,
+      "selling_expense": 226930,
+      "admin_expense": 233284,
+      "operating_profit": 8448700,
+      "cashflow_period_basis": "year_to_date",
+      "financial_line_items_extracted_fields": [
+        "admin_expense",
+        "cash_and_equivalents",
+        "cashflow_period_basis",
+        "cost_of_goods_sold",
+        "current_liabilities",
+        "eps",
+        "financial_expense",
+        "fixed_assets",
+        "gross_profit",
+        "income_tax",
+        "interest_expense",
+        "inventory",
+        "long_term_liabilities",
+        "operating_profit",
+        "retained_earnings",
+        "revenue",
+        "selling_expense",
+        "short_term_investments",
+        "short_term_receivables"
+      ],
+      "financial_line_items_status": "auto_extracted_pending_visual_review",
+      "financial_line_items_source": "reports/raw/BSR/vietstock-bsr-2024-2026-20261019/539ad3ec85853f92.pdf",
+      "financial_line_items_updated_at": "2026-10-21T08:33:52+00:00",
+      "financial_line_items_note": "Trích xuất từ văn bản PDF/ZIP đã lưu; cần đối chiếu trực quan với báo cáo gốc. Tổng thuế được đối chiếu từ lợi nhuận trước thuế trừ lợi nhuận sau thuế. Dòng tiền tự trích xuất bị ẩn vì tổng các luồng tiền không khớp biến động tiền thuần. Một số chỉ tiêu bị giữ trống vì không vượt qua kiểm tra cân đối kế toán hoặc đối chiếu chéo; xem danh sách trường bị loại.",
+      "operating_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "investing_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "financing_cash_flow_calculation": "current YTD minus previous quarter YTD",
+      "capital_expenditure_calculation": "current YTD minus previous quarter YTD",
+      "net_cash_change_calculation": "current YTD minus previous quarter YTD",
+      "cash_beginning_calculation": "previous quarter closing cash",
+      "eps": 1490,
+      "foreign_exchange_effect_calculation": "current YTD minus previous quarter YTD",
+      "financial_line_items_prior_values": {},
+      "financial_line_items_rejected_values": {
+        "operating_cash_flow": {
+          "value": 18330422,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow": {
+          "value": -92447,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow": {
+          "value": -631403,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "foreign_exchange_effect": {
+          "value": -43568,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change": {
+          "value": 68306,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure": {
+          "value": -300802,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "operating_cash_flow_ytd": {
+          "value": 17732692,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "investing_cash_flow_ytd": {
+          "value": -300779,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "financing_cash_flow_ytd": {
+          "value": 2262136,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "foreign_exchange_effect_ytd": {
+          "value": -67377,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "net_cash_change_ytd": {
+          "value": -898789,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "capital_expenditure_ytd": {
+          "value": -300779,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "cash_beginning": {
+          "value": 6634918,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        },
+        "cash_ending": {
+          "value": 6659657,
+          "reason": "cash-flow components do not reconcile to reported net cash change"
+        }
+      },
+      "income_tax": 1023040,
+      "income_tax_calculation": "Lợi nhuận trước thuế - lợi nhuận sau thuế; chỉ dùng khi hai tổng lợi nhuận của cùng kỳ đã có.",
+      "financial_line_items_rejected_fields": [
+        "capital_expenditure",
+        "capital_expenditure_ytd",
+        "cash_beginning",
+        "cash_ending",
+        "current_assets_asset_total_check",
+        "financial_income_finance_income_ratio_check",
+        "financing_cash_flow",
+        "financing_cash_flow_ytd",
+        "foreign_exchange_effect",
+        "foreign_exchange_effect_ytd",
+        "income_tax_deferred_tax_reconciliation_check",
+        "income_tax_tax_reconciliation_check",
+        "investing_cash_flow",
+        "investing_cash_flow_ytd",
+        "net_cash_change",
+        "net_cash_change_ytd",
+        "non_current_assets_asset_total_check",
+        "operating_cash_flow",
+        "operating_cash_flow_ytd"
+      ],
+      "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
+      "financial_line_items_schema_updated_at": "2026-10-25T20:26:58+00:00",
+      "financial_line_items_rejected_updated_at": "2026-10-22T13:23:24+00:00",
+      "core_financial_extraction_parser_version": "2026-10-23-ngan-vnd-unit-v2-statement-rows",
+      "core_financial_extraction_evidence_fingerprint": "f1a818e259c68bc4dc0957ddb4248bfa4e715b7c0e2f80361a42399f6806865f",
+      "core_financial_extraction_evidence_attempt_count": 0
+    }
+  ],
+  "note": "BSR: 10 kỳ BCTC hợp nhất Q1/2024–Q2/2026, danh mục nguồn duy nhất VietstockFinance. Q2/2024 được hòa giải theo số so sánh trong BCTC về sau; Q1/2025 được hài hòa theo lũy kế H1/2025 điều chỉnh trong Q3/2025, Q4/2025 và Q2/2026. Các số ban đầu đã lưu trong profit_reconciliation_original_report. Dữ liệu Q3/2025 và Q4/2025 cho thấy phép cộng quý sau điều chỉnh khớp số lũy kế. Một số báo cáo gốc và báo cáo sau không hoàn toàn trùng nhau nên giữ dấu vết thay đổi.",
+  "bootstrap_status": "complete_needs_manual_review",
+  "bootstrap_completed_at": "2026-10-22T16:41:46+00:00",
+  "bootstrap_completion_note": "Các kỳ báo cáo có thể tự trích xuất đã được lưu; một số kỳ còn cần đối chiếu thủ công."
+}
