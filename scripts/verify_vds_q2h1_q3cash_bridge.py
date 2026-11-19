@@ -2,7 +2,7 @@
 """Exact VND VDS consolidated Q2/2026 six-month B03 and Q3 9M-minus-H1 cash bridge.
 
 Original VDSC signed Q2 2026 PDF pages 14-16; Q3 2026 PDF pages 14-16.
-Q2 B01/B02 are still pending QA: only B01 cash balance and H1 B03 are PASS.
+Q2 B01/B02 and H1 B03 are verified; Q2 standalone B03 from issuer-verified Q1.
 """
 import json
 from decimal import Decimal
@@ -34,11 +34,11 @@ h1expected={
 }
 for k,x in h1expected.items():
     assert v(h,k)==x,(k,v(h,k),x)
-assert h["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_h1_q2_standalone_cash_deferred"
+assert h["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_and_q2_standalone_cash"
 assert h["source_validation"]["b03_h1_issuer_original_visual_verified"] is True
 assert h["source_validation"]["manually_visual_reviewed"] is True, "B01/B02 and B03 all source visually verified"
 assert h["source_validation"]["b03_original_report_pdf_pages"]==[14,15,16]
-assert all(h.get(k) is None for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","cash_beginning","foreign_exchange_effect"))
+assert all(h.get(k) is not None for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","cash_beginning","foreign_exchange_effect"))
 assert v(h,"foreign_exchange_effect_ytd")==0
 prior=h["financial_line_items_prior_values"]["prior_auto_extracted_b03_before_issuer_visual_review_20261119"]
 assert prior["operating_cash_flow_ytd"]==6677 and prior["foreign_exchange_effect_ytd"]==801618
@@ -83,4 +83,11 @@ assert all(value=="0" for value in source["q3_standalone_cash_flow_identity_resi
 assert set(checks)==set(source["q3_standalone_cash_flow_identity_residuals_vnd"])
 assert v(n,"cash_beginning")==v(h,"cash_ending")
 assert v(n,"client_brokerage_cash_ending_ytd") != v(n,"cash_ending")
+assert v(h,"operating_cash_flow")==-251044721598
+assert v(h,"investing_cash_flow")==179751455631
+assert v(h,"financing_cash_flow")==14750000000
+assert v(h,"net_cash_change")==-56543265967
+assert v(h,"cash_beginning")==858161024619
+assert v(h,"cash_beginning")+v(h,"net_cash_change")==v(h,"cash_ending")
+assert h["source_validation"]["q2_standalone_from_q1_ytd_issuer_verified"] is True
 print("PASS: VDS issuer-original H1 B03 5 exact VND checks; Q3 9M-minus-H1 standalone CFO/CFI/CFF 3 exact checks, auto parser CFO/FX corruption quarantined")
