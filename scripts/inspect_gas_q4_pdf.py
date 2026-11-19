@@ -65,7 +65,7 @@ def inspect(body: bytes, source: str) -> None:
         pix = page.get_pixmap(matrix=fitz.Matrix(1.7, 1.7), alpha=False)
         path = output / f"gas-2025-q4-page-{i+1:02d}.png"
         pix.save(path)
-        if len(extracted.strip()) > 400 and len(re.findall(r"\\d", extracted)) >= 30:
+        if len(extracted.strip()) > 400 and len(re.findall(r"\d", extracted)) >= 30:
             text = extracted
             mode = "pdf_text"
         else:
