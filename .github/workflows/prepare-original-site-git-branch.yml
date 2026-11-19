@@ -1,10 +1,5 @@
 name: Prepare original UI and JSON on Git recovery branch
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/prepare_original_site_git_branch.py'
-      - '.github/workflows/prepare-original-site-git-branch.yml'
   workflow_dispatch:
 permissions:
   contents: write

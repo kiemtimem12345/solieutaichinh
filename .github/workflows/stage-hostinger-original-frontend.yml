@@ -1,10 +1,5 @@
 name: Stage original frontend from Hostinger backup (private only)
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/stage_hostinger_original_frontend.py'
-      - '.github/workflows/stage-hostinger-original-frontend.yml'
   workflow_dispatch:
 permissions:
   contents: read
