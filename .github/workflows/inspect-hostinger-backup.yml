@@ -1,13 +1,6 @@
 name: Inspect private Hostinger backup archive (read-only)
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/inspect_hostinger_backup.py'
-      - '.github/workflows/inspect-hostinger-backup.yml'
   workflow_dispatch:
-  schedule:
-    - cron: '41 * * * *'
 permissions:
   contents: read
 jobs:
@@ -25,5 +18,5 @@ jobs:
         env:
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-          BACKUP_FULL_SCAN: ${{ github.event_name != 'schedule' }}
+          BACKUP_FULL_SCAN: 'true'
         run: python scripts/inspect_hostinger_backup.py
