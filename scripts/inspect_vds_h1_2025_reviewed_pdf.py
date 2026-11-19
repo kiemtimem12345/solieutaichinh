@@ -33,7 +33,7 @@ for ix in range(3,min(len(doc),43)):
    pix=p.get_pixmap(matrix=fitz.Matrix(1.35,1.35),alpha=False)
    dest=out/("vds-reviewed-h1-pdfpage-%02d.png"%(ix+1))
    pix.save(dest)
-   if len(raw.strip())>400 and len(re.findall(r"\\d",raw))>=25:
+   if len(raw.strip())>400 and len(re.findall(r"\d",raw))>=25:
      text,method=raw,"pdf_text"
    else:
      r=subprocess.run(["tesseract",str(dest),"stdout","-l","eng","--psm","6"],capture_output=True,text=True,timeout=50,check=True)
