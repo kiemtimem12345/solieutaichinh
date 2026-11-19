@@ -1,7 +1,7 @@
 name: Inspect VDS original consolidated 2025 Q4 PDF
 on:
   push:
-    branches: [main, work/vds-2025q4-original-visual-20251119]
+    branches: [main, work/vds-2025q4-issuer-visual-20261119]
     paths:
       - 'scripts/inspect_vds_q4_2025_pdf.py'
       - '.github/workflows/inspect-vds-q4-2025-pdf.yml'
