@@ -26,7 +26,9 @@ geg=json.loads((staged/"financials-GEG.json").read_text(encoding="utf-8"))
 vds=json.loads((staged/"financials-VDS.json").read_text(encoding="utf-8"))
 g={r["period"]:r for r in geg["items"] if "hợp nhất" in r.get("report_type","").lower()}
 v={r["period"]:r for r in vds["items"]}
-assert g["2025-Q4"]["verification_status"]=="issuer_signed_original_visual_verified_B01_B02_B03_FY_ytd_Q4_standalone_cash_deferred"
+assert g["2025-Q4"]["verification_status"].startswith("issuer_signed_original_visual_verified_B01_B02_B03_FY")
+assert g["2025-Q4"]["source_validation"]["manually_visual_reviewed"] is True
+assert g["2025-Q4"]["operating_cash_flow_ytd"] == 932884.327033
 assert g["2026-Q1"]["source_validation"]["manually_visual_reviewed"] is True
 assert g["2026-Q2"]["source_validation"]["manually_visual_reviewed"] is True
 assert all(v[p]["source_validation"]["manually_visual_reviewed"] is True for p in ("2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"))
