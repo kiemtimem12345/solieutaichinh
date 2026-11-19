@@ -1,0 +1,21 @@
+name: Discover PLX source PDFs on issuer mirrors (read-only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/discover_plx_official_pdfs.py'
+      - '.github/workflows/discover-plx-sources.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Find original PLX Q3 and H1 financial reports without downloading PDFs
+        run: python -u scripts/discover_plx_official_pdfs.py
