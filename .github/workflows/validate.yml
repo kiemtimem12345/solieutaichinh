@@ -77,6 +77,8 @@ jobs:
         run: python scripts/verify_idc_q2_2026_original.py
       - name: Verify IDC 2026 Q1 original B01 B02 B03 and H1 opening-cash vintage exception
         run: python scripts/verify_idc_q1_2026_original.py
+      - name: Verify IDC 2025 Q4 issuer and audited cash source-vintage conflict
+        run: python scripts/verify_idc_q4_2025_original.py
       - name: Validate SFTP scripts syntax
         run: bash -n scripts/check_sftp.sh scripts/deploy_sftp.sh scripts/verify_hostinger_ssh_hostkey.sh
       - name: Validate production JSON and archived JS syntax
