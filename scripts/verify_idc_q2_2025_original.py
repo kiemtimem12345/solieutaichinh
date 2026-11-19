@@ -4,7 +4,7 @@
 The original 63-page PDF source is independently archived by HNX/Vietstock,
 rendered by the recovery workflow, and has been manually checked at pages 8–14.
 Store numeric values in million VND, but assertions always use exact integer VND.
-Original Q2 cash 6M YTD is not a standalone Q2 cash flow until Q1 original passes.
+Original H1 6M minus visually verified signed Q1 3M yields exact standalone Q2 cashflow.
 """
 from decimal import Decimal
 import json
@@ -17,8 +17,8 @@ s=q["source_validation"]
 assert len(doc["items"])==7 and all(r["period"]>="2025-Q1" for r in doc["items"])
 assert q["symbol"]=="IDC" and "hợp nhất" in q["report_type"].lower()
 assert q["unit"]=="triệu VND" and q["cashflow_period_basis"]=="year_to_date"
-assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_6m_ytd_q2_standalone_cash_deferred"
-assert q["financial_line_items_status"]=="issuer_original_visual_B01_B02_B03_6m_ytd_verified_Q2_cash_pending"
+assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_6m_and_q2_standalone_cash"
+assert q["financial_line_items_status"]=="issuer_original_visual_B01_B02_B03_6m_plus_Q2_standalone_cash_verified"
 assert s["manually_visual_reviewed"] is True
 assert s["source_scope"].startswith("consolidated only")
 assert s["reviewed_pdf_pages"]==[8,9,10,11,12,13,14]
@@ -29,10 +29,22 @@ assert s["original_pdf_member"]=="4_idc_2025_7_30_caaaf64_vi_baocaotaichinhhn_q2
 assert s["source_recovery_actions_run"]==44562677282
 assert q["eps"]==902 and q["diluted_eps"]==902 and q["eps_ytd"]==1942
 assert q["roa"] is None and q["roe"] is None
-assert all(q.get(k) is None for k in (
-    "operating_cash_flow","investing_cash_flow","financing_cash_flow",
-    "net_cash_change","foreign_exchange_effect","cash_beginning","capital_expenditure","dividends_paid"
-))
+assert q["q2_standalone_cashflow_status"]=="verified_original_h1_6m_minus_original_q1_3m_same_consolidated_scope"
+assert "q2_standalone_B03_blocker" not in s
+assert s["q2_standalone_B03_original_q1_pdf_sha256"]=="5b3809b3492cb8ac96900d41e9410bbec4155500dd1ecc315485f044e0cbc322"
+expected_q2={
+"operating_cash_flow":809015066804,"investing_cash_flow":-1693078122700,
+"financing_cash_flow":-545521959637,"net_cash_change":-1429585015533,
+"capital_expenditure":-746582157511,"foreign_exchange_effect":38713120,
+"dividends_paid":-568281373470,"cash_beginning":2292800235520}
+for key,amount in expected_q2.items():
+    assert int(s["q2_standalone_B03_verified_vnd"][key])==amount
+    assert int((Decimal(str(q[key]))*Decimal(1000000)).to_integral_exact())==amount
+    if key!="cash_beginning":
+        src_q1=rows["2025-Q1"]
+        assert amount==int((Decimal(str(q[key+"_ytd"]))-Decimal(str(src_q1[key+"_ytd"])))*Decimal(1000000))
+assert all(int(v)==0 for v in s["q2_standalone_B03_identity_residuals_vnd"].values())
+assert len(s["q2_standalone_B03_identity_residuals_vnd"])==6
 def V(k):return int((Decimal(str(q[k]))*Decimal(1000000)).to_integral_exact())
 def S(*ks):return sum(V(k) for k in ks)
 fixture={
@@ -103,4 +115,4 @@ assert int(vintage["receivables_original_vnd"])-int(vintage["receivables_reviewe
 assert int(vintage["payables_original_vnd"])-int(vintage["payables_reviewed_vnd"])==-30662066941
 assert vintage["cashflow_totals_same_vnd"] is True
 assert s["reviewed_h1_2025_consolidated_b03_visual"]["line_items_exact_vnd"]["operating_cash_flow_ytd"]==str(V("operating_cash_flow_ytd"))
-print("PASS IDC 2025 Q2 signed HNX original B01/B02/B03 100 fields + 30 exact-VND identities; reviewed H1 classification difference isolated; quarter cashflow still deferred")
+print("PASS IDC Q2 2025 100 signed-source fields + 30 exact-VND identities; Q2 standalone signed H1 minus signed Q1 cashflow 6 checks; reviewed version difference retained")
