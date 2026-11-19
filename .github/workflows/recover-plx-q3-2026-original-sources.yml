@@ -1,0 +1,35 @@
+name: Inspect original PLX Q3 parent B03 and reviewed H1 sources
+on:
+  push:
+    branches: [work/plx-q3-2026-parent-b03-visual-recovery-20261120]
+    paths:
+      - scripts/recover_plx_q3_2026_original_sources.py
+      - .github/workflows/recover-plx-q3-2026-original-sources.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - scripts/recover_plx_q3_2026_original_sources.py
+      - .github/workflows/recover-plx-q3-2026-original-sources.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Recover and render only the exact official PLX issuer and HOSE source PDFs
+        run: python -u scripts/recover_plx_q3_2026_original_sources.py
+      - name: Preserve source PDF, original page images, and hash provenance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: plx-q3-2026-original-pdf-pages-and-evidence
+          path: plx-q3-2026-original-source-qa/
+          if-no-files-found: warn
+          retention-days: 7
