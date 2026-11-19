@@ -4,7 +4,7 @@
 The audit FY2025 independent year-end cash source and original issuer Q4 agree
 with Q1/2026 opening. H1/2026 version differs by 890,796,892 VND.
 This test preserves original published source vintages and does not fabricate
-standalone Q2/2026 or Q4/2025 cash flows.
+standalone Q2/2026 cash flows; Q4/2025 derives from signed Q3/2025 original.
 """
 import json
 from decimal import Decimal
@@ -12,23 +12,23 @@ from pathlib import Path
 
 data=json.loads((Path(__file__).resolve().parents[1]/"data/financials-IDC.json").read_text("utf-8"))
 rows={x["period"]:x for x in data["items"]}
-q,a,h=(rows[k] for k in ("2025-Q4","2026-Q1","2026-Q2"))
+q,a,h,z=(rows[k] for k in ("2025-Q4","2026-Q1","2026-Q2","2025-Q3"))
 def V(obj,k):
     return int((Decimal(str(obj[k]))*Decimal(1000000)).to_integral_exact())
 def S(obj,*keys):return sum(V(obj,k) for k in keys)
 
 assert q["symbol"]=="IDC" and q["unit"]=="triệu VND"
 assert q["report_type"].startswith("BCTC hợp nhất IDC Q4/2025")
-assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_fy_2025_q4_cash_deferred"
+assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_fy_and_q4_standalone_cash"
 assert q["cashflow_period_basis"]=="year_to_date"
 assert q["source_validation"]["manually_visual_reviewed"] is True
 assert q["source_validation"]["source_unit"]=="VND"
 assert q["source_validation"]["normalized_unit"]=="triệu VND"
-assert len(q["financial_line_items_extracted_fields"])==101
+assert len(q["financial_line_items_extracted_fields"])==109
 assert q["financial_line_items_extracted_fields"]==q["financial_line_items_manually_verified_fields"]
 assert q["roa"] is None and q["roe"] is None
 assert q["eps"]==1183 and q["diluted_eps"]==1183
-assert all(q.get(k) is None for k in (
+assert all(q.get(k) is not None for k in (
     "operating_cash_flow","investing_cash_flow","financing_cash_flow",
     "net_cash_change","cash_beginning","capital_expenditure",
     "dividends_paid","foreign_exchange_effect"))
@@ -39,7 +39,7 @@ assert e["issuer_original_pdf_bytes"]==17108337 and e["issuer_original_pdf_page_
 assert e["original_visual_review_pages"]==[8,9,10,11,12,13,14]
 assert e["audited_fy_2025_annual_report_pdf_sha256"]=="8eae4129eef2e3ae88b4f9ff1559a6d4cb3fd03a7a893e9030439eac9055e25b"
 assert e["audited_fy_2025_pdf_pages"]==138
-assert e["standalone_q4_b03_deferred_until_2025Q3_original_9m"] is True
+assert e["standalone_q4_b03_deferred_until_2025Q3_original_9m"] is False
 assert e["issuer_reclassification_note_unverified"] is True
 
 original={
@@ -129,4 +129,26 @@ assert all(h.get(k) is None for k in ("operating_cash_flow","investing_cash_flow
 assert q["financial_line_items_rejected_values"]["auto_operating_cash_flow_ytd_million_vnd"]==836453742
 assert q["financial_line_items_rejected_values"]["auto_financing_cash_flow_ytd_million_vnd"]==371657217
 assert q["source_validation"]["audited_year_end_comparative"]["issuer_reclassification_note_unverified"] is True
-print("PASS IDC 2025 Q4 original B01/B02/12M B03: 101 source fields, 29 exact VND identities, audited 553,052,678,239 VND cash corroboration and H1 890,796,892 VND mismatch quarantined")
+assert q["source_validation"]["standalone_q4_cashflow_status"]=="verified_FY2025_12M_minus_signed_IDC_Q3_9M_same_consolidated_scope"
+assert q["source_validation"]["standalone_q4_source_9m_pdf_sha256"]=="80c1b3dcb2e5469d4fb84c3a0cbd46c51f664ce7e07a2a0946e10b691ca92ce3"
+assert V(q,"operating_cash_flow")==970200007993
+assert V(q,"investing_cash_flow")==-2329374796016
+assert V(q,"financing_cash_flow")==1120543443747
+assert V(q,"net_cash_change")==-238631344276
+assert V(q,"foreign_exchange_effect")==-2537404
+assert V(q,"capital_expenditure")==-1300428928495
+assert V(q,"dividends_paid")==-654131953577
+assert V(q,"cash_beginning")==791686559919
+assert V(q,"cash_beginning")==V(z,"cash_ending")
+assert V(q,"cash_beginning")+V(q,"net_cash_change")+V(q,"foreign_exchange_effect")==V(q,"cash_ending")
+assert S(q,"operating_cash_flow","investing_cash_flow","financing_cash_flow")==V(q,"net_cash_change")
+for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","foreign_exchange_effect","capital_expenditure","dividends_paid"):
+    assert V(q,k)==V(q,k+"_ytd")-V(z,k+"_ytd"),k
+assert len(q["source_validation"]["standalone_q4_identity_residuals_vnd"])==5
+assert all(int(x)==0 for x in q["source_validation"]["standalone_q4_identity_residuals_vnd"].values())
+assert len(q["source_validation"]["q4_income_FY_minus_9M_residuals_vnd"])==9
+assert all(int(x)==0 for x in q["source_validation"]["q4_income_FY_minus_9M_residuals_vnd"].values())
+for k in ("revenue","gross_profit","cost_of_goods_sold","operating_profit","other_profit","pretax_profit","net_profit","net_profit_attributable","non_controlling_interest_profit"):
+    assert V(q,k)==V(q,k+"_ytd")-V(z,k+"_ytd"),k
+print("PASS IDC 2025 Q4 original 29 identities, 8 quarter-derived fields, 5 Q4 cash checks and 9 B02 crosschecks; H1 2026 remains quarantined")
+
