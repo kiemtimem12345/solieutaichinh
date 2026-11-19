@@ -109,4 +109,19 @@ assert v(q,"cash_ending")-v(june,"cash_beginning_reported_ytd")==11422218903
 assert q["source_validation"]["difference_vs_2026q2_q3_audited_comparative_2025cash_vnd"]=="11422218903"
 assert q["source_validation"]["source_vintage_discrepancy_unresolved"] is True
 assert q["source_validation"]["q4_standalone_cashflow_status"].startswith("deferred")
+# The later comparator changed cash equivalents alone, NOT original cash.
+proof=q["source_validation"]["cash_2025yearend_original_vs_2026q2_comparator_component_proof"]
+assert proof == nextq["source_validation"]["cash_2025yearend_original_vs_2026q2_comparator_component_proof"]
+assert proof == june["source_validation"]["cash_2025yearend_original_vs_2026q2_comparator_component_proof"]
+assert int(proof["original_2025q4_cash_only_vnd"]) == v(q,"cash_only")
+assert int(proof["original_2025q4_cash_equivalents_vnd"]) == v(q,"cash_equivalents_only")
+assert int(proof["original_2025q4_total_cash_vnd"]) == v(q,"cash_ending")
+assert int(proof["q2_2026_comparative_cash_only_vnd"])==46702358323
+assert int(proof["q2_2026_comparative_cash_equivalents_vnd"])==28240086022
+assert int(proof["cash_only_difference_vnd"])==0
+assert int(proof["cash_equivalents_difference_vnd"])==11422218903
+assert int(proof["total_cash_difference_vnd"])==11422218903
+assert int(proof["q2_2026_comparative_cash_only_vnd"]) + int(proof["q2_2026_comparative_cash_equivalents_vnd"]) == int(proof["q2_2026_comparative_total_cash_vnd"])
+assert int(proof["original_2025q4_cash_equivalents_vnd"]) - int(proof["q2_2026_comparative_cash_equivalents_vnd"]) == 11422218903
+assert proof["line_item_reconciliation_status"].endswith("cause_and_destination_unverified")
 print("PASS: GEG 2025 Q4 original signed 96 fields, 29 zero VND B01/B02/FY B03 identities; Q4 original matches 2026Q1 opening; 11,422,218,903 source vintage divergence is flagged")
