@@ -14,16 +14,24 @@ def v(row,key):
     return int((Decimal(str(row[key]))*Decimal(1000000)).to_integral_exact())
 def s(row,*ks): return sum(v(row,k) for k in ks)
 assert q["unit"]=="triệu VND" and "hợp nhất" in q["report_type"].lower()
-assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_9m_ytd_q3_cash_deferred"
+assert q["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_9m_and_q3_standalone_cash"
 assert q["source_validation"]["manually_visual_reviewed"] is True
 assert q["source_validation"]["original_pdf_sha256"]=="93580147a2c34adb8118a83ed3d9348360355b0660bdd5a47871c60f2403dc3b"
 assert q["source_validation"]["original_pdf_bytes"]==10076199
 assert q["source_validation"]["original_pdf_pages"]==[6,7,8,11,12,13,14,15,16,17]
 assert q["eps"]==q["diluted_eps"]==960
 assert q["roa"] is None and q["roe"] is None and q["selling_expense"] is None
-assert len(q["financial_line_items_extracted_fields"])==117
+assert len(q["financial_line_items_extracted_fields"])==124
 assert set(q["financial_line_items_extracted_fields"])==set(q["financial_line_items_manually_verified_fields"])
-assert all(q.get(k) is None for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","cash_beginning"))
+assert v(q,"operating_cash_flow")==-1214198760707
+assert v(q,"investing_cash_flow")==-98906047822
+assert v(q,"financing_cash_flow")==612012000000
+assert v(q,"net_cash_change")==-701092808529
+assert v(q,"cash_beginning")==1289345078324
+assert v(q,"cash_beginning")+v(q,"net_cash_change")==v(q,"cash_ending")
+assert v(q,"operating_cash_flow")+v(q,"investing_cash_flow")+v(q,"financing_cash_flow")==v(q,"net_cash_change")
+assert q["source_validation"]["q3_standalone_source_Q2_sha256"]=="48934ed3df3d6b47271c563448fc908ecf68533a990dd205397f87dd78525a36"
+assert all(x=="0" for x in q["source_validation"]["q3_standalone_residuals_vnd"].values())
 original={
  "total_assets":7732966527561,"total_liabilities":4578708861227,"equity":3154257666334,
  "current_assets":6530500802868,"non_current_assets":1202465724693,
