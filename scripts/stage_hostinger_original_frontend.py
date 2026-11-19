@@ -27,6 +27,12 @@ FILES = {
     "assets/styles.css": (5_000_000, None),
     "api/analysis-reports.php": (2_000_000, b"<?"),
 }
+EXPECTED_SHA = {
+    "index.html": "5e0573a9345a353f31415f446979fb849b29d4c836cdcd6c3f6bc1df64209437",
+    "assets/app.js": "92df346c7b98de31ef5ad58739084417bb6e38b00a4fd983312a9a037f9c2755",
+    "assets/styles.css": "cd963abc744fb0f6981e6c90464111884f8d8c41d918a1dc2a1d980604cdd4a8",
+    "api/analysis-reports.php": "c3ecf34316c30dbe5a2c0e563d4eb63144e8035d69ef8a3506fc665771996800",
+}
 PREFIX = "./domains/solieutaichinh.online/public_html/"
 EXTENSIONS = (".tar.gz", ".tgz", ".gz")
 
@@ -93,29 +99,49 @@ def run():
         except FileNotFoundError:
             sftp.mkdir(STAGE, mode=0o700)
             print("CREATED: private staging directory outside public_html")
+        # Reuse already extracted files if they match the independently
+        # verified SHA-256 from the previous staging run, so the enormous TAR
+        # is not decompressed repeatedly.
+        ready = True
+        for name, (limit, _starts) in FILES.items():
+            staged = STAGE + "/domains/solieutaichinh.online/public_html/" + name
+            try:
+                st = sftp.lstat(staged)
+                if not stat.S_ISREG(st.st_mode):
+                    print(f"::error::Staged file is not regular: {name}")
+                    return 2
+                _size, _first, sha = hash_remote(sftp, staged, limit)
+                if sha != EXPECTED_SHA[name]:
+                    print(f"::error::Staged hash differs from original archive: {name}")
+                    return 2
+            except FileNotFoundError:
+                ready = False
         # Exact paths only: never expand wildcards, extract unrelated files or
         # use tar's original ownership/permissions.
         members = [PREFIX + path for path in FILES]
-        cmd = (
-            "timeout 660 tar -xzf " + shlex.quote(archive)
-            + " -C " + shlex.quote(STAGE)
-            + " --no-same-owner --no-same-permissions -- "
-            + " ".join(shlex.quote(x) for x in members)
-            + " 2>/dev/null"
-        )
-        ch = transport.open_session(timeout=15)
-        ch.exec_command(cmd)
-        start = time.monotonic()
-        while not ch.exit_status_ready():
-            if time.monotonic() - start > 680:
-                ch.close()
-                print("::error::Private-stage TAR extraction exceeded guarded time budget")
+        if ready:
+            print("PASS: reusing four previously staged files with pinned SHA-256; skipping TAR re-extraction")
+        else:
+            cmd = (
+                "timeout 660 tar -xzf " + shlex.quote(archive)
+                + " -C " + shlex.quote(STAGE)
+                + " --no-same-owner --no-same-permissions -- "
+                + " ".join(shlex.quote(x) for x in members)
+                + " 2>/dev/null"
+            )
+            ch = transport.open_session(timeout=15)
+            ch.exec_command(cmd)
+            start = time.monotonic()
+            while not ch.exit_status_ready():
+                if time.monotonic() - start > 680:
+                    ch.close()
+                    print("::error::Private-stage TAR extraction exceeded guarded time budget")
+                    return 1
+                time.sleep(3)
+            code = ch.recv_exit_status()
+            if code:
+                print(f"::error::Private-stage TAR extraction failed, exit={code}")
                 return 1
-            time.sleep(3)
-        code = ch.recv_exit_status()
-        if code:
-            print(f"::error::Private-stage TAR extraction failed, exit={code}")
-            return 1
         print("PASS: exactly four allowlisted archive members extracted to private staging")
         for name, (limit, starts) in FILES.items():
             path = STAGE + "/domains/solieutaichinh.online/public_html/" + name
@@ -126,6 +152,9 @@ def run():
             size, first, sha = hash_remote(sftp, path, limit)
             if size < 10 or (starts and starts.lower() not in first.lower()):
                 print(f"::error::Invalid content for staged original asset: {name}")
+                return 2
+            if sha != EXPECTED_SHA[name]:
+                print(f"::error::Original staged file hash mismatch: {name}")
                 return 2
             print(f"STAGED: {name}, bytes={size}, sha256={sha}")
         items = sftp.listdir_attr(DATA)
