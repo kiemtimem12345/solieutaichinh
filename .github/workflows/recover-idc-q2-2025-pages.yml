@@ -6,6 +6,11 @@ on:
     paths:
       - scripts/recover_idc_2025_q2_original_pages.py
       - .github/workflows/recover-idc-q2-2025-pages.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - scripts/recover_idc_2025_q2_original_pages.py
+      - .github/workflows/recover-idc-q2-2025-pages.yml
   workflow_dispatch:
 permissions:
   contents: read
