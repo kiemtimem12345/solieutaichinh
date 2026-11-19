@@ -142,7 +142,7 @@ def run():
             if code:
                 print(f"::error::Private-stage TAR extraction failed, exit={code}")
                 return 1
-        print("PASS: exactly four allowlisted archive members extracted to private staging")
+        print("PASS: exactly four allowlisted archive members present in private staging")
         for name, (limit, starts) in FILES.items():
             path = STAGE + "/domains/solieutaichinh.online/public_html/" + name
             st = sftp.lstat(path)
