@@ -25,3 +25,17 @@
 - Run `44343527858`: **truy cập đọc public_html PASS**; đường dẫn `/home/u154814653/domains/solieutaichinh.online/public_html/data` **chưa tồn tại**.
 - Workflow `Verify Hostinger SFTP read-only` nay dùng Python Paramiko và kiểm tra các đường dẫn an toàn, không dùng `sshpass`; kết quả SUCCESS khi đăng nhập và truy cập web root đúng dù `data` chưa được tạo, kèm WARNING.
 - Không tự tạo `data`, không upload dữ liệu cho tới khi đã phục hồi giao diện gốc, kiểm tra backup và chuẩn bị triển khai có kiểm soát.
+
+
+## Checkpoint khôi phục website — 19/11/2026 (quan trọng)
+
+- **Đã phục hồi giao diện gốc** từ bản sao lưu .gz 12.35 GB ở thư mục riêng `restore-source`, không đặt bản sao lưu trong webroot. Tệp gốc `index.html`, `assets/styles.css`, `assets/app.js` lấy từ kho lưu trữ, không tạo mới giao diện.
+- **Đã phục hồi 41 JSON (32 mã tài chính + 9 dữ liệu phụ)** tại `data/`. Tất cả đều được **Git theo dõi** trong repo `kiemtimem12345/solieutaichinh` sau PR #35; không còn chỉ là các tệp tải riêng bằng SFTP.
+- **Nguyên nhân mất file lặp lại**: Hostinger `public_html` chính là bản checkout Git của repo này; cập nhật Git có thể xóa tệp không được Git theo dõi. Vì thế **không chạy lại quy trình SFTP bootstrap hoặc upload dữ liệu độc lập lên public_html**; cập nhật đúng dữ liệu ở repo rồi để Git đồng bộ.
+- PR #36 khắc phục JS tham chiếu GitHub cũ `kiemtimem123/so-lieu`, ưu tiên dữ liệu cùng nguồn `/data/` với repo hiện tại; sửa JSON fallback của danh mục báo cáo.
+- **Smoke test production PASS 45/45 HTTPS URLs bằng SHA256** (run `44447941121`, attempt 2, 19/11/2026 09:59 ICT): trang chủ, HTML, JS, CSS và toàn bộ 41 JSON. CI mã nguồn PASS run `44447941159`.
+- Bản PHP `api/analysis-reports.php` được tách an toàn trong staging riêng, **chưa đưa vào repo công khai hoặc webroot**; module phân tích có fallback JSON công khai. Khôi phục PHP phải kiểm tra cấu hình DB và bảo mật riêng, không áp dụng mặc định.
+- Đã tắt các tác vụ GitHub tự động quét archive lớn và chạy lại SFTP bootstrap/staging; các workflow lịch sử chỉ dành cho thao tác thủ công, bootstrap khẩn cấp cần bật guard riêng.
+- Trạng thái dữ liệu là **snapshot từng mã, chưa phải tất cả mã đã hoàn tất Q3/2026**; tiếp tục chuẩn hóa PLX → GAS → VDS → GEG → IDC từ checkpoint tài chính. Giữ nguyên kỳ từ Q1/2025, tối đa 20 kỳ và dung sai số liệu 0,01%.
+
+Bằng chứng: https://github.com/kiemtimem12345/solieutaichinh/actions/runs/44447941121
