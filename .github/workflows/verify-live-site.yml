@@ -1,0 +1,24 @@
+name: Verify restored production website and 41 JSON (read-only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'assets/**'
+      - 'data/**'
+      - 'scripts/verify_live_site.py'
+      - '.github/workflows/verify-live-site.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate locally and verify deployed HTTP assets
+        run: python -u scripts/verify_live_site.py
