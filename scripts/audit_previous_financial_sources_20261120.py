@@ -54,7 +54,20 @@ def probe_site(pair):
    "category":("secondary_not_signed_source" if label.startswith("WiData_") else
        "direct_pdf_locator_unverified" if label.startswith("HOSE_PDF") else
        "original_issuer_or_exchange_disclosure_site")}
- if result["http_status"]=="200":
+ # Some known financial listings implement GET but return 404/405 to HEAD.
+ # Recheck safe HTML listings, never use bypass for invalid TLS or DNS.
+ if result["http_status"] in ("404","405") and not label.startswith("HOSE_PDF"):
+  x=subprocess.run(["curl","--location","--silent","--show-error",
+     "--connect-timeout","8","--max-time","14","--max-filesize","500000",
+     "--range","0-131071","--output","/dev/null",
+     "--write-out","%{http_code}",url],capture_output=True,text=True,timeout=18)
+  result["head_http_status"]=result["http_status"]
+  result["get_probe_status"]=x.stdout[-3:] if len(x.stdout)>=3 else None
+  result["get_probe_curl_exit"]=x.returncode
+  if x.returncode==0 and result["get_probe_status"] in ("200","206"):
+   result["http_status"]=result["get_probe_status"]
+   result["verified_method"]="GET fallback after HEAD method rejected"
+ if result["http_status"] in ("200","206"):
   result["status"]="reachable_listing_or_url_not_pdf_visual_PASS"
  elif p.returncode!=0:
   result["status"]="timeout_or_unavailable_not_proof_of_missing_report"
