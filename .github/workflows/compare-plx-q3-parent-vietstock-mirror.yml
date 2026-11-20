@@ -1,0 +1,30 @@
+name: Compare PLX parent Q3 issuer PDF with Vietstock archive version
+on:
+  push:
+    branches: [work/recheck-financial-sources-vietstock-widata-ssc-20261120]
+    paths:
+      - scripts/compare_plx_q3_2026_parent_vietstock_mirror.py
+      - .github/workflows/compare-plx-q3-parent-vietstock-mirror.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Verify complete original PDF and SHA from public Vietstock archive
+        run: python -u scripts/compare_plx_q3_2026_parent_vietstock_mirror.py
+      - name: Preserve PDF source hash and original pages for comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: plx-q3-parent-2026-vietstock-mirror-original
+          path: plx-q3-parent-vietstock-version/
+          if-no-files-found: warn
+          retention-days: 7
