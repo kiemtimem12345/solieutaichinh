@@ -37,6 +37,8 @@ jobs:
         run: python scripts/verify_plx_q2_2025_original.py
       - name: Verify PLX signed Q3 2025 original and KPMG reviewed H1 same-vintage 9M-minus-H1 cash and B02 anomalies
         run: python scripts/verify_plx_q3_2025_reviewed_h1.py
+      - name: Verify PLX Q4 2025 original vs audited FY signed accounting vintages, quarantine quarter cash
+        run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
       - name: Verify independent official HOSE PLX Q3 and H1 explanatory disclosures, quarantine parent B03
         run: python scripts/verify_plx_hose_independent_disclosures.py
       - name: Verify GAS Q1 2025 original B01 B02 B03 source values

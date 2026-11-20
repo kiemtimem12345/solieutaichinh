@@ -1,0 +1,74 @@
+# Evidence: PLX consolidated 2025 source-version comparison; issuer original VND
+# First issued Q4 signed 2026-01-29: PDF 31p 13,759,900 bytes, SHA256 35a0f637ffbb0ecf5161337f5289e5e2572dc5655ff865d2d5c8eca592187e61; B01 pp2-4 B02 p5 B03 pp6-7
+# FY2025 audited KPMG signed 2026-03-31: PDF 85p 12,190,357 bytes SHA256 5570d8cdb64de8f7978f6ef0a753afd08311a08e0dceb7f10a85b90e744b1735; B01 pp6-9 B02 pp10-11 B03 pp12-14
+# Preceding Q3 9M source original signed 2025-10-29, 31p SHA 012d34a3166e67ca61de8c7442bb7474479853b55f105b30c60347ee4e40453c
+# BEGIN first_issued_Q4
+B01_total_assets 86116520697256
+B01_current_assets 59846284403315
+B01_noncurrent_assets 26270236293941
+B01_total_liabilities 56640123798180
+B01_current_liabilities 55679642773404
+B01_long_term_liabilities 960481024776
+B01_equity 29476396899076
+B01_cash 10803153849383
+B02_quarter_gross_revenue 81921339081231
+B02_quarter_deductions 28526122040
+B02_quarter_net_revenue 81892812959191
+B02_quarter_cogs 77082243329860
+B02_quarter_gross_profit 4810569629331
+B02_quarter_operating_profit 884019545258
+B02_quarter_other_profit 2071353904
+B02_quarter_pretax_profit 886090899162
+B02_quarter_current_tax 138896589171
+B02_quarter_deferred_tax 50266424366
+B02_quarter_net_profit 696927885625
+B02_quarter_parent_pat 585651218513
+B02_quarter_nci_pat 111276667112
+B02_year_net_revenue 309924230750513
+B02_year_net_profit 3038078002060
+B03_year_cfo 4254126280969
+B03_year_cfi -7693713011502
+B03_year_cff -701839793706
+B03_year_net -4141426524239
+B03_year_begin 14933068792315
+B03_year_fx 11511581307
+B03_year_end 10803153849383
+B03_year_capex -2938644556706
+B03_year_dividends_paid -1524280078777
+# END first_issued_Q4
+# BEGIN audited_FY2025
+B01_total_assets 85855397411812
+B01_total_liabilities 56293654583191
+B01_equity 29561742828621
+B01_cash 10675798547805
+B02_year_gross_revenue 309985192170389
+B02_year_deductions 110677000450
+B02_year_net_revenue 309874515169939
+B02_year_cogs 291761774258651
+B02_year_gross_profit 18112740911288
+B02_year_operating_profit 3576533619987
+B02_year_other_profit 66929966107
+B02_year_pretax_profit 3643463586094
+B02_year_current_tax 775649251314
+B02_year_deferred_tax -158930228038
+B02_year_net_profit 3026744562818
+B03_year_cfo 3990368093758
+B03_year_cfi -7318982155223
+B03_year_cff -928898351454
+B03_year_net -4257512412919
+B03_year_begin 14933068792315
+B03_year_fx 242168409
+B03_year_end 10675798547805
+B03_year_capex -2662439492218
+B03_year_dividends_paid -1724767984432
+# END audited_FY2025
+# BEGIN signed_Q3_9M
+B03_9m_cfo -1156503980511
+B03_9m_cfi -6956810447853
+B03_9m_cff 5767818280823
+B03_9m_net -2345496147541
+B03_9m_fx 28985295184
+B03_9m_end 12616557939958
+B03_9m_dividends -1577888831500
+B02_9m_net_profit 2341150116435
+# END signed_Q3_9M
