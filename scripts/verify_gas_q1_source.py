@@ -2,7 +2,7 @@
 """Regression on GAS Q1/2025 issuer B01/B02/B03, after segment disclosure correction.
 
 Numerical fields are stored as million VND, while PDF shows raw VND.
-Do NOT imply visual screenshot verification: this is PDF-text + exact arithmetic.
+Original signed issuer source PDF pages 4–7 visually reviewed 2026-11-20; B01/B02/B03 and exact arithmetic.
 """
 import json
 from decimal import Decimal
@@ -13,7 +13,16 @@ obj=json.loads(path.read_text(encoding="utf-8"))
 r=next(x for x in obj["items"] if x["period"]=="2025-Q1")
 assert "hợp nhất" in r["report_type"].lower()
 assert r["unit"]=="triệu VND"
-assert r["source_validation"]["manually_visual_reviewed"] is False
+assert r["source_validation"]["manually_visual_reviewed"] is True
+assert r["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_q1_2025"
+assert r["source_validation"]["source_original_issuer_pdf_sha256"]=="b86f8fa9f26731955d41cff2866d68aa9f1fd8692a78ff25b228447a51710d15"
+assert r["source_validation"]["source_original_issuer_pdf_bytes"]==18836716
+assert r["source_validation"]["source_original_issuer_pdf_pages"]==76
+assert r["source_validation"]["visually_reviewed_original_pdf_pages"]==[4,5,6,7]
+assert r["source_validation"]["source_original_pdf_recovery_workflow_run"]==44668684322
+assert r["source_validation"]["source_original_pdf_artifact_id"]==14599102084
+assert r["financial_line_items_manually_verified_fields"]==r["financial_line_items_extracted_fields"]
+assert len(r["financial_line_items_manually_verified_fields"])==48
 assert "source_amendment_url" in r["source_validation"]
 assert "Thuyết minh 37" in r["source_validation"]["source_amendment_scope"]
 assert all(v=="0" for v in r["source_validation"]["exact_identity_residuals_vnd"].values())
@@ -39,5 +48,5 @@ assert r["eps"]==1177 and r["cashflow_period_basis"]=="year_to_date"
 assert r["source_validation"]["exact_identity_residuals_vnd"]["B03 investing components"]=="0"
 assert r["source_validation"]["exact_identity_residuals_vnd"]["B03 finance components"]=="0"
 assert all(r[name] < 0 for name in ("income_tax_deferred","investing_cash_flow","capital_expenditure","foreign_exchange_effect"))
-assert "financial_line_items_manually_verified_fields" not in r, "No visual check: do not mark manually verified"
-print("PASS: GAS Q1 2025 consolidated B01/B02/B03, 42 source fields, 15/15 exact VND identities, original correction scoped to note 37.")
+assert r["source_validation"]["original_source_accounting_check_count"]==15
+print("PASS: GAS Q1 2025 source original 76-page signed PDF B01/B02/B03 visually reviewed pp4-7; 48 fields, 15 exact VND identities; segment note37 amendment isolated")

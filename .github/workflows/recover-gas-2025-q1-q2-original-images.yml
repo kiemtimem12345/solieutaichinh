@@ -1,0 +1,30 @@
+name: Recover GAS 2025 Q1 Q2 issuer originals for B01 B02 B03 visual QA
+on:
+  push:
+    branches: [work/gas-2025-q1-q2-original-visual-20261120]
+    paths:
+      - scripts/recover_gas_2025_q1_q2_original_images.py
+      - .github/workflows/recover-gas-2025-q1-q2-original-images.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Fetch full signed GAS Q1 Q2 original PDFs and render first 23 pages
+        run: python -u scripts/recover_gas_2025_q1_q2_original_images.py
+      - name: Preserve exact source and visual page images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gas-2025-q1-q2-original-source-pages
+          path: gas-q1-q2-2025-original-sources/
+          retention-days: 7
+          if-no-files-found: warn
