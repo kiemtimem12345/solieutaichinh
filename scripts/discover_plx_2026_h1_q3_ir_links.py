@@ -19,9 +19,14 @@ PAGES=[
  ("plx_IR","https://plx.petrolimex.com.vn/quan-he-nha-dau-tu.html"),
  ("w_IR","https://w.petrolimex.com.vn/quan-he-nha-dau-tu.html"),
  ("issuer_shareholder","https://www.petrolimex.com.vn/ndi/thong_tin_co_dong/"),
+ ("issuer_nha_dau_tu","https://www.petrolimex.com.vn/nha-dau-tu.html"),
+ ("vietstock_PLX_catalog","https://finance.vietstock.vn/PLX/tai-tai-lieu.htm?doctype=1"),
+ ("HOSE_Q3_consolidated_listing","https://nmquan.vn/data/ma/PLX/cong-bo/245179924-bao-cao-tai-chinh-hop-nhat-q3-nam-2026"),
+ ("HOSE_H1_parent_listing","https://nmquan.vn/data/ma/PLX/cong-bo/50884368-bao-cao-tai-chinh-cong-ty-me-6-thang-nam-2026-sau-soat-xet"),
+ ("HOSE_H1_consolidated_listing","https://nmquan.vn/data/ma/PLX/cong-bo/52619791-bao-cao-tai-chinh-hop-nhat-6-thang-nam-2026-sau-soat-xet"),
  ("issuer_parent_H1_pdf_HOSE_candidate","https://staticfile.hsx.vn/Uploads/UploadDocuments/2493840/20260828%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20Cong%20ty%20me%206%20thang%20nam%202026%20sau%20soat%20xet.pdf"),
 ]
-ALLOWED={"www.petrolimex.com.vn","plx.petrolimex.com.vn","w.petrolimex.com.vn","files.petrolimex.com.vn","staticfile.hsx.vn"}
+ALLOWED={"www.petrolimex.com.vn","plx.petrolimex.com.vn","w.petrolimex.com.vn","files.petrolimex.com.vn","staticfile.hsx.vn","finance.vietstock.vn","nmquan.vn"}
 def ascii_text(t):
  t=unicodedata.normalize("NFKD",html.unescape(unquote(t or ""))).lower()
  return "".join(c for c in t if not unicodedata.combining(c))
@@ -65,7 +70,7 @@ def probe(pair):
   matches=[]
   for a in parsed.links:
    text=ascii_text(a["text"]+" "+a["title"]+" "+a["href"])
-   if "2026" not in text or not any(x in text for x in ("6 thang","ban nien","quy 3","quy iii","q3","soat xet","hop nhat","cong ty me")):continue
+   if "2026" not in text or not any(x in text for x in ("6 thang","ban nien","quy 3","quy iii","q3","soat xet","hop nhat","cong ty me","bctc")):continue
    target=urljoin(url,a["href"])
    host=urlparse(target).hostname
    if host and not (host.endswith("petrolimex.com.vn") or host in ("staticfile.hsx.vn",)):
