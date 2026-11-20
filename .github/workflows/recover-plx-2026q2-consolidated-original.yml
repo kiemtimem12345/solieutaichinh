@@ -1,0 +1,30 @@
+name: Recover PLX 2026 Q2 original consolidated signed B01 B02 H1 B03
+on:
+  push:
+    branches: [work/plx-2026q2-signed-issuer-source-20261120]
+    paths:
+      - scripts/recover_plx_q2_2026_consolidated_original.py
+      - .github/workflows/recover-plx-2026q2-consolidated-original.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Download complete signed original and inspect source page bitmap evidence
+        run: python -u scripts/recover_plx_q2_2026_consolidated_original.py
+      - name: Preserve full signed source for B01 B02 and cumulative 6-month B03 visual QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: plx-2026q2-original-consolidated-PDF-and-images
+          path: plx-2026-q2-consolidated-original/
+          retention-days: 7
+          if-no-files-found: warn
