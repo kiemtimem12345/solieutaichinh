@@ -14,10 +14,19 @@ q1=next(x for x in o["items"] if x["period"]=="2025-Q1")
 q2=next(x for x in o["items"] if x["period"]=="2025-Q2")
 assert "hợp nhất" in q2["report_type"].lower()
 assert q1["source_validation"]["manually_visual_reviewed"] is False
-assert q2["source_validation"]["manually_visual_reviewed"] is False
+assert q2["source_validation"]["manually_visual_reviewed"] is True
+assert q2["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_h1_ytd_and_q2_standalone_cash"
+assert q2["source_validation"]["source_original_issuer_pdf_sha256"]=="c21bc4e88e2ce3d8331fa518df619d50086de50feed8691e48f653b825a4f31d"
+assert q2["source_validation"]["source_original_issuer_pdf_bytes"]==14166457
+assert q2["source_validation"]["source_original_issuer_pdf_pages"]==75
+assert q2["source_validation"]["visually_reviewed_original_pdf_pages"]==[4,5,6,7]
+assert q2["source_validation"]["source_original_pdf_recovery_workflow_run"]==44668684322
+assert q2["source_validation"]["source_original_pdf_artifact_id"]==14599102084
+assert q2["financial_line_items_manually_verified_fields"]==q2["financial_line_items_extracted_fields"]
+assert len(q2["financial_line_items_manually_verified_fields"])==49
 assert q2["source_validation"]["quarter_columns"]=="B02 current year quarter (not prior year or H1 YTD)"
 assert q2["eps"]==1985 and q2["unit"]=="triệu VND"
-assert not q2.get("financial_line_items_manually_verified_fields"), "Do not claim visual review"
+assert q2["financial_line_items_manually_verified_fields"]==q2["financial_line_items_extracted_fields"]
 assert len(q2["source_validation"]["exact_checks"])==23
 assert all(x=="0" for x in q2["source_validation"]["exact_checks"].values())
 
@@ -62,4 +71,4 @@ assert v(q2,"admin_expense")==-1282797122580
 assert v(q2,"foreign_exchange_effect")==1848437942
 assert v(q2,"cash_beginning")==8166654567957 and v(q2,"cash_ending")==10597445910363
 assert v(q2,"net_profit")==4808599034503
-print(f"PASS: GAS consolidated Q2/2025 original PDF text; 49 added numeric fields, {count} exact VND financial/quarter/YTD identities, no visual-review claim")
+print(f"PASS: GAS consolidated Q2/2025 signed original 75-page PDF B01/B02/B03 visually checked pp4–7; 49 fields, {count} exact VND financial and Q2 YTD-minus-Q1 identities")
