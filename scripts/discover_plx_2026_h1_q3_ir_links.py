@@ -21,6 +21,7 @@ PAGES=[
  ("issuer_shareholder","https://www.petrolimex.com.vn/ndi/thong_tin_co_dong/"),
  ("issuer_nha_dau_tu","https://www.petrolimex.com.vn/nha-dau-tu.html"),
  ("vietstock_PLX_catalog","https://finance.vietstock.vn/PLX/tai-tai-lieu.htm?doctype=1"),
+ ("vietstock_document_bundle","https://finance.vietstock.vn/bundles/company/document/jsx?v=fixhaYn0u7-YWZ8NXGb4lz5y9H5jd7I2DAsxTnN0LqE1"),
  ("HOSE_Q3_consolidated_listing","https://nmquan.vn/data/ma/PLX/cong-bo/245179924-bao-cao-tai-chinh-hop-nhat-q3-nam-2026"),
  ("HOSE_H1_parent_listing","https://nmquan.vn/data/ma/PLX/cong-bo/50884368-bao-cao-tai-chinh-cong-ty-me-6-thang-nam-2026-sau-soat-xet"),
  ("HOSE_H1_consolidated_listing","https://nmquan.vn/data/ma/PLX/cong-bo/52619791-bao-cao-tai-chinh-hop-nhat-6-thang-nam-2026-sau-soat-xet"),
@@ -57,10 +58,21 @@ def probe(pair):
   raw=path.read_bytes()
   entry.update({"bytes":len(raw),"signature":raw[:12].hex()})
   if raw.startswith(b"%PDF"):
+   if p.returncode != 0:
+    entry["partial_pdf_not_valid"] = True
+    entry["note"]="Curl failed or timed out before completing PDF; do not calculate a full-source hash, parse or visually validate incomplete bytes."
+    path.unlink(missing_ok=True)
+    return entry
    import hashlib
    entry.update({"pdf_sha256":hashlib.sha256(raw).hexdigest(),"is_pdf":True})
    # PDF source only: keep as short-lived Actions artifact, not in Git.
    (OUT/(label+".pdf")).write_bytes(raw)
+   return entry
+  if "document_bundle" in label and p.returncode==0:
+   text=raw.decode("utf-8","replace")
+   entry["js_bytes"]=len(raw)
+   entry["document_api_candidates"]=list(dict.fromkeys(re.findall(r"(?:(?:https?:)?//[^\\'\\\" ]{5,180}|/[^\\'\\\" ]{1,160}(?:[Dd]ocument|[Dd]oc)[^\\'\\\" ]{0,100})",text)))[:100]
+   entry["bundle_text_snippets"]=[text[max(0,m.start()-300):m.end()+500] for m in list(re.finditer("document",text,re.I))[:12]]
    return entry
   if b"<" not in raw[:1000] or len(raw)>3000000:
    return entry
