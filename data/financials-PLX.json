@@ -1201,7 +1201,21 @@
         "remaining_pdf_retrieval_needed": true,
         "scope": "consolidated",
         "reported_vnd": 1363096640781,
-        "source_comparison_q3_2025_vnd": 705970238434
+        "source_comparison_q3_2025_vnd": 705970238434,
+        "hose_source_links_discovered": {
+          "discovered_on": "2026-11-20",
+          "discovery_index": "https://nmquan.vn/data/ma/PLX/cong-bo/245179924-bao-cao-tai-chinh-hop-nhat-q3-nam-2026",
+          "original_exchange_issuer_scope": "PLX Q3 2026 consolidated; published 2026-10-30",
+          "original_q3_consolidated_pdf_url": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2510747/20261030%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20Hop%20nhat%20Q3%20nam%202026.pdf",
+          "reviewed_h1_consolidated_comparator_url": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2494321/20260828%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20hop%20nhat%206%20thang%20nam%202026%20sau%20soat%20xet.pdf",
+          "reviewed_h1_parent_other_scope_url": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2493840/20260828%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20Cong%20ty%20me%206%20thang%20nam%202026%20sau%20soat%20xet.pdf",
+          "url_listing_verified": true,
+          "issuer_pdf_bytes_recovered": false,
+          "issuer_pdf_visual_reviewed": false,
+          "source_delivery_issue": "GitHub Actions curl: staticfile.hsx.vn connect timed out; web PDF tool: large PDF cap / response timeout; not proof file missing",
+          "cashflow_quarterization_allowed": false,
+          "source_priority_note": "Use Q3 consolidated 9M minus same-scope H1 consolidated 6M only after both signed issuer PDFs B03 are visually verified and cash bridge checks are 0 VND."
+        }
       },
       "net_profit": 1363096.640781,
       "report_type": "BCTC hợp nhất PLX Q3/2026 — LNST xác nhận từ công bố chính thức, B01/B02/B03 chi tiết chờ PDF gốc"
