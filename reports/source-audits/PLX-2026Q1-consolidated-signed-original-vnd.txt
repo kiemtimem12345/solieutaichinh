@@ -152,3 +152,18 @@ opening_equity 29561742828621
 opening_cash_on_Q1_2026_B01_B03 7588239730231
 FY2025_audited_cash_ending 10675798547805
 # END SOURCE_OPENING_COMPARATIVE
+
+# BEGIN OPENING_CASH_RECLASSIFICATION
+# Independent issuer FY2025 audited table: https://www.petrolimex.com.vn/~plxpublic/bctn-2025-baocaotaichinh.html
+# Q1/2026 signed PDF B01 p2 and signed Note 16 page 21 (PDF zero-based page 20):
+# https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/PLX_Baocaotaichinh_Q1_2026_Hopnhat.pdf
+# Source B01 note 16: "Tiền gửi tại Quỹ Bình ổn giá" opening balance 3,087,558,817,574 VND.
+# This is a NON-CASH movement across the same reporting-date comparative, never CFO/CFI/CFF.
+fy2025_audited_cash 10675798547805
+q1_2026_opening_cash 7588239730231
+fy2025_audited_other_current_assets 1196230766487
+q1_2026_opening_other_current_assets 4283789584061
+fy2025_audited_other_current_other 808250628
+q1_2026_opening_other_current_other 3088367068202
+q1_2026_note16_opening_price_stabilization_deposit 3087558817574
+# END OPENING_CASH_RECLASSIFICATION
