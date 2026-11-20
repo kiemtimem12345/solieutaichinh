@@ -1,0 +1,30 @@
+name: Recover PLX consolidated 2025 Q4 and FY audited original PDFs
+on:
+  push:
+    branches: [work/plx-2025q4-original-yearend-20261120]
+    paths:
+      - scripts/recover_plx_2025_q4_and_fy_audited.py
+      - .github/workflows/recover-plx-2025q4-fy-originals.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Download complete original Q4 and FY audited PDFs with visual source pages
+        run: python -u scripts/recover_plx_2025_q4_and_fy_audited.py
+      - name: Preserve original signed PDF and source page PNG evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: plx-2025-q4-and-fy-audited-originals
+          path: plx-2025-q4-fy-originals/
+          retention-days: 7
+          if-no-files-found: warn
