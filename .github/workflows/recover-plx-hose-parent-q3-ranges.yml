@@ -1,0 +1,33 @@
+name: Recover original PLX parent Q3 PDF from HOSE using validated byte ranges
+on:
+  push:
+    branches: [work/recheck-financial-sources-vietstock-widata-ssc-20261120]
+    paths:
+      - scripts/recover_plx_hose_parent_q3_by_ranges.py
+      - .github/workflows/recover-plx-hose-parent-q3-ranges.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-hose-pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Reconstruct original HOSE PDF using complete 206 Content-Range gate
+        run: python -u scripts/recover_plx_hose_parent_q3_by_ranges.py
+      - name: Preserve source-original PDF, hashes and visual B03 page images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: plx-q3-2026-hose-parent-official-range-pdf-and-images
+          path: |
+            plx-hose-q3-parent-official-range-source/audit.json
+            plx-hose-q3-parent-official-range-source/PLX-Q3-2026-parent-HOSE-original.pdf
+            plx-hose-q3-parent-official-range-source/*.png
+          retention-days: 7
+          if-no-files-found: warn
