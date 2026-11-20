@@ -92,7 +92,20 @@ for r in q:
   assert src["b03_source_identity_checks_vnd"]["net_using_components_minus_printed_net"]=="0"
   assert src["b03_source_identity_checks_vnd"]["net_using_printed_cff_minus_printed_net"]=="-87654015000"
   assert src["full_b01_b02_b03_visual_reviewed"] is False
-  assert src["separate_parent_h1_2026_reviewed_pdf_still_pending"] is True
+  assert src["separate_parent_h1_2026_reviewed_pdf_still_pending"] is False
+  assert src["reviewed_parent_h1_original_complete"] is True
+  assert src["reviewed_parent_h1_b03_original_source_page_visual_verified"] is True
+  assert src["reviewed_parent_h1_pdf_sha256"]=="a7929fbbc64f8f7fd201c33df9d09f32098ea1829ead9d6ea39c434f8821cd2c"
+  assert src["reviewed_parent_h1_pdf_bytes"]==18543309 and src["reviewed_parent_h1_pdf_pages"]==63
+  assert src["reviewed_parent_h1_b03_verified_pdf_pages"]==[10,11]
+  reviewed_h1={k:int(v) for k,v in src["reviewed_parent_h1_original_b03_vnd"].items()}
+  assert reviewed_h1["operating_cash_flow_ytd"]==990932483405
+  assert reviewed_h1["investing_cash_flow_ytd"]==8086220870542
+  assert reviewed_h1["financing_cash_flow_ytd"]==-9071667387469
+  assert (reviewed_h1["operating_cash_flow_ytd"]+reviewed_h1["investing_cash_flow_ytd"]+reviewed_h1["financing_cash_flow_ytd"])==reviewed_h1["net_cash_change_ytd"]==5485966478
+  assert (reviewed_h1["cash_beginning_reported_ytd"]+reviewed_h1["net_cash_change_ytd"]+reviewed_h1["foreign_exchange_effect_ytd"])==reviewed_h1["cash_ending"]==1416006359296
+  assert src["q3_parent_cashflow_quarter_still_blocked_by_signed_original_cff_discrepancy"] is True
+
 
   assert r["source_validation"]["b03_component_cfo_cfi_cff_reconciles_net_change"]
 assert {r["source_validation"]["scope"] for r in q}==set(expected)
