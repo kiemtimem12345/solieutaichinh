@@ -13,7 +13,7 @@ o=json.loads((Path(__file__).resolve().parents[1]/"data/financials-GAS.json").re
 q1=next(x for x in o["items"] if x["period"]=="2025-Q1")
 q2=next(x for x in o["items"] if x["period"]=="2025-Q2")
 assert "hợp nhất" in q2["report_type"].lower()
-assert q1["source_validation"]["manually_visual_reviewed"] is False
+assert q1["source_validation"]["manually_visual_reviewed"] is True
 assert q2["source_validation"]["manually_visual_reviewed"] is True
 assert q2["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_h1_ytd_and_q2_standalone_cash"
 assert q2["source_validation"]["source_original_issuer_pdf_sha256"]=="c21bc4e88e2ce3d8331fa518df619d50086de50feed8691e48f653b825a4f31d"
