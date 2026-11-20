@@ -1,0 +1,31 @@
+name: Recover exact PLX Q3 consolidated and reviewed H1 originals
+on:
+  push:
+    branches: [work/plx-2026-h1-q3-source-discovery-20261120]
+    paths:
+      - scripts/recover_plx_2026_consolidated_and_reviewed_h1.py
+      - .github/workflows/recover-plx-2026-consolidated-and-reviewed-h1.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-signed-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF renderer
+        run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Download three full issuer original PDFs and render source pages
+        run: python -u scripts/recover_plx_2026_consolidated_and_reviewed_h1.py
+      - name: Preserve exact signed PDFs and page images for visual source QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: plx-2026-original-q3-consolidated-h1-reviewed
+          path: plx-2026-original-mirrors/
+          if-no-files-found: warn
+          retention-days: 7
