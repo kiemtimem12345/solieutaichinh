@@ -32,6 +32,15 @@ for r in q:
   "net_cash_change","cash_ending","dividends_paid")), "B03 must stay blocked"
  if scope=="consolidated":
   assert r["financial_line_items_extracted_fields"]==["net_profit"]
+  links=r["source_validation"]["hose_source_links_discovered"]
+  assert links["url_listing_verified"] is True
+  assert links["issuer_pdf_bytes_recovered"] is False and links["issuer_pdf_visual_reviewed"] is False
+  assert links["cashflow_quarterization_allowed"] is False
+  assert links["original_q3_consolidated_pdf_url"]=="https://staticfile.hsx.vn/Uploads/UploadDocuments/2510747/20261030%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20Hop%20nhat%20Q3%20nam%202026.pdf"
+  assert "/2494321/" in links["reviewed_h1_consolidated_comparator_url"]
+  assert "/2493840/" in links["reviewed_h1_parent_other_scope_url"]
+  assert links["reviewed_h1_consolidated_comparator_url"]!=links["reviewed_h1_parent_other_scope_url"]
+
   assert not any(isinstance(r.get(k),(int,float)) for k in
     ("revenue","gross_profit","total_assets","pretax_profit","net_profit_attributable"))
  else:
