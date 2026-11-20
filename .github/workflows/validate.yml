@@ -33,6 +33,8 @@ jobs:
         run: python scripts/verify_plx_q3_2026_consolidated_original.py
       - name: Verify PLX consolidated Q1 2025 original signed B01 B02 B03, 40 exact VND identities
         run: python scripts/verify_plx_q1_2025_original.py
+      - name: Verify PLX 2025 Q2 signed source 104 VND fields and H1-minus-Q1 43 cash and balance identities
+        run: python scripts/verify_plx_q2_2025_original.py
       - name: Verify independent official HOSE PLX Q3 and H1 explanatory disclosures, quarantine parent B03
         run: python scripts/verify_plx_hose_independent_disclosures.py
       - name: Verify GAS Q1 2025 original B01 B02 B03 source values
