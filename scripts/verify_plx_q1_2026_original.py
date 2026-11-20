@@ -6,8 +6,11 @@ B01 pp2–4, B02 p5, B03 pp6–7. ALL 34 valid financial identities in
 the originally PRINTED source pass at exact VND. But two B01 subtotals
 DO NOT match displayed components, each above the user's 0.01% threshold:
 receivables 9,083,970,186 VND; current liabilities 9,088,965,442 VND.
-Also 01/01 cash "phan loai lai" differs from signed FY2025 closing by
-3,087,558,817,574 VND. Do not silently repair those three exceptions.
+The comparative cash reclassification is now source-verified: FY2025 cash
+minus Q1 opening cash equals the increase in B01 code 165 (other current
+assets), exactly the opening "Tien gui tai Quy Binh on gia" in Q1 Note 16:
+3,087,558,817,574 VND. It is noncash and is NOT CFO/CFI/CFF. The two
+signed B01 detailed-subtotal discrepancies remain unresolved and blocked.
 
 The 2026 Q1 basic EPS source cell is blank. Code 70 is a row ID, not EPS.
 Diluted EPS source row71 is -521 VND/share. Keep basic EPS null.
@@ -35,6 +38,7 @@ for line in (ROOT/"reports/source-audits/PLX-2026Q1-consolidated-signed-original
 V=groups["SOURCE_B01_B02_B03"]
 D=groups["ORIGINAL_B01_DETAIL"]
 O=groups["SOURCE_OPENING_COMPARATIVE"]
+R=groups["OPENING_CASH_RECLASSIFICATION"]
 assert (len(V),len(D))==(82,55)
 def value(k):
     assert isinstance(q.get(k),(float,int)) and not isinstance(q[k],bool),(k,q.get(k))
@@ -98,7 +102,33 @@ assert s["signed_original_b01_current_liabilities_unexplained_difference_vnd"]==
 assert s["opening_cash_Q1_minus_FY2025_audited_vnd"]==str(anom_open)
 assert s["b01_subgroups_exceed_001percent_tolerance"] is True
 assert s["full_b01_component_arithmetic_passed"] is False
-assert s["opening_cash_reclassification_exact_destination_explanation"].startswith("NOT VERIFIED")
+# FY2025 audited -> Q1 as-filed comparative: only a reclassification.
+assert len(R)==7
+fund=R["q1_2026_note16_opening_price_stabilization_deposit"]
+assert fund==3087558817574
+assert R["fy2025_audited_cash"]==O["FY2025_audited_cash_ending"]
+assert R["q1_2026_opening_cash"]==O["opening_cash_on_Q1_2026_B01_B03"]
+assert R["fy2025_audited_cash"]-R["q1_2026_opening_cash"]==fund
+assert R["q1_2026_opening_other_current_assets"]-R["fy2025_audited_other_current_assets"]==fund
+assert R["q1_2026_opening_other_current_other"]-R["fy2025_audited_other_current_other"]==fund
+assert (R["fy2025_audited_cash"]+R["fy2025_audited_other_current_assets"]==
+        R["q1_2026_opening_cash"]+R["q1_2026_opening_other_current_assets"])
+assert (R["q1_2026_opening_other_current_other"]-fund==
+        R["fy2025_audited_other_current_other"])
+assert s["opening_cash_Q1_minus_FY2025_audited_vnd"]==str(-fund)
+assert s["opening_cash_reclassification_status"]=="verified_exact_vnd_note16_and_FY2025_audited"
+assert s["Q1_2026_note16_opening_price_stabilization_deposit_vnd"]==str(fund)
+for k in ("FY2025_audited_other_current_assets","Q1_2026_opening_other_current_assets",
+          "FY2025_audited_other_current_other","Q1_2026_opening_other_current_other"):
+    assert s[k+"_vnd"]==str(R[k.lower().replace("fy2025","fy2025").replace("q1_2026","q1_2026")]),k
+assert s["opening_cash_reclassification_evidence"]["Q1_signed_pdf_note16_page"]==21
+assert s["opening_cash_reclassification_evidence"]["cash_from_B01_code"]=="110"
+assert s["opening_cash_reclassification_evidence"]["other_current_asset_to_B01_code"]=="165"
+assert s["opening_cash_reclassification_exact_destination_explanation"].startswith("VERIFIED:")
+# Neither source-reported B01 subtotal may be accepted as reconciled absent a signed erratum.
+assert s["b01_subgroups_explanation_status"].endswith("requires_official_erratum")
+assert s["b01_full_pass_blocked_until_official_correction"] is True
+assert s["full_b01_component_arithmetic_passed"] is False
 assert s["original_B01_opening_cash_reclassified_as_printed"] is True
 assert s["original_B03_comparative_prior_year_reclassified_as_printed"] is True
 assert s["manually_visual_reviewed"] and s["full_b01_b02_b03_visual_reviewed"]
@@ -122,4 +152,4 @@ assert (q["roa"],q["roe"])==(-2.76,-9.07)
 parent=next(x for x in doc["items"] if x["period"]=="2026-Q3" and x["source_validation"].get("scope")=="parent_company")
 assert parent["source_validation"]["b03_cashflow_discrepancy_vnd"]=="87654015000"
 assert parent.get("financing_cash_flow") is None
-print("PASS: PLX Q1 2026 signed original 36p, 82 monetary VND source fields; 34 exact identities zero VND. B01 mismatches receivables 9,083,970,186 and current liabilities 9,088,965,442 VND QUARANTINED; opening cash audited FY vintage -3,087,558,817,574 VND labelled reclassified; basic EPS blank, diluted -521, Q1 CFO+CFI+CFF and cash bridge exact. 2026 parent Q3 CFF source error still blocked.")
+print("PASS: PLX Q1 2026 signed original 36p, 82 monetary VND source fields; 34 exact identities zero VND. B01 mismatches receivables 9,083,970,186 and current liabilities 9,088,965,442 VND QUARANTINED; opening cash reclassification +3,087,558,817,574 VND to restricted price-stabilization-fund deposits in B01 code165 VERIFIED from Note 16; basic EPS blank, diluted -521, Q1 CFO+CFI+CFF and cash bridge exact. 2026 parent Q3 CFF source error still blocked.")
