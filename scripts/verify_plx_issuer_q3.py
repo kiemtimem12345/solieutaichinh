@@ -26,23 +26,30 @@ for r in q:
  assert scope in expected and Decimal(str(r["net_profit"]))==expected[scope]
  assert r["source_validation"]["reported_vnd"]==signed_source[scope]
  assert int(expected[scope]*Decimal(1000000))==signed_source[scope]
- assert not r["source_validation"]["full_b01_b02_b03_visual_reviewed"]
- assert not any(isinstance(r.get(k),(int,float)) for k in (
-  "operating_cash_flow","investing_cash_flow","financing_cash_flow",
-  "net_cash_change","cash_ending","dividends_paid")), "B03 must stay blocked"
+ assert r["source_validation"]["full_b01_b02_b03_visual_reviewed"] is (scope=="consolidated")
+ if scope=="parent_company":
+  assert not any(isinstance(r.get(k),(int,float)) for k in (
+   "operating_cash_flow","investing_cash_flow","financing_cash_flow",
+   "net_cash_change","cash_ending","dividends_paid")), "Parent B03 must stay blocked"
  if scope=="consolidated":
-  assert r["financial_line_items_extracted_fields"]==["net_profit"]
+  assert r["verification_status"]=="issuer_original_visual_verified_b01_b02_b03_9m_and_q3_standalone_cash"
+  assert r["source_validation"]["manually_visual_reviewed"] is True
+  assert len(r["financial_line_items_extracted_fields"])==108
+  assert r["financial_line_items_extracted_fields"]==r["financial_line_items_manually_verified_fields"]
+  assert r["source_validation"]["q3_standalone_cashflow_status"]=="verified_signed_9m_minus_reviewed_signed_h1_same_consolidated_scope_and_cash_bridge_exact"
   links=r["source_validation"]["hose_source_links_discovered"]
   assert links["url_listing_verified"] is True
-  assert links["issuer_pdf_bytes_recovered"] is False and links["issuer_pdf_visual_reviewed"] is False
-  assert links["cashflow_quarterization_allowed"] is False
+  assert links["issuer_pdf_bytes_recovered"] is True and links["issuer_pdf_visual_reviewed"] is True
+  assert links["cashflow_quarterization_allowed"] is True
   assert links["original_q3_consolidated_pdf_url"]=="https://staticfile.hsx.vn/Uploads/UploadDocuments/2510747/20261030%20-%20PLX%20-%20Bao%20cao%20tai%20chinh%20Hop%20nhat%20Q3%20nam%202026.pdf"
   assert "/2494321/" in links["reviewed_h1_consolidated_comparator_url"]
   assert "/2493840/" in links["reviewed_h1_parent_other_scope_url"]
   assert links["reviewed_h1_consolidated_comparator_url"]!=links["reviewed_h1_parent_other_scope_url"]
 
-  assert not any(isinstance(r.get(k),(int,float)) for k in
-    ("revenue","gross_profit","total_assets","pretax_profit","net_profit_attributable"))
+  assert all(isinstance(r.get(k),(int,float)) for k in
+    ("revenue","gross_profit","total_assets","pretax_profit","net_profit_attributable",
+     "operating_cash_flow","investing_cash_flow","financing_cash_flow",
+     "net_cash_change","cash_beginning","cash_ending"))
  else:
   assert r["source_validation"]["source_document_url"].startswith("https://files.petrolimex.com.vn/")
   for key in required_parent:
@@ -92,4 +99,4 @@ assert {r["source_validation"]["scope"] for r in q}==set(expected)
 previous=next(r for r in obj["items"] if r["period"]=="2025-Q3" and "hợp nhất" in r["report_type"].lower())
 prev_issuer=Decimal("705970.238434")
 assert abs(Decimal(str(previous["net_profit"]))-prev_issuer)/prev_issuer*100<=Decimal("0.01")
-print("PASS: PLX Q3 parent issuer original 39p PDF pages 2-8 visual checked; B01/B02 numeric exact reconciliations; source-printed B03 CFF mismatch 87,654,015,000 VND quarantined; consolidated profit untouched")
+print("PASS: PLX Q3 consolidated B01/B02/B03 and reviewed-H1 standalone cash source-verified; PLX parent Q3 source-printed CFF 87,654,015,000 VND discrepancy independently quarantined")
