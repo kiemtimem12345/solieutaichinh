@@ -112,8 +112,8 @@ assert all(x==0 for x in checks.values()),{k:x for k,x in checks.items() if x}
 assert {k:str(x) for k,x in checks.items()}==vld["statement_vnd_original_exact_checks"]
 opening_assets=81274634873472
 opening_equity=29307974443473
-roa=Decimal(4*v("net_profit"))/Decimal((opening_assets+v("total_assets"))/2)*100
-roe=Decimal(4*v("net_profit"))/Decimal((opening_equity+v("equity"))/2)*100
+roa=Decimal(4*v("net_profit"))/(Decimal(opening_assets+v("total_assets"))/Decimal(2))*100
+roe=Decimal(4*v("net_profit"))/(Decimal(opening_equity+v("equity"))/Decimal(2))*100
 assert round(roa,2)==Decimal("1.05") and round(roe,2)==Decimal("2.87")
 assert (q["roa"],q["roe"])==(1.05,2.87)
 parent=next(r for r in obj["items"] if r["period"]=="2026-Q3" and r["source_validation"].get("scope")=="parent_company")
