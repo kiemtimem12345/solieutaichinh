@@ -1,0 +1,29 @@
+name: Audit previously added public financial report sources
+on:
+  push:
+    branches: [work/recheck-financial-sources-vietstock-widata-ssc-20261120]
+    paths:
+      - scripts/audit_previous_financial_sources_20261120.py
+      - .github/workflows/audit-previous-financial-sources.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check primary and secondary public sources without changing financial data
+        run: python -u scripts/audit_previous_financial_sources_20261120.py
+      - name: Save source status and financial PDF index URLs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: previously-added-source-audit-20261120
+          path: financial-source-audit-20261120/
+          retention-days: 7
+          if-no-files-found: warn
