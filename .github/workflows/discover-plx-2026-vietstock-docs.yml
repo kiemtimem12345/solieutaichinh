@@ -1,0 +1,29 @@
+name: Discover PLX 2026 Vietstock public eDocuments API source links
+on:
+  push:
+    branches: [work/plx-2026-h1-q3-source-discovery-20261120]
+    paths:
+      - scripts/discover_plx_2026_vietstock_document_api.py
+      - .github/workflows/discover-plx-2026-vietstock-docs.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  documents:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve public source document URLs with CSRF-safe session
+        run: python -u scripts/discover_plx_2026_vietstock_document_api.py
+      - name: Preserve document-source index
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: plx-2026-vietstock-public-document-links
+          path: plx-2026-vietstock-documents/
+          if-no-files-found: warn
+          retention-days: 7

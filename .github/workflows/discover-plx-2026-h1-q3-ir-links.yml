@@ -1,0 +1,29 @@
+name: Discover PLX H1-2026 parent and Q3-2026 consolidated issuer sources
+on:
+  push:
+    branches: [work/plx-2026-h1-q3-source-discovery-20261120]
+    paths:
+      - scripts/discover_plx_2026_h1_q3_ir_links.py
+      - .github/workflows/discover-plx-2026-h1-q3-ir-links.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read official Petrolimex IR listings and bound HOSE source attempt
+        run: python -u scripts/discover_plx_2026_h1_q3_ir_links.py
+      - name: Preserve source listing provenance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: plx-h1-q3-2026-ir-url-discovery
+          path: plx-2026-ir-discovery/
+          retention-days: 7
+          if-no-files-found: warn
