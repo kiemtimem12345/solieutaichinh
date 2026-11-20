@@ -51,5 +51,28 @@ assert xp["q3_parent_cf_reported_subtotal_source_problem_vnd"]=="87654015000"
 assert xp["q3_parent_cf_source_error_remains_blocked"] is True
 assert xp["q3_parent_cf_original_hose_pdf_not_bytewise_comparison_verified"] is True
 assert par["source_validation"]["b03_error_confirmed_on_signed_original"] is True
+# Independent 2026 Vietstock issuer document archive is a PDF with DIFFERENT
+# wrapper/cover metadata, but every original scanned issuer statement page is
+# identical at embedded JPEG/PNG source-image byte level across 39/39 pages.
+mirror=par["source_validation"]["vietstock_alternate_signed_original_source_comparison"]
+assert mirror["source_url"].startswith("https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%203/PLX_Baocaotaichinh_Q3_2026_Congtyme.pdf")
+assert mirror["source_pdf_sha256"]=="ab13686742234d95930b6c16e51300f7b2a2600e07919eb4b0a3464c820a6b6d"
+assert mirror["source_pdf_bytes"]==14241486
+assert mirror["source_pdf_pages"]==39
+assert mirror["issuer_original_pdf_sha256"]=="a8073e73803664a01601be8b4e416cb33ec90bfd3eca05560bbed454edcbefef"
+assert mirror["issuer_original_pdf_bytes"]==14198075
+assert mirror["source_pdf_bytes_difference"]==43411
+assert mirror["source_original_embedded_images_identical_count"]==mirror["source_original_embedded_images_total"]==39
+assert mirror["signed_issuer_and_mirror_embedded_images_identical"] is True
+assert mirror["original_b03_page_7_embedded_image_sha256"]=="2087fb122a23d4d850ed05498acbc7b1434f543ceb53998336f4943f98138296"
+assert mirror["original_b03_page_8_embedded_image_sha256"]=="f8dddc318d103c0750b12eb922355696fdd0b9213786c3591dd4abc6f5d2cd6e"
+assert mirror["original_b03_embedded_scan_images_identical"] is True
+assert int(mirror["original_b03_sum_financing_detail_vnd"])-int(mirror["original_b03_printed_cff_subtotal_vnd"])==87654015000
+assert mirror["q3_parent_b03_visual_validation_still_blocked"] is True
+assert mirror["byte_length_matches_hose_content_length_header"] is True
+assert mirror["hose_pdf_bytewise_sha256_still_unverified"] is True
+assert mirror["github_actions_source_mirror_run"]==44676432848
+assert mirror["github_actions_source_mirror_artifact_id"]==14602178653
+
 assert all(par.get(k) is None for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","cash_ending"))
 print("PASS: PLX HOSE 2779 Q3 exact aftertax parent & consolidated; HOSE 2143 reviewed-H1 rounded profit agrees with signed 9M-minus-Q3 within 308768 VND; preserve issuer Q3 parent CFF 87654015000 VND source error and unreviewed exchange PDF.")
