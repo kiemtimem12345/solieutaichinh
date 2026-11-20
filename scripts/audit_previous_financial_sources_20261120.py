@@ -27,6 +27,9 @@ SITES={
  "PLX_issuer_official_IR":"https://plx.petrolimex.com.vn/quan-he-nha-dau-tu.html",
  "PLX_issuer_other_IR":"https://www.petrolimex.com.vn/nha-dau-tu.html",
  "PVGAS_issuer_reports":"https://www.pvgas.com.vn/sanpham-dich-vu/category/bao-cao-tai-chinh",
+ "PVGAS_Q2_2026_full_issuer_pdf":"https://www.pvgas.com.vn/DesktopModules/EasyDNNNews/DocumentDownload.ashx?articleid=14585&documentid=3358&moduleid=648&portalid=0",
+ "PVGAS_issuer_shareholder":"https://www.pvgas.com.vn/quan-he-co-%C4%91ong/tai-lieu-co-%C4%91ong",
+ "IDC_HNX_original_BSC_attachment":"https://www.bsc.com.vn/News/NewsAttachedFile/1632697-1",
  "VDS_issuer_IR":"https://www.vdsc.com.vn/",
  "IDICO_issuer_site":"https://idico.com.vn/",
  "WiData_PLX_documents":"https://widata.vn/PLX?tab=documents",
@@ -51,8 +54,9 @@ def probe_site(pair):
    "http_status":statuses[-1] if statuses else None,
    "content_length_header":size[-1] if size else None,
    "error":p.stderr.strip()[:210],
-   "category":("secondary_not_signed_source" if label.startswith("WiData_") else
-       "direct_pdf_locator_unverified" if label.startswith("HOSE_PDF") else
+   "category":("secondary_aggregated_statistics_only" if label.startswith("WiData_") else
+       "issuer_original_mirror_index_links_only" if label.startswith("Vietstock_") else
+       "signed_original_pdf_locator_needs_identity_check" if label.startswith(("HOSE_PDF","PVGAS_Q2","IDC_HNX_original")) else
        "original_issuer_or_exchange_disclosure_site")}
  # Some known financial listings implement GET but return 404/405 to HEAD.
  # Recheck safe HTML listings, never use bypass for invalid TLS or DNS.
@@ -104,12 +108,32 @@ def catalog(code):
   data["status"]="catalogue_not_retrieved";data["error"]=type(e).__name__+": "+str(e)[:220]
  print("CATALOG",code,data["status"],"years",[(x["year"],x["records"]) for x in data["results"]],flush=True)
  return data
+def probe_hose_ranges():
+ # Real content-range support determines whether 14MB original can be recovered
+ # safely in bounded pieces without SSL bypass or unbounded PDF download.
+ url=SITES["HOSE_PDF_PLX_parent_Q3"]
+ target=OUT/"hose_q3_parent_range_first_4kb.bin"
+ p=subprocess.run(["curl","--fail","--location","--silent","--show-error",
+   "--connect-timeout","8","--max-time","17","--max-filesize","131072",
+   "--range","0-4095","--output",str(target),
+   "--write-out","%{http_code} %{size_download}",url],
+   capture_output=True,text=True,timeout=21)
+ raw=target.read_bytes() if target.exists() else b""
+ supports=p.returncode==0 and p.stdout.strip().startswith("206") and len(raw)==4096 and raw.startswith(b"%PDF")
+ answer={"url":url,"range":"bytes=0-4095","curl_exit":p.returncode,
+   "http_and_downloaded":p.stdout.strip(),"bytes_saved":len(raw),
+   "is_pdf_header":raw.startswith(b"%PDF"),"supports_exact_206_byte_ranges":supports,
+   "error":p.stderr.strip()[:220],"original_complete_pdf_validated":False}
+ target.unlink(missing_ok=True)
+ print("HOSE_RANGE_PROBE",json.dumps(answer,ensure_ascii=False),flush=True)
+ return answer
+
 with ThreadPoolExecutor(max_workers=9) as pool:
  sites=list(pool.map(probe_site,SITES.items()))
 with ThreadPoolExecutor(max_workers=5) as pool:
  catalogs=list(pool.map(catalog,CODES))
 report={"generated_at_utc":"2026-11-20","purpose":"recheck previously added financial-report data sources, no production financial changes",
- "sources":sites,"document_catalogues":catalogs,
+ "sources":sites,"document_catalogues":catalogs,"hose_parent_original_range_probe":probe_hose_ranges(),
  "rules":["issuer/exchange signed PDF and source version is primary","Vietstock document URL is original-PDF mirror/index only, needs byte/full visual gate","WiData is secondary statistic cross-check only","SSC ADF dynamic table without verified file is existence only","PLC is not PLX; no subsidiary cross-scope substitution","HEAD HTTP 200 is NOT visual financial PASS"]}
 (OUT/"sources-and-catalogues.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 print("AUDIT_SUMMARY",json.dumps({"site_200":sum(s["http_status"]=="200" for s in sites),
