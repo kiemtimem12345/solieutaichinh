@@ -29,6 +29,8 @@ jobs:
         run: python scripts/audit_all_statement_coverage.py > /dev/null
       - name: Check officially verified PLX Q3 parent and consolidated profit
         run: python scripts/verify_plx_issuer_q3.py
+      - name: Verify PLX 2026 Q3 consolidated original 40 exact-VND identities and reviewed H1 standalone cash
+        run: python scripts/verify_plx_q3_2026_consolidated_original.py
       - name: Verify GAS Q1 2025 original B01 B02 B03 source values
         run: python scripts/verify_gas_q1_source.py
       - name: Verify GAS Q2 2025 B01 B02 quarterly and B03 H1 minus Q1
