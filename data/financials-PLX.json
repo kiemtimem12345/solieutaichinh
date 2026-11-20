@@ -1736,7 +1736,17 @@
         },
         "original_B01_B02_12M_B03_visual_and_cash_bridge_exact": true,
         "audited_B01_B02_12M_B03_cash_bridge_exact": true,
-        "quarter_source_priority": "Do not promote quarter cash until reconciled FY audited against as-issued annual, and signed Q3 9M source vintage."
+        "quarter_source_priority": "Do not promote quarter cash until reconciled FY audited against as-issued annual, and signed Q3 9M source vintage.",
+        "hose_official_issuer_2025_annual_explanation": {
+          "official_exchange": "HOSE",
+          "issuer_letter_no": "0677/PLX-TCKT",
+          "issuer_letter_date": "2026-04-01",
+          "official_pdf_url": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2449947/20260401%20-%20PLX%20-%20Giai%20trinh%20bao%20cao%20tai%20chinh%20nam%202025.pdf",
+          "audited_consolidated_pat_vnd": "3026744562818",
+          "statement": "Issuer confirms less than 5 percent difference between pre-audit and post-audit 2025 financial results, thus not required to explain profit difference; confirms exact 2025 audited consolidated net profit. Does not provide a B03 adjustment-by-line reconciliation or authorize deriving Q4 from mismatched reporting vintages.",
+          "b03_comparative_variance_explained": false,
+          "annual_report_signed_source_verified": true
+        }
       },
       "published_at": "2026-02-02",
       "source_archive_file": "reports/raw/PLX/auto-plx-20261021/35a0f637ffbb0ecf.pdf",
