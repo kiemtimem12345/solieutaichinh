@@ -1772,8 +1772,32 @@
         },
         "b03_repair_policy": "DO NOT overwrite printed financing subtotal, assign a guessed source correction, publish B03 quarter cash flows or use H1 comparator until official issuer correction or context clarifies source anomaly.",
         "q3_parent_original_pdf_retrieved": true,
-        "separate_parent_h1_2026_reviewed_pdf_still_pending": true,
-        "consolidated_q3_pdf_still_pending": true
+        "separate_parent_h1_2026_reviewed_pdf_still_pending": false,
+        "consolidated_q3_pdf_still_pending": true,
+        "reviewed_parent_h1_original_complete": true,
+        "reviewed_parent_h1_b03_original_source_page_visual_verified": true,
+        "reviewed_parent_h1_pdf_sha256": "a7929fbbc64f8f7fd201c33df9d09f32098ea1829ead9d6ea39c434f8821cd2c",
+        "reviewed_parent_h1_pdf_bytes": 18543309,
+        "reviewed_parent_h1_pdf_pages": 63,
+        "reviewed_parent_h1_b03_verified_pdf_pages": [
+          10,
+          11
+        ],
+        "reviewed_parent_h1_original_source_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/PLX_Baocaotaichinh_6T_2026_Soatxet_Congtyme.pdf?ver=412f8829",
+        "reviewed_parent_h1_original_b03_vnd": {
+          "operating_cash_flow_ytd": "990932483405",
+          "investing_cash_flow_ytd": "8086220870542",
+          "financing_cash_flow_ytd": "-9071667387469",
+          "net_cash_change_ytd": "5485966478",
+          "foreign_exchange_effect_ytd": "-135412",
+          "cash_beginning_reported_ytd": "1410520528230",
+          "cash_ending": "1416006359296",
+          "capital_expenditure_ytd": "-915984525990",
+          "dividends_paid_ytd": "-217052009"
+        },
+        "q3_parent_cashflow_quarter_still_blocked_by_signed_original_cff_discrepancy": true,
+        "reviewed_parent_h1_source_recovery_run": 44666024791,
+        "review_note": "Reviewed parent H1 2026 B03 PDF pages 10–11 independently visually checked; full same-scope comparator recovered. Still do not derive Q3 parent quarter cash because original Q3 parent CFF line 40 is internally inconsistent by 87,654,015,000 VND."
       },
       "net_profit": 1315029.909162,
       "report_type": "BCTC riêng lẻ công ty mẹ PLX Q3/2026 — LNST xác nhận từ công bố chính thức, B01/B02/B03 chi tiết chờ PDF gốc",
