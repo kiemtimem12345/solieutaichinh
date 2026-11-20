@@ -48,5 +48,5 @@ assert r["eps"]==1177 and r["cashflow_period_basis"]=="year_to_date"
 assert r["source_validation"]["exact_identity_residuals_vnd"]["B03 investing components"]=="0"
 assert r["source_validation"]["exact_identity_residuals_vnd"]["B03 finance components"]=="0"
 assert all(r[name] < 0 for name in ("income_tax_deferred","investing_cash_flow","capital_expenditure","foreign_exchange_effect"))
-assert r["source_validation"]["source_original_accounting_residuals_vnd"] if False else True  # Exact source identities checked above
+assert r["source_validation"]["original_source_accounting_check_count"]==15
 print("PASS: GAS Q1 2025 source original 76-page signed PDF B01/B02/B03 visually reviewed pp4-7; 48 fields, 15 exact VND identities; segment note37 amendment isolated")
