@@ -39,6 +39,8 @@ jobs:
         run: python scripts/verify_plx_q3_2025_reviewed_h1.py
       - name: Verify PLX Q4 2025 original vs audited FY signed accounting vintages, quarantine quarter cash
         run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
+      - name: Verify VIX 2025 Q3 signed separate B01 B02 B03 15 exact identities and Q3 standalone cash
+        run: python scripts/verify_vix_2025q3_signed_original.py
       - name: Verify VIX Q1 Q2 2025 signed original B01 B02 20 exact identities and H1 bridge
         run: python scripts/verify_vix_2025q1q2_original_b01_b02.py
       - name: Verify VIX 2025 Q1 Q2 original signed B03 VND, standalone Q2 and fail-closed cashflow guards
