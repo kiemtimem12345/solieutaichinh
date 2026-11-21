@@ -1,0 +1,23 @@
+name: Inspect VCI Q2 and reviewed H1 2026 original PDFs (read-only)
+on:
+  push:
+    branches:
+      - work/vci-h1-2026-signed-PDF-source-recovery
+    paths:
+      - scripts/inspect_vci_2026h1_signed_pdf_sources.py
+      - .github/workflows/inspect-vci-2026h1-original.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install source PDF reader
+        run: sudo apt-get update -qq && sudo apt-get install -qq -y poppler-utils
+      - name: Verify script syntax
+        run: python -m py_compile scripts/inspect_vci_2026h1_signed_pdf_sources.py
+      - name: Inspect original VCI source PDFs without saving original binaries
+        run: python -u scripts/inspect_vci_2026h1_signed_pdf_sources.py
