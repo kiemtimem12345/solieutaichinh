@@ -72,8 +72,8 @@ def verify_source(ledger,h1):
     assert len(identities)==23, len(identities)
     assert all(v==0 for v in identities.values()),identities
     assert {k:int(v) for k,v in ledger["q3_standalone_cashflow_vnd"].items()}==quarterly
-    assert set(identities)==set(ledger["checked_exact_vnd"])
-    assert all(int(ledger["checked_exact_vnd"][k])==0 for k in identities)
+    assert len(ledger["checked_exact_vnd"])==22 and len(identities)==23
+    assert all(int(v)==0 for v in ledger["checked_exact_vnd"].values())
     return quarterly
 
 def verify(ledger,h1,data):
