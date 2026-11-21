@@ -53,3 +53,17 @@ Nguồn kiểm toán nội bộ:
 
 ### Decision rule
 **Thiếu điều chỉnh Q1 không mặc nhiên vi phạm nghĩa vụ công bố; thay đổi chế độ kế toán được xử lý theo điều khoản chuyển tiếp và báo cáo gốc, không hồi tố máy móc.** Cho phép giữ bản gốc và ghi riêng “chưa xác định cùng phiên bản để quarterize”; không ép phát sinh số quý II khi B03 tiền không cân.
+
+## 5. Triển khai bằng chương trình (bổ sung ngày 21/11/2026)
+
+Quy trình này có **cổng kiểm tra tự động**, không chỉ mô tả bằng văn bản:
+
+- `config/reporting-regime-rules-2025-2026.json`: dữ liệu quy phạm và ngày hiệu lực, gồm **ngưỡng năm tài chính** (01/01/2026), **ngày ký/hiệu lực** TT43 (20/04/2026), thông tư công bố độc lập, và nhánh ngành đặc thù cần xác minh riêng.
+- `scripts/verify_reporting_regime_transitions.py`: đánh giá năm tài chính và phạm vi báo cáo, kiểm tra GEG/IDC Q2 dòng tiền quý độc lập với nguồn ký gốc + cầu nối tiền VND chính xác; chặn mọi khoản CFO/CFI/CFF hoặc số 0 giả khi thiếu cầu nối.
+- `.github/workflows/validate.yml` chạy verifier này **bắt buộc** cùng toàn bộ kiểm thử kế toán cũ. Cơ chế này không thay thế BCTC gốc và không thay số liệu B01/B02/B03 lũy kế.
+
+**Phương pháp có thể tái sử dụng ở kỳ mới:** khi ghi nhận báo cáo, lưu các trường `fiscal_year_start`, `period_end`, `scope`, `industry`, `signed_at`, `disclosed_at`, `source_sha256`, `source_version_id`, `accounting_regime`, `consolidation_regime`, `disclosure_regime`, `transition_basis`. Dùng `accounting_basis(policy, fiscal_year_start, consolidated, industry)` trong verifier để xác định khung pháp lý **có thể áp dụng**, rồi tra thuyết minh ký gốc trước khi xác nhận chế độ **thực tế được doanh nghiệp áp dụng**. Với bank/chứng khoán trả về cần kiểm tra chế độ chuyên ngành, không gán TT99/TT43 máy móc.
+
+**Điều kiện nâng Q2/2026 từ BLOCKED lên PASS:** phải đồng thời có chứng cứ ký gốc về cách trình bày lại Q1 hiện hành, cùng phạm vi, số dư cuối Q1 đã điều chỉnh, kiểm tra từng dòng CFO/CFI/CFF, và cầu tiền Q2 khớp **0 VND**. Ngoại lệ được ghi trong ledger vẫn được theo dõi độc lập; phép dung sai 0,1% không vượt qua cổng này. Khi xuất hiện báo cáo điều chỉnh, bổ sung file gốc/sha/trang, thay đổi chứng cứ và kiểm thử có chủ đích, không tự sửa giá trị thành số 0.
+
+**Kết luận hiện tại:** quy tắc chuyển tiếp theo thông tư hợp lệ để bổ sung vào SOP. Nó giải thích *vì sao* cần lưu nhiều phiên bản, **không tự làm mất** hai ngoại lệ GEG/IDC Q2 do thiếu bằng chứng signed same-basis; B01/B02 và B03 lũy kế được giữ PASS.
