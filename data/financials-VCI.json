@@ -116,7 +116,8 @@
         "income_tax_current",
         "operating_cash_flow_ytd",
         "net_cash_change_ytd",
-        "cash_beginning_reported_ytd"
+        "cash_beginning_reported_ytd",
+        "income_tax_deferred"
       ],
       "core_financial_extraction_source": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/VCI_Baocaotaichinh_Q1_2025.pdf",
       "core_financial_extraction_pages": [
@@ -209,7 +210,8 @@
         "income_tax_current",
         "operating_cash_flow_ytd",
         "net_cash_change_ytd",
-        "cash_beginning_reported_ytd"
+        "cash_beginning_reported_ytd",
+        "income_tax_deferred"
       ],
       "financial_line_items_status": "issuer_signed_original_core_exact_vnd_verified_no_subs",
       "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
@@ -323,12 +325,14 @@
         "income_tax_current",
         "operating_cash_flow_ytd",
         "net_cash_change_ytd",
-        "cash_beginning_reported_ytd"
+        "cash_beginning_reported_ytd",
+        "income_tax_deferred"
       ],
       "investing_cash_flow_calculation": "Issuer signed standalone 3M Q1 B03, exact VND; Q1 = 2025 YTD",
       "financing_cash_flow_calculation": "Issuer signed standalone 3M Q1 B03, exact VND; Q1 = 2025 YTD",
       "cash_beginning_calculation": "Issuer 2025Q1 signed B03 code 101, identical to opening balance",
-      "cash_ending_calculation": "Issuer 2025Q1 signed B03 code 103, identical B01 code 111"
+      "cash_ending_calculation": "Issuer 2025Q1 signed B03 code 103, identical B01 code 111",
+      "income_tax_deferred": -12643.864866
     },
     {
       "symbol": "VCI",
