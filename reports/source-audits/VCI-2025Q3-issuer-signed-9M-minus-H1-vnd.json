@@ -5,8 +5,8 @@
   "published_at": "2025-10-15",
   "signed_at": "2025-10-15",
   "pdf_url": "https://www.vietcap.com.vn/api/cms-api/uploads/froala/files/20251015%20-%20VCI%20-%20CBTT%20BCTC%20Q3.2025.pdf",
-  "source_pdf_sha256": "pending_runner_verification",
-  "source_pdf_pages": "pending_runner_verification",
+  "source_pdf_sha256": "8a2cb804555583a1b7a9a4ae235fe220f2e050a38f1e10117172dec52a69ef68",
+  "source_pdf_pages": 48,
   "web_signed_pdf_page_labels": {
     "B01": "3-7",
     "B02": "8-10",
@@ -121,7 +121,30 @@
     "CFI_components": "0",
     "CFF_components": "0"
   },
-  "source_method": "original issued PDF digitally parsed by web source; screenshot reader rejected 15.47MB. Separate GitHub source worker verifies hash/page images before full completion. Values reconciled against exact-vintage H1 original.",
+  "source_method": "Original Vietcap issuer signed scanned PDF verified %PDF, SHA256, pdfinfo (48p) by GitHub Actions; visually inspected B02 p11, B03 pp13-14. Machine pdftotext only 48 chars; do not assume searchable. Exact figures independently grounded in PDF page image and web structured page content.",
   "client_custody_is_not_company_cash": true,
-  "no_subsidiaries_signed_note": true
+  "no_subsidiaries_signed_note": true,
+  "source_pdf_bytes": 15472278,
+  "source_extraction_characters_pdftotext": 48,
+  "source_workflow_run": 44922406049,
+  "source_artifact_id": 14713704732,
+  "visual_original_pdf_page_indices": {
+    "B01": [
+      5,
+      6,
+      7
+    ],
+    "B02": [
+      10,
+      11,
+      12
+    ],
+    "B03": [
+      13,
+      14
+    ],
+    "no_subsidiaries": [
+      19
+    ]
+  }
 }
