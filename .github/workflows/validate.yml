@@ -43,6 +43,8 @@ jobs:
         run: python scripts/verify_plx_q1_2026_original.py
       - name: Verify PLX Q1 2026 B01 forensic code 133 317, signed notes, opening-zero residual, fail-closed guard
         run: python scripts/verify_plx_q1_2026_b01_forensic.py
+      - name: Verify PLX Q1 2026 0.1 percent tolerance only after Stockbiz Cophieu68 iWinStock cross-source display agreement
+        run: python scripts/verify_plx_q1_2026_b01_tolerance.py
       - name: Verify PLX Q2 2026 original 41 VND checks and reviewed H1 cash-vintage isolation
         run: python scripts/verify_plx_q2_2026_original.py
       - name: Verify independent official HOSE PLX Q3 and H1 explanatory disclosures, quarantine parent B03

@@ -1,0 +1,72 @@
+{
+  "ticker": "PLX",
+  "period": "2026-Q1",
+  "scope": "consolidated",
+  "as_of": "2026-03-31",
+  "compared_at": "2026-11-21",
+  "data_policy": "Independent public displays are compared only at the resolution actually published; exact VND is from signed issuer original only.",
+  "issuer": {
+    "url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/PLX_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+    "sha256": "158547073d7cd10f8c16e3ce599795b0fe159c70bf1fd7490fff242b5f4bc5f9",
+    "signed_on": "2026-04-29",
+    "unit": "VND",
+    "values": {
+      "130": "19662068640316",
+      "310": "76146303967243"
+    }
+  },
+  "secondary": [
+    {
+      "provider": "Stockbiz",
+      "url": "https://web.stockbiz.vn/Stocks/PLX/FinancialStatements.aspx",
+      "display_unit": "million_VND_integer",
+      "displays": {
+        "130": "19662069",
+        "310": "76146304"
+      },
+      "note": "B01 consolidated Q1/2026 fourth column among 5 recent periods"
+    },
+    {
+      "provider": "Cophieu68",
+      "url": "https://cophieu68.vn/quote/financial_detail.php?hideIC=1&id=plx",
+      "display_unit": "million_VND_integer",
+      "displays": {
+        "130": "19662069",
+        "310": "76146304"
+      },
+      "note": "B01 consolidated Q1/2026 second column; first is Q2/2026"
+    },
+    {
+      "provider": "iWinStock",
+      "url": "https://www.iwinstock.com/stock/PLX/financial-reports/",
+      "display_unit": "billion_VND_1dp",
+      "displays": {
+        "130": "19662.1",
+        "310": "76146.3"
+      },
+      "note": "B01 Q1/2026 third column; one decimal billion"
+    }
+  ],
+  "reconciliation": {
+    "threshold_percent": "0.1",
+    "denominator": "absolute issuer printed subtotal for each B01 row",
+    "original_component_sum_vnd": {
+      "130": "19652984670130",
+      "310": "76137215001801"
+    },
+    "original_residual_vnd": {
+      "130": "9083970186",
+      "310": "9088965442"
+    },
+    "exact_original_component_arithmetic_matches": false,
+    "secondary_agreement_scope": "published rounded digits only",
+    "unprinted_133_317": "no value imputed",
+    "financial_use_status": "PASS_WITH_TOLERANCE",
+    "issuer_source_subtotal_mismatch_remains": true
+  },
+  "known_limits": [
+    "Secondary websites may share underlying vendor datasets; agreement is not three independent audits.",
+    "Official HOSE binary comparison still inaccessible; a successful 206 small range is not proof of full-PDF equivalence.",
+    "Two original B01 component sums remain nonzero. Preserve reported printed subtotal and source-exception metadata."
+  ]
+}
