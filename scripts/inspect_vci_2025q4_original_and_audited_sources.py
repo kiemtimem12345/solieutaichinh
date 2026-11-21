@@ -50,7 +50,7 @@ def main():
                 file=Path(temp)/("src%d"%index+(".zip" if url.endswith(".zip") else ".pdf"))
                 source_sha=get(url,file)
                 print("SOURCE_CONTAINER",label,"sha256",source_sha,"bytes",file.stat().st_size,flush=True)
-                if file.open("rb").read(4)==b"PK\\x03\\x04":
+                if file.open("rb").read(2)==b"PK":
                     with zipfile.ZipFile(file) as bundle:
                         names=[z for z in bundle.infolist() if z.filename.lower().endswith(".pdf") and not z.is_dir() and z.file_size<=MAX_SIZE]
                         print("ZIP_PDFS",[(z.filename[:90],z.file_size) for z in names[:8]],flush=True)
