@@ -1,0 +1,29 @@
+name: Recover signed VIX 2025 Q4 financial PDF and original-vintage erratum
+on:
+  push:
+    branches: [work/vix-2025q4-signed-source-20261121]
+    paths:
+      - scripts/recover_vix_2025q4_original.py
+      - .github/workflows/recover-vix-2025q4-original.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Download signed VIX 2025 Q4 source and render B01 B02 B03 pages
+        run: python -u scripts/recover_vix_2025q4_original.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vix-2025q4-original-issuer-and-2025-self-filed-erratum
+          path: vix-2025q4-original-source/
+          retention-days: 5
+          if-no-files-found: warn
