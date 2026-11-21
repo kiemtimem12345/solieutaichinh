@@ -1,0 +1,70 @@
+{
+  "ticker": "IDC",
+  "period": "2026-Q2",
+  "scope": "consolidated",
+  "asof": "2026-11-21",
+  "Q1_original": {
+    "url": "https://static2.vietstock.vn/data/HNX/2026/BCTC/VN/QUY%201/IDC_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+    "sha256": "229a1ff9af9d3e1bffd777a0c9b92b4bd5cbee5bc02765f02bee5778c2b2085b",
+    "pdf_pages": 66,
+    "policy_note_page": 17,
+    "cash_flow_pages": [
+      13,
+      14
+    ],
+    "observed": "Original Q1 signed B09 note2.5 says adopted TT99/2025 for Q1 2026, but does not declare TT43/2026."
+  },
+  "H1_reviewed": {
+    "url": "https://www.bsc.com.vn/News/NewsAttachedFile/1599258-1",
+    "sha256": "f1366ab8629fb1482e30995ae28462d03a7819c72a70aab5311c5b2f9ee28944",
+    "pdf_pages": 72,
+    "policy_page": 21,
+    "note41_page": 71,
+    "cash_flow_pages": [
+      16,
+      17
+    ],
+    "observed": "Reviewed H1 B09a note3.1.1 says TT99 adopted, note3.1.2 specifically says TT43/2026 adopted for consolidated method, and certain comparatives were re-presented in Note41."
+  },
+  "TT43_official_mof": "https://www.mof.gov.vn/tin-tuc-tai-chinh/tin-chinh-sach-tai-chinh/quy-dinh-moi-ve-phuong-phap-lap-va-trinh-bay-bao-cao-tai-chinh-hop-nhat",
+  "signed_note41": {
+    "opening_cash_equivalents_2025_prior_reclass_vnd": "890796892",
+    "prior_2025_B03_comparative_reclassification_items_vnd": {
+      "depreciation_and_amortization": "-141514712612",
+      "decrease_inventory": "-25335127650",
+      "increase_receivables": "-331959067818",
+      "interest_paid": "-27028341934",
+      "cash_paid_capex": "525837250014"
+    },
+    "prior_2025_B03_comparative_reclassification_total_vnd": "0",
+    "note": "Note41 B03 comparative rows refer to 2025 previous period, NOT 2026 current-period cashflow, and total change across five rows is 0 VND."
+  },
+  "Q2_source_arithmetic_only_vnd": {
+    "CFO": "-202543174911",
+    "CFI": "480833384534",
+    "CFF": "-471228735423",
+    "net": "-192938525800",
+    "fx": "2812837",
+    "Q1_cash_end": "800729495703",
+    "H1_cash_end": "608684579632",
+    "unadjusted_cash_bridge": "-890796892",
+    "separate_2025_opening_noncash_reclass": "890796892",
+    "adjusted_bridge": "0"
+  },
+  "decision": {
+    "same_consolidated_scope": true,
+    "Q1_signed_TT99_2025": true,
+    "H1_signed_TT99_and_TT43": true,
+    "Q1_signed_TT43_explicitly_declared": false,
+    "signed_same_vintage_Q1_2026_current_period_TT43_comparator_found": false,
+    "prior_B03_reclass_cannot_be_transferred_into_2026_flow": true,
+    "Q2_standalone_CFO_CFI_CFF_null_required": true,
+    "no_legal_compliance_certification": true,
+    "reopen": "Signed issuer-restated 2026 Q1 current-period B03 (TT43 basis), or explicit line-wise reconciliation between original 2026 Q1 and 2026 H1 under TT43 with 31 March restated cash. Then exact VND bridge."
+  },
+  "new_image_recovery": {
+    "run": 44870445628,
+    "artifact": 14694155870,
+    "count": 27
+  }
+}
