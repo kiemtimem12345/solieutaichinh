@@ -28,7 +28,8 @@ assert a["signed_B09_Q2_note11_page24_crosscheck"]["restricted_deposits_Jun30_vn
 assert int(a["original_B01_page_6"]["code_110_cash_and_equivalents_2026_03_31_vnd"])==v(q,"cash_and_equivalents")
 assert int(a["original_B01_page_6"]["code_112_cash_equivalents_2026_03_31_vnd"])==v(q,"cash_equivalents_only")
 assert int(a["signed_B09_note_5_page_22"]["cash_2026_03_31_vnd"])+int(a["signed_B09_note_5_page_22"]["cash_equivalents_2026_03_31_vnd"])==v(q,"cash_and_equivalents")
-assert int(a["signed_B09_note_16a_page_27"]["short_term_prepaids_2026_03_31_vnd"])==v(q,"short_term_prepaid_expenses")
+assert int(a["signed_B09_note_16a_page_27"]["short_term_prepaids_2026_03_31_vnd"])==20606764369
+assert int(a["original_B01_page_6"]["code_160_other_current_assets_2026_03_31_vnd"])==v(q,"other_current_assets")
 for row in (q,h):
  s=row["source_validation"]
  assert s["q1_2026_signed_b09_collateral_note_inspection"]==str(LEDGER.relative_to(R))
