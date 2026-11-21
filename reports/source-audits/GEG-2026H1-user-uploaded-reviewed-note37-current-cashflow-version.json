@@ -1,0 +1,136 @@
+{
+  "ticker": "GEG",
+  "scope": "consolidated",
+  "period": "2026-Q2",
+  "reviewed_h1_uploaded_source": {
+    "local_uploaded_name": "GEG_Baocaotaichinh_6T_2026_Soatxet_Hopnhat.pdf",
+    "sha256": "c5fcba1374cea2e2fc6e82eb66ccd4cf49320bd4a412c4c3f834d60c16ba700e",
+    "pages": 74,
+    "document_signature_date": "2026-08-25",
+    "ey_signed_review_date": "2026-08-24",
+    "published_HOSE_link_from_disclosure_index": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2491976/20260825%20-%20GEG%20-%20Bao%20cao%20tai%20chinh%20hop%20nhat%20ban%20nien%20soat%20xet%202026%20%2B%20giai%20trinh.pdf",
+    "original_pdf_url_bytes_not_independently_retrieved": true,
+    "user_uploaded_visual_verified_pages": [
+      9,
+      10,
+      11,
+      16,
+      17,
+      23,
+      35,
+      44,
+      73
+    ],
+    "assurance": "EY limited review report visible on PDF pp9-10, NOT an audited annual statement",
+    "b01_pdf_page": 11,
+    "b03_pdf_pages": [
+      16,
+      17
+    ],
+    "accounting_policy_tt43_pdf_page": 23,
+    "note37_pdf_page": 73,
+    "note22_pdf_page": 44
+  },
+  "separate_parent_uploaded_sources": {
+    "q1": {
+      "filename": "GEG_Baocaotaichinh_Q1_2026_Congtyme.pdf",
+      "sha256": "5532ce20cf729600ed20cb7fcb326c9ac5af7deaa394a7d868da76a27aefc707",
+      "pages": 70
+    },
+    "h1_reviewed": {
+      "filename": "GEG_Baocaotaichinh_6T_2026_Soatxet_Congtyme.pdf",
+      "sha256": "3cd06d6acddd1fc23787e06e7cf9d7973e7809f9f4c0ba180704875d616ae495",
+      "pages": 57
+    },
+    "caution": "Different reporting scope; parent cannot be used to impute group restricted deposit at 31 March or consolidated B03."
+  },
+  "q1_consolidated_uploaded_original": {
+    "filename": "GEG_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+    "sha256": "d8dade2f270452432a190bedddb46736523cc3a74b783ae1a2f82b76a5e74d5b",
+    "pages": 82,
+    "b03_pdf_pages": [
+      9,
+      10
+    ],
+    "cash_balance_mar31_vnd": "105856793049",
+    "q1_signed_same_basis_restatement_not_found": true
+  },
+  "reviewed_h1_2026_vnd": {
+    "CFO": "707905751019",
+    "CFI": "-734466295121",
+    "CFF": "51927115815",
+    "net_cash_flow": "25366571713",
+    "opening_cash": "74942444345",
+    "fx": "13217270",
+    "ending_cash": "100322233328",
+    "b01_ending_cash": "100322233328",
+    "b01_ending_total_assets": "15481663386076",
+    "b01_code165_other_current_assets_restricted_deposits_at_jun30": "54079653068",
+    "b01_opening_code165_other_current_assets_restricted_deposits_jan1": "11422218903"
+  },
+  "originally_reported_q2_2026_vnd": {
+    "CFO": "722160976132",
+    "CFI": "-732448267884",
+    "CFF": "35658808670",
+    "net_cash_flow": "25371516918",
+    "opening_cash": "74942444345",
+    "fx": "13217270",
+    "ending_cash": "100327178533"
+  },
+  "reviewed_minus_original_q2_2026_vnd": {
+    "CFO": "-14255225113",
+    "CFI": "-2018027237",
+    "CFF": "16268307145",
+    "net_cash_flow": "-4945205",
+    "opening_cash": "0",
+    "fx": "0",
+    "ending_cash": "-4945205"
+  },
+  "signed_reviewed_note37_2026_year_open_vnd": {
+    "pre_reclass_cash_and_equivalents": "86364663248",
+    "reclass_from_cash_to_other_current_assets": "-11422218903",
+    "post_reclass_cash_and_equivalents": "74942444345",
+    "other_current_asset_reclass_code165": "11422218903"
+  },
+  "signed_reviewed_note37_2025_comparatives_vnd": {
+    "note_is_prior_year_not_2026_current_q1": true,
+    "cash_beginning_pre_reclass": "163717707072",
+    "cash_beginning_reclass": "-12113208011",
+    "cash_beginning_restated": "151604499061",
+    "net_cash_pre_reclass": "309777894370",
+    "net_cash_reclass": "333910820",
+    "net_cash_restated": "310111805190",
+    "cash_ending_pre_reclass": "473549350030",
+    "cash_ending_reclass": "-11779297191",
+    "cash_ending_restated": "461770052839"
+  },
+  "signed_reviewed_policy": {
+    "note3_1_2_pdf_page": 23,
+    "tt43_2026_adoption_explicit": true,
+    "note37_reclassification_under_tt99_2025_explicit": true,
+    "reviewer_note22_pdf_page": 44,
+    "pledged_deposits_subject_to_contractual_restrictions": true
+  },
+  "quarter_candidate_source_arithmetic_only_vnd": {
+    "CFO": "494578607554",
+    "CFI": "-707727120080",
+    "CFF": "219048746426",
+    "net_cash_flow": "5900233900",
+    "fx": "-12574718",
+    "signed_q1_cash_end": "105856793049",
+    "reviewed_h1_cash_end": "100322233328",
+    "standalone_q2_cash_bridge_residual": "-11422218903"
+  },
+  "decision": {
+    "reviewed_h1_original_signed_source_obtained_from_user": true,
+    "note37_exact_2026_opening_reclassification_proven": true,
+    "reviewed_h1_differs_from_original_q2_current_period": true,
+    "q1_mar31_restricted_deposit_amount_signed_and_confirmed": false,
+    "q1_2026_restated_same_basis_current_b03_signed_and_confirmed": false,
+    "standalone_q2_cashflow_still_blocked": true,
+    "do_not_overwrite_original_q2_or_verified_q3_without_full_version_reconciliation": true,
+    "report_original_b01_b02_and_b03_ytd_remain_source_verified": true,
+    "next_required": "Signed March 31 2026 restricted deposit balance / signed restated Q1 current B03, and checked Q3 9M comparative if H1 reviewed version is promoted to financial website.",
+    "note": "H1 reviewed is a verified alternative version. Cross-filing CFO/CFI/CFF deltas alone do not demonstrate fraud, legal noncompliance, or the cause of each row revision."
+  }
+}

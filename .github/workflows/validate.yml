@@ -99,6 +99,8 @@ jobs:
         run: python scripts/verify_vds_h1_2025_reviewed_attribution.py
       - name: Verify GEG Q1 2026 signed B09 notes 5 and 16a, exact 31 March cash with pledged amount not disclosed
         run: python scripts/verify_geg_2026q1_note5_march31_restricted_cash.py
+      - name: Verify user-uploaded signed GEG H1 2026 EY-reviewed Note37 and original-vintage B03 bridge
+        run: python scripts/verify_geg_2026_h1_uploaded_reviewed_version.py
       - name: Verify GEG 2026 Q2 signed note11 restricted deposit 11.422bn cash-equivalent classification and fail-closed standalone
         run: python scripts/verify_geg_q2_2026_pledged_deposit_note11.py
       - name: Verify GEG consolidated Q2 2026 signed B01 B02 and 6M B03
