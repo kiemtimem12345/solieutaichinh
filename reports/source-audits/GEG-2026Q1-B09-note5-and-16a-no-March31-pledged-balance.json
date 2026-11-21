@@ -1,0 +1,57 @@
+{
+  "ticker": "GEG",
+  "period": "2026-Q1",
+  "scope": "consolidated",
+  "reviewed_at": "2026-11-21",
+  "original_pdf_url": "https://static2.vietstock.vn/vietstock/2026/4/29/20260429___geg___bao_cao_tai_chinh_hop_nhat_q1_2026___giai_trinh__song_ngu_.pdf",
+  "original_sha256": "d8dade2f270452432a190bedddb46736523cc3a74b783ae1a2f82b76a5e74d5b",
+  "original_pages": 82,
+  "new_signed_notes_visual_inspection_page_range_pdf_1based": [
+    15,
+    42
+  ],
+  "github_actions_artifact_run_id": 44869922268,
+  "github_actions_artifact_id": 14693117139,
+  "original_B01_page_6": {
+    "code_110_cash_and_equivalents_2026_03_31_vnd": "105856793049",
+    "code_111_cash_2026_03_31_vnd": "46625510309",
+    "code_112_cash_equivalents_2026_03_31_vnd": "59231282740",
+    "code_160_other_current_assets_2026_03_31_vnd": "65558815530",
+    "asset_subcodes_listed": [
+      "161",
+      "162",
+      "163"
+    ],
+    "pledged_deposit_code_165_explicitly_listed": false
+  },
+  "signed_B09_note_5_page_22": {
+    "cash_2026_03_31_vnd": "46625510309",
+    "cash_equivalents_2026_03_31_vnd": "59231282740",
+    "total_2026_03_31_vnd": "105856793049",
+    "time_deposits_original_maturity_not_more_than_3_months": true,
+    "explicit_pledge_restricted_cash_balance_at_2026_03_31": false,
+    "note_text_summary": "The Q1 statement says cash equivalents include bank term deposits with original maturity <=3 months and discloses interest range, but does not split restricted and unrestricted cash as of March31."
+  },
+  "signed_B09_note_16a_page_27": {
+    "short_term_prepaids_2026_03_31_vnd": "20606764369",
+    "assets_code_165_pledged_bank_deposit_separately_reported": false,
+    "note_text_summary": "B09 16a presents prepaid insurance, repairs and other costs; does not disclose pledged time deposits at Mar31."
+  },
+  "signed_B09_Q2_note11_page24_crosscheck": {
+    "signed_pdf_sha256": "e5c84e9cb42b1698481b12f426544cfad517894d46d3d0f37a1e9e53575f00d5",
+    "restricted_deposits_Jan1_vnd": "11422218903",
+    "restricted_deposits_Jun30_vnd": "54079653068",
+    "balance_at_Mar31_vnd": null,
+    "cross_vintage_opening_reclassification_explained": true
+  },
+  "conclusion": {
+    "source_2026_Q1_PDF_sha_verified": true,
+    "q1_current_assets_and_cash_note_presented_vnd": true,
+    "q1_signed_report_does_not_separately_disclose_pledged_deposits_at_Mar31": true,
+    "q1_actual_pledged_deposits_at_Mar31_unknown": true,
+    "absence_of_code165_does_not_prove_restricted_deposits_zero": true,
+    "do_not_replace_quarter_cash_flow_with_YTD_difference": true,
+    "Q2_standalone_cash_flow_status": "manual_source_evidence_pending_exact_March31_reclassification_and_quarter_bridge",
+    "next_source_candidate": "Issuer bank restricted deposit ledger or signed restated Q1 2026 B01/B03; reviewed H1 signed notes specifying 31 March 2026 balance and related non-cash reclassification."
+  }
+}
