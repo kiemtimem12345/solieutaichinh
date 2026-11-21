@@ -1,0 +1,27 @@
+name: Recover MBB signed consolidated Q3 2026 and Q2 2026 6M cash comparator
+on:
+  push:
+    branches: [work/mbb-q3-2026-signed-original-consolidated-B01B02B03-20261121]
+    paths:
+      - scripts/recover_mbb_2026q2q3_signed_originals.py
+      - .github/workflows/recover-mbb-2026q2q3-originals.yml
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Validate signed MBB PDF byte hashes and original pages 3 4 6 7 8
+        run: python -u scripts/recover_mbb_2026q2q3_signed_originals.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mbb-2026-q2-q3-signed-b01-b02-b03-comparison
+          path: mbb-2026-q2-q3-signed-source/
+          retention-days: 4
