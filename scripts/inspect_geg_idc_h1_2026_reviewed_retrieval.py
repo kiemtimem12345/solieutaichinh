@@ -89,16 +89,24 @@ def inspect(name: str, url: str, expected_sha: str|None, target:Path):
             pages=int(line.split(":",1)[1].strip())
     print("PDF_PAGES", pages,flush=True)
     if not pages or pages>200: return
-    noteworthy=[]
-    for i in range(1,pages+1):
-        try:
-            txt=page_text(target,i)
-        except Exception:
-            continue
-        canonical=re.sub(r"\s+"," ",txt).lower()
-        hits=[word for word in WORD_MATCHES if word in canonical]
+    # One whole-file PDF text extraction avoids O(N^2) per-page reopens.
+    try:
+        result = subprocess.run(
+            ["pdftotext", "-layout", str(target), "-"],
+            capture_output=True, text=True, timeout=90, errors="replace"
+        )
+    except Exception as exc:
+        print("TEXT_EXTRACTION_BLOCKED", str(exc)[:140], flush=True)
+        return
+    if result.returncode:
+        print("PDFTOTEXT_ERROR", result.stderr[:200], flush=True)
+        return
+    noteworthy = []
+    for i, txt in enumerate(result.stdout.split("\\f")[:pages], start=1):
+        canonical = re.sub(r"\\s+", " ", txt).lower()
+        hits = [word for word in WORD_MATCHES if word in canonical]
         if hits:
-            noteworthy.append((i,hits,canonical))
+            noteworthy.append((i, hits, canonical))
     print("SEARCHABLE_HIT_PAGES",[(p,words) for p,words,_ in noteworthy[:30]],flush=True)
     for p,words,canonical in noteworthy[:10]:
         print("PAGE",p,"MATCHES",",".join(words),flush=True)
