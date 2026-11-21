@@ -43,6 +43,8 @@ jobs:
         run: python scripts/verify_plx_q3_2025_reviewed_h1.py
       - name: Verify PLX Q4 2025 original vs audited FY signed accounting vintages, quarantine quarter cash
         run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
+      - name: Verify VCK Q2 2025 signed source and audited H1 vintage quarantined in private exception queue
+        run: python scripts/verify_vck_2025q2_vintage_pending_queue.py
       - name: Verify VCK Q1 2025 issuer signed VPS standalone B01 B02 B03 and prevent 2024 leakage
         run: python scripts/verify_vck_2025q1_signed_vps_issuer.py
       - name: Verify VCI Q2 2026 original signed B01/B02, PwC reviewed 6M B03 and Q1-derived cash
