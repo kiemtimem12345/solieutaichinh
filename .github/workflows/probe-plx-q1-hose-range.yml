@@ -1,0 +1,28 @@
+name: Probe PLX Q1 2026 HOSE PDF HTTP Range access
+on:
+  push:
+    branches: [work/plx-q1-2026-hose-source-compare-20261121]
+    paths: [.github/workflows/probe-plx-q1-hose-range.yml]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Request first 64 KB of HOSE PDF (no whole file), report response headers only
+        run: |
+          set +e
+          URL='https://staticfile.hsx.vn/Uploads/UploadDocuments/2459340/20260504%20-%20PLX%20-%20BCTC%20hop%20nhat%20Quy%201%20nam%202026.pdf'
+          curl --location --silent --show-error --connect-timeout 8 --max-time 28 \
+            --range '0-65535' --header 'User-Agent: Mozilla/5.0' \
+            --output /tmp/plx-hose-range.dat --dump-header /tmp/plx-hose-range.headers \
+            --write-out 'RANGE_HTTP=%{http_code} SIZE=%{size_download} TIME=%{time_total} CONTENT_TYPE=%{content_type}\n' "$URL"
+          echo "EXIT=$?"
+          echo '----- RESPONSE HEADERS -----'
+          head -c 2500 /tmp/plx-hose-range.headers 2>/dev/null
+          echo
+          echo '----- BYTES -----'
+          wc -c /tmp/plx-hose-range.dat 2>/dev/null
+          head -c 12 /tmp/plx-hose-range.dat 2>/dev/null | od -An -tx1
+          exit 0
