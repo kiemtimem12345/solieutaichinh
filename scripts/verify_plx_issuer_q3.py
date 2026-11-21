@@ -105,6 +105,23 @@ for r in q:
   assert (reviewed_h1["operating_cash_flow_ytd"]+reviewed_h1["investing_cash_flow_ytd"]+reviewed_h1["financing_cash_flow_ytd"])==reviewed_h1["net_cash_change_ytd"]==5485966478
   assert (reviewed_h1["cash_beginning_reported_ytd"]+reviewed_h1["net_cash_change_ytd"]+reviewed_h1["foreign_exchange_effect_ytd"])==reviewed_h1["cash_ending"]==1416006359296
   assert src["q3_parent_cashflow_quarter_still_blocked_by_signed_original_cff_discrepancy"] is True
+  from decimal import Decimal as _D
+  relative_error = _D(src["b03_cashflow_discrepancy_vnd"])/_D(src["b03_cff_printed_vnd"])*_D(100)
+  assert relative_error > _D("0.1") # User-approved subtotal tolerance cannot rescue this.
+  assert abs(relative_error-_D(src["b03_arithmetic_difference_percent_of_printed_cff"])) < _D("1e-22")
+  assert src["b03_exceeds_user_approved_0p1percent_subtotal_threshold"] is True
+  assert src["automatic_extraction_exhausted"] is True
+  assert src["terminal_manual_review"] is True
+  assert src["issuer_q3_parent_b03_official_correction_verified"] is False
+  assert src["no_automatic_repeat_same_signed_pdf_for_b03"] is True
+  assert src["terminal_manual_review_scope"].startswith("ONLY PLX Q3/2026 PARENT B03")
+  assert "87,654,015,000" in src["terminal_manual_review_reason"]
+  assert "Authenticated issuer-signed amended B03" in src["reopen_condition"]
+  assert src["next_processable_target"].startswith("GEG consolidated 2026-Q2")
+  assert src["vietstock_alternate_signed_original_source_comparison"]["signed_issuer_and_mirror_embedded_images_identical"] is True
+  assert src["vietstock_alternate_signed_original_source_comparison"]["source_original_embedded_images_identical_count"] == 39
+  assert src["vietstock_alternate_signed_original_source_comparison"]["original_b03_embedded_scan_images_identical"] is True
+
 
 
   assert r["source_validation"]["b03_component_cfo_cfi_cff_reconciles_net_change"]
