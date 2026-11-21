@@ -33,17 +33,61 @@ jobs:
           audit={}
           def download(name,u):
               dst=out/(name+".pdf")
-              cmd=["curl","-L","-f","-s","-S","--connect-timeout","15","--max-time","95","--retry","1","--max-filesize","35000000","-o",str(dst),"-w","%{http_code} %{size_download}","-H","User-Agent: Mozilla/5.0 (PLX signed-source QA/1.0)",u]
-              p=subprocess.run(cmd,capture_output=True,text=True,timeout=120)
-              r={"url":u,"curl_rc":p.returncode,"curl_status":p.stdout[-180:],"stderr":p.stderr[:280]}
-              if p.returncode==0 and dst.is_file():
+              if name=="hose":
+                  # Explicit HEAD-independent size from verified HOSE 206 Content-Range.
+                  # Work around large single-transfer stalls using bounded parallel Range requests.
+                  import concurrent.futures
+                  total=15523056
+                  unit=2097152
+                  ranges=[(i,min(i+unit,total)-1) for i in range(0,total,unit)]
+                  def part(args):
+                      start,end=args
+                      dest=out/f"hose_part_{start:08d}.bin"
+                      cmd=["curl","-L","-f","-s","-S","--connect-timeout","15",
+                           "--max-time","110","--retry","0","--range",f"{start}-{end}",
+                           "-H","User-Agent: Mozilla/5.0 (PLX-Signed-QA/1.0)",
+                           "-o",str(dest),"-w","%{http_code} %{size_download}",u]
+                      try:
+                          p=subprocess.run(cmd,capture_output=True,text=True,timeout=118)
+                          good=p.returncode==0 and dest.is_file() and dest.stat().st_size==end-start+1 and p.stdout.startswith("206")
+                          print("RANGE_RESULT",start,end,"ok",good,"rc",p.returncode,"HTTP",p.stdout[:50],"err",p.stderr[:110],flush=True)
+                          return start,dest,good
+                      except Exception as e:
+                          print("RANGE_FAILURE",start,end,repr(e),flush=True)
+                          return start,dest,False
+                  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+                      parts=list(pool.map(part,ranges))
+                  parts.sort(key=lambda z:z[0])
+                  if all(x[2] for x in parts):
+                      with dst.open("wb") as target:
+                          for _,part_path,_ in parts:
+                              with part_path.open("rb") as source:
+                                  while chunk:=source.read(65536):
+                                      target.write(chunk)
+                      curl_rc=0
+                      stdout="206 "+str(total)+" assembled_from_"+str(len(parts))+"_ranges"
+                      stderr=""
+                  else:
+                      curl_rc=1
+                      stdout="RANGE_INCOMPLETE"
+                      stderr="partial HOSE downloads timed out/failed"
+                  for _,part_path,_ in parts:
+                      part_path.unlink(missing_ok=True)
+              else:
+                  cmd=["curl","-L","-f","-s","-S","--connect-timeout","15","--max-time","95",
+                       "--retry","0","--max-filesize","35000000","-o",str(dst),
+                       "-w","%{http_code} %{size_download}","-H","User-Agent: Mozilla/5.0",u]
+                  p=subprocess.run(cmd,capture_output=True,text=True,timeout=100)
+                  curl_rc=p.returncode;stdout=p.stdout;stderr=p.stderr
+              result={"url":u,"curl_rc":curl_rc,"curl_status":stdout[-180:],"stderr":stderr[:280]}
+              if curl_rc==0 and dst.is_file():
                   raw=dst.read_bytes()
                   if raw[:4]==b"%PDF" and len(raw)>200000:
-                      r.update({"status":"valid_pdf","bytes":len(raw),"sha256":hashlib.sha256(raw).hexdigest(),"pages":len(fitz.open(dst))})
-                  else:r["status"]="invalid_pdf"
-              else:r["status"]="download_blocked"
-              audit[name]=r
-              print("SOURCE",name,json.dumps(r),flush=True)
+                      result.update({"status":"valid_pdf","bytes":len(raw),"sha256":hashlib.sha256(raw).hexdigest(),"pages":len(fitz.open(dst))})
+                  else:result["status"]="invalid_pdf"
+              else:result["status"]="download_blocked"
+              audit[name]=result
+              print("SOURCE",name,json.dumps(result),flush=True)
               return dst
           vp=download("vietstock",urls["vietstock"])
           hp=download("hose",urls["hose"])
