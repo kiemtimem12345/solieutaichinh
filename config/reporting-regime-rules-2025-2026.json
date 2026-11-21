@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-21",
+  "scope": "Vietnam non-specialized corporate statements 2025-2026; issuer case-study GEG IDC",
+  "fiscal_year_crossover": "2026-01-01",
+  "rules": {
+    "before_2026": {
+      "general_accounting": "TT200/2014/TT-BTC (as amended)",
+      "consolidated_accounting": "TT202/2014/TT-BTC (as amended)",
+      "valid_fiscal_start_before": "2026-01-01"
+    },
+    "from_2026": {
+      "general_accounting": "TT99/2025/TT-BTC",
+      "general_effective_on": "2026-01-01",
+      "consolidated_accounting": "TT202/2014/TT-BTC amended by TT43/2026/TT-BTC",
+      "consolidation_amendment_signed_on": "2026-04-20",
+      "consolidation_amendment_effective_on": "2026-04-20",
+      "consolidation_fiscal_start_on_or_after": "2026-01-01",
+      "transition": "Check Article 30 TT99 and Article 3 TT43: retrospective / simplified retrospective / prospective depends on applicable specific provisions and signed issuer disclosure"
+    }
+  },
+  "disclosure": {
+    "base": "TT96/2020/TT-BTC",
+    "amendments": [
+      "TT68/2024/TT-BTC",
+      "TT18/2025/TT-BTC",
+      "TT08/2026/TT-BTC"
+    ],
+    "must_determine_applicable_version_at_publication": true,
+    "never_infer_original_is_invalid_only_from_new_amendment": true,
+    "independent_from_accounting_method": true
+  },
+  "specialized_exclusions": {
+    "banking": "NHNN banking financial statements; separate specialized regime validation required",
+    "securities": "Sector-specialized securities accounting and reporting; separate regime validation required"
+  },
+  "cashflow_derivation": {
+    "require_same_scope": true,
+    "require_same_2026_current_period_policy": true,
+    "require_signed_same_vintage_or_source_supported_bridge": true,
+    "require_exact_cash_bridge": true,
+    "do_not_apply_subtotal_tolerance_to_cash_bridge": true,
+    "no_transfer_of_2025_prior_period_comparatives_to_2026_cashflow": true,
+    "missing_standalone_values": "null"
+  },
+  "official_sources": [
+    "https://congbao.chinhphu.vn/tai-ve-van-ban-so-99-2025-tt-btc-46529-59631",
+    "https://www.mof.gov.vn/tin-tuc-tai-chinh/tin-chinh-sach-tai-chinh/quy-dinh-moi-ve-phuong-phap-lap-va-trinh-bay-bao-cao-tai-chinh-hop-nhat",
+    "https://ssc.gov.vn/webcenter/portal/ubck/pages_r/l/chitit?dDocName=APPSSCGOVVN1620163824"
+  ],
+  "caution": "FY applicability != signature/publication effective date. This metadata is not a legal compliance determination; issuer specific signed evidence controls."
+}
