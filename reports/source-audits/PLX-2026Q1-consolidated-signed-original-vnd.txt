@@ -167,3 +167,36 @@ fy2025_audited_other_current_other 808250628
 q1_2026_opening_other_current_other 3088367068202
 q1_2026_note16_opening_price_stabilization_deposit 3087558817574
 # END OPENING_CASH_RECLASSIFICATION
+# BEGIN B01_FORENSIC_OPENING_AND_SIGNED_NOTES
+# Original signed B01 PDF pp2-3: no printed line 133 or 317 at either date. 
+# Neither missing line is permitted an assumed/derived value.
+# Both original printed 2026-01-01 subtotals reconcile with displayed detail exactly 0 VND.
+# Signed source Note 3/4/5 on PDF p20 (zero-based p19), Notes 18,21,22,23,26 pp21-22.
+recv_open_subtotal_130 15969900845614
+recv_open_131_customers 15782706609584
+recv_open_132_advances 532504290962
+recv_open_135_other 958916064386
+recv_open_136_provision -1304989454114
+recv_open_137_pending 763334796
+liab_open_subtotal_310 55354328118906
+liab_open_311_suppliers 23980153196577
+liab_open_312_advances 496304121511
+liab_open_313_dividend 12170259741
+liab_open_314_tax 2139493701520
+liab_open_315_employees 1842959286283
+liab_open_316_accruals 4465046672500
+liab_open_319_unearned 13269380679
+liab_open_320_other 425722550966
+liab_open_321_borrowings 18085030169112
+liab_open_322_provision 274662894662
+liab_open_323_staff_fund 531957067781
+liab_open_324_stabilization 3087558817574
+note3_customer_current_plus_long 19245177718970
+note4_other_receivables_current 893190840519
+note5_current_pending_assets 1429637192
+note18_suppliers_current 58702436241952
+note21_accruals_current 652922698316
+note22_other_payables_current 935848354785
+note23_unearned_current 13603182893
+note26_provision_current 276453109103
+# END B01_FORENSIC_OPENING_AND_SIGNED_NOTES
