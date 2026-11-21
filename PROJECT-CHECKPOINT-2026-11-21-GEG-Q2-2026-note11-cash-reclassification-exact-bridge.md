@@ -1,0 +1,26 @@
+# CHECKPOINT — GEG Q2/2026 signed note11 pledged deposits: year-opening cash re-presentation proved, Q2 standalone remains blocked
+
+Date: 21 November 2026 (ICT). Production repository `kiemtimem12345/solieutaichinh`. Resume after PR #108 PLX parent Q3/2026 B03 CFF original 1.4692%-mismatch has terminal manual-review only for the blocked cash-flow component. GAS 7/7, VDS 7/7, VIX 7/7 source PASS; do not reprocess. PLX Q3 consolidated and parent B01/B02 PASS.
+
+## GEG exact signed source evidence
+- GEG **2026-Q1 consolidated** original `https://static2.vietstock.vn/vietstock/2026/4/29/20260429___geg___bao_cao_tai_chinh_hop_nhat_q1_2026___giai_trinh__song_ngu_.pdf` 82 pages SHA256 `d8dade2f270452432a190bedddb46736523cc3a74b783ae1a2f82b76a5e74d5b`.
+- GEG **2026-Q2 consolidated** signed original `https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/GEG_Baocaotaichinh_Q2_2026_Hopnhat.pdf` 43 pages SHA256 `e5c84e9cb42b1698481b12f426544cfad517894d46d3d0f37a1e9e53575f00d5`. Original signed **B09-DN/HN note11 PDF page 24** visually inspected. It reports `tiền gửi ngân hàng có kỳ hạn (bảo lãnh)` **11,422,218,903 VND** at 2026-01-01 and 54,079,653,068 VND at 2026-06-30. These deposits secure bank loans/interest and project guarantees, are reported in B01 **other current assets code165** rather than free cash equivalents.
+- Q1 original 2026 Jan1 B01 cash-only code111 **46,702,358,323 VND**, cash equivalents code112 **39,662,304,925**, total code110 **86,364,663,248**, other current assets code160 **45,734,380,278**, total current assets 1,776,350,024,277.
+- Q2 later original Jan1 comparative B01 cash-only same 46,702,358,323, cash equivalents code112 **28,240,086,022**, total code110 **74,942,444,345**, other current assets code160 **57,156,599,181**, including restricted code165 **11,422,218,903**, total current assets unchanged. The exact `11,422,218,903` decreases code112/cash110 and increases code160/code165; total current assets unchanged 0 VND. Q3 comparative persists in same classification. This is a **confirmed presentation/reclassification of opening balances**, not an actual 2026-Q2 cash receipt/payment.
+- Original Q1 signed B03 beginning **86,364,663,248**, net +19,466,337,813, FX +25,791,988, end **105,856,793,049**; Q2 H1 signed B03 beginning **74,942,444,345**, H1 net +25,371,516,918, FX +13,217,270, end **100,327,178,533**. Both original statements internally balance exact VND.
+- If subtract 6M−3M WITHOUT a Q1 restatement: provisional Q2 CFO +508,833,832,667; CFI −705,709,092,843; CFF +202,780,439,281; net +5,905,179,105; FX −12,574,718. But actual cash end(Q2)−end(Q1) = −5,529,614,516, **bridge difference −11,422,218,903 VND**. This remains a real **cross-vintage mismatch**, not eligible for ≤0.1% tolerance. No source yet verifies that this same exact amount remained pledged *at 31 March 2026*, or how the original 3M cash flow would be restated. **Do NOT publish provisional standalone Q2 CFO/CFI/CFF or mark quarterly B03 PASS.**
+- Original Q2 B01/B02 and six-month B03 source financial data were previously verified with 31/31 arithmetic identities. Q1 original 23/23 PASS. Only comparative opening classification and **standalone Q2 cash bridge** are unresolved, not the full source reports.
+
+## Code / validation
+- New ledger: `reports/source-audits/GEG-2026Q2-note11-pledged-cash-opening-reclassification-vnd.json` structured original source SHA, before/after opening B01, original signed note p24, exact 11,422,218,903 reconciliation, Q2 provisional figures **not promoted**, caveats.
+- `data/financials-GEG.json`: **metadata only** on Q1 and Q2, `year_open_cash_reclassification_classification_proven=true`, `march_31_2026_restricted_deposits_balance_verified=false`, `q2_quarter_cashflow_still_blocked_for_unverified_mar31_reclassification=true`. Q2 standalone CFO/CFI/CFF/cash_beginning **NULL**; all original verified source numbers and unrelated periods preserved.
+- `scripts/verify_geg_q2_2026_pledged_deposit_note11.py`: verify exact original note11, 0 VND reclassification in current assets, 11,422,218,903 source-vintage cash gap, YTD values and 2 negative tamper tests; assert Q2 standalone NULL.
+- `.github/workflows/validate.yml` includes the new regression alongside existing Q1/Q2 source checks and all other tickers.
+
+## Next unblocking evidence
+- Find **GEG 31 March 2026** pledged restricted bank deposit balance, a signed **restated Q1** or explicit H1 reviewed **Q1 B03 comparator**. Must demonstrate opening/closing same-scope and same-vintage cash bridge at exact VND before deriving Q2 standalone. Do not attribute the opening reclassification to Q2 CFO/CFI/CFF.
+- If unavailable, preserve cross-vintage block without repeated downloads and advance to **IDC 2026-Q2** standalone B03 exception based on `reports/source-audits/IDC...` and existing verified H1 Note41. Do not repeat IDC Q3 or completed periods.
+- Only merge after CI PASS; post-merge main CI + 45/45 website SHA and Pages PASS, then durable main checkpoint.
+
+## Legal status
+Accountancy presentation supported by signed original note; this is not a legal compliance certification. TT99/2025/TT43 2026 regime scope must be compared to issuer note; no numerical 0.1%-tolerance invoked.
