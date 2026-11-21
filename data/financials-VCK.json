@@ -51,7 +51,7 @@
         "source_verified_B01_B02_B03": true,
         "original_pdf_hash_verified": false,
         "client_cash_outside_issuer_balance_sheet": true,
-        "accounting_identities_exact_vnd": 16,
+        "accounting_identities_exact_vnd": 19,
         "quarter_profit_column_verified": true,
         "prior_Q1_scope_hold_resolved": true
       },
@@ -67,7 +67,7 @@
       "core_financial_extraction_manual_terminal": false,
       "core_financial_extraction_attempt_count": 3,
       "core_financial_extraction_note": "Tiêu đề/phạm vi trong tài liệu nguồn chưa xác nhận đây là BCTC hợp nhất. Yêu cầu rà soát trực quan trang đầu trước khi đưa số vào chuỗi VCK.",
-      "financial_line_items_status": "issuer_signed_original_58_vnd_fields_16_exact_identities_pass",
+      "financial_line_items_status": "issuer_signed_original_65_vnd_fields_19_exact_identities_pass",
       "financial_line_items_note": "Signed VPS issuer B01 B02 B03 2025Q1 exact VND; signed issuer quarterly not rebranded as consolidated; customer brokerage money separately recorded.",
       "financial_line_items_extracted_fields": [
         "total_assets",
@@ -152,7 +152,13 @@
         "financing_cash_flow_ytd",
         "net_cash_change_ytd",
         "cash_ending_ytd",
-        "cash_beginning_reported_ytd"
+        "cash_beginning_reported_ytd",
+        "financial_income_deposit_interest",
+        "financial_income_other_investments",
+        "financial_other_expense",
+        "securities_fvtpl_disposal_gain",
+        "securities_fvtpl_revaluation_gain",
+        "securities_fvtpl_dividend_interest"
       ],
       "financial_line_items_schema_version": "2026-10-26-bank-reconciliation-cashflow-v5",
       "financial_line_items_schema_updated_at": "2026-10-25T21:10:58+00:00",
@@ -271,7 +277,7 @@
       "broker_brokerage_revenue": 578977.103627,
       "broker_custody_revenue": 15050.910131,
       "broker_custody_expense": 14845.744131,
-      "interest_expense": 203397.310816,
+      "interest_expense": 203390.64415,
       "cashflow_ytd_period_basis": "2025-Q1_equals_2025_3M",
       "cashflow_quarter_manually_verified_fields": [
         "operating_cash_flow",
@@ -366,8 +372,20 @@
         "financing_cash_flow_ytd",
         "net_cash_change_ytd",
         "cash_ending_ytd",
-        "cash_beginning_reported_ytd"
-      ]
+        "cash_beginning_reported_ytd",
+        "financial_income_deposit_interest",
+        "financial_income_other_investments",
+        "financial_other_expense",
+        "securities_fvtpl_disposal_gain",
+        "securities_fvtpl_revaluation_gain",
+        "securities_fvtpl_dividend_interest"
+      ],
+      "financial_income_deposit_interest": 11951.194444,
+      "financial_income_other_investments": 262671.790992,
+      "financial_other_expense": 6.666666,
+      "securities_fvtpl_disposal_gain": 76875.371282,
+      "securities_fvtpl_revaluation_gain": 22309.774923,
+      "securities_fvtpl_dividend_interest": 124537.213449
     },
     {
       "symbol": "VCK",
