@@ -12,6 +12,7 @@ import tempfile
 from pathlib import Path
 
 SOURCES = [
+    ("VCI_2026H1_Vietstock_republished", "https://static2.vietstock.vn/vietstock/2026/8/14/20260813___vci___bctc_6t_nam_2026___cbtt_2.pdf"),
     ("VCI_2026H1_HOSE_reviewed", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2488911/20260813%20-%20VCI%20-%20BCTC%206T%20nam%202026%20-%20CBTT.pdf"),
     ("VCI_2026Q2_Vietstock_mirror", "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/VCI_Baocaotaichinh_Q2_2026_1.pdf"),
     ("VCI_2026Q2_HOSE_original", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2480835/20260720%20-%20VCI%20-%20BCTC%20Q2.2026-CBTT.pdf"),
@@ -83,8 +84,14 @@ def main():
     evidence = {}
     with tempfile.TemporaryDirectory() as temp:
         for i, (name, url) in enumerate(SOURCES):
+            if "2026H1" in name and any(v for k, v in evidence.items() if "2026H1" in k):
+                print("SKIP_DUPLICATE_H1_SOURCE", name, flush=True)
+                continue
+            if "2026Q2" in name and any(v for k, v in evidence.items() if "2026Q2" in k):
+                print("SKIP_DUPLICATE_Q2_SOURCE", name, flush=True)
+                continue
             evidence[name] = inspect(name, url, Path(temp)/f"vci_{i}.pdf")
-    h1 = evidence.get("VCI_2026H1_HOSE_reviewed", False)
+    h1 = any(v for k, v in evidence.items() if "2026H1" in k)
     q2 = any(v for k, v in evidence.items() if "2026Q2" in k)
     print("EVIDENCE_STATUS", "H1", h1, "Q2", q2, flush=True)
     print("FINISHED evidence only; no financial JSON or production changes", flush=True)
