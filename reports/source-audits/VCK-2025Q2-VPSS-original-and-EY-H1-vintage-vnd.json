@@ -1,0 +1,147 @@
+{
+  "ticker": "VCK",
+  "original_filing_symbol": "VPSS",
+  "period": "2025-Q2",
+  "scope": "VPS issuer signed standalone securities statement, no mandatory consolidated filing after Q1 2025 disposal",
+  "unit": "VND",
+  "as_filed": {
+    "url": "https://static2.vietstock.vn/data/OTC/2025/BCTC/VN/QUY%202/VPSS_Baocaotaichinh_Q2_2025.pdf",
+    "date": "2025-07-18",
+    "page_count": 39,
+    "pages_zero_based": {
+      "B01": [
+        4,
+        5
+      ],
+      "B02": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "B03": [
+        11,
+        12
+      ],
+      "client_cash": [
+        13
+      ]
+    },
+    "sha256_verified": false
+  },
+  "h1_audited": {
+    "signed_by": "Ernst & Young Vietnam Limited",
+    "signed_date": "2025-09-19",
+    "source_pdf_url": "https://cafef1.mediacdn.vn/download/091225/vck-ban-cao-bach-niem-yet-va-cac-phu-luc-cong-ty-co-phan-chung-khoan-vps-9.pdf",
+    "source_type": "issuer listing prospectus appendix; certified copy of EY-audited 2025 H1 issuer report",
+    "cashflow_6m": {
+      "CFO": "3301435800315",
+      "CFI": "-82372806368",
+      "CFF": "202716749534",
+      "net": "3421779743481",
+      "opening": "1732141826349",
+      "ending": "5153921569830"
+    },
+    "profit_6m": {
+      "pretax": "1797377533243",
+      "net": "1437902026594"
+    }
+  },
+  "original_vnd_fields": {
+    "total_assets": "32138287500860",
+    "current_assets": "31585212671598",
+    "non_current_assets": "553074829262",
+    "total_liabilities": "19337465192969",
+    "current_liabilities": "14234312772879",
+    "long_term_liabilities": "5103152420090",
+    "equity": "12800822307891",
+    "financial_assets_current": "31561626503710",
+    "other_current_assets": "23586167888",
+    "financial_assets_noncurrent": "24717108316",
+    "fixed_assets": "390749009669",
+    "securities_fixed_tangible": "183100135603",
+    "securities_fixed_intangible": "207648874066",
+    "long_term_construction_in_progress": "54596263200",
+    "other_non_current_assets": "83012448077",
+    "cash_and_equivalents": "5153921569830",
+    "securities_fvtpl_assets": "2528182647751",
+    "securities_htm_short": "6000000000000",
+    "securities_margin_loans": "17435628542000",
+    "securities_financial_asset_impairment": "-4877792928",
+    "short_term_receivables": "388458623813",
+    "short_term_borrowings": "13431495082870",
+    "securities_long_term_bonds": "4999866666664",
+    "revenue": "1723539495261",
+    "revenue_ytd": "3191996492461",
+    "pretax_profit": "877990864499",
+    "pretax_profit_ytd": "1797377533243",
+    "net_profit": "702214269106",
+    "net_profit_ytd": "1437902026594",
+    "income_tax": "175776595393",
+    "income_tax_ytd": "359475506649",
+    "operating_profit": "878014670956",
+    "operating_profit_ytd": "1797355058263",
+    "other_profit": "-23806457",
+    "other_profit_ytd": "22474980",
+    "financial_expense": "264902032201",
+    "financial_expense_ytd": "468299343017",
+    "admin_expense": "123423112932",
+    "admin_expense_ytd": "207329698183",
+    "operating_cash_flow_ytd": "3302040800315",
+    "investing_cash_flow_ytd": "-82977806368",
+    "financing_cash_flow_ytd": "202716749534",
+    "net_cash_change_ytd": "3421779743481",
+    "cash_beginning_reported_ytd": "1732141826349",
+    "cash_ending_ytd": "5153921569830"
+  },
+  "signed_Q1_2025_source_ledger": "reports/source-audits/VCK-2025Q1-VPSS-issuer-signed-standalone-vnd.json",
+  "q2_standalone_cash_original_asfiled_vnd": {
+    "operating_cash_flow": "8494129024537",
+    "investing_cash_flow": "-64517431200",
+    "financing_cash_flow": "-4899104917132",
+    "net_cash_change": "3530506676205",
+    "cash_beginning": "1623414893625",
+    "cash_ending": "5153921569830"
+  },
+  "q2_standalone_cash_reviewed_h1_vnd": {
+    "operating_cash_flow": "8493524024537",
+    "investing_cash_flow": "-63912431200",
+    "financing_cash_flow": "-4899104917132",
+    "net_cash_change": "3530506676205",
+    "cash_beginning": "1623414893625",
+    "cash_ending": "5153921569830"
+  },
+  "vintage_discrepancy": {
+    "asfiled_vs_EY_CFO_vnd": "605000000",
+    "asfiled_vs_EY_CFI_vnd": "-605000000",
+    "same_net_change_and_cash_balance": true,
+    "profit_6m_minus_Q1_minus_direct_Q2_vnd": "913532383",
+    "pretax_6m_minus_Q1_minus_direct_Q2_vnd": "913532383",
+    "resolution": "pending detailed note / restatement review. Do not treat quarterly P&L vintage as reconciled PASS; do not overwrite signed Q2 standalone values."
+  },
+  "checks_exact_vnd": {
+    "assets": "0",
+    "balance": "0",
+    "liabs": "0",
+    "current": "0",
+    "noncurrent": "0",
+    "fixed": "0",
+    "earnings": "0",
+    "six_month_earnings": "0",
+    "operating_profit": "0",
+    "h1_operating": "0",
+    "revenue_bridge": "0",
+    "tax_bridge": "0",
+    "CFF_sections": "0",
+    "cash_end": "0",
+    "q2_cash_sections": "0",
+    "q2_cash_end": "0",
+    "reviewed_q2_cash_sections": "0",
+    "reviewed_q2_cash_end": "0",
+    "income_Q2_vintage_difference": "913532383",
+    "pretax_Q2_vintage_difference": "913532383"
+  },
+  "status": "qualified_issuer_B01_B02_B03_signed_2025Q2_pending_vintage_review",
+  "no_2024_data": true,
+  "note": "Retain original issuer B01 balance and Q2 B02 direct column, company B03 six-month and audited revised six-month vintages. Do not mix client brokerage cash. Variance is queued without presenting publicly."
+}
