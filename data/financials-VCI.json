@@ -387,7 +387,10 @@
         "extraction_attempt_count": 3,
         "last_extraction_error": "Đầu PDF không xác nhận rõ phạm vi hợp nhất; giữ liên kết nguồn và yêu cầu rà soát thủ công, không lưu số liệu vào chuỗi hợp nhất.",
         "automatic_extraction_exhausted": true,
-        "manual_review_reason": "Đầu PDF không xác nhận rõ phạm vi hợp nhất; giữ liên kết nguồn và yêu cầu rà soát thủ công, không lưu số liệu vào chuỗi hợp nhất."
+        "manual_review_reason": "Đầu PDF không xác nhận rõ phạm vi hợp nhất; giữ liên kết nguồn và yêu cầu rà soát thủ công, không lưu số liệu vào chuỗi hợp nhất.",
+        "six_month_B03_readable_only_by_visual_inspection": true,
+        "six_month_B03_exact_vnd_accepted_as_Q3_reference_not_as_Q2_standalone": true,
+        "six_month_cashflow_signed_source_ledger": "reports/source-audits/VCI-2026Q3-reviewed-H1-signed-Q2-quarter-cash-vnd.json"
       },
       "published_at": "2026-07-21",
       "source_archive_file": "reports/raw/VCI/auto-vci-20261021/a8fec422bac195c1.pdf",
@@ -443,8 +446,23 @@
         "manual_review_blocking_automatic_extraction": false,
         "exact_vnd_main_B01_B02_B03_math_checked": true,
         "recovered_from_prior_auto_extraction_failure_on": "2026-11-21",
-        "remaining_source_work": "Verify remaining earlier 2025Q1–2026Q2 VCI signed originals and H1 B03 for Q3 quarterization; full signed PDF image/hash review.",
-        "previous_extraction_failure": "Đầu PDF không xác nhận rõ phạm vi hợp nhất; giữ liên kết nguồn và yêu cầu rà soát thủ công, không lưu số liệu vào chuỗi hợp nhất."
+        "remaining_source_work": "Earlier 2025Q1–2026Q2 VCI statement figures still need signed visual verification; Q2 standalone B03 awaits source-verified Q1; full Q3 original binary hash/full B03 visual image pending.",
+        "previous_extraction_failure": "Đầu PDF không xác nhận rõ phạm vi hợp nhất; giữ liên kết nguồn và yêu cầu rà soát thủ công, không lưu số liệu vào chuỗi hợp nhất.",
+        "h1_reviewed_source_sha256_mirror": "1ea814d02563a136d11d718c62c1ffc3c08463ffaf12369c517111cd26f6b9af",
+        "q2_as_filed_source_sha256_mirror": "a8fec422bac195c1b4d9743a995da35ec5066fa6dc0f951e6fbb36f2218823b5",
+        "cashflow_q3_standalone_reviewed_h1_q2_source_ledger": "reports/source-audits/VCI-2026Q3-reviewed-H1-signed-Q2-quarter-cash-vnd.json",
+        "q3_quarter_cashflow_exact_vnd_bridge_residual": "0",
+        "reviewed_h1_visual_source_pages": [
+          16,
+          17
+        ],
+        "signed_q2_visual_source_pages": [
+          13,
+          14
+        ],
+        "h1_vs_q2_same_6m_cashflow_exact_match": true,
+        "signed_q3_ytd_cashflow_verified_against_reviewed_h1": true,
+        "visual_evidence_workflow_run": 44918419435
       },
       "published_at": "2026-10-20",
       "source_archive_file": "reports/raw/VCI/auto-vci-20261021/6f334985f6fb89bb.pdf",
@@ -508,7 +526,7 @@
       "client_brokerage_investor_deposits_ending": 4585539.394697,
       "client_brokerage_clearing_deposits_ending": 481583.058594,
       "cashflow_period_basis": "year_to_date",
-      "q3_standalone_cashflow_status": "deferred_until_same_scope_signed_H1_2026_verification",
+      "q3_standalone_cashflow_status": "verified_signed_9M_less_reviewed_H1_exact_VND_bridge",
       "financial_line_items_extracted_fields": [
         "total_assets",
         "total_liabilities",
@@ -642,7 +660,26 @@
         "client_brokerage_clearing_deposits_ending"
       ],
       "financial_line_items_rejected_fields": [],
-      "financial_line_items_status": "issuer_signed_HOSE_source_text_accounting_checks_with_B01_B02_partial_images"
+      "financial_line_items_status": "issuer_signed_HOSE_source_text_accounting_checks_with_B01_B02_partial_images",
+      "operating_cash_flow": -1645363.936165,
+      "investing_cash_flow": -50410.723684,
+      "financing_cash_flow": 1056375,
+      "net_cash_change": -639399.659849,
+      "cash_beginning": 3648930.400448,
+      "cashflow_quarter_basis": "signed_2026_9M_minus_reviewed_signed_H1_6M",
+      "cashflow_quarter_manually_verified_fields": [
+        "operating_cash_flow",
+        "investing_cash_flow",
+        "financing_cash_flow",
+        "net_cash_change",
+        "cash_beginning",
+        "cash_ending"
+      ],
+      "operating_cash_flow_calculation": "Signed Q3 9M B03 CFO minus PwC-reviewed issuer H1 6M B03 CFO, exact VND",
+      "investing_cash_flow_calculation": "Signed Q3 9M B03 CFI minus PwC-reviewed issuer H1 6M B03 CFI, exact VND",
+      "financing_cash_flow_calculation": "Signed Q3 9M B03 CFF minus PwC-reviewed issuer H1 6M B03 CFF, exact VND",
+      "cash_beginning_calculation": "Reviewed H1 B03 June 30 closing cash; same original Q2 B03 six-month cash balance",
+      "cash_ending_calculation": "Signed Q3 9M B03 cash ending; exact bridge zero VND"
     }
   ],
   "source_index_url": "https://finance.vietstock.vn/VCI/tai-tai-lieu.htm?doctype=1",

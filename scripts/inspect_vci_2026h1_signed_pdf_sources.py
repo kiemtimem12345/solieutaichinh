@@ -9,16 +9,22 @@ import hashlib
 import re
 import subprocess
 import tempfile
-import time
-import urllib.request
 from pathlib import Path
 
 SOURCES = [
-    ("VCI_2026Q2_HOSE_original", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2480835/20260720%20-%20VCI%20-%20BCTC%20Q2.2026-CBTT.pdf"),
+    ("VCI_2026H1_Vietstock_republished", "https://static2.vietstock.vn/vietstock/2026/8/14/20260813___vci___bctc_6t_nam_2026___cbtt_2.pdf"),
     ("VCI_2026H1_HOSE_reviewed", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2488911/20260813%20-%20VCI%20-%20BCTC%206T%20nam%202026%20-%20CBTT.pdf"),
     ("VCI_2026Q2_Vietstock_mirror", "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/VCI_Baocaotaichinh_Q2_2026_1.pdf"),
+    ("VCI_2026Q2_HOSE_original", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2480835/20260720%20-%20VCI%20-%20BCTC%20Q2.2026-CBTT.pdf"),
 ]
 MAX_BYTES=45*1024*1024
+EXPECTED_PDF = {
+    "VCI_2026H1_Vietstock_republished": ("1ea814d02563a136d11d718c62c1ffc3c08463ffaf12369c517111cd26f6b9af", 98),
+    "VCI_2026Q2_Vietstock_mirror": ("a8fec422bac195c1b4d9743a995da35ec5066fa6dc0f951e6fbb36f2218823b5", 48),
+}
+PREVIEW_DIR = Path('vci-source-previews')
+PREVIEW_DIR.mkdir(exist_ok=True)
+
 NEEDLES=[
     "lưu chuyển tiền thuần từ hoạt động kinh doanh",
     "lưu chuyển tiền thuần từ hoạt động đầu tư",
@@ -29,26 +35,37 @@ NEEDLES=[
     "không có công ty con",
 ]
 def get(url,path):
-    error=""
-    for i in range(2):
-        try:
-            req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (VCI financial source review)","Accept":"application/pdf,application/octet-stream,*/*"})
-            with urllib.request.urlopen(req,timeout=22) as response:
-                total=0
-                with path.open("wb") as o:
-                    while True:
-                        chunk=response.read(1024*1024)
-                        if not chunk:break
-                        total+=len(chunk)
-                        if total>MAX_BYTES:raise ValueError("size cap")
-                        o.write(chunk)
-            if path.open("rb").read(5)!=b"%PDF-":raise ValueError("not PDF magic")
-            return total
-        except Exception as exc:
-            error=f"{type(exc).__name__}: {str(exc)[:170]}"
-            print("ATTEMPT_FAILED",i+1,error,flush=True)
-            time.sleep(1)
-    raise RuntimeError(error)
+    """Hard wall-clock per source. Avoid urllib socket timeouts on trickling 17MB PDFs."""
+    command = [
+        "curl", "--location", "--silent", "--show-error", "--fail",
+        "--max-time", "80", "--connect-timeout", "12",
+        "--speed-limit", "8192", "--speed-time", "16",
+        "--max-filesize", str(MAX_BYTES),
+        "--user-agent", "Mozilla/5.0 (financial-source-evidence-only)",
+        "--header", "Accept: application/pdf,application/octet-stream",
+        "--output", str(path), url,
+    ]
+    result = subprocess.run(command, text=True, capture_output=True, timeout=92)
+    if result.returncode:
+        raise RuntimeError(f"curl_exit={result.returncode} {result.stderr.strip()[:180]}")
+    size = path.stat().st_size
+    if not 0 < size <= MAX_BYTES or path.open("rb").read(5) != b"%PDF-":
+        raise ValueError(f"Invalid PDF or source response; bytes={size}")
+    return size
+
+def render_preview(name, path, pages):
+    """Render only early financial-statement pages, not full scanned reports."""
+    start, stop = (7, 26) if "2026H1" in name else (5, 22)
+    stop = min(stop, pages)
+    prefix = PREVIEW_DIR / ("H1_reviewed" if "2026H1" in name else "Q2_as_filed")
+    cmd = [
+        "pdftoppm", "-f", str(start), "-l", str(stop),
+        "-scale-to", "1300", "-jpeg", "-jpegopt", "quality=62",
+        str(path), str(prefix),
+    ]
+    subprocess.run(cmd, capture_output=True, text=True, timeout=115, check=True)
+    count = len(list(PREVIEW_DIR.glob(prefix.name + "-*.jpg")))
+    print("VISUAL_PAGES_EXPORTED", name, start, stop, count, flush=True)
 
 def inspect(name,url,path):
     print("\n=== ORIGINAL_SOURCE",name,"===",flush=True)
@@ -60,10 +77,14 @@ def inspect(name,url,path):
         pages=next((int(v.partition(":")[2].strip()) for v in info.stdout.splitlines() if v.startswith("Pages:")),0)
         print("PAGES",pages,flush=True)
         if not pages or pages>160:raise ValueError("invalid pages")
+        if name in EXPECTED_PDF:
+            expected_sha, expected_pages = EXPECTED_PDF[name]
+            if sha != expected_sha or pages != expected_pages:
+                raise ValueError(f"Downloaded scanned PDF differs from visually approved source: {name}")
         proc=subprocess.run(["pdftotext","-layout",str(path),"-"],capture_output=True,text=True,timeout=65,errors="replace")
         if proc.returncode:
             print("TEXT_EXTRACTION_UNAVAILABLE",proc.stderr[:200],flush=True)
-            return
+            return False
         pages_text=proc.stdout.split("\f")
         print("SEARCHABLE_CHARS",len(proc.stdout),flush=True)
         printed=0
@@ -76,13 +97,31 @@ def inspect(name,url,path):
                     printed+=1
                     if printed>=22:break
             if printed>=22:break
-        if not printed:print("NO_RELEVANT_SEARCHABLE_ROWS; scanned pages require targeted manual images",flush=True)
+        if not printed:
+            print("NO_RELEVANT_SEARCHABLE_ROWS; scanned pages require targeted manual images",flush=True)
+            render_preview(name, path, pages)
+            return "scan"
+        return True
     except Exception as exc:
         print("SOURCE_NOT_RETRIEVED",name,type(exc).__name__,str(exc)[:250],flush=True)
+        return False
 
 def main():
+    evidence = {}
     with tempfile.TemporaryDirectory() as temp:
-        for i,(name,url) in enumerate(SOURCES):
-            inspect(name,url,Path(temp)/f"vci_{i}.pdf")
-    print("FINISHED evidence only, no production site changes",flush=True)
-if __name__=="__main__":main()
+        for i, (name, url) in enumerate(SOURCES):
+            if "2026H1" in name and any(v is not False for k, v in evidence.items() if "2026H1" in k):
+                print("SKIP_DUPLICATE_H1_SOURCE", name, flush=True)
+                continue
+            if "2026Q2" in name and any(v is not False for k, v in evidence.items() if "2026Q2" in k):
+                print("SKIP_DUPLICATE_Q2_SOURCE", name, flush=True)
+                continue
+            evidence[name] = inspect(name, url, Path(temp)/f"vci_{i}.pdf")
+    h1 = any(v is True or v == "scan" for k, v in evidence.items() if "2026H1" in k)
+    q2 = any(v is True or v == "scan" for k, v in evidence.items() if "2026Q2" in k)
+    print("EVIDENCE_STATUS", "H1_PDF_AND_PREVIEW", h1, "Q2_PDF_AND_PREVIEW", q2, flush=True)
+    print("FINISHED evidence only; no financial JSON or production changes", flush=True)
+    if not (h1 and q2):
+        raise SystemExit("INCOMPLETE_SOURCE_EVIDENCE: H1 plus Q2 scanned preview required; fail closed")
+    print("PASS SCANNED_SOURCE_IDENTITY_AND_VISUAL_PREVIEWS; signed cashflow amounts separately checked by financial CI",flush=True)
+if __name__ == "__main__": main()

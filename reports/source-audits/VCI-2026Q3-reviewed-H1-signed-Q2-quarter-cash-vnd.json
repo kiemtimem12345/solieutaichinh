@@ -1,0 +1,91 @@
+{
+  "ticker": "VCI",
+  "reporting_entity": "Công ty Cổ phần Chứng khoán Vietcap",
+  "period": "2026-Q3",
+  "scope": "single issuer company financial reports with no subsidiaries; not a separately signed consolidated report",
+  "unit": "VND",
+  "h1_reviewed_source": {
+    "mirror_url": "https://static2.vietstock.vn/vietstock/2026/8/14/20260813___vci___bctc_6t_nam_2026___cbtt_2.pdf",
+    "official_HOSE_url": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2488911/20260813%20-%20VCI%20-%20BCTC%206T%20nam%202026%20-%20CBTT.pdf",
+    "mirror_sha256": "1ea814d02563a136d11d718c62c1ffc3c08463ffaf12369c517111cd26f6b9af",
+    "mirror_size_bytes": 15650240,
+    "pages": 98,
+    "visual_pdf_pages": [
+      16,
+      17
+    ],
+    "auditor_logo_visible": "PwC",
+    "source_text_searchable": false,
+    "cashflow_vnd": {
+      "operating_cash_flow": "-4539879183965",
+      "investing_cash_flow": "-26547106493",
+      "financing_cash_flow": "5001663109500",
+      "net_cash_change": "435236819042",
+      "cash_beginning": "3213693581406",
+      "cash_ending": "3648930400448"
+    }
+  },
+  "q2_as_filed_source": {
+    "mirror_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/VCI_Baocaotaichinh_Q2_2026_1.pdf",
+    "official_HOSE_url": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2480835/20260720%20-%20VCI%20-%20BCTC%20Q2.2026-CBTT.pdf",
+    "mirror_sha256": "a8fec422bac195c1b4d9743a995da35ec5066fa6dc0f951e6fbb36f2218823b5",
+    "mirror_size_bytes": 17064259,
+    "pages": 48,
+    "visual_pdf_pages": [
+      13,
+      14
+    ],
+    "source_text_searchable": false,
+    "cashflow_vnd": {
+      "operating_cash_flow": "-4539879183965",
+      "investing_cash_flow": "-26547106493",
+      "financing_cash_flow": "5001663109500",
+      "net_cash_change": "435236819042",
+      "cash_beginning": "3213693581406",
+      "cash_ending": "3648930400448"
+    }
+  },
+  "q3_signed_9m_source": {
+    "ledger_path": "reports/source-audits/VCI-2026Q3-issuer-HOSE-original-special-broker-no-subs-vnd.json",
+    "cashflow_vnd": {
+      "operating_cash_flow": "-6185243120130",
+      "investing_cash_flow": "-76957830177",
+      "financing_cash_flow": "6058038109500",
+      "net_cash_change": "-204162840807",
+      "cash_beginning": "3213693581406",
+      "cash_ending": "3009530740599"
+    }
+  },
+  "quarter_2026q3_derived_vnd": {
+    "operating_cash_flow": "-1645363936165",
+    "investing_cash_flow": "-50410723684",
+    "financing_cash_flow": "1056375000000",
+    "net_cash_change": "-639399659849",
+    "cash_beginning": "3648930400448",
+    "cash_ending": "3009530740599"
+  },
+  "identities": {
+    "h1_CFO_plus_CFI_plus_CFF_minus_net": "0",
+    "h1_opening_plus_net_minus_end": "0",
+    "q2_as_filed_vs_reviewed_h1_cash_fields_equal": true,
+    "nine_months_CFO_plus_CFI_plus_CFF_minus_net": "0",
+    "quarter_sections_minus_change": "0",
+    "quarter_beginning_plus_change_minus_end": "0",
+    "client_custody_cash_included_in_company_cash": false
+  },
+  "source_review": {
+    "runner_url": "https://github.com/kiemtimem12345/solieutaichinh/actions/runs/44918419435",
+    "job_id": 136888931793,
+    "artifact_id": 14712970890,
+    "artifact_title": "vci-2026-h1-q2-signed-statement-page-previews",
+    "source_images_visited": [
+      "H1_reviewed-16.jpg",
+      "H1_reviewed-17.jpg",
+      "Q2_as_filed-13.jpg",
+      "Q2_as_filed-14.jpg"
+    ],
+    "render_method": "pdftoppm JPEG from signed-report PDF mirrors, direct visual table reading (no OCR)",
+    "note": "workflow emits failure because scanned PDFs lack machine-readable text; a deliberate fail-closed text gate. Visual cashflow review independently established the listed exact VND rows."
+  },
+  "remaining_work": "Earlier VCI quarters 2025Q1 through 2026Q2 need their own signed-source validation and Q1 comparator for Q2 standalone; Q3 2026 full original PDF hash and B03 full visual review not claimed. Reprocess only when material evidence contradicts signed source."
+}

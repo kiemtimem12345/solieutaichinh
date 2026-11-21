@@ -65,7 +65,7 @@ def main():
     assert "tương đương hợp nhất" in q3["report_type"].lower()
     assert q3["source_url"]==ledger["original_report_pdf_url"]
     assert q3["cashflow_period_basis"]=="year_to_date"
-    assert q3["q3_standalone_cashflow_status"]=="deferred_until_same_scope_signed_H1_2026_verification"
+    assert q3["q3_standalone_cashflow_status"]=="verified_signed_9M_less_reviewed_H1_exact_VND_bridge"
     sv=q3["source_validation"]
     assert sv["reporter_has_no_subsidiaries_signed_source"] is True
     assert sv["source_is_not_an_explicit_consolidated_report"] is True
@@ -79,9 +79,9 @@ def main():
     assert not (keys&set(q3["financial_line_items_rejected_fields"]))
     for k,amount in ledger["original_vnd_fields"].items():
         assert val(q3,k)==int(amount),(k,val(q3,k),amount)
-    for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow",
-              "net_cash_change","cash_beginning"):
-        assert q3.get(k) is None,(k,q3.get(k))
+    quarter_ledger=read(ROOT/"reports/source-audits/VCI-2026Q3-reviewed-H1-signed-Q2-quarter-cash-vnd.json")
+    for k,amount in quarter_ledger["quarter_2026q3_derived_vnd"].items():
+        assert val(q3,k)==int(amount),(k,val(q3,k),amount)
     # Negative controls: never silently blend brokerage client money into
     # company cash or accept a corrupted source original.
     damaged=json.loads(json.dumps(ledger))
@@ -96,5 +96,5 @@ def main():
     else: raise AssertionError("Off-by-one B01 total assets passed")
     print("PASS VCI signed HOSE Q3/2026 no subsidiaries, 64 VND source fields, "
           +str(len(check))+" exact-VND B01 B02 B03/custody identities, 2 negative controls.")
-    print("NOT COMPLETE: earlier 6 VCI periods need signed-source checks; quarter-only Q3 B03 awaits H1 original.")
+    print("NOT COMPLETE: earlier 6 VCI periods require original signed validation; Q3 standalone B03 verified against visual signed Q2/PwC H1.")
 if __name__=="__main__":main()
