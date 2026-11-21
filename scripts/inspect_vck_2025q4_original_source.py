@@ -30,7 +30,11 @@ def main():
             if not matches:raise SystemExit("NO_PDF_MEMBER")
             statements=[x for x in matches if "baocaotaichinh" in x.filename.lower().replace("_","").replace(" ","") or "financialstatement" in x.filename.lower().replace("_","").replace(" ","") or "bctc" in x.filename.lower()]
             if not statements:raise SystemExit("STATEMENT_PDF_NOT_FOUND; never extract explanation instead")
-            member=sorted(statements,key=lambda item:item.file_size,reverse=True)[0]
+            # Prefer the Vietnamese issuer signed report, not the English mirror
+            # or the accompanying disclosure letter. Original has vi 'baocaotaichinh'.
+            preferred=[x for x in statements if "baocaotaichinh" in x.filename.lower().replace("_","").replace(" ","")]
+            selected=preferred if preferred else statements
+            member=sorted(selected,key=lambda item:item.file_size,reverse=True)[0]
             print("SELECTED_SIGNED_STATEMENT_MEMBER",member.filename,"bytes",member.file_size,flush=True)
             pdf=base/"issuer.pdf"
             with z.open(member) as inp,pdf.open("wb") as out:shutil.copyfileobj(inp,out)
