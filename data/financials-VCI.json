@@ -1631,7 +1631,7 @@
         "automatic_extraction_exhausted": true,
         "manual_review_reason": "Resolved issuer-signed Q2 original + PwC-reviewed H1 6M B03 source and signed Q1 counterpart, 31 exact VND identities",
         "six_month_B03_readable_only_by_visual_inspection": true,
-        "six_month_B03_exact_vnd_accepted_as_Q3_reference_not_as_Q2_standalone": true,
+        "six_month_B03_exact_vnd_accepted_as_Q3_reference_not_as_Q2_standalone": false,
         "six_month_cashflow_signed_source_ledger": "reports/source-audits/VCI-2026Q3-reviewed-H1-signed-Q2-quarter-cash-vnd.json",
         "previous_extraction_failure": "Đầu PDF không xác nhận rõ phạm vi hợp nhất; giữ liên kết nguồn và yêu cầu rà soát thủ công, không lưu số liệu vào chuỗi hợp nhất.",
         "manual_review_blocking_automatic_extraction": false,
@@ -1649,7 +1649,14 @@
         "signed_q2_H1_six_month_B03_vs_reviewed_6M_exact_match": true,
         "q2_quarter_cash_flow_from_h1_minus_q1_exact_vnd": true,
         "source_verified_B01_B02_B03": true,
-        "q2_quarter_cash_bridge_residual_vnd": "0"
+        "q2_quarter_cash_bridge_residual_vnd": "0",
+        "six_month_B03_now_also_verified_as_Q2_standalone_by_signed_Q1_difference": true,
+        "previous_source_only_status": {
+          "six_month_B03_exact_vnd_accepted_as_Q3_reference_not_as_Q2_standalone": true
+        },
+        "automatic_extraction_exhausted_historical": true,
+        "signed_source_manual_resolution_complete": true,
+        "legacy_automatic_extraction_exhausted_flag_interpreted_as_historical": true
       },
       "published_at": "2026-07-20",
       "source_archive_file": "reports/raw/VCI/auto-vci-20261021/a8fec422bac195c1.pdf",
