@@ -39,6 +39,8 @@ jobs:
         run: python scripts/verify_plx_q3_2025_reviewed_h1.py
       - name: Verify PLX Q4 2025 original vs audited FY signed accounting vintages, quarantine quarter cash
         run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
+      - name: Verify Vietnam accounting law VAS and securities financial source checks, 2025 signed source and 2026 fail-closed
+        run: python scripts/verify_accounting_legal_framework.py
       - name: Verify VIX 2025 Q4 signed issuer separate B01 B02 B03 17 exact VND checks and FY vintage isolation
         run: python scripts/verify_vix_2025q4_signed_original.py
       - name: Verify VIX 2025 Q3 signed separate B01 B02 B03 15 exact identities and Q3 standalone cash
