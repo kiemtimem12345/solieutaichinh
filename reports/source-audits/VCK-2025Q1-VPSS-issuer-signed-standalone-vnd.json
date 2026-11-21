@@ -88,7 +88,14 @@
     "capital_investments": "-2550370000",
     "investment_recovery": "535881668",
     "financing_borrowing_receipts": "95927366666666",
-    "financing_loan_repayments": "-90825545000000"
+    "financing_loan_repayments": "-90825545000000",
+    "financial_income_deposit_interest": "11951194444",
+    "financial_income_other_investments": "262671790992",
+    "interest_expense": "203390644150",
+    "financial_other_expense": "6666666",
+    "securities_fvtpl_disposal_gain": "76875371282",
+    "securities_fvtpl_revaluation_gain": "22309774923",
+    "securities_fvtpl_dividend_interest": "124537213449"
   },
   "exact_vnd_residuals": {
     "balance_assets": "0",
@@ -106,7 +113,10 @@
     "investing_items": "0",
     "financing_items": "0",
     "cash_sections": "0",
-    "cash_beginning_ending": "0"
+    "cash_beginning_ending": "0",
+    "financial_income_components": "0",
+    "financial_expense_components": "0",
+    "fvtpl_profit_components": "0"
   },
   "evidence_quality": "PDF source rendered visual screenshots verified for cover B01 B02 B03 and exact values cross-checked in report's parsed tables; file original hash not independently recovered; do not claim hash verified.",
   "audited_scope_caveat": "No fabrication of legally consolidated report. Prior-year comparators not ingested (2024 excluded by scope).",
