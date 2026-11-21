@@ -1,0 +1,79 @@
+{
+  "symbol": "GEG",
+  "scope": "consolidated",
+  "period": "2026-Q2",
+  "checked_at": "2026-11-21",
+  "currency": "VND",
+  "version_facts": {
+    "q1_signed_original": {
+      "url": "https://static2.vietstock.vn/vietstock/2026/4/29/20260429___geg___bao_cao_tai_chinh_hop_nhat_q1_2026___giai_trinh__song_ngu_.pdf",
+      "sha256": "d8dade2f270452432a190bedddb46736523cc3a74b783ae1a2f82b76a5e74d5b",
+      "pages": 82,
+      "year_open_cash_equivalents_vnd": {
+        "cash_only": "46702358323",
+        "cash_equivalents": "39662304925",
+        "cash_total": "86364663248",
+        "other_current_assets": "45734380278",
+        "current_assets_total": "1776350024277"
+      }
+    },
+    "q2_signed_original": {
+      "url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/GEG_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+      "sha256": "e5c84e9cb42b1698481b12f426544cfad517894d46d3d0f37a1e9e53575f00d5",
+      "pages": 43,
+      "year_open_cash_equivalents_vnd": {
+        "cash_only": "46702358323",
+        "cash_equivalents": "28240086022",
+        "cash_total": "74942444345",
+        "other_current_assets": "57156599181",
+        "other_current_asset_pledged_deposit_code165": "11422218903",
+        "current_assets_total": "1776350024277"
+      },
+      "note11_original_PDF_page_1based": 24,
+      "note11_internal_page": 21
+    },
+    "q3_signed_corrob": {
+      "url": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2509731/20261030%20-%20GEG%20-%20BCTC%20hop%20nhat%20Q3.2026%20%2B%20giai%20trinh.pdf",
+      "pledged_deposits_year_open_vnd": "11422218903",
+      "note": "Q3 also reports identical restricted-deposit 1/1/2026 comparator, not a 31/3 amount"
+    }
+  },
+  "signed_note11": {
+    "description": "Tiền gửi ngân hàng có kỳ hạn (bảo lãnh) — deposits pledged as collateral for loans, interest and performance guarantees, original maturity no more than three months",
+    "at_2026_year_open_vnd": "11422218903",
+    "at_2026_h1_end_vnd": "54079653068",
+    "statement_B01_code": "165",
+    "classification": "other_current_assets_not_cash_equivalents"
+  },
+  "reconciliation": {
+    "q1_early_2026_open_cash_only_vnd": "46702358323",
+    "q1_early_2026_open_cash_equivalents_vnd": "39662304925",
+    "q2_later_2026_open_cash_equivalents_vnd": "28240086022",
+    "opening_cash_equivalents_decrease_vnd": "11422218903",
+    "opening_other_current_assets_increase_vnd": "11422218903",
+    "current_assets_total_change_vnd": "0",
+    "q1_cash_end_vnd": "105856793049",
+    "q2_h1_cash_end_vnd": "100327178533",
+    "q1_net_cashflow_ytd_vnd": "19466337813",
+    "q2_h1_net_cashflow_ytd_vnd": "25371516918",
+    "q1_fx_ytd_vnd": "25791988",
+    "q2_h1_fx_ytd_vnd": "13217270",
+    "q2_source_YTD_subtraction_provisional_vnd": {
+      "CFO": "508833832667",
+      "CFI": "-705709092843",
+      "CFF": "202780439281",
+      "net_cash": "5905179105",
+      "fx": "-12574718"
+    },
+    "q2_signed_cash_balance_change_vnd": "-5529614516",
+    "quarter_cashbridge_unreconciled_without_restatement_vnd": "-11422218903"
+  },
+  "caution": {
+    "classification_at_Jan1_is_exactly_source_proven": true,
+    "noncash_reclassification_at_year_opening_identified": true,
+    "same_amount_remained_restricted_at_Mar31_NOT_proven": true,
+    "quarter_cash_bridge_with_current_signed_Q1_end_2026_not_zero": true,
+    "do_not_fabricate_Q2_standalone_CFO_CFI_CFF": true,
+    "requires": "Signed 31/03/2026 restricted deposit amount or issuer restated Q1 original B03 and transition details; only then derive q2 quarter and pass cash bridge"
+  }
+}
