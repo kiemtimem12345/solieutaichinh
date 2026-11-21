@@ -49,7 +49,7 @@
           17
         ],
         "b01_cash_and_B03_original_source_visual_verified": true,
-        "b01_b02_full_visual_reviewed": false,
+        "b01_b02_full_visual_reviewed": true,
         "b03_source_currency": "VND",
         "b03_2025_YTD_original_exact_vnd": {
           "operating_cash_flow": "-1331196257095",
@@ -338,7 +338,7 @@
           17
         ],
         "b01_cash_and_B03_original_source_visual_verified": true,
-        "b01_b02_full_visual_reviewed": false,
+        "b01_b02_full_visual_reviewed": true,
         "b03_source_currency": "VND",
         "b03_2025_YTD_original_exact_vnd": {
           "operating_cash_flow": "-3002293892438",
