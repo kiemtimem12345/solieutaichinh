@@ -39,6 +39,8 @@ jobs:
         run: python scripts/verify_plx_q3_2025_reviewed_h1.py
       - name: Verify PLX Q4 2025 original vs audited FY signed accounting vintages, quarantine quarter cash
         run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
+      - name: Verify VIX 2025 Q1 Q2 original signed B03 VND, standalone Q2 and fail-closed cashflow guards
+        run: python scripts/verify_vix_2025q1q2_original_cash.py
       - name: Verify PLX Q1 2026 signed original, 34 exact VND identities and quarantine two B01 source mismatches
         run: python scripts/verify_plx_q1_2026_original.py
       - name: Verify PLX Q1 2026 B01 forensic code 133 317, signed notes, opening-zero residual, fail-closed guard
