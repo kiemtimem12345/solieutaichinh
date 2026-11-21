@@ -67,3 +67,22 @@ Quy trình này có **cổng kiểm tra tự động**, không chỉ mô tả b�
 **Điều kiện nâng Q2/2026 từ BLOCKED lên PASS:** phải đồng thời có chứng cứ ký gốc về cách trình bày lại Q1 hiện hành, cùng phạm vi, số dư cuối Q1 đã điều chỉnh, kiểm tra từng dòng CFO/CFI/CFF, và cầu tiền Q2 khớp **0 VND**. Ngoại lệ được ghi trong ledger vẫn được theo dõi độc lập; phép dung sai 0,1% không vượt qua cổng này. Khi xuất hiện báo cáo điều chỉnh, bổ sung file gốc/sha/trang, thay đổi chứng cứ và kiểm thử có chủ đích, không tự sửa giá trị thành số 0.
 
 **Kết luận hiện tại:** quy tắc chuyển tiếp theo thông tư hợp lệ để bổ sung vào SOP. Nó giải thích *vì sao* cần lưu nhiều phiên bản, **không tự làm mất** hai ngoại lệ GEG/IDC Q2 do thiếu bằng chứng signed same-basis; B01/B02 và B03 lũy kế được giữ PASS.
+
+## 6. Ngoại lệ GEG: cùng số dư điều chỉnh, khác mã B01 giữa các phiên bản
+
+Tài liệu ký gốc GEG Q1/2026, bản quý II công bố ban đầu và bản bán niên EY soát xét cho thấy **11.422.218.903 VND** được loại khỏi tổng tiền và tương đương tiền đầu năm và chuyển vào mã 165. **Nhưng dòng tiền bị điều chỉnh không đồng nhất**:
+
+- Q1 bản gốc: B01 mã 111 tiền `46.702.358.323`, mã 112 tương đương tiền `39.662.304.925`, tổng `86.364.663.248`.
+- Q2 bản gốc (số đầu năm): mã 111 `46.702.358.323`, mã 112 `28.240.086.022`, tổng `74.942.444.345`.
+- H1 soát xét EY (số đầu năm, **cùng tổng**): mã 111 `35.280.139.420`, mã 112 `39.662.304.925`, tổng `74.942.444.345`.
+
+Do đó **không được coi hai phiên bản Q2/H1 là cùng bản chất mã 111/112** chỉ vì tổng tiền và mã 165 khớp. Đối chiếu tới cấp chỉ tiêu và phiên bản phải làm trước khi thay số B01 trên website.
+
+**Có thể xác minh và lưu song song cách tính quý III** trên cùng cơ sở H1 soát xét và B03 9 tháng Q3 ký gốc (đơn vị VND, kết quả đã qua regression CI):
+- CFO `448.662.906.453`, CFI `-639.871.926.621`, CFF `186.959.810.890`, net `-4.249.209.278`, FX `-15.900.229`.
+- Cầu tiền tháng 7–9: `100.322.233.328 - 4.249.209.278 - 15.900.229 = 96.057.123.821`, **sai số 0 VND**.
+- Bản quý III đang lưu trên website có thể thuộc nhánh quý II ban đầu; **không đổi sản xuất một phần** nếu chưa cập nhật đồng bộ B01/B03 quý II, xác nhận dữ liệu trang hiển thị và chạy các kiểm thử liên kỳ. Hai cách tính không được lẫn trong một phép kiểm tra mà thiếu nhãn version.
+
+**Q2 standalone vẫn NULL**: chưa có số tiền bị hạn chế đã ký tại 31/03/2026 hoặc B03 Q1 cùng phiên bản lập lại để nối tiền quý II. Không tự lấy chênh lệch đầu năm làm dòng tiền giao dịch. Có thể kết thúc lượt tìm kiếm định kỳ bằng trạng thái `terminal_manual_review_pending_issuer_signed_same_basis_q1`, nhưng **không đánh dấu B03 quý II đã hoàn thành/PASS**.
+
+Nguồn audit thực thi: `reports/source-audits/GEG-2026Q3-H1-reviewed-reconciliation.md`, `scripts/verify_geg_2026q3_reviewed_h1_bridge.py`, H1 EY ký gốc người dùng tải lên 74 trang, B03 p16–17 và thuyết minh 37 p73; Q3 bản gốc doanh nghiệp đã được xác minh tại repo.
