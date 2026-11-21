@@ -116,8 +116,12 @@ def verify(source,data):
     for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","cash_ending"):
         assert exact(r,k)==exact(r,k+"_ytd")
     assert exact(r,"cash_beginning")==exact(r,"cash_beginning_reported_ytd")
+    # Previously future quarters were all NULL. Protect pending rows, while
+    # allowing separately source-verified later quarters (e.g. Q3) to pass.
     for other in data["items"][1:]:
-        assert other["total_assets"] is None and other["net_profit"] is None
+        if other["verification_status"].startswith("issuer_signed_") and not other["verification_status"].endswith("_exception_queued"):
+            continue
+        assert other["total_assets"] is None and other["net_profit"] is None,(other["period"],other["verification_status"])
     return len(fields)
 def main():
     source,data=read(SRC),read(DATA)
