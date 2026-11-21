@@ -30,7 +30,7 @@
 - Loans between controlled entities within the consolidated group would be eliminated on consolidation; do not interpret an investment in a subsidiary or intra-group loan from a **separate/parent** report as a consolidated third-party bank deposit.
 
 ## 4. Outcome and exact remaining evidence gate
-**SUPPORTED**: the 11,422,218,903 year-open classification adjustment is contractually credible (Note22 plus bank collateral Note25) and signed/restated under Note37. Group pledged deposits at June30 are 54,079,653,068. Financial investments and related-party loan balances can be traced and excluded from restricted cash.
+**SUPPORTED**: the 11,422,218,903 year-open classification adjustment is contractually credible (Note22 plus bank collateral Note25) and signed/restated under Note37. The reviewed-H1 B01 code165 has 54,079,653,068 at June30, and the original signed Q2 Note11 separately described an equal amount as bank guarantee deposits; HOWEVER Note22 itself only says this balance **includes** restricted deposits, and does not separately itemize its complete components. Do not equate the entire reviewed code165 with verified individual bank-account pledges without source-level breakdown. Financial investments and related-party loan balances can be traced and excluded from restricted cash.
 
 **NOT SUPPORTED from provided consolidated Q1 and reviewed H1**: which bank account(s) and exactly how much of the relevant restricted balances were outstanding on **31 March 2026**; or a signed same-accounting-basis original/restated **Q1 2026 current-period B03**. H1 notes are principally at Jan1/June30 and do not supply the intervening 31 March amount.
 
