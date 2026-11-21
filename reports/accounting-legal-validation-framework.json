@@ -1,0 +1,142 @@
+{
+  "version": "2026-11-21.1",
+  "verified_as_of": "2026-11-21",
+  "project": "so-lieu",
+  "objective": "Compliance-oriented financial data quality checks, NOT a legal certification or financial statement audit.",
+  "sources": [
+    {
+      "id": "LAW_ACCOUNTING_88_2015",
+      "name": "Luật Kế toán số 88/2015/QH13 (và các sửa đổi liên quan)",
+      "url": "https://congbao.chinhphu.vn/van-ban/luat-so-88-2015-qh13-18393.htm",
+      "policy": "Trung thực, khách quan, đầy đủ, nhất quán; định kỳ, tiền tệ, kế thừa số liệu. Điều 6 và nghĩa vụ lập BCTC; không được làm giả số nguồn."
+    },
+    {
+      "id": "VAS01",
+      "name": "Chuẩn mực kế toán Việt Nam số 01 — Chuẩn mực chung",
+      "url": "https://nif.mof.gov.vn/webcenter/contentattachfile/idcplg?dDocName=MOFUCM313484&dID=318048&filename=CD4+-+Ke+toan+final.pdf",
+      "policy": "Cơ sở dồn tích, hoạt động liên tục, giá gốc, phù hợp, nhất quán, thận trọng, trọng yếu; không dùng CFO như LNTT."
+    },
+    {
+      "id": "VAS21_24",
+      "name": "VAS 21 — Trình bày BCTC; VAS 24 — Báo cáo LCTT",
+      "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-99-2025-tt-btc-46529/59652.htm",
+      "policy": "Đối chiếu B01/B02/B03, lưu chuyển tiền theo hoạt động và biến động tiền, đúng phạm vi và kỳ; đối với CTCK cần đọc chế độ chuyên ngành."
+    },
+    {
+      "id": "SEC_ACCOUNT_210",
+      "name": "Thông tư 210/2014/TT-BTC — Hướng dẫn kế toán công ty chứng khoán",
+      "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-210-2014-tt-btc-12804/8207.htm",
+      "policy": "CTCK sử dụng biểu mẫu tài chính đặc thù. B01 tài sản FVTPL, cho vay, B02 các dòng môi giới/tự doanh, B03 dòng tiền; không dùng mẫu công nghiệp."
+    },
+    {
+      "id": "SEC_ACCOUNT_334",
+      "name": "Thông tư 334/2016/TT-BTC — Sửa phụ lục 02 và 04 Thông tư 210",
+      "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-334-2016-tt-btc-22357.htm",
+      "policy": "Đối chiếu dòng chỉ tiêu và tài sản tiền khách hàng ngoài B01 với mẫu gốc ký, không gộp vào tiền của công ty."
+    },
+    {
+      "id": "ENTERPRISE_ACCOUNT_99",
+      "name": "Thông tư 99/2025/TT-BTC — Chế độ kế toán doanh nghiệp từ năm tài chính bắt đầu 01/01/2026",
+      "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-99-2025-tt-btc-46529/59652.htm",
+      "policy": "Thay TT200 chung từ năm tài chính bắt đầu >=01/01/2026; CTCK có biểu mẫu/chế độ chuyên ngành, phải rà soát tương tác, không tự chuyển form CTCK sang form doanh nghiệp thường."
+    },
+    {
+      "id": "LAW_ENTERPRISE_59_76",
+      "name": "Luật Doanh nghiệp 59/2020/QH14, sửa đổi Luật 76/2025/QH15; VBHN 67/VBHN-VPQH",
+      "url": "https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-67-vbhn-vpqh-45865.htm",
+      "policy": "Trách nhiệm nộp và bảo đảm tính chính xác của thông tin, điều chỉnh/đính chính bản báo cáo khi có sửa đổi; không lặng lẽ thay thế phiên bản quý bằng báo cáo năm."
+    },
+    {
+      "id": "SEC_DISCLOSURE_96",
+      "name": "Thông tư 96/2020/TT-BTC (sửa đổi theo Thông tư 68/2024, 18/2025) — Công bố thông tin chứng khoán",
+      "url": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-18-2025-tt-btc-44783.htm",
+      "policy": "Kiểm tra dấu vết bản công bố, ngày công bố, loại kiểm toán/soát xét, đính chính và phiên bản; chậm công bố không suy luận nếu thiếu sự kiện và nghĩa vụ được xác minh."
+    }
+  ],
+  "regimes": {
+    "securities_2025": {
+      "special": [
+        "SEC_ACCOUNT_210",
+        "SEC_ACCOUNT_334"
+      ],
+      "general": [
+        "LAW_ACCOUNTING_88_2015",
+        "VAS01",
+        "VAS21_24",
+        "LAW_ENTERPRISE_59_76",
+        "SEC_DISCLOSURE_96"
+      ],
+      "not_general_ttc99": true
+    },
+    "securities_2026": {
+      "special": [
+        "SEC_ACCOUNT_210",
+        "SEC_ACCOUNT_334"
+      ],
+      "general": [
+        "LAW_ACCOUNTING_88_2015",
+        "VAS01",
+        "VAS21_24",
+        "LAW_ENTERPRISE_59_76",
+        "SEC_DISCLOSURE_96"
+      ],
+      "enterprise_99_interaction": "NEEDS_FORM_AND_EFFECTIVE_SCOPE_REVIEW"
+    },
+    "ordinary_2025": {
+      "accounting_regime": "TT200_2014_or_valid_industry_specific_regime",
+      "notes": "Not assessed by this CTCK-focused test"
+    },
+    "ordinary_2026": {
+      "accounting_regime": "TT99_2025_or_valid_industry_specific_regime",
+      "notes": "Do not auto rewrite 2025 comparatives"
+    }
+  },
+  "tolerances": {
+    "user_accepted_relative_subtotal_percent": "0.1",
+    "applies_only_to": "signed source printed subtotal arithmetic discrepancy, with at least two supplementary public-source checks matching at actual display precision",
+    "always_exact": [
+      "original_signed_source_presence",
+      "signed_source_period_and_scope",
+      "unit_and_sign",
+      "balance_total_assets_liabilities_equity",
+      "CFO_CFI_CFF_plus_cash",
+      "quarter_vs_ytd_same_scope_vintage",
+      "off_balance_client_money",
+      "source_version_identity",
+      "misclassified_tax_or_accounting_category"
+    ],
+    "never_auto_legal_clearance": true
+  },
+  "status_semantics": {
+    "PASS_ACCOUNTING_SOURCE_CHECKS": "All implemented accounting-source identities checked exactly; not a legal opinion",
+    "PASS_WITH_TOLERANCE": "Issuer's raw subtotal discrepancy remains explicitly recorded, with signed original and multiple display-matched supplementary sources",
+    "REVIEW_REQUIRED": "Pending original verification or unresolved document/legal assessment; never mark completed",
+    "FAIL": "Mismatch of source value, identity, scope, unit, signs, or unsupported PASS claim"
+  },
+  "baseline_vix": {
+    "completed_separate_2025": [
+      "2025-Q1",
+      "2025-Q2",
+      "2025-Q3",
+      "2025-Q4"
+    ],
+    "pending_2026": [
+      "2026-Q1",
+      "2026-Q2",
+      "2026-Q3"
+    ],
+    "signed_ledger_paths": [
+      "reports/source-audits/VIX-2025Q1Q2-original-B01-B02-exact-vnd.json",
+      "reports/source-audits/VIX-2025Q1Q2-original-cash-vnd.json",
+      "reports/source-audits/VIX-2025Q3-original-B01-B02-B03-exact-vnd.json",
+      "reports/source-audits/VIX-2025Q4-original-B01-B02-B03-exact-vnd.json"
+    ],
+    "further_legal_review": [
+      "Specific statutory filing dates and disclosure timeliness for each published report",
+      "Legal signatures / issuer authority (signature is recorded, but cryptographic signing and disclosure compliance are not established)",
+      "2026 securities form under TT210/334 and TT99 interaction confirmed from issuer signed 2026 filing",
+      "Auditor opinion and independently reviewed restatement comparatives, if any",
+      "Qualitative valuation/capital maintenance compliance needs notes and corporate documents"
+    ]
+  }
+}
