@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "ticker": "IDC",
+  "scope": "consolidated",
+  "period": "2026-Q2",
+  "asof": "2026-11-21",
+  "case_status": "completed_source_accepted_with_disclosed_accounting_vintage_exception_pending_audited_FY2026",
+  "decision_origin": "User directed processing IDC immediately after approving issuer-source acceptance method for GEG. Apply the same method to IDC source handling, without claiming separately verified Q2 standalone cashflows.",
+  "source_basis": {
+    "q1_signed_original": {
+      "url": "https://static2.vietstock.vn/data/HNX/2026/BCTC/VN/QUY%201/IDC_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+      "sha256": "229a1ff9af9d3e1bffd777a0c9b92b4bd5cbee5bc02765f02bee5778c2b2085b",
+      "pages": 66,
+      "tt99_note_page": 17,
+      "b03_pages": [
+        13,
+        14
+      ]
+    },
+    "q2_original": {
+      "url": "https://static2.vietstock.vn/data/HNX/2026/BCTC/VN/QUY%202/IDC_Baocaotaichinh_Q2_2026_Hopnhat.zip?ver=fec9e0e5",
+      "sha256_pdf": "f0bee9c4554b166380098034650b09c0e45f85da55fd016086f0ef08a596354c",
+      "pages": 67,
+      "signed_original_b03_pages": [
+        13,
+        14
+      ]
+    },
+    "h1_reviewed": {
+      "url": "https://www.bsc.com.vn/News/NewsAttachedFile/1599258-1",
+      "sha256": "f1366ab8629fb1482e30995ae28462d03a7819c72a70aab5311c5b2f9ee28944",
+      "pages": 72,
+      "policy_notes_page": 21,
+      "note41_comparative_page": 71,
+      "b03_pages": [
+        16,
+        17
+      ],
+      "signed_issuer_source_accepted_as_reference": true
+    },
+    "q3_original": {
+      "url": "https://www.bsc.com.vn/News/NewsAttachedFile/1632697-1",
+      "sha256": "dde75e3efe8a569a0d264b27f7d7a0d8a4edb4abdf22a56144e0847f2c8dc790",
+      "pages": 70,
+      "b03_9m_current_period_signed": true
+    }
+  },
+  "source_statements_vnd": {
+    "q1_original_3m": {
+      "CFO": "197524137001",
+      "CFI": "-68608251477",
+      "CFF": "118757627185",
+      "net": "247673512709",
+      "fx": "3304755",
+      "opening": "553052678239",
+      "ending": "800729495703"
+    },
+    "q2_issuer_original_6m": {
+      "CFO": "-5019037910",
+      "CFI": "412225133057",
+      "CFF": "-352471108238",
+      "net": "54734986909",
+      "fx": "6117592",
+      "opening": "553943475131",
+      "ending": "608684579632"
+    },
+    "q3_issuer_original_9m": {
+      "CFO": "211600221432",
+      "CFI": "505984662907",
+      "CFF": "-801577203462",
+      "net": "-83992319123",
+      "fx": "-17137387",
+      "opening": "553943475131",
+      "ending": "469934018621"
+    },
+    "q3_issuer_derived_standalone_pass": {
+      "CFO": "216619259342",
+      "CFI": "93759529850",
+      "CFF": "-449106095224",
+      "net": "-138727306032",
+      "fx": "-23254979",
+      "opening": "608684579632",
+      "ending": "469934018621"
+    },
+    "q2_cross_vintage_arithmetic_only_NOT_PUBLISHED": {
+      "CFO": "-202543174911",
+      "CFI": "480833384534",
+      "CFF": "-471228735423",
+      "net": "-192938525800",
+      "fx": "2812837",
+      "opening_Q1_as_filed": "800729495703",
+      "ending_H1": "608684579632"
+    }
+  },
+  "signed_note41_2025_prior_comparative": {
+    "opening_cash_balance_adjustment_vnd": "890796892",
+    "five_2025_prior_B03_line_reclasses_vnd": {
+      "depreciation": "-141514712612",
+      "inventory": "-25335127650",
+      "receivables": "-331959067818",
+      "interest_paid": "-27028341934",
+      "capex": "525837250014"
+    },
+    "sum_2025_prior_B03_reclass_vnd": "0",
+    "important": "This evidence is a 2025 comparative/restatement and an opening 2026 balance presentation change; NOT signed same-policy current-year 2026 Q1 B03 remapping."
+  },
+  "q2_quarter_cash_bridge_cross_vintage": {
+    "mixed_Q1_to_Q2_cash_residual_vnd": "-890796892",
+    "separate_opening_noncash_reclassification_vnd": "890796892",
+    "arithmetic_adjusted_residual_vnd": "0",
+    "conclusion": "Explains opening discrepancy, not a 2026Q2 cash transaction. Section CFO/CFI/CFF quarter-only remains unverified under current-year basis."
+  },
+  "case_closure_policy": {
+    "completed_7of7_consolidated_signed_period_sources": true,
+    "source_as_filed_B01_B02_B03_YTD_pass": true,
+    "source_only_2026Q2_standalone_B03_not_signed_same_basis": true,
+    "q2_CFO_CFI_CFF_standalone_fields_remain_null": true,
+    "do_not_fabricate_or_zero_fill": true,
+    "original_quarterly_filing_values_preserved_in_financials_JSON": true,
+    "h1_reviewed_source_note41_accepted_as_versioned_accounting_basis_provenance": true,
+    "q3_standalone_exact_vnd_bridge_already_pass": true,
+    "remove_IDC_from_repeated_manual_review_queue": true,
+    "not_an_assertion_of_regulatory_noncompliance": true,
+    "no_0_1pct_tolerance_on_cash_bridge": true
+  },
+  "annual_followup": {
+    "status": "wait_for_official_audited_fy2026_consolidated_issuer_report",
+    "trigger": "IDICO publishes audited 2026 consolidated full-year statements or a signed correcting current-quarter comparison (likely 2027 publication).",
+    "action": "Review FY2026 signed B01/B02/B03 and note41 cash reclassification, check prior 9M/6M current-vintage consistency; if contradictions or corrections appear reopen and fix affected ticker periods; otherwise leave complete.",
+    "revisit_until_then": false
+  },
+  "evidence_links": [
+    "reports/source-audits/IDC-2026Q1-vs-H1-TT43-source-policy-and-Note41-B03-comparatives.json",
+    "scripts/verify_idc_q2_2026_tt43_signed_current_period_vintage.py",
+    "scripts/verify_idc_2026_h1_note41_reclassification.py",
+    "scripts/verify_idc_q3_2026_original.py"
+  ]
+}

@@ -101,3 +101,18 @@ Trường hợp có **hai phiên bản ký hợp lệ nhưng không đồng nh�
 `reports/source-audits/GEG-2026Q2-accepted-issuer-vintage-closure-pending-audited-FY2026.json`. Chứng cứ H1 EY soát xét (PDF 74 trang, B03 trang 16–17, TM37 trang 73) là mốc đối chiếu ưu tiên, nhưng bản quý II công bố trước đó được giữ nguyên tại cột nguồn gốc. Hai phiên bản B03 lũy kế đã cân chính xác; chênh lệch riêng Q2 do cơ sở báo cáo được chấp nhận ở cấp xử lý chứ không bị biến thành một luồng tiền thực tế.
 
 **Phạm vi:** chỉ áp dụng khi có quyết định chấp nhận ngoại lệ rõ ràng và nguồn hợp lệ, **không tự áp dụng cho IDC hoặc mã khác**. Không coi ngưỡng 0,1% là lý do bỏ qua sai cầu tiền.
+
+## 8. IDC — đã xử lý theo nguồn doanh nghiệp có ký, ngoại lệ chuyển tiếp TT99/TT43 (21/11/2026)
+
+Sau khi người dùng chỉ dẫn tiếp tục xử lý mã IDC theo quy trình đã xác lập, hồ sơ nguồn IDC **7/7 kỳ hợp nhất Q1/2025–Q3/2026** được kết thúc ở trạng thái **hoàn thành chuẩn hóa nguồn và bảo lưu ngoại lệ chuyển tiếp**, không đánh đồng với B03 **quý II riêng độc lập đã kiểm chứng**.
+
+- IDC Q1 2026 đã ký, B03 3M: mở đầu `553.052.678.239 VND`, cuối `800.729.495.703 VND`; thuyết minh 2.5 nêu TT99/2025.
+- BCTC H1 soát xét nguồn đã ký, HNX/BSC SHA256 `f1366ab8629fb1482e30995ae28462d03a7819c72a70aab5311c5b2f9ee28944`: thuyết minh 3.1.2 nêu TT43/2026, thuyết minh 41 (PDF p71) điều chỉnh tiền tương đương tiền số dư mở `+890.796.892 VND` và các dòng so sánh **2025** (cộng biến động B03 2025 bằng 0). Việc này **không phải** luồng tiền thu quý II/2026.
+- B03 6M của IDC theo báo cáo doanh nghiệp công bố: CFO `-5.019.037.910`; CFI `412.225.133.057`; CFF `-352.471.108.238`; net `54.734.986.909`; mở `553.943.475.131`; FX `6.117.592`; cuối `608.684.579.632 VND`. Từng bản gốc có cầu tiền chính xác.
+- B03 9M Q3/2026 có số đầu năm giống H1 `553.943.475.131 VND`; quý III riêng `9M−6M` đã kiểm tra chính xác CFO `216.619.259.342`, CFI `93.759.529.850`, CFF `-449.106.095.224`, net `-138.727.306.032 VND`.
+- Quý II riêng từ B03 6M trừ B03 3M chỉ là **phép tính liên phiên bản nguồn**; cầu tiền có sai khác `890.796.892 VND` được giải thích về **phân loại lại tiền đầu kỳ**, nhưng vẫn chưa có báo cáo quý I/2026 cùng cơ sở TT43 ký lại. **Không đưa phép trừ vào trường CFO/CFI/CFF quý độc lập như số thực tế**; trường đó phải tiếp tục `null`.
+- Mã IDC được loại khỏi danh sách rà soát điểm nghẽn **thường xuyên**, chuyển ngoại lệ sang **chờ kiểm toán hợp nhất năm 2026**. Chỉ mở lại trên báo cáo năm đã kiểm toán/đính chính ký gốc có số liệu mới hoặc mâu thuẫn. Cách này **không tuyên bố doanh nghiệp sai luật** và không tự động áp dụng cho mã khác.
+
+Mã hóa tại: `data/financials-IDC.json` → `ticker_processing_completion`, `2026-Q2.source_validation.case_closure_status`; hồ sơ `reports/source-audits/IDC-2026Q2-issuer-source-accepted-closure-pending-audited-FY2026.json`; kiểm thử `scripts/verify_idc_issuer_source_accepted_completion.py`; tích hợp `validate.yml` và kiểm kê 32 mã.
+
+**Điểm phân biệt pháp lý:** ngày ký/hiệu lực TT43 khác kỳ kế toán phải áp dụng; sự vắng mặt tên TT43 trên bản Q1 không đủ kết luận sai quy định, cũng không chứng minh Q1 cùng phiên bản như H1. Trạng thái đã hoàn thành **là trạng thái quản lý tiến độ dùng nguồn có công bố**, không phải chứng nhận kiểm toán cho số chưa hề được báo cáo riêng.

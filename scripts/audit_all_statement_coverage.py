@@ -161,11 +161,16 @@ def report(results, manifests):
         lines.append(f"| {symbol} | {x['group']} | {x['periods']}/{len(PERIODS)} | {missing} | {unclear} | {parent} | "
                      f"{x['available']}/{x['possible']} ({x['coverage_percent']}%) | {x['verified']}/{x['possible']} |")
     geg_status = json.loads((DATA / "financials-GEG.json").read_text("utf-8")).get("ticker_processing_completion", {})
+
     geg_closed = geg_status.get("status") == "completed_issuer_accepted_exception_pending_fy2026_audited_recheck"
+    idc_status = json.loads((DATA / "financials-IDC.json").read_text("utf-8")).get("ticker_processing_completion", {})
+    idc_closed = idc_status.get("status") == "completed_issuer_source_verified_with_accounting_vintage_exception_pending_audited_fy2026"
     lines.extend([
         "", "## Trạng thái xử lý các trường B03 quý II/2026", "",
         ("GEG đã **đóng theo nguồn doanh nghiệp công bố**, chờ BCTC kiểm toán năm 2026 để kiểm tra lại ngoại lệ." if geg_closed
          else "GEG chưa đóng ngoại lệ trình bày báo cáo."), "",
+        ("IDC đã **hoàn thành chuẩn hóa theo nguồn công bố**, bảo lưu chênh lệch phân loại lại 890.796.892 VND và chờ BCTC kiểm toán năm 2026." if idc_closed
+         else "IDC đang chờ chứng cứ cùng cơ sở Q1/2026 trước khi đóng ngoại lệ."), "",
         "B01/B02 và B03 lũy kế đã xác minh không đồng nghĩa dòng tiền CFO/CFI/CFF quý II đã được kiểm chứng. "
         "Các ô quý II bên dưới phải tiếp tục giữ null khi thiếu chứng cứ cùng cơ sở trình bày.", "",
         "| Mã | Kỳ | Trường B03 quý độc lập chưa có nguồn cùng cơ sở | Tình trạng xử lý |",
@@ -182,13 +187,19 @@ def report(results, manifests):
         gap = matches[0]["quarter_cash_missing"]
         if not gap:
             raise ValueError(f"{ticker}: Q2 quarterly B03 now populated; revalidate source exception before reporting")
+
         case_state = ("ĐÃ ĐÓNG THEO NGUỒN GEG — ngoại lệ B03 bảo lưu tới báo cáo kiểm toán năm 2026" if ticker == "GEG" and geg_closed else
+                      "ĐÃ ĐÓNG THEO NGUỒN IDC — TT99/TT43 khác phiên bản; chờ kiểm toán năm 2026" if ticker == "IDC" and idc_closed else
                       "CHƯA HOÀN THÀNH — " + reason)
         lines.append(f"| {ticker} | 2026-Q2 | {', '.join(gap)} | {case_state} |")
     lines.extend(["", "## Ưu tiên xử lý tiếp (không làm lại phần đã PASS)", ""])
     for ticker in ticker_order[:-1]:
+
         if ticker == "GEG" and geg_closed:
             lines.append("- **GEG:** đã hoàn thành theo báo cáo doanh nghiệp; giữ nguyên ngoại lệ B03 quý II và chỉ mở lại khi BCTC kiểm toán năm 2026 hoặc đính chính nguồn phát hành.")
+            continue
+        if ticker == "IDC" and idc_closed:
+            lines.append("- **IDC:** đã hoàn thành chuẩn hóa nguồn 7/7 kỳ; bảo lưu B03 riêng Q2 khác cơ sở; chỉ mở lại khi BCTC kiểm toán năm 2026 hoặc đính chính có ký.")
             continue
         x = byticker[ticker]
         details = x["period_details"]
