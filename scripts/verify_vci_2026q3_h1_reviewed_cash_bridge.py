@@ -68,12 +68,24 @@ def verify(ledger, source, data):
         assert type(row.get(k)) in (int, float), (k,row.get(k))
         actual = Decimal(str(row[k])) * MILLION
         assert actual == Decimal(v),(k,actual,v)
-    # Q2 standalone values remain source-unverified even though its 6M source is verified.
+    # Historical Q2 source quarantine can now be lifted only after signed Q1
+    # was independently verified and the six-month-minus-Q1 cash bridge passed.
     q2_row = rows["2026-Q2"]
-    assert q2_row["source_validation"]["six_month_B03_exact_vnd_accepted_as_Q3_reference_not_as_Q2_standalone"] is True
-    assert q2_row["source_validation"]["six_month_cashflow_signed_source_ledger"] == str(LEDGER.relative_to(ROOT))
+    new_q2_ledger_path = ROOT / "reports/source-audits/VCI-2026Q2-original-reviewed-H1-and-Q1-cash-bridge-vnd.json"
+    new_q2_ledger = read(new_q2_ledger_path)
+    assert q2_row["q2_standalone_cashflow_status"] == "signed_original_H1_minus_signed_Q1_exact_VND_zero_residual"
+    assert q2_row["source_validation"]["source_audit_ledger"] == str(new_q2_ledger_path.relative_to(ROOT))
+    assert q2_row["source_validation"]["signed_q2_H1_six_month_B03_vs_reviewed_6M_exact_match"] is True
+    assert q2_row["source_validation"]["q2_quarter_cash_bridge_residual_vnd"] == "0"
+    assert new_q2_ledger["reviewed_H1_PwC"]["sha256"] == h1src["mirror_sha256"]
+    assert new_q2_ledger["as_filed_Q2"]["sha256"] == q2src["mirror_sha256"]
+    q2 = {k:int(v) for k,v in new_q2_ledger["standalone_2026q2_cashflow_vnd"].items()}
+    cash_check({k:str(v) for k,v in q2.items()})
+    assert q2["cash_ending"] == h1["cash_ending"]
+    assert q2["cash_beginning"] + q2["net_cash_change"] == h1["cash_ending"]
     for k in FIELDS:
-        assert q2_row.get(k) is None, ("Q2 standalone fabricated",k,q2_row.get(k))
+        actual=Decimal(str(q2_row[k]))*MILLION
+        assert actual==Decimal(q2[k]),(k,actual,q2[k])
     # Custody cash must not substitute for issuer cash.
     assert int(src9m["client_brokerage_cash_ending_ytd"]) != q3["cash_ending"]
     assert "Công ty không có công ty con" == source["signed_no_subsidiaries_note"]
@@ -97,6 +109,6 @@ def main():
     print("PASS VCI Q3 2026 signed 9M minus Q2-as-filed/PwC-reviewed H1 exact-VND cashflow,")
     print("  Q3 CFO/CFI/CFF/net:",*[str(q3[k]) for k in FLOW])
     print("  quarter cash beginning/end:",q3["cash_beginning"],q3["cash_ending"])
-    print("  2 source 6M variants exact equal, 4 bridges, 3 corruption controls, Q2 standalone null.")
+    print("  2 source 6M variants exact equal, 4 bridges, 3 corruption controls, Q2 standalone separately source-verified with Q1 bridge.")
 if __name__=="__main__":
     main()
