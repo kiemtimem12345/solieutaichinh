@@ -28,7 +28,11 @@ def main():
             matches=[x for x in z.infolist() if x.filename.lower().endswith(".pdf") and not x.is_dir() and x.file_size<=50*1024*1024]
             print("PDF_MEMBERS",[(x.filename[:100],x.file_size) for x in matches[:8]],flush=True)
             if not matches:raise SystemExit("NO_PDF_MEMBER")
-            member=matches[0];pdf=base/"issuer.pdf"
+            statements=[x for x in matches if "baocaotaichinh" in x.filename.lower().replace("_","").replace(" ","") or "financialstatement" in x.filename.lower().replace("_","").replace(" ","")]
+            if not statements:raise SystemExit("STATEMENT_PDF_NOT_FOUND; never extract explanation instead")
+            member=sorted(statements,key=lambda item:item.file_size,reverse=True)[0]
+            print("SELECTED_SIGNED_STATEMENT_MEMBER",member.filename,"bytes",member.file_size,flush=True)
+            pdf=base/"issuer.pdf"
             with z.open(member) as inp,pdf.open("wb") as out:shutil.copyfileobj(inp,out)
         assert pdf.open("rb").read(5)==b"%PDF-","Not PDF"
         lines=execute(["pdfinfo",str(pdf)],25).splitlines()
