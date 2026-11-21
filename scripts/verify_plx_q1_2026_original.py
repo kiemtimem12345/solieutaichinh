@@ -125,9 +125,15 @@ assert s["opening_cash_reclassification_evidence"]["Q1_signed_pdf_note16_page"]=
 assert s["opening_cash_reclassification_evidence"]["cash_from_B01_code"]=="110"
 assert s["opening_cash_reclassification_evidence"]["other_current_asset_to_B01_code"]=="165"
 assert s["opening_cash_reclassification_exact_destination_explanation"].startswith("VERIFIED:")
-# Neither source-reported B01 subtotal may be accepted as reconciled absent a signed erratum.
-assert s["b01_subgroups_explanation_status"].endswith("requires_official_erratum")
-assert s["b01_full_pass_blocked_until_official_correction"] is True
+# Tolerance acceptance does NOT change the fact that signed B01 subcomponents mismatch.
+# Multiple published-total sources agree at their displayed resolution only.
+assert s["b01_subgroups_explanation_status"].endswith("after_cross_source")
+assert s["b01_full_pass_blocked_until_official_correction"] is False
+assert s["b01_tolerance_status"] == "PASS_WITH_TOLERANCE"
+assert s["b01_tolerance_percent"] == "0.1"
+assert Decimal(anom_recv) * 100 / Decimal(V["short_term_receivables"]) <= Decimal("0.1")
+assert Decimal(anom_liab) * 100 / Decimal(V["current_liabilities"]) <= Decimal("0.1")
+assert s["b01_original_subtotal_discrepancies_still_unexplained"] is True
 assert s["full_b01_component_arithmetic_passed"] is False
 assert s["original_B01_opening_cash_reclassified_as_printed"] is True
 assert s["original_B03_comparative_prior_year_reclassified_as_printed"] is True
@@ -144,7 +150,7 @@ assert q["eps"] is None and q["eps_ytd"] is None
 assert q["diluted_eps"]==q["diluted_eps_ytd"]==-521
 assert q["cashflow_period_basis"]=="quarter"
 assert q["cashflow_ytd_period_basis"]=="three_months"
-assert q["verification_status"]=="signed_original_visual_B01_B02_B03_Q1_2026_34_exact_vnd_checks_with_B01_subgroup_and_opening_cash_vintage_exceptions"
+assert q["verification_status"]=="signed_original_B01_B02_B03_Q1_2026_PASS_WITH_TOLERANCE_0p1"
 roa=Decimal(4*V["net_profit"])/((Decimal(O["opening_total_assets"])+V["total_assets"])/2)*100
 roe=Decimal(4*V["net_profit"])/((Decimal(O["opening_equity"])+V["equity"])/2)*100
 assert round(roa,2)==Decimal("-2.76") and round(roe,2)==Decimal("-9.07")
@@ -152,4 +158,4 @@ assert (q["roa"],q["roe"])==(-2.76,-9.07)
 parent=next(x for x in doc["items"] if x["period"]=="2026-Q3" and x["source_validation"].get("scope")=="parent_company")
 assert parent["source_validation"]["b03_cashflow_discrepancy_vnd"]=="87654015000"
 assert parent.get("financing_cash_flow") is None
-print("PASS: PLX Q1 2026 signed original 36p, 82 monetary VND source fields; 34 exact identities zero VND. B01 mismatches receivables 9,083,970,186 and current liabilities 9,088,965,442 VND QUARANTINED; opening cash reclassification +3,087,558,817,574 VND to restricted price-stabilization-fund deposits in B01 code165 VERIFIED from Note 16; basic EPS blank, diluted -521, Q1 CFO+CFI+CFF and cash bridge exact. 2026 parent Q3 CFF source error still blocked.")
+print("PASS: PLX Q1 2026 signed original 36p, 82 monetary VND source fields; 34 exact identities zero VND. B01 mismatches receivables 9,083,970,186 and current liabilities 9,088,965,442 VND ACCEPTED WITH 0.1% TOLERANCE after third-party display-value agreement; exact arithmetic still false; opening cash reclassification +3,087,558,817,574 VND to restricted price-stabilization-fund deposits in B01 code165 VERIFIED from Note 16; basic EPS blank, diluted -521, Q1 CFO+CFI+CFF and cash bridge exact. 2026 parent Q3 CFF source error still blocked.")
