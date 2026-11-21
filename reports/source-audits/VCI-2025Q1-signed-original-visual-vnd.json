@@ -1,0 +1,109 @@
+{
+  "ticker": "VCI",
+  "period": "2025-Q1",
+  "entity": "CTCP Chứng khoán Vietcap",
+  "report_type": "original_signed_single_company_securities_financial_statements_no_subsidiaries",
+  "accounting_policy": "VAS + Circular 210/2014, 334/2016 financial statements for securities firms; not bank or generic industrial statement",
+  "signed_date": "2025-04-18",
+  "report_period_end": "2025-03-31",
+  "signed_no_subsidiaries_note": "Công ty không có công ty con",
+  "no_subsidiaries_note_pdf_page": 19,
+  "original_pdf_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/VCI_Baocaotaichinh_Q1_2025.pdf",
+  "original_pdf_sha256": "7be015c6a66aee0387047aa80535da1bf8133ad9d9872c43285847b531dfd69f",
+  "original_pdf_size_bytes": 13356823,
+  "pdf_pages": 34,
+  "pdf_scanned_text_chars": 130,
+  "source_images": {
+    "B01": [
+      5,
+      6,
+      7
+    ],
+    "B02": [
+      10,
+      11,
+      12
+    ],
+    "B03_company": [
+      13,
+      14
+    ],
+    "no_subsidiaries_note": [
+      19
+    ],
+    "client_brokerage_cash_is_separate": [
+      15,
+      16
+    ],
+    "inspection_workflow_run": 44919423302,
+    "artifact_id": 14713441571
+  },
+  "original_vnd_fields": {
+    "total_assets": "23727625262449",
+    "total_liabilities": "11147502674864",
+    "equity": "12580122587585",
+    "current_assets": "23620977742780",
+    "non_current_assets": "106647519669",
+    "cash_and_equivalents": "2302263974886",
+    "cash_only": "2302263974886",
+    "securities_fvtpl_assets": "1195338250920",
+    "securities_htm_short": "898000000000",
+    "securities_margin_loans": "10095130289210",
+    "securities_afs_assets": "7523915401233",
+    "securities_financial_asset_impairment": "-2169825587",
+    "short_term_receivables": "293089313981",
+    "other_current_assets": "351780236915",
+    "fixed_assets": "42697960952",
+    "short_term_borrowings": "10310840000000",
+    "revenue": "850928963332",
+    "securities_operating_expense": "313821357598",
+    "securities_fvtpl_gain": "354620858555",
+    "securities_htm_interest_income": "11764136988",
+    "securities_loan_interest_income": "256978768490",
+    "securities_afs_interest_income": "54361710583",
+    "securities_brokerage_revenue": "149076747455",
+    "securities_depository_revenue": "2650375165",
+    "securities_financial_advice_revenue": "17866900000",
+    "securities_fvtpl_loss": "154613415910",
+    "securities_self_trading_expense": "13755312931",
+    "securities_brokerage_expense": "131769113428",
+    "securities_depository_expense": "4196481836",
+    "securities_financial_advice_expense": "9487033493",
+    "financial_income": "9085822204",
+    "financial_expense": "183447795117",
+    "admin_expense": "22680765194",
+    "operating_profit": "340064867627",
+    "other_income": "15107153051",
+    "other_expense": "65000000",
+    "other_profit": "15042153051",
+    "pretax_profit": "355107020678",
+    "income_tax": "60239238272",
+    "net_profit": "294867782406",
+    "operating_cash_flow": "10325858831",
+    "investing_cash_flow": "-9337876940",
+    "financing_cash_flow": "-2442495939750",
+    "net_cash_change": "-2441507957859",
+    "cash_beginning": "4743771932745",
+    "cash_ending": "2302263974886"
+  },
+  "checks_exact_vnd": {
+    "B01_assets_components": "0",
+    "B01_balance": "0",
+    "B01_current": "0",
+    "B02_operating": "0",
+    "B02_other": "0",
+    "B02_pretax": "0",
+    "B02_profit": "0",
+    "B03_sections": "0",
+    "B03_ending": "0",
+    "B01_B03_cash": "0"
+  },
+  "source_caveats": [
+    "All numbers manually transcribed from visual page images of scanned issuer original (not OCR).",
+    "Official PDF is called company financial statements, not a separately titled consolidated report. Signed note says issuer had no subsidiaries.",
+    "B03 client-custody cash separate from issuer cash.",
+    "2025Q1 quarter equals year-to-date Q1; numbers in production expressed as VND/1,000,000 with six decimals.",
+    "No unrelated ticker/period changed.",
+    "No 2024 periods imported."
+  ]
+}
