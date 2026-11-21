@@ -29,6 +29,8 @@ jobs:
         run: python scripts/verify_mbb_income.py
       - name: Audit report scope and distinguish missing from unconfirmed
         run: python scripts/audit_all_statement_coverage.py > /dev/null
+      - name: Enforce fiscal-year accounting regime transition and GEG IDC Q2 B03 source-vintage gates
+        run: python scripts/verify_reporting_regime_transitions.py
       - name: Check officially verified PLX Q3 parent and consolidated profit
         run: python scripts/verify_plx_issuer_q3.py
       - name: Verify PLX 2026 Q3 consolidated original 40 exact-VND identities and reviewed H1 standalone cash
