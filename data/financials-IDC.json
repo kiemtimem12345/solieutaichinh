@@ -2948,7 +2948,7 @@
         },
         "q2_cashflow_quarter_bridge_error_vnd": "-890796892",
         "q2_beginning_cash_source_variance_vnd": "890796892",
-        "q2_cashflow_quarter_status": "opening_cash_variance_explained_by_issuer_note41_TT99; H1 signed TT43 consolidated policy absent from Q1 original notes, Q1 current-period as TT43 restated not verified, quarterly cashflow publication still blocked",
+        "q2_cashflow_quarter_status": "opening_cash_variance_explained_by_issuer_note41_TT99; quarterly_components_current_period_presentation_comparability_pending_TT43_signed_H1_but_original_Q1_current_TT43_not_documented",
         "q2_cashflow_provisional_does_not_pass_source_vintage_bridge": true,
         "audited_fy2025_cash_cross_vintage": {
           "audited_consolidated_closing_cash_vnd": "553052678239",
