@@ -2449,7 +2449,19 @@
           "H1_2026_reclassification_explanation_pending": false,
           "confirmed_on": "2026-11-19",
           "H1_2026_reclassification_note_confirmed": "H1 2026 EY reviewed note 41 original PDF page 71, +890796892 VND reclassification of 2025 year-end cash equivalents"
-        }
+        },
+        "q1_vs_h1_signed_TT43_comparability_checked_on": "2026-11-21",
+        "q1_vs_h1_TT43_source_policy_audit": "reports/source-audits/IDC-2026Q1-vs-H1-TT43-source-policy-and-Note41-B03-comparatives.json",
+        "q1_original_signed_policy_page": 17,
+        "h1_reviewed_signed_policy_page": 21,
+        "h1_reviewed_signed_prior_B03_comparative_note41_page": 71,
+        "Q1_signed_Q1_2026_TT99_adoption_confirmed": true,
+        "H1_signed_2026_TT43_adoption_confirmed": true,
+        "H1_note41_prior_year_B03_reclassification_net_vnd": "0",
+        "H1_note41_B03_prior_year_reclass_does_not_restate_Q1_2026_current_period": true,
+        "Q1_2026_TT43_same_current_period_original_comparator_unverified": true,
+        "IDC_Q2_2026_standalone_cashflow_promotion_blocked_current_basis": true,
+        "issuer_Q1_2026_signed_restated_TT43_B03_not_yet_recovered": true
       },
       "published_at": "2026-05-06",
       "source_archive_file": "reports/raw/IDC/auto-idc-20261021/229a1ff9af9d3e1b.pdf",
@@ -2936,7 +2948,7 @@
         },
         "q2_cashflow_quarter_bridge_error_vnd": "-890796892",
         "q2_beginning_cash_source_variance_vnd": "890796892",
-        "q2_cashflow_quarter_status": "opening_cash_variance_explained_by_issuer_note41_TT99; quarterly_components_current_period_presentation_comparability_pending",
+        "q2_cashflow_quarter_status": "opening_cash_variance_explained_by_issuer_note41_TT99; H1 signed TT43 consolidated policy absent from Q1 original notes, Q1 current-period as TT43 restated not verified, quarterly cashflow publication still blocked",
         "q2_cashflow_provisional_does_not_pass_source_vintage_bridge": true,
         "audited_fy2025_cash_cross_vintage": {
           "audited_consolidated_closing_cash_vnd": "553052678239",
@@ -2989,7 +3001,19 @@
           "reviewed_on": "2026-11-20"
         },
         "q2_cashflow_non_cash_opening_adjustment_vnd": "890796892",
-        "q2_cashflow_bridge_adjusted_by_disclosed_reclassification_vnd": "0"
+        "q2_cashflow_bridge_adjusted_by_disclosed_reclassification_vnd": "0",
+        "q1_vs_h1_signed_TT43_comparability_checked_on": "2026-11-21",
+        "q1_vs_h1_TT43_source_policy_audit": "reports/source-audits/IDC-2026Q1-vs-H1-TT43-source-policy-and-Note41-B03-comparatives.json",
+        "q1_original_signed_policy_page": 17,
+        "h1_reviewed_signed_policy_page": 21,
+        "h1_reviewed_signed_prior_B03_comparative_note41_page": 71,
+        "Q1_signed_Q1_2026_TT99_adoption_confirmed": true,
+        "H1_signed_2026_TT43_adoption_confirmed": true,
+        "H1_note41_prior_year_B03_reclassification_net_vnd": "0",
+        "H1_note41_B03_prior_year_reclass_does_not_restate_Q1_2026_current_period": true,
+        "Q1_2026_TT43_same_current_period_original_comparator_unverified": true,
+        "IDC_Q2_2026_standalone_cashflow_promotion_blocked_current_basis": true,
+        "issuer_Q1_2026_signed_restated_TT43_B03_not_yet_recovered": true
       },
       "published_at": "2026-08-01",
       "source_archive_file": "reports/raw/IDC/auto-idc-20261021/5e5637e71fa303a7.zip",
