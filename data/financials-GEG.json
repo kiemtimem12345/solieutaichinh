@@ -2899,7 +2899,25 @@
         "q1_2026_march31_restricted_deposit_explicit_figure_available": false,
         "q1_2026_march31_collateral_exclusion_unknown": true,
         "q2_standalone_cashflow_awaits_march31_restricted_cash_amount": true,
-        "q1_2026_new_notes_visual_review_run": 44869922268
+        "q1_2026_new_notes_visual_review_run": 44869922268,
+        "case_closure_status": "completed_issuer_accepted_exception_not_independent_quarterly_b03_pass",
+        "case_closure_date": "2026-11-21",
+        "accepted_closure_evidence": "reports/source-audits/GEG-2026Q2-accepted-issuer-vintage-closure-pending-audited-FY2026.json",
+        "accepted_reference_h1_reviewed": {
+          "pdf_sha256": "c5fcba1374cea2e2fc6e82eb66ccd4cf49320bd4a412c4c3f834d60c16ba700e",
+          "reference_scope": "consolidated, six months ended 2026-06-30, limited review by EY on 2026-08-24",
+          "CFO_vnd": "707905751019",
+          "CFI_vnd": "-734466295121",
+          "CFF_vnd": "51927115815",
+          "net_cash_vnd": "25366571713",
+          "opening_cash_vnd": "74942444345",
+          "fx_vnd": "13217270",
+          "closing_cash_vnd": "100322233328"
+        },
+        "canonical_issuer_report_policy": "retain_signed_original_Q2_fields; signed_reviewed_H1_values_priority_reference_for_year_to_date; do_not_blend_unlabeled_versions",
+        "opening_pledged_deposit_reclassification_accepted_as_source_explained_vnd": "11422218903",
+        "accepted_nonpublication_of_independent_Q2_cash_flow": true,
+        "future_revision_checkpoint": "wait for GEG consolidated audited FY2026 to compare and adjust if signed source requires"
       },
       "published_at": "2026-07-30",
       "source_archive_file": "reports/raw/GEG/auto-geg-20261021/e5c84e9cb42b1698.pdf",
@@ -3510,7 +3528,20 @@
         "company_parent_or_consolidated": "consolidated",
         "source_unit": "VND",
         "website_unit": "triệu VND",
-        "source_method_note": "Số liệu trích từ đúng BCTC GEG ký/đóng dấu, đối chiếu danh tính tài liệu với hồ sơ công bố HOSE; bản lưu dùng để truy xuất không thay đổi nguồn gốc báo cáo."
+        "source_method_note": "Số liệu trích từ đúng BCTC GEG ký/đóng dấu, đối chiếu danh tính tài liệu với hồ sơ công bố HOSE; bản lưu dùng để truy xuất không thay đổi nguồn gốc báo cáo.",
+        "reviewed_h1_comparator_accepted_under_geg_completion": {
+          "closure_evidence": "reports/source-audits/GEG-2026Q2-accepted-issuer-vintage-closure-pending-audited-FY2026.json",
+          "quarter_value_source": "signed Q3 9M minus signed EY reviewed H1, separate from original Q2 initial basis",
+          "CFO_vnd": "448662906453",
+          "CFI_vnd": "-639871926621",
+          "CFF_vnd": "186959810890",
+          "net_cash_vnd": "-4249209278",
+          "fx_vnd": "-15900229",
+          "opening_cash_vnd": "100322233328",
+          "ending_cash_vnd": "96057123821",
+          "exact_cash_bridge_residual_vnd": "0",
+          "production_q3_original_quarter_values_preserved": true
+        }
       },
       "financial_line_items_schema_version": "2026-11-17-manual-visual-B01-B02-B03Q3-v3",
       "financial_line_items_schema_updated_at": "2026-11-17T13:00:00+07:00",
@@ -3629,5 +3660,16 @@
   "bootstrap_status": "complete_needs_manual_review",
   "bootstrap_completed_at": "2026-10-24T07:16:25+00:00",
   "bootstrap_completion_note": "Các kỳ báo cáo có thể tự trích xuất đã được lưu; một số kỳ còn cần đối chiếu thủ công.",
-  "site_patch_updated_at": "2026-11-17T00:00:00+07:00"
+  "site_patch_updated_at": "2026-11-17T00:00:00+07:00",
+  "ticker_processing_completion": {
+    "status": "completed_issuer_accepted_exception_pending_fy2026_audited_recheck",
+    "completed_on": "2026-11-21",
+    "source_periods_consolidated_verified": "2025-Q1 through 2026-Q3",
+    "approved_scope": "Treat each GEG issuer-signed B01/B02/B03 YTD and reviewed H1 as source-standard, preserve version distinction; Q2 standalone B03 not separately verified",
+    "remaining_manual_exception_closed": true,
+    "exception_classification": "cross_vintage_cash_classification_reconciled_in_reported_sources_not_signed_Q1_end",
+    "annual_recheck": "after official audited FY2026 consolidated report is published",
+    "reopen_only_on": "signed audited annual 2026 source correction, source contradiction, or issuer-signed same-basis Q1 cash restatement",
+    "closure_evidence": "reports/source-audits/GEG-2026Q2-accepted-issuer-vintage-closure-pending-audited-FY2026.json"
+  }
 }
