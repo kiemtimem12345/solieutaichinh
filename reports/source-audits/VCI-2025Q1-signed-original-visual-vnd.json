@@ -84,7 +84,9 @@
     "financing_cash_flow": "-2442495939750",
     "net_cash_change": "-2441507957859",
     "cash_beginning": "4743771932745",
-    "cash_ending": "2302263974886"
+    "cash_ending": "2302263974886",
+    "income_tax_current": "72883103138",
+    "income_tax_deferred": "-12643864866"
   },
   "checks_exact_vnd": {
     "B01_assets_components": "0",
@@ -96,7 +98,8 @@
     "B02_profit": "0",
     "B03_sections": "0",
     "B03_ending": "0",
-    "B01_B03_cash": "0"
+    "B01_B03_cash": "0",
+    "B02_current_plus_deferred_tax_minus_total": "0"
   },
   "source_caveats": [
     "All numbers manually transcribed from visual page images of scanned issuer original (not OCR).",
