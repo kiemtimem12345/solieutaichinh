@@ -567,7 +567,8 @@
       "eps_ytd": 1093,
       "revenue_ytd": 2955834.486577,
       "net_profit_ytd": 1673887.907413,
-      "broker_total_operating_revenue_ytd": 2955834.486577
+      "broker_total_operating_revenue_ytd": 2955834.486577,
+      "pretax_profit_ytd": 2067712.190248
     },
     {
       "symbol": "VIX",
