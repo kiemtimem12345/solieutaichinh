@@ -71,12 +71,15 @@ def main():
         assert v(row,"cash_ending_ytd")==ytd["cash_ending"]
         assert row["cashflow_period_basis"]=="quarter" and row["cashflow_ytd_period_basis"]==basis
         assert row["operating_cash_flow"]!=row["pretax_profit"],"Old erroneous CFO==pretax mapping"
-        assert row["verification_status"]==("issuer_original_B01_cash_and_B03_2025_"+
-          ("Q1" if p=="2025-Q1" else "H1_Q2_standalone")+"_visual_vnd_PASS_B01B02_remaining_pending")
+        assert row["verification_status"]==("issuer_signed_2025"+
+          ("Q1_separate_B01_B02_B03_exact_vnd" if p=="2025-Q1"
+           else "Q2_separate_B01_B02_B03_exact_vnd_and_H1_bridge"))
         s=row["source_validation"]
         assert s["b01_cash_and_B03_original_source_visual_verified"] is True
-        assert s["b01_b02_full_visual_reviewed"] is False
-        assert s["manually_visual_reviewed"] is False # Partial visual, not whole B01/B02.
+        assert s["b01_b02_full_visual_reviewed"] is True
+        assert s["manually_visual_reviewed"] is True
+        assert s["full_b01_b02_b03_visual_reviewed"] is True
+        assert s["signed_b01_b02_exact_vnd_identity_count"] == 10
         assert s["b03_2025_cashflow_verification_status"].endswith("0_VND_residual")
         assert s["original_issuer_pdf_sha256"]==src[p]["issuer_sha256"]
         assert s["b03_source_ledger_path"]==str(AUDIT.relative_to(ROOT))
