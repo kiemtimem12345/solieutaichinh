@@ -122,7 +122,15 @@ assert q["source_validation"]["q4_standalone_cashflow_status"]=="verified_FY_12M
 # The later comparator changed cash equivalents alone, NOT original cash.
 proof=q["source_validation"]["cash_2025yearend_original_vs_2026q2_comparator_component_proof"]
 assert proof == nextq["source_validation"]["cash_2025yearend_original_vs_2026q2_comparator_component_proof"]
-assert proof == june["source_validation"]["cash_2025yearend_original_vs_2026q2_comparator_component_proof"]
+# The original FY/Q1 numerical vintage proof must remain unchanged. Q2 now
+# has additive issuer signed Note11 evidence that identifies the *opening*
+# pledge-deposit classification; never require textual metadata equality.
+q2proof=june["source_validation"]["cash_2025yearend_original_vs_2026q2_comparator_component_proof"]
+stable=[k for k in proof if k.endswith("_vnd")]
+assert {k:proof[k] for k in stable}=={k:q2proof[k] for k in stable}
+assert q2proof["line_item_reconciliation_status"].endswith("B09_Q2_note11_pledged_deposit_B01_code165")
+assert june["source_validation"]["year_open_cash_reclassification_amount_vnd"]=="11422218903"
+assert june["source_validation"]["march_31_2026_restricted_deposits_balance_verified"] is False
 assert int(proof["original_2025q4_cash_only_vnd"]) == v(q,"cash_only")
 assert int(proof["original_2025q4_cash_equivalents_vnd"]) == v(q,"cash_equivalents_only")
 assert int(proof["original_2025q4_total_cash_vnd"]) == v(q,"cash_ending")
@@ -134,4 +142,5 @@ assert int(proof["total_cash_difference_vnd"])==11422218903
 assert int(proof["q2_2026_comparative_cash_only_vnd"]) + int(proof["q2_2026_comparative_cash_equivalents_vnd"]) == int(proof["q2_2026_comparative_total_cash_vnd"])
 assert int(proof["original_2025q4_cash_equivalents_vnd"]) - int(proof["q2_2026_comparative_cash_equivalents_vnd"]) == 11422218903
 assert proof["line_item_reconciliation_status"].endswith("cause_and_destination_unverified")
+assert q2proof["cash_vintage_classification"].startswith("At 01/01/2026 re-presented restricted bank guarantee deposits")
 print("PASS: GEG 2025 Q4 original signed 103 source/quarter fields, 29 original VND identities, exact Q4 CFO CFI CFF 12M minus verified 9M, original 2026Q1 cash and 11,422,218,903 source-vintage discrepancy preserved")

@@ -2355,7 +2355,17 @@
           "first_release_evidence": "GEG Q4 2025 signed PDF p6, original 2026Q1 signed PDF p6; same cash and equivalents 31 Dec/1 Jan",
           "later_comparative_evidence": "GEG consolidated Q2 2026 signed PDF B01 01/01/2026 (cash code111 and equivalents code112); Q3 2026 similarly retains total 74,942,444,345",
           "cash_vintage_classification": "Confirmed component difference is in cash equivalents, not cash. Do not infer transfer to investments/receivables or an audit adjustment without 2025 audited note."
-        }
+        },
+        "cash_opening_vintage_reclassification_reviewed_at": "2026-11-21",
+        "year_open_cash_reclassification_original_signed_note_source": "reports/source-audits/GEG-2026Q2-note11-pledged-cash-opening-reclassification-vnd.json",
+        "year_open_cash_reclassification_classification_proven": true,
+        "year_open_cash_reclassification_amount_vnd": "11422218903",
+        "year_open_cash_reclassification_from_B01_code112_cash_equivalents_to_code165_other_current_assets": true,
+        "year_open_cash_reclassification_source_note": "GEG 2026Q2 signed consolidated B09-DN/HN note 11, original PDF page24 signed scan; 11,422,218,903 VND bank term deposits pledged for loan/interest/project performance guarantees at Jan1 2026. B01 code165 other current assets grows by exactly cash equivalents code112 decrease; cash code111 and total current assets unchanged.",
+        "march_31_2026_restricted_deposits_balance_verified": false,
+        "q2_quarter_cashflow_still_blocked_for_unverified_mar31_reclassification": true,
+        "source_opening_cashflow_b03_reconciled_between_different_vintages": false,
+        "b03_q2_ytd_source_verification_remains_passed": true
       },
       "published_at": "2026-05-04",
       "source_archive_file": "reports/raw/GEG/auto-geg-20261021/d8dade2f27045243.pdf",
@@ -2842,7 +2852,7 @@
           "foreign_exchange_effect": "-12574718"
         },
         "q2_quarter_only_cash_flow_status": "blocked_cross_source_year_opening_cash_difference_11422218903_vnd",
-        "action_needed": "Find GEG H1 reviewed 2026 cash note 5 or restatement/compare signed 2025FY closing; do not insert provisional Q2 quarterly CFO/CFI/CFF fields in canonical dataset.",
+        "action_needed": "Original Jan1 difference is identified as bank term deposits pledged for loan guarantees (B09 note11 signed p24). Need 31 Mar restricted deposit balance and restated Q1 same-vintage cash-flow bridge before Q2 standalone CFO/CFI/CFF published. Never assign missing 11.422bn as an actual quarter cash flow.",
         "cash_2025yearend_original_vs_2026q2_comparator_component_proof": {
           "original_2025q4_cash_only_vnd": "46702358323",
           "original_2025q4_cash_equivalents_vnd": "39662304925",
@@ -2853,11 +2863,25 @@
           "cash_only_difference_vnd": "0",
           "cash_equivalents_difference_vnd": "11422218903",
           "total_cash_difference_vnd": "11422218903",
-          "line_item_reconciliation_status": "numerically_located_in_cash_equivalents_code_112; cause_and_destination_unverified",
+          "line_item_reconciliation_status": "2026-11-21_EXACT_SOURCE_PROVEN_B09_Q2_note11_pledged_deposit_B01_code165",
           "first_release_evidence": "GEG Q4 2025 signed PDF p6, original 2026Q1 signed PDF p6; same cash and equivalents 31 Dec/1 Jan",
           "later_comparative_evidence": "GEG consolidated Q2 2026 signed PDF B01 01/01/2026 (cash code111 and equivalents code112); Q3 2026 similarly retains total 74,942,444,345",
-          "cash_vintage_classification": "Confirmed component difference is in cash equivalents, not cash. Do not infer transfer to investments/receivables or an audit adjustment without 2025 audited note."
-        }
+          "cash_vintage_classification": "At 01/01/2026 re-presented restricted bank guarantee deposits 11,422,218,903 VND from B01 cash equivalents code112 into other current assets code165. Verified signed B09 Q2 original image p24 note11 and cash asset totals. Still no 31/03/2026 pledged deposit comparator, so not enough to derive standalone Q2 B03 cash bridge without assumption."
+        },
+        "cash_opening_vintage_reclassification_reviewed_at": "2026-11-21",
+        "year_open_cash_reclassification_original_signed_note_source": "reports/source-audits/GEG-2026Q2-note11-pledged-cash-opening-reclassification-vnd.json",
+        "year_open_cash_reclassification_classification_proven": true,
+        "year_open_cash_reclassification_amount_vnd": "11422218903",
+        "year_open_cash_reclassification_from_B01_code112_cash_equivalents_to_code165_other_current_assets": true,
+        "year_open_cash_reclassification_source_note": "GEG 2026Q2 signed consolidated B09-DN/HN note 11, original PDF page24 signed scan; 11,422,218,903 VND bank term deposits pledged for loan/interest/project performance guarantees at Jan1 2026. B01 code165 other current assets grows by exactly cash equivalents code112 decrease; cash code111 and total current assets unchanged.",
+        "march_31_2026_restricted_deposits_balance_verified": false,
+        "q2_quarter_cashflow_still_blocked_for_unverified_mar31_reclassification": true,
+        "source_opening_cashflow_b03_reconciled_between_different_vintages": false,
+        "b03_q2_ytd_source_verification_remains_passed": true,
+        "cash_deposit_collateral_year_open_vnd": "11422218903",
+        "cash_deposit_collateral_H1_end_vnd": "54079653068",
+        "cash_deposit_collateral_note_pdf_page": 24,
+        "q2_cf_standalone_status": "source_vintage_opening_classification_identified_but_signed_Q1_end_restatement_unavailable"
       },
       "published_at": "2026-07-30",
       "source_archive_file": "reports/raw/GEG/auto-geg-20261021/e5c84e9cb42b1698.pdf",
