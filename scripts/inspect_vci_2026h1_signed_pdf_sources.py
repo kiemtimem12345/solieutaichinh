@@ -18,6 +18,9 @@ SOURCES = [
     ("VCI_2026Q2_HOSE_original", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2480835/20260720%20-%20VCI%20-%20BCTC%20Q2.2026-CBTT.pdf"),
 ]
 MAX_BYTES=45*1024*1024
+PREVIEW_DIR = Path('vci-source-previews')
+PREVIEW_DIR.mkdir(exist_ok=True)
+
 NEEDLES=[
     "lưu chuyển tiền thuần từ hoạt động kinh doanh",
     "lưu chuyển tiền thuần từ hoạt động đầu tư",
@@ -45,6 +48,20 @@ def get(url,path):
     if not 0 < size <= MAX_BYTES or path.open("rb").read(5) != b"%PDF-":
         raise ValueError(f"Invalid PDF or source response; bytes={size}")
     return size
+
+def render_preview(name, path, pages):
+    """Render only early financial-statement pages, not full scanned reports."""
+    start, stop = (7, 26) if "2026H1" in name else (5, 22)
+    stop = min(stop, pages)
+    prefix = PREVIEW_DIR / ("H1_reviewed" if "2026H1" in name else "Q2_as_filed")
+    cmd = [
+        "pdftoppm", "-f", str(start), "-l", str(stop),
+        "-scale-to", "1300", "-jpeg", "-jpegopt", "quality=62",
+        str(path), str(prefix),
+    ]
+    subprocess.run(cmd, capture_output=True, text=True, timeout=115, check=True)
+    count = len(list(PREVIEW_DIR.glob(prefix.name + "-*.jpg")))
+    print("VISUAL_PAGES_EXPORTED", name, start, stop, count, flush=True)
 
 def inspect(name,url,path):
     print("\n=== ORIGINAL_SOURCE",name,"===",flush=True)
@@ -74,7 +91,8 @@ def inspect(name,url,path):
             if printed>=22:break
         if not printed:
             print("NO_RELEVANT_SEARCHABLE_ROWS; scanned pages require targeted manual images",flush=True)
-            return False
+            render_preview(name, path, pages)
+            return "scan"
         return True
     except Exception as exc:
         print("SOURCE_NOT_RETRIEVED",name,type(exc).__name__,str(exc)[:250],flush=True)
@@ -84,15 +102,15 @@ def main():
     evidence = {}
     with tempfile.TemporaryDirectory() as temp:
         for i, (name, url) in enumerate(SOURCES):
-            if "2026H1" in name and any(v for k, v in evidence.items() if "2026H1" in k):
+            if "2026H1" in name and any(v is not False for k, v in evidence.items() if "2026H1" in k):
                 print("SKIP_DUPLICATE_H1_SOURCE", name, flush=True)
                 continue
-            if "2026Q2" in name and any(v for k, v in evidence.items() if "2026Q2" in k):
+            if "2026Q2" in name and any(v is not False for k, v in evidence.items() if "2026Q2" in k):
                 print("SKIP_DUPLICATE_Q2_SOURCE", name, flush=True)
                 continue
             evidence[name] = inspect(name, url, Path(temp)/f"vci_{i}.pdf")
-    h1 = any(v for k, v in evidence.items() if "2026H1" in k)
-    q2 = any(v for k, v in evidence.items() if "2026Q2" in k)
+    h1 = any(v is True for k, v in evidence.items() if "2026H1" in k)
+    q2 = any(v is True for k, v in evidence.items() if "2026Q2" in k)
     print("EVIDENCE_STATUS", "H1", h1, "Q2", q2, flush=True)
     print("FINISHED evidence only; no financial JSON or production changes", flush=True)
     if not (h1 and q2):
