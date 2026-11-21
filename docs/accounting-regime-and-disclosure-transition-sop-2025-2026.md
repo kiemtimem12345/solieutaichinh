@@ -86,3 +86,18 @@ Do đó **không được coi hai phiên bản Q2/H1 là cùng bản chất mã 
 **Q2 standalone vẫn NULL**: chưa có số tiền bị hạn chế đã ký tại 31/03/2026 hoặc B03 Q1 cùng phiên bản lập lại để nối tiền quý II. Không tự lấy chênh lệch đầu năm làm dòng tiền giao dịch. Có thể kết thúc lượt tìm kiếm định kỳ bằng trạng thái `terminal_manual_review_pending_issuer_signed_same_basis_q1`, nhưng **không đánh dấu B03 quý II đã hoàn thành/PASS**.
 
 Nguồn audit thực thi: `reports/source-audits/GEG-2026Q3-H1-reviewed-reconciliation.md`, `scripts/verify_geg_2026q3_reviewed_h1_bridge.py`, H1 EY ký gốc người dùng tải lên 74 trang, B03 p16–17 và thuyết minh 37 p73; Q3 bản gốc doanh nghiệp đã được xác minh tại repo.
+
+## 7. Đóng hồ sơ theo nguồn do doanh nghiệp công bố (người dùng chấp thuận ngày 21/11/2026)
+
+Trường hợp có **hai phiên bản ký hợp lệ nhưng không đồng nhất phân loại** (ví dụ B03 GEG Q2/2026 và bản EY soát xét H1/2026), được phép **kết thúc giai đoạn xử lý của mã** khi người dùng chấp nhận dùng số liệu nguồn phát hành chính thức làm chuẩn tạm thời. Điều này có nghĩa:
+
+1. B01/B02/B03 **gốc đã ký** và **bản soát xét bán niên** đều được lưu theo đúng `source_version_id`; bản soát xét là mốc tham chiếu ưu tiên cho **lũy kế sáu tháng**. Không ghi đè, không trộn mã B01 111 và 112 giữa các phiên bản.
+2. Trạng thái nghiệp vụ `completed_issuer_accepted_exception_pending_fy2026_audited_recheck` nghĩa là **đóng hồ sơ truy nguồn**, không đồng nghĩa tất cả số liệu quý độc lập đã kiểm toán hay được doanh nghiệp công bố trực tiếp.
+3. Nếu bản gốc không có B03 riêng quý II và trừ số liệu từ các phiên bản khác nhau gây sai cầu tiền, để **`null`** các trường CFO/CFI/CFF quý độc lập. Không đặt 0, không giả định số dư tiền bị hạn chế 31/03 bằng số 01/01. Được phép lưu phép trừ lũy kế dưới nhãn *chưa công nhận quý độc lập*, không đưa như số thực tế.
+4. Không thay các kỳ đã kiểm tra PASS; đóng ngoại lệ thì **loại mã khỏi hàng đợi xử lý thường xuyên**. Đánh dấu rõ ngoại lệ trong báo cáo kiểm kê và hồ sơ checkpoint. Nếu công ty phát hành đính chính có ký, hoặc xuất hiện BCTC **kiểm toán năm tài chính 2026** (không gọi nhầm báo cáo năm là bán niên “soát xét”), mới kích hoạt đối chiếu lại; nếu không có bất nhất thì giữ nguyên.
+5. Khi kiểm tra báo cáo kiểm toán FY2026, đối chiếu 12M/9M, B01/B02/B03, nguồn áp dụng Thông tư 99/43, thuyết minh tài sản bảo đảm và tiền gửi hạn chế; sửa dữ liệu chỉ khi có căn cứ và kiểm thử VND chính xác. Luôn lưu lại lịch sử phiên bản.
+
+**Đã áp dụng riêng cho GEG:** `data/financials-GEG.json` lưu `ticker_processing_completion` và `source_validation.case_closure_status`; hồ sơ quyết định:
+`reports/source-audits/GEG-2026Q2-accepted-issuer-vintage-closure-pending-audited-FY2026.json`. Chứng cứ H1 EY soát xét (PDF 74 trang, B03 trang 16–17, TM37 trang 73) là mốc đối chiếu ưu tiên, nhưng bản quý II công bố trước đó được giữ nguyên tại cột nguồn gốc. Hai phiên bản B03 lũy kế đã cân chính xác; chênh lệch riêng Q2 do cơ sở báo cáo được chấp nhận ở cấp xử lý chứ không bị biến thành một luồng tiền thực tế.
+
+**Phạm vi:** chỉ áp dụng khi có quyết định chấp nhận ngoại lệ rõ ràng và nguồn hợp lệ, **không tự áp dụng cho IDC hoặc mã khác**. Không coi ngưỡng 0,1% là lý do bỏ qua sai cầu tiền.
