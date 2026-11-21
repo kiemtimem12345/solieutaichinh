@@ -1,0 +1,29 @@
+name: GEG Q1 2026 signed notes pledged deposits at 31 March
+on:
+  push:
+    branches: [work/geg-q1-2026-pledged-deposit-31march-source-notes-20261121]
+    paths:
+      - scripts/inspect_geg_q1_2026_b09_note5_11.py
+      - .github/workflows/inspect-geg-q1-2026-b09-notes.yml
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Inspect signed original GEG 2026Q1 B09 note pages 15-42 SHA 82-page validated
+        run: python -u scripts/inspect_geg_q1_2026_b09_note5_11.py
+      - name: Preserve signed 31 March notes pages for source crosscheck
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: geg-q1-2026-b09-31march-restricted-deposit-signed-pages
+          path: geg-q1-2026-b09-pledged-deposit-notes/
+          retention-days: 4
+          if-no-files-found: warn
