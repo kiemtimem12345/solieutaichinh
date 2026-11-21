@@ -43,6 +43,8 @@ jobs:
         run: python scripts/verify_plx_q3_2025_reviewed_h1.py
       - name: Verify PLX Q4 2025 original vs audited FY signed accounting vintages, quarantine quarter cash
         run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
+      - name: Verify VCI Q1 2025 issuer signed 48 source fields, 11 VND identities, Note1 no-subs and anti-OCR controls
+        run: python scripts/verify_vci_2025q1_signed_original.py
       - name: Verify VCI 2026 Q3 signed 9M minus PwC reviewed H1 and issuer Q2 scanned 6M exact-VND quarter B03
         run: python scripts/verify_vci_2026q3_h1_reviewed_cash_bridge.py
       - name: Verify VCI Q3 2026 signed HOSE broker source B01 B02 B03 64 fields and no-subsidiaries client cash isolation

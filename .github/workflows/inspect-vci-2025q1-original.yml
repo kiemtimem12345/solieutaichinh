@@ -1,0 +1,32 @@
+name: Inspect original VCI Q1 2025 signed PDF (read-only)
+on:
+  push:
+    branches:
+      - work/vci-2025q1-signed-visual-source-20261121
+  pull_request:
+    paths:
+      - scripts/inspect_vci_2025q1_original_source.py
+      - .github/workflows/inspect-vci-2025q1-original.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install source PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -qq -y poppler-utils curl
+      - name: Verify source inspection syntax
+        run: python -m py_compile scripts/inspect_vci_2025q1_original_source.py
+      - name: Download and render issuer Q1 2025 original for visual accounting inspection
+        run: python -u scripts/inspect_vci_2025q1_original_source.py
+      - name: Upload limited source visual previews for accountant inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vci-2025q1-source-visual-preview-pages
+          path: vci-2025q1-previews/*.jpg
+          if-no-files-found: warn
+          retention-days: 1
