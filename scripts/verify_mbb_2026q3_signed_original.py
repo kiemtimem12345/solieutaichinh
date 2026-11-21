@@ -68,7 +68,27 @@ def eq(original):
   "b04_dividends":z["dividends_paid"]-y["dividends_paid"]+h["dividends_paid"]
  }
  assert len(v)==27
- assert v==original["source_accounting_identity_residuals_million_vnd"],v
+ # Independently rederive all 27 identities while retaining the audit
+ # ledger's source-side descriptive labels. Match each category one-to-one.
+ labels={
+ "b01_assets":"B01_assets_topline","b01_debt":"B01_liabilities_topline",
+ "b01_debt_equity":"B01_total_balance","b01_capital":"B01_equity",
+ "b01_customer_loans":"B01_loan_net","b01_debt_purchases":"B01_debt_buy_net",
+ "b01_trading_securities":"B01_trading_net","b01_investment_securities":"B01_investment_net",
+ "b01_other_liabilities":"B01_other_liabilities","b03_interest":"B03_interest",
+ "b03_service":"B03_service","b03_revenue":"B03_operating_income",
+ "b03_preprovision":"B03_preprovision","b03_provision":"B03_provision",
+ "b03_income_tax":"B03_income_tax","b03_profit":"B03_profit",
+ "b03_parent_profit":"B03_attributable",
+ "b04_six_month_sections":"B04_Q2_sections","b04_six_month_cash":"B04_Q2_cash",
+ "b04_nine_month_sections":"B04_Q3YTD_sections","b04_nine_month_cash":"B04_Q3YTD_cash",
+ "b04_year_open":"B04_same_opening","b04_q3_sections":"B04_quarter_sections",
+ "b04_q3_cash":"B04_quarter_cash","b04_q3_net_change":"B04_quarter_net_delta",
+ "b04_capex":"B04_capex","b04_dividends":"B04_dividend"
+ }
+ assert set(labels)==set(v)
+ assert set(labels.values())==set(original["source_accounting_identity_residuals_million_vnd"])
+ assert {labels[k]:val for k,val in v.items()}==original["source_accounting_identity_residuals_million_vnd"],v
  assert set(v.values())=={0},v
  for k in ("CFO","CFI","CFF","net","capex","dividends_paid"):
   assert z[k]==y[k]-h[k],k
