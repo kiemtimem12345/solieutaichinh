@@ -6,6 +6,8 @@ on:
       - scripts/inspect_vci_2025q4_original_and_audited_sources.py
       - .github/workflows/inspect-vci-2025q4-original.yml
   pull_request:
+    paths:
+      - scripts/inspect_vci_2025q4_original_and_audited_sources.py
   workflow_dispatch:
 permissions:
   contents: read
