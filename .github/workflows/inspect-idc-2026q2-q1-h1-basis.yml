@@ -1,0 +1,28 @@
+name: Inspect IDC Q1 and reviewed H1 2026 B03 TT43 reporting-basis comparability
+on:
+  push:
+    branches: [work/idc-2026q2-tt43-current-period-b03-source-comparability-20261121]
+    paths:
+      - scripts/inspect_idc_2026q2_q1_h1_basis.py
+      - .github/workflows/inspect-idc-2026q2-q1-h1-basis.yml
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Read source SHA and render Q1 vs H1 signed cash-flow accounting method pages
+        run: python -u scripts/inspect_idc_2026q2_q1_h1_basis.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: idc-2026q1-vs-h1-signed-tt43-b03-policy-images
+          path: idc-2026q2-tt43-quarter-comparison/
+          retention-days: 4
+          if-no-files-found: warn
