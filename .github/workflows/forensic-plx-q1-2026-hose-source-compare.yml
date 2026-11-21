@@ -1,0 +1,87 @@
+name: Forensic PLX 2026Q1 HOSE vs Vietstock signed original
+on:
+  push:
+    branches: [work/plx-q1-2026-hose-source-compare-20261121]
+    paths:
+      - .github/workflows/forensic-plx-q1-2026-hose-source-compare.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28' 'Pillow>=10,<12'
+      - name: Compare public original PDFs by SHA256 and signed B01 page image, no OCR
+        run: |
+          python - <<'PY'
+          import hashlib, json, subprocess
+          from pathlib import Path
+          from PIL import Image, ImageChops
+          import fitz
+          out=Path("plx-q1-hose-evidence")
+          out.mkdir(exist_ok=True)
+          urls={
+            "vietstock":"https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/PLX_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+            "hose":"https://staticfile.hsx.vn/Uploads/UploadDocuments/2459340/20260504%20-%20PLX%20-%20BCTC%20hop%20nhat%20Quy%201%20nam%202026.pdf"
+          }
+          audit={}
+          def download(name,u):
+              dst=out/(name+".pdf")
+              cmd=["curl","-L","-f","-s","-S","--connect-timeout","15","--max-time","95","--retry","1","--max-filesize","35000000","-o",str(dst),"-w","%{http_code} %{size_download}","-H","User-Agent: Mozilla/5.0 (PLX signed-source QA/1.0)",u]
+              p=subprocess.run(cmd,capture_output=True,text=True,timeout=120)
+              r={"url":u,"curl_rc":p.returncode,"curl_status":p.stdout[-180:],"stderr":p.stderr[:280]}
+              if p.returncode==0 and dst.is_file():
+                  raw=dst.read_bytes()
+                  if raw[:4]==b"%PDF" and len(raw)>200000:
+                      r.update({"status":"valid_pdf","bytes":len(raw),"sha256":hashlib.sha256(raw).hexdigest(),"pages":len(fitz.open(dst))})
+                  else:r["status"]="invalid_pdf"
+              else:r["status"]="download_blocked"
+              audit[name]=r
+              print("SOURCE",name,json.dumps(r),flush=True)
+              return dst
+          vp=download("vietstock",urls["vietstock"])
+          hp=download("hose",urls["hose"])
+          audit["vietstock_baseline_exact"]=audit["vietstock"].get("sha256")=="158547073d7cd10f8c16e3ce599795b0fe159c70bf1fd7490fff242b5f4bc5f9"
+          if all(audit[x].get("status")=="valid_pdf" for x in ("vietstock","hose")):
+              vdoc=fitz.open(vp);hdoc=fitz.open(hp)
+              audit["identical_binary_sha"]=audit["vietstock"]["sha256"]==audit["hose"]["sha256"]
+              def im(doc,i):
+                  p=doc[i].get_pixmap(matrix=fitz.Matrix(1.25,1.25),alpha=False)
+                  return Image.frombytes("RGB",(p.width,p.height),p.samples)
+              def score(a,b):
+                  a=a.convert("L").resize((350,500)).point(lambda x:255 if x>170 else 0)
+                  b=b.convert("L").resize((350,500)).point(lambda x:255 if x>170 else 0)
+                  h=ImageChops.difference(a,b).histogram()
+                  return round(1-h[0]/175000,6)
+              best=[]
+              for vi in (1,2):
+                  a=im(vdoc,vi)
+                  results=[(score(a,im(hdoc,hi)),hi) for hi in range(min(6,len(hdoc)))]
+                  diff,hi=min(results)
+                  best.append({"vietstock_page":vi+1,"hose_page":hi+1,"pixel_difference_fraction":diff})
+                  a.save(out/f"vietstock_B01_{vi+1}.png")
+                  im(hdoc,hi).save(out/f"hose_B01_{hi+1}_matched_to_{vi+1}.png")
+              audit["closest_B01_pages"]=best
+              audit["comparison"]="same_B01_render" if all(p["pixel_difference_fraction"]<0.025 for p in best) else "B01_RENDER_DIFFERS_REQUIRES_MANUAL_QA"
+              print("B01_COMPARISON",json.dumps({"comparison":audit["comparison"],"page_pairs":best,"exact_pdf_sha_match":audit["identical_binary_sha"]}),flush=True)
+              hdoc.close();vdoc.close()
+          else:
+              audit["comparison"]="UNVERIFIED_OFFICIAL_HOSE_OR_VIETSTOCK_BINARY_INACCESSIBLE"
+              print("B01_COMPARISON_NOT_POSSIBLE",flush=True)
+          # Do not publish, rewrite or guess any accounting field here.
+          for p in out.glob("*.pdf"):p.unlink()
+          (out/"audit.json").write_text(json.dumps(audit,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: plx-2026q1-hose-vietstock-b01-evidence-only
+          path: plx-q1-hose-evidence/
+          retention-days: 4
+          if-no-files-found: warn
