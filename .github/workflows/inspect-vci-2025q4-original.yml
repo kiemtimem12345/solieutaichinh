@@ -1,0 +1,31 @@
+name: Recover VCI 2025 Q4 signed original and audited annual sources (read-only)
+on:
+  push:
+    branches: [work/vci-2025q4-signed-source-recovery-20261121]
+    paths:
+      - scripts/inspect_vci_2025q4_original_and_audited_sources.py
+      - .github/workflows/inspect-vci-2025q4-original.yml
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF and curl
+        run: sudo apt-get update -qq && sudo apt-get install -qq -y poppler-utils curl
+      - name: Check source script
+        run: python -m py_compile scripts/inspect_vci_2025q4_original_and_audited_sources.py
+      - name: Recover Q4 original and separate FY2025 audited vintage
+        run: python -u scripts/inspect_vci_2025q4_original_and_audited_sources.py
+      - name: Keep limited visual financial-page source images for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vci-2025q4-original-and-fy-audited-preview-pages
+          path: vci-2025q4-source-previews/*.jpg
+          if-no-files-found: warn
+          retention-days: 1
