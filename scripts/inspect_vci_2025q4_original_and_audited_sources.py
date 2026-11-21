@@ -14,6 +14,7 @@ SOURCES = [
     ("VCI_Q4_2025_issuer_direct_signed", "https://www.vietcap.com.vn/api/cms-api/uploads/froala/files/20260119%20%20-%20VCI%20-%20CBTT%20Bao%20cao%20tai%20chinh%20Q4.2025.pdf"),
     ("VCI_Q4_2025_Vietstock_ZIP","https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/VCI_Baocaotaichinh_Q4_2025.zip"),
     ("VCI_Q4_2025_HOSE_PDF","https://staticfile.hsx.vn/Uploads/UploadDocuments/2431831/20260119%20-%20VCI%20-%20CBTT%20Bao%20cao%20tai%20chinh%20Q4.2025.pdf"),
+    ("VCI_FY2025_issuer_audited","https://www.vietcap.com.vn/api/cms-api/uploads/froala/files/20260213%20-%20VCI%20-%20BCTC%202025%20-%20CBTT.pdf"),
     ("VCI_FY2025_HOSE_audited","https://staticfile.hsx.vn/Uploads/UploadDocuments/2439372/20260213%20-%20VCI%20-%20BCTC%202025%20-%20CBTT.pdf"),
 ]
 DEST = Path("vci-2025q4-source-previews")
@@ -47,6 +48,7 @@ def main():
     with tempfile.TemporaryDirectory() as temp:
         for index,(label,url) in enumerate(SOURCES):
             if got_q4 and "Q4_" in label:continue
+            if got_annual and "FY2025" in label:continue
             try:
                 file=Path(temp)/("src%d"%index+(".zip" if url.endswith(".zip") else ".pdf"))
                 source_sha=get(url,file)
