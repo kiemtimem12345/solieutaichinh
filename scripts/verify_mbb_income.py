@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 data = json.loads((Path(__file__).resolve().parents[1] / "data/financials-MBB.json").read_text(encoding="utf-8"))
-periods = ["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+periods = ["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
 rows = {x["period"]:x for x in data["items"]}
 assert sorted(rows) == periods, "Unexpected MBB periods"
 required = ["bank_interest_income","bank_interest_expense","bank_net_interest_income","bank_service_income",
@@ -37,4 +37,4 @@ for period in periods:
  assert all(x[k]<0 for k in ("bank_interest_expense","bank_service_expense","bank_operating_expenses","bank_provision_expense","income_tax_current"))
  assert x["source_url"].startswith("https://static2.vietstock.vn/data/HOSE/")
  checks+=len(eqs)
-print(f"PASS: 6 MBB consolidated income quarters, 126 display fields and {checks}/48 exact accounting identities")
+print(f"PASS: 7 MBB consolidated income quarters, signed B03a 8 checks per quarter, {checks}/56 exact accounting identities")
