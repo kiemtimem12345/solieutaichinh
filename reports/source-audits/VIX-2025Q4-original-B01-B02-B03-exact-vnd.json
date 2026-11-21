@@ -22,9 +22,12 @@
     "fy2025_self_filed_erratum_url": "https://vixs.vn/wp-content/uploads/2026/02/20260210-VIX-Dinh-chinh-BCTC-NAM-2025-tu-lap-Phat-hanh-lai.pdf",
     "fy_erratum_scope": "separate_FY2025_self_prepared_report_issued_2026-02-04_and_corrected_2026-02-10; NOT a reissue of Q4 original PDF",
     "fy_erratum_fact": "Original FY2025 self-filed B01 code312 short-term borrowing erroneous 1,332,000,000,000 corrected to 11,332,000,000,000, 10 trillion VND typo; grand total code311 and original Q4 PDF code312 already 11,332,000,000,000",
-    "q4_pdf_sha256": null,
-    "q4_pdf_bytes": null,
-    "q4_pdf_pages": null
+    "q4_pdf_sha256": "d5a6e87eeac220951bcbe35c5359940092f58e4080d40f94c6bbd2ab99717408",
+    "q4_pdf_bytes": 1743460,
+    "q4_pdf_pages": 43,
+    "fy2025_self_filed_corrected_pdf_sha256": "74d89731ce8efbb393f5f94a39cec377d9031c8889568a49aaaa8176133e22d8",
+    "fy2025_self_filed_corrected_pdf_bytes": 9386876,
+    "fy2025_self_filed_corrected_pdf_pages": 42
   },
   "b01": {
     "total_assets": 34167047236850,
