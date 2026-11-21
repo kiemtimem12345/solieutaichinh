@@ -18,6 +18,10 @@ SOURCES = [
     ("VCI_2026Q2_HOSE_original", "https://staticfile.hsx.vn/Uploads/UploadDocuments/2480835/20260720%20-%20VCI%20-%20BCTC%20Q2.2026-CBTT.pdf"),
 ]
 MAX_BYTES=45*1024*1024
+EXPECTED_PDF = {
+    "VCI_2026H1_Vietstock_republished": ("1ea814d02563a136d11d718c62c1ffc3c08463ffaf12369c517111cd26f6b9af", 98),
+    "VCI_2026Q2_Vietstock_mirror": ("a8fec422bac195c1b4d9743a995da35ec5066fa6dc0f951e6fbb36f2218823b5", 48),
+}
 PREVIEW_DIR = Path('vci-source-previews')
 PREVIEW_DIR.mkdir(exist_ok=True)
 
@@ -73,6 +77,10 @@ def inspect(name,url,path):
         pages=next((int(v.partition(":")[2].strip()) for v in info.stdout.splitlines() if v.startswith("Pages:")),0)
         print("PAGES",pages,flush=True)
         if not pages or pages>160:raise ValueError("invalid pages")
+        if name in EXPECTED_PDF:
+            expected_sha, expected_pages = EXPECTED_PDF[name]
+            if sha != expected_sha or pages != expected_pages:
+                raise ValueError(f"Downloaded scanned PDF differs from visually approved source: {name}")
         proc=subprocess.run(["pdftotext","-layout",str(path),"-"],capture_output=True,text=True,timeout=65,errors="replace")
         if proc.returncode:
             print("TEXT_EXTRACTION_UNAVAILABLE",proc.stderr[:200],flush=True)
@@ -109,10 +117,11 @@ def main():
                 print("SKIP_DUPLICATE_Q2_SOURCE", name, flush=True)
                 continue
             evidence[name] = inspect(name, url, Path(temp)/f"vci_{i}.pdf")
-    h1 = any(v is True for k, v in evidence.items() if "2026H1" in k)
-    q2 = any(v is True for k, v in evidence.items() if "2026Q2" in k)
-    print("EVIDENCE_STATUS", "H1", h1, "Q2", q2, flush=True)
+    h1 = any(v is True or v == "scan" for k, v in evidence.items() if "2026H1" in k)
+    q2 = any(v is True or v == "scan" for k, v in evidence.items() if "2026Q2" in k)
+    print("EVIDENCE_STATUS", "H1_PDF_AND_PREVIEW", h1, "Q2_PDF_AND_PREVIEW", q2, flush=True)
     print("FINISHED evidence only; no financial JSON or production changes", flush=True)
     if not (h1 and q2):
-        raise SystemExit("INCOMPLETE_SOURCE_EVIDENCE: H1 plus Q2 original required; fail closed")
+        raise SystemExit("INCOMPLETE_SOURCE_EVIDENCE: H1 plus Q2 scanned preview required; fail closed")
+    print("PASS SCANNED_SOURCE_IDENTITY_AND_VISUAL_PREVIEWS; signed cashflow amounts separately checked by financial CI",flush=True)
 if __name__ == "__main__": main()
