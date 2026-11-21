@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "ticker": "GEG",
+  "scope": "consolidated",
+  "period": "2026-Q2",
+  "completed_on": "2026-11-21",
+  "decision_by": "user_explicit_acceptance_of_issuer_published_figures",
+  "case_status": "completed_issuer_source_accepted_with_disclosed_vintage_exception",
+  "category": "policy_exception_approved_not_standalone_b03_independent_verification",
+  "primary_source_policy": "Issuer-signed original Q1/Q2/Q3 retained as filed; issuer-signed EY-reviewed H1/2026 accepted as priority 6M comparison benchmark. Distinct publication versions must not be mixed silently.",
+  "signed_sources": {
+    "q1_original": {
+      "sha256": "d8dade2f270452432a190bedddb46736523cc3a74b783ae1a2f82b76a5e74d5b",
+      "date": "2026-04-29",
+      "pdf_pages": 82
+    },
+    "q2_original": {
+      "sha256": "e5c84e9cb42b1698481b12f426544cfad517894d46d3d0f37a1e9e53575f00d5",
+      "date": "2026-07-28",
+      "pdf_pages": 43
+    },
+    "h1_reviewed": {
+      "sha256": "c5fcba1374cea2e2fc6e82eb66ccd4cf49320bd4a412c4c3f834d60c16ba700e",
+      "ey_review_signed": "2026-08-24",
+      "issuer_uploaded_signed": "2026-08-25",
+      "pdf_pages": 74,
+      "source_link": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2491976/20260825%20-%20GEG%20-%20Bao%20cao%20tai%20chinh%20hop%20nhat%20ban%20nien%20soat%20xet%202026%20%2B%20giai%20trinh.pdf",
+      "verified_page_b03": [
+        16,
+        17
+      ],
+      "note_37_pdf_page": 73
+    },
+    "q3_original": {
+      "source_link": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2509731/20261030%20-%20GEG%20-%20BCTC%20hop%20nhat%20Q3.2026%20%2B%20giai%20trinh.pdf",
+      "status": "signed_original_already_verified"
+    }
+  },
+  "issuer_numbers_vnd": {
+    "h1_reviewed_6m": {
+      "CFO": "707905751019",
+      "CFI": "-734466295121",
+      "CFF": "51927115815",
+      "net": "25366571713",
+      "opening": "74942444345",
+      "FX": "13217270",
+      "ending": "100322233328"
+    },
+    "q2_initial_6m": {
+      "CFO": "722160976132",
+      "CFI": "-732448267884",
+      "CFF": "35658808670",
+      "net": "25371516918",
+      "opening": "74942444345",
+      "FX": "13217270",
+      "ending": "100327178533"
+    },
+    "q1_original_3m": {
+      "CFO": "213327143465",
+      "CFI": "-26739175041",
+      "CFF": "-167121630611",
+      "net": "19466337813",
+      "opening": "86364663248",
+      "FX": "25791988",
+      "ending": "105856793049"
+    },
+    "q3_9m": {
+      "CFO": "1156568657472",
+      "CFI": "-1374338221742",
+      "CFF": "238886926705",
+      "net": "21117362435",
+      "opening": "74942444345",
+      "FX": "-2682959",
+      "ending": "96057123821"
+    },
+    "q3_quarter_if_using_reviewed_h1": {
+      "CFO": "448662906453",
+      "CFI": "-639871926621",
+      "CFF": "186959810890",
+      "net": "-4249209278",
+      "opening": "100322233328",
+      "FX": "-15900229",
+      "ending": "96057123821"
+    }
+  },
+  "accounting_cross_vintage_exception": {
+    "opening_reclassification_vnd": "11422218903",
+    "jan1_original_cash": "86364663248",
+    "jan1_reviewed_cash": "74942444345",
+    "march31_restricted_deposit_signed_amount": "not_disclosed",
+    "q2_cashbridge_residual_from_mixed_versions_vnd": "-11422218903",
+    "reason": "Noncash reclassification of bank pledge deposits from reported cash into other current assets; different signed issuer statement vintages. Unverified at 31 March; not a cash expense or revenue.",
+    "accepted_policy": "Issuer source figures approved as operating reference. Do not compute or label Q2 standalone B03 CFO/CFI/CFF as signed or reviewed from mixed-vintage subtraction."
+  },
+  "production_rules": {
+    "existing_original_Q2_source_values_retained_for_traceability": true,
+    "reviewed_H1_values_saved_as_canonical_reference_alternative": true,
+    "q3_original_production_values_retained_pending_consistent_full_year_vintage_migration": true,
+    "q2_standalone_b03_core_fields_stay_null": true,
+    "ticker_case_marked_complete": true,
+    "automated_reprocessing_2026Q2_source_exception_disabled_until_new_signed_evidence": true,
+    "do_not_claim_all_quarterly_b03_fields_verified": true,
+    "do_not_apply_0_1pct_tolerance_to_cash_bridge": true
+  },
+  "annual_followup": {
+    "trigger": "GEG issuer publishes consolidated audited full-year 2026 financial statements (usually in 2027); this is an audited annual report, not a half-year reviewed report",
+    "status": "await_official_fy2026_audited_published",
+    "action": "Verify 2026 audited 12M B01/B02/B03 and note restricted deposits; compare FY 12M/9M H1 reviewed with source-vintage labels; amend any changed 2026Q2/Q3 record only with exact VND identity and provenance. Reopen this closed exception only if the annual signed source contradicts published accepted data or includes an explicit Q1 restatement.",
+    "no_repeat_until_then": true
+  },
+  "links": {
+    "signed_reviewed_evidence": "reports/source-audits/GEG-2026H1-user-uploaded-reviewed-note37-current-cashflow-version.json",
+    "q3_reviewed_bridge": "reports/source-audits/GEG-2026Q3-H1-reviewed-reconciliation.md",
+    "collateral_notes": "reports/source-audits/GEG-2026Q1-H1-pledged-deposit-loan-collateral-related-party-notes.md",
+    "regulations": "docs/accounting-regime-and-disclosure-transition-sop-2025-2026.md"
+  }
+}
