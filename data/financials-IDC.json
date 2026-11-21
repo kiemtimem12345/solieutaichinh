@@ -1,6 +1,6 @@
 {
   "symbol": "IDC",
-  "sourceName": "VietstockFinance — báo cáo tài chính theo quý IDC (2024-Q3 đến 2024-Q2)",
+  "sourceName": "IDC — BCTC hợp nhất Q1/2025 đến Q3/2026; nguồn báo cáo doanh nghiệp đã ký, ngoại lệ so sánh chính sách TT99/TT43 được lưu riêng",
   "fetchedAt": "2026-10-25T23:45:00Z",
   "items": [
     {
@@ -2461,7 +2461,8 @@
         "H1_note41_B03_prior_year_reclass_does_not_restate_Q1_2026_current_period": true,
         "Q1_2026_TT43_same_current_period_original_comparator_unverified": true,
         "IDC_Q2_2026_standalone_cashflow_promotion_blocked_current_basis": true,
-        "issuer_Q1_2026_signed_restated_TT43_B03_not_yet_recovered": true
+        "issuer_Q1_2026_signed_restated_TT43_B03_not_yet_recovered": true,
+        "related_q2_case_closure_link": "reports/source-audits/IDC-2026Q2-issuer-source-accepted-closure-pending-audited-FY2026.json"
       },
       "published_at": "2026-05-06",
       "source_archive_file": "reports/raw/IDC/auto-idc-20261021/229a1ff9af9d3e1b.pdf",
@@ -3013,7 +3014,23 @@
         "H1_note41_B03_prior_year_reclass_does_not_restate_Q1_2026_current_period": true,
         "Q1_2026_TT43_same_current_period_original_comparator_unverified": true,
         "IDC_Q2_2026_standalone_cashflow_promotion_blocked_current_basis": true,
-        "issuer_Q1_2026_signed_restated_TT43_B03_not_yet_recovered": true
+        "issuer_Q1_2026_signed_restated_TT43_B03_not_yet_recovered": true,
+        "case_closure_status": "completed_issuer_source_accepted_with_disclosed_TT99_TT43_comparability_exception",
+        "case_closure_date": "2026-11-21",
+        "case_closure_evidence": "reports/source-audits/IDC-2026Q2-issuer-source-accepted-closure-pending-audited-FY2026.json",
+        "accepted_issuer_comparison_basis": {
+          "issuer_signed_h1_reviewed_pdf_sha256": "f1366ab8629fb1482e30995ae28462d03a7819c72a70aab5311c5b2f9ee28944",
+          "opening_reclassification_vnd": "890796892",
+          "report_h1_cash_open_vnd": "553943475131",
+          "quarter_q1_signed_cash_open_vnd": "553052678239",
+          "h1_as_source_verified_ytd": true,
+          "B03_quarter_standalone_not_published_or_verified": true,
+          "q2_derived_quarter_cash_bridge_requires_noncash_adjustment_vnd": "890796892",
+          "source_vintage_difference_does_not_equal_q2_cash_receipt": true,
+          "signed_2026Q1_TT43_current_period_restatement_unavailable": true
+        },
+        "closure_policy_no_regular_reprocessing": true,
+        "closure_requires_FY2026_audited_source_to_reopen": true
       },
       "published_at": "2026-08-01",
       "source_archive_file": "reports/raw/IDC/auto-idc-20261021/5e5637e71fa303a7.zip",
@@ -3583,7 +3600,12 @@
         "q3_standalone_cashflow_prior_blocker_resolved": "Q2 2026 IDC record is auto-extracted and its B03 six-month YTD not source-verified; cannot subtract to obtain quarterly Q3 cash.",
         "q3_standalone_cashflow_current_status": "verified_9m_minus_signed_6m_h1_same_consolidated_scope",
         "q3_standalone_cashflow_blocker_resolved_on": "2026-11-19",
-        "q3_standalone_cashflow_resolution_note": "Q2/2026 signed consolidated issuer PDF now visually checked (SHA256 f0bee9c4554b166380098034650b09c0e45f85da55fd016086f0ef08a596354c). Original Q3 9M less signed Q2 H1 yields quarter Q3 CFO/CFI/CFF with 4 exact-VND identities residual 0; retained earlier blocker as historical note only. Separate Q2 standalone cash remains blocked by unrelated opening cash source-vintage 890,796,892 VND."
+        "q3_standalone_cashflow_resolution_note": "Q2/2026 signed consolidated issuer PDF now visually checked (SHA256 f0bee9c4554b166380098034650b09c0e45f85da55fd016086f0ef08a596354c). Original Q3 9M less signed Q2 H1 yields quarter Q3 CFO/CFI/CFF with 4 exact-VND identities residual 0; retained earlier blocker as historical note only. Separate Q2 standalone cash remains blocked by unrelated opening cash source-vintage 890,796,892 VND.",
+        "q2_vintage_case_closed_under_source_acceptance": {
+          "accepted_case_ledger": "reports/source-audits/IDC-2026Q2-issuer-source-accepted-closure-pending-audited-FY2026.json",
+          "no_change_to_previously_verified_q3_original_signed_9m_or_q3_cash": true,
+          "q3_cash_bridge_residual_vnd": "0"
+        }
       },
       "total_assets": 23631671.909723,
       "current_assets": 16599453.089891,
@@ -3935,5 +3957,18 @@
   "bootstrap_attempt_count": 1,
   "bootstrap_status": "complete_needs_manual_review",
   "bootstrap_completed_at": "2026-10-23T20:03:32+00:00",
-  "bootstrap_completion_note": "Các kỳ báo cáo có thể tự trích xuất đã được lưu; một số kỳ còn cần đối chiếu thủ công."
+  "bootstrap_completion_note": "Các kỳ báo cáo có thể tự trích xuất đã được lưu; một số kỳ còn cần đối chiếu thủ công.",
+  "ticker_processing_completion": {
+    "status": "completed_issuer_source_verified_with_accounting_vintage_exception_pending_audited_fy2026",
+    "completed_on": "2026-11-21",
+    "consolidated_source_periods_verified": "7/7 periods 2025-Q1 through 2026-Q3",
+    "source_policy": "Signed issuer original B01/B02 and B03 YTD values as filed are canonical; H1 reviewed Note41 is authoritative for reclassification, not an issuer-signed restatement of current 2026 Q1 B03.",
+    "q2_standalone_cashflow_status": "not_independently_verified_remaining_null",
+    "processing_case_closed_with_qualified_exception": true,
+    "q3_standalone_cashflow_exact_signed_ytd_bridge_pass": true,
+    "do_not_reprocess_until": "2026 signed consolidated annual audit officially published, or signed issuer correction; review only if material contradiction or new current-year same-basis reconciliation",
+    "annual_recheck_expected": "FY2026 financial audit typically released in 2027",
+    "closure_evidence": "reports/source-audits/IDC-2026Q2-issuer-source-accepted-closure-pending-audited-FY2026.json",
+    "explicit_warning": "Completion of case handling does NOT mean 2026Q2 standalone cashflow CFO/CFI/CFF is source-verified."
+  }
 }
