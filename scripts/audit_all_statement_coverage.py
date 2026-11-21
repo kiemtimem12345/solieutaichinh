@@ -100,8 +100,11 @@ def rows_audit():
                 row.get("source_validation", {}).get("scope_validation_required") or
                 row.get("source_validation", {}).get("manual_review_blocking_automatic_extraction")
             )
+            cash_keys = ("operating_cash_flow", "investing_cash_flow", "financing_cash_flow", "net_cash_change")
+            quarter_cash_missing = [k for k in cash_keys if not is_number(row.get(k))]
             covered.append({
                 "period": period, "raw": len(stored), "verified": len(verified), "expected": len(required),
+                "quarter_cash_missing": quarter_cash_missing,
                 "missing": gaps, "scope_warning": scope_warning,
                 "source_url": row.get("source_url"),
                 "verification_status": row.get("verification_status"),
@@ -136,7 +139,7 @@ def report(results, manifests):
     if total + absent + unconfirmed + parent_only != target:
         raise ValueError("Audit must classify each symbol-period exactly once")
     lines = [
-        "# Kiểm kê độ phủ báo cáo tài chính — 19/11/2026",
+        "# Kiểm kê độ phủ báo cáo tài chính — Q1/2025 đến Q3/2026",
         "",
         f"Đối tượng: **{len(results)} mã × {len(PERIODS)} kỳ Q1/2025–Q3/2026**, phạm vi **BCTC hợp nhất**.",
         f"Đã nhận diện {total}/{target} cặp mã-kỳ hợp nhất. Phần còn lại gồm: **{absent} hoàn toàn chưa có bản ghi**, "
@@ -157,6 +160,25 @@ def report(results, manifests):
         parent = ", ".join(x["parent_only_periods"]) or "—"
         lines.append(f"| {symbol} | {x['group']} | {x['periods']}/{len(PERIODS)} | {missing} | {unclear} | {parent} | "
                      f"{x['available']}/{x['possible']} ({x['coverage_percent']}%) | {x['verified']}/{x['possible']} |")
+    lines.extend([
+        "", "## Hai ngoại lệ dòng tiền quý II/2026 chưa được phép công bố như quý độc lập", "",
+        "B01/B02 và B03 lũy kế đã xác minh không đồng nghĩa dòng tiền CFO/CFI/CFF quý II đã được kiểm chứng. "
+        "Các ô quý II bên dưới phải tiếp tục giữ null khi thiếu chứng cứ cùng cơ sở trình bày.", "",
+        "| Mã | Kỳ | Trường B03 quý độc lập còn thiếu | Căn cứ chặn |",
+        "|---|---|---|---|",
+    ])
+    q2_reasons = {
+        "GEG": "Tiền gửi bảo lãnh 11.422.218.903 VND phân loại lại; chưa xác minh số dư hạn chế 31/03/2026",
+        "IDC": "Q1 theo TT99; H1 áp dụng TT43; chưa có B03 Q1/2026 trình bày lại cùng cơ sở",
+    }
+    for ticker, reason in q2_reasons.items():
+        matches = [x for x in byticker[ticker]["period_details"] if x["period"] == "2026-Q2"]
+        if not matches:
+            raise ValueError(f"{ticker}: consolidated 2026-Q2 missing; cannot assert deferred B03")
+        gap = matches[0]["quarter_cash_missing"]
+        if not gap:
+            raise ValueError(f"{ticker}: Q2 quarterly B03 now populated; revalidate source exception before reporting")
+        lines.append(f"| {ticker} | 2026-Q2 | {', '.join(gap)} | {reason} |")
     lines.extend(["", "## Ưu tiên xử lý tiếp (không làm lại phần đã PASS)", ""])
     for ticker in ticker_order[:-1]:
         x = byticker[ticker]
@@ -170,7 +192,7 @@ def report(results, manifests):
        "- Không gộp số riêng lẻ với hợp nhất, không tự coi kỳ chưa có BCTC bằng 0.",
        "- Dữ liệu theo đơn vị gốc (VND, triệu VND hoặc tỷ VND), tỷ lệ chỉ số không chia theo đơn vị tiền.",
        "- Q2 và Q3 B03 là lũy kế: quý riêng phải trừ kỳ lũy kế liền trước cùng phạm vi.",
-       "- Dung sai đối chiếu số liệu **≤0,01%**; từ chối các phép cân đối vượt ngưỡng; lưu chứng cứ PDF/trang.",
+       "- Sai số **≤0,1%** chỉ cân nhắc với tổng phụ có chứng cứ đối chiếu đa nguồn nhất quán; không áp dụng để bỏ qua sai dấu, kỳ, phạm vi, đơn vị hay sai cầu tiền mặt B03. Lưu chứng cứ PDF/trang.",
        "- Tối đa 20 kỳ, bắt đầu từ Q1/2025; các trường đã được xác minh không trích xuất lại vô cớ.",
        "",
        "## Manifest KQKD đang dùng trên website",
