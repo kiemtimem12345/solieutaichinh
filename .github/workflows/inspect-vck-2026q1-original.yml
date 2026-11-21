@@ -1,0 +1,34 @@
+name: Inspect VCK Q1/2026 original issuer signed PDF inside ZIP (read-only)
+on:
+  push:
+    branches: [work/vck-2026q1-signed-original-20261122]
+    paths:
+      - scripts/inspect_vck_2026q1_signed_original.py
+      - .github/workflows/inspect-vck-2026q1-original.yml
+  pull_request:
+    paths:
+      - scripts/inspect_vck_2026q1_signed_original.py
+      - .github/workflows/inspect-vck-2026q1-original.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install curl poppler
+        run: sudo apt-get update -qq && sudo apt-get install -qq -y curl poppler-utils
+      - name: Check Python source syntax
+        run: python -m py_compile scripts/inspect_vck_2026q1_signed_original.py
+      - name: Retrieve VPS Q1 signed original and render B01 B02 B03
+        run: python -u scripts/inspect_vck_2026q1_signed_original.py
+      - name: Keep 1-day limited page previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vck-2026q1-issuer-source-page-previews
+          path: vck-2026q1-original-previews/*.jpg
+          retention-days: 1
+          if-no-files-found: warn
