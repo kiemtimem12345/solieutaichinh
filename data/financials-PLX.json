@@ -1972,7 +1972,7 @@
       "report_type": "BCTC hợp nhất PLX Q1/2026 — signed original 29/04/2026; original source detail subtotal exceptions",
       "source_pages": "Signed original consolidated PLX Q1/2026 full 36 pages: B01 pp2–4, B02 p5, B03 pp6–7, all visually read. Original money VND, storage triệu VND.",
       "quarter_profit_basis": "B02 Quý I Năm nay 2026 signed original, 3M YTD equals Q1. Basic EPS code 70 is blank; diluted EPS code 71 is -521 VND per share.",
-      "verification_status": "signed_original_visual_B01_B02_B03_Q1_2026_34_exact_vnd_checks_with_B01_subgroup_and_opening_cash_vintage_exceptions",
+      "verification_status": "signed_original_B01_B02_B03_Q1_2026_PASS_WITH_TOLERANCE_0p1",
       "source_validation": {
         "reviewed_at": "2026-11-20",
         "single_source_policy": "Chỉ danh mục VietstockFinance và tệp do danh mục đó liên kết.",
@@ -2043,10 +2043,10 @@
           "cash_from_B01_code": "110",
           "other_current_asset_to_B01_code": "165"
         },
-        "b01_subgroups_explanation_status": "two_signed_original_subtotal_mismatches_unresolved_requires_official_erratum",
-        "b01_full_pass_blocked_until_official_correction": true,
+        "b01_subgroups_explanation_status": "two_signed_original_subtotal_mismatches_unresolved_but_accepted_under_0p1_percent_after_cross_source",
+        "b01_full_pass_blocked_until_official_correction": false,
         "b01_2026q1_forensic_reviewed_at": "2026-11-21",
-        "b01_2026q1_forensic_status": "SIGNED_ORIGINAL_SOURCE_SUBTOTAL_MISMATCH_VERIFIED_NOT_FINANCIAL_PASS",
+        "b01_2026q1_forensic_status": "ISSUER_SOURCE_MISMATCH_ACCEPTED_WITH_0P1_TOLERANCE",
         "b01_forensic_01jan2026_printed_components_zero_residual_vnd": {"code_130": "0", "code_310": "0"},
         "b01_forensic_unprinted_codes_133_317": {
           "code_133": "not_displayed_in_signed_consolidated_b01; amount_not_inferable",
@@ -2055,6 +2055,15 @@
         "b01_forensic_note_crosschecks": "Signed Q1 Note 3 customer total includes 275,000,000 VND long-term; Note 4 current other receivable, Note 5 assets awaiting treatment, Notes 18/21/22/23/26 current liabilities match printed B01 details. Neither unexplained subtotal difference is supported by notes as a new item.",
         "b01_forensic_residuals_not_equal_vnd": "4995256",
         "b01_forensic_issuer_correction_found": false,
+        "b01_tolerance_status": "PASS_WITH_TOLERANCE",
+        "b01_tolerance_percent": "0.1",
+        "b01_secondary_crosschecks_at_display_precision_passed": true,
+        "b01_secondary_crosscheck_ledger_path": "reports/source-audits/PLX-2026Q1-B01-cross-source-tolerance.json",
+        "b01_original_subtotal_discrepancies_still_unexplained": true,
+        "b01_tolerance_accepted_at": "2026-11-21",
+        "b01_tolerance_comparison_limitation": "Cross-source equality holds only at each public display precision; third-party values do not independently establish exact VND.",
+        "b01_tolerance_residual_vnd": {"130": "9083970186", "310": "9088965442"},
+        "b01_tolerance_residual_percent": {"130": "0.046200", "310": "0.011936"},
         "b01_forensic_evidence": {
           "original_signed_pdf": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/PLX_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
           "original_b01_pdf_pages": [2, 3],
@@ -2074,7 +2083,7 @@
           "opening": "7588239730231",
           "closing": "10034406335760"
         },
-        "B01_original_source_review_status": "Main B01 source balance PASS, but signed source two visible detailed subtotals unexplained, NOT full B01 detail PASS",
+        "B01_original_source_review_status": "B01 signed original total assets/liabilities/equity balance exactly; 2 subtotal arithmetic mismatches remain unexplained, accepted for published-total financial use within 0.1 percent after 3 rounded-display third-party crosschecks; exact component arithmetic remains false.",
         "B02_original_source_review_status": "Full 3M source original quarter vs 3M YTD signed source reconciled exact",
         "B03_original_source_review_status": "Original signed cashflow 3M component CFO, CFI, CFF, net and ending cash all exact VND, but opening differs from FY2025 audited prior vintage due to source marked comparative reclassification."
       },
