@@ -173,8 +173,8 @@
       "eps_ytd": 1093,
       "eps_quarter": null,
       "official_b02_ytd_revenue": 2955834486577,
-      "official_b02_ytd_pretax": 2067712190248,
-      "official_b02_ytd_net_profit": 1673887907413
+      "official_b02_ytd_net_profit": 1673887907413,
+      "official_b02_ytd_pretax_profit": 2067712190248
     }
   }
 }
