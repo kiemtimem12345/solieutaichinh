@@ -1,0 +1,27 @@
+{
+  "schema_version": "2026-11-22-source-accounting-pending-v1",
+  "display_policy": "private_work_queue_only; do not display outstanding cases or ticker lists unless user explicitly asks",
+  "continue_processing_other_periods": true,
+  "items": [
+    {
+      "id": "VCK-2025Q2-signed-vintage-bridge",
+      "ticker": "VCK",
+      "period": "2025-Q2",
+      "priority": "accounting_vintage_source_review",
+      "status": "queued_not_blocking_other_periods",
+      "evidence_ledger": "reports/source-audits/VCK-2025Q2-VPSS-original-and-EY-H1-vintage-vnd.json",
+      "discrepancies_exact_vnd": {
+        "six_month_b03_operating_reclassification": "605000000",
+        "six_month_b03_investing_reclassification": "-605000000",
+        "six_month_net_cash_residual": "0",
+        "quarter_profit_6m_minus_q1_minus_q2": "913532383",
+        "quarter_pretax_6m_minus_q1_minus_q2": "913532383"
+      },
+      "next_research_step": "Compare Q1 comparative income vintage, H1 audited/restated current-period notes and Q2 signed quarter current column; do not override signed Q2 with balancing plug. Inspect independent original notes when accessible.",
+      "resume_only_with_new_evidence": true,
+      "exclude_from_automatic_retry_without_new_source": true,
+      "user_visibility": "only_if_user_asks_which_tickers_or_periods_remain",
+      "created_for_project_date": "2026-11-22"
+    }
+  ]
+}
