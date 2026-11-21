@@ -23,7 +23,9 @@ jobs:
         run: |
           node --check assets/app.js
           python -c 'from scripts.verify_live_site import validate_checkout; validate_checkout()'
-      - name: Verify 6 quarters MBB bank P&L against B03a source
+      - name: Verify 2026 Q3 signed MBB consolidated bank B02a B03a B04a 27 source identities and independent quarter cash
+        run: python scripts/verify_mbb_2026q3_signed_original.py
+      - name: Verify 7 quarters MBB bank P&L against signed B03a current-quarter sources
         run: python scripts/verify_mbb_income.py
       - name: Audit report scope and distinguish missing from unconfirmed
         run: python scripts/audit_all_statement_coverage.py > /dev/null
