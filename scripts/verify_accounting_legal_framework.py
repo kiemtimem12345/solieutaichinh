@@ -167,13 +167,30 @@ def main_checks(rows,framework,audit2,cash2,audit3,audit4):
                         "disclosure_legal_status":"NOT_CERTIFIED_REQUIRE_OFFICIAL_EVIDENCE_REVIEW"})
     for period in framework["baseline_vix"]["pending_2026"]:
         row=rows[period]
-        must(row.get("verification_status")=="manual_review_required_pending_extraction",
-             f"UNSUPPORTED_PASS_WITHOUT_ORIGINAL:{period}")
-        must(row.get("source_validation",{}).get("full_b01_b02_b03_visual_reviewed") is not True,
+        s=row.get("source_validation",{})
+        if period=="2026-Q1":
+            must(row.get("verification_status")==
+                 "issuer_signed_2026Q1_partial_core_B01_B02_B03_verified_FULL_DETAIL_PENDING",
+                 "VIX_Q1_2026_NOT_PARTIAL_SOURCE")
+            must(s.get("accounting_specialist_form_2026_verified") is True and
+                 s.get("core_only_is_not_financial_full_pass") is True,
+                 "VIX_Q1_2026_FALSE_FINANCIAL_PASS")
+            must(s.get("original_pdf_sha256_pending") is True and
+                 s.get("source_signed_pdf_sha256") is None,
+                 "VIX_Q1_2026_FALSE_VERIFIED_PDF_HASH")
+            must(s.get("source_scope")=="separate" and s.get("source_scope_verified"),
+                 "VIX_Q1_2026_WRONG_REPORT_SCOPE")
+            form="TT334/2016 B01-CTCK B02-CTCK B03b-CTCK explicitly shown in issuer original"
+            missing="full issuer B01/B02/B03 signed detail, PDF binary SHA and legal disclosure evidence"
+        else:
+            must(row.get("verification_status")=="manual_review_required_pending_extraction",
+                 f"UNSUPPORTED_PASS_WITHOUT_ORIGINAL:{period}")
+            form="CTCK 2026 special form not yet verified from signed issuer file"
+            missing="signed original B01/B02/B03, detailed notes and full legal disclosure evidence"
+        must(s.get("full_b01_b02_b03_visual_reviewed") is not True,
              f"2026_PREMATURE_REVIEW_PASS:{period}")
         review.append({"period":period,"financial_source_status":"REVIEW_REQUIRED",
-            "legal_regime":"TT210/TT334 specialized; TT99 2026 interaction requires issuer-specific review",
-            "missing":"signed original B01 B02 B03 and documented accounting policy; no automated legal clearance"})
+            "legal_regime":form, "missing":missing})
     return checked,review
 
 def crosscheck_plx_tolerance(policy,plx_doc,audit):

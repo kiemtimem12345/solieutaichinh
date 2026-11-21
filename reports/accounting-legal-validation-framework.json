@@ -80,7 +80,15 @@
         "LAW_ENTERPRISE_59_76",
         "SEC_DISCLOSURE_96"
       ],
-      "enterprise_99_interaction": "NEEDS_FORM_AND_EFFECTIVE_SCOPE_REVIEW"
+      "enterprise_99_interaction": "NEEDS_FORM_AND_EFFECTIVE_SCOPE_REVIEW",
+      "issuer_2026q1_evidence": {
+        "symbol": "VIX",
+        "period": "2026-Q1",
+        "scope": "separate",
+        "form_confirmed": "B01-CTCK/B02-CTCK/B03b-CTCK/B09-CTCK under TT334, Note2.1 declares TT210/TT334 and VAS27",
+        "source_url": "https://vixs.vn/wp-content/uploads/2026/04/20260417-VIX-BAO-CAO-TAI-CHINH-QUY-I-2026.pdf",
+        "full_statement_details_passed": false
+      }
     },
     "ordinary_2025": {
       "accounting_regime": "TT200_2014_or_valid_industry_specific_regime",
@@ -137,6 +145,11 @@
       "2026 securities form under TT210/334 and TT99 interaction confirmed from issuer signed 2026 filing",
       "Auditor opinion and independently reviewed restatement comparatives, if any",
       "Qualitative valuation/capital maintenance compliance needs notes and corporate documents"
-    ]
+    ],
+    "pending_2026_reviewed_subchecks": {
+      "2026-Q1": "ORIGINAL_ISSUER_REGIME_AND_MAIN_TOTALS_EXACT_VERIFIED__FULL_DETAIL_PENDING",
+      "2026-Q2": "UNVERIFIED",
+      "2026-Q3": "UNVERIFIED"
+    }
   }
 }

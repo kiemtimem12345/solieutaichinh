@@ -1,0 +1,62 @@
+{
+  "symbol": "VIX",
+  "period": "2026-Q1",
+  "report_scope": "separate",
+  "issuer_pdf": "https://vixs.vn/wp-content/uploads/2026/04/20260417-VIX-BAO-CAO-TAI-CHINH-QUY-I-2026.pdf",
+  "issuer_filing_date": "2026-04-17",
+  "statement_currency": "VND",
+  "pdf_sha256": null,
+  "sha256_status": "PENDING_FULL_PDF_BINARY_RETRIEVAL",
+  "source_evidence": "Issuer-hosted PDF parsed text and visual review; original issuer URL + 2025 Q4 previously SHA-verified; do not claim issuer PDF SHA confirmation here.",
+  "form_facts": {
+    "B01": "B01-CTCK (TT334/2016/TT-BTC)",
+    "B02": "B02-CTCK (TT334/2016/TT-BTC)",
+    "B03": "B03b-CTCK indirect method (TT334/2016/TT-BTC)",
+    "B09": "B09-CTCK (TT334/2016/TT-BTC)",
+    "account_policies_declared": [
+      "TT210/2014/TT-BTC",
+      "TT334/2016/TT-BTC",
+      "VAS27",
+      "VAS other applicable"
+    ],
+    "purpose": "Issuer-specific confirmation that securities-company specialist form continues for its 2026Q1 financial statement; not a general rule that TT99 never applies to any CTCK transaction"
+  },
+  "q1_2026_exact_vnd": {
+    "total_assets": 29598210995041,
+    "total_liabilities": 8005077648346,
+    "equity": 21593133346695,
+    "current_assets": 29395196224922,
+    "cash_and_equivalents": 970994021164,
+    "pretax_profit": 156353886858,
+    "income_tax": 17983617803,
+    "income_tax_current": 44096616869,
+    "income_tax_deferred": -26112999066,
+    "net_profit": 138370269055,
+    "operating_cash_flow": 3243431300446,
+    "investing_cash_flow": -529478618,
+    "financing_cash_flow": -4321000000000,
+    "net_cash_change": -1078098178172,
+    "cash_beginning": 2049092199336,
+    "cash_ending": 970994021164
+  },
+  "note5_cash_crosscheck_vnd": {
+    "company_bank_cash": 965231027388,
+    "clearing_cash": 5762993776,
+    "total": 970994021164,
+    "2025_q4_ending_cash": 2049092199336
+  },
+  "prior_2025q4_from_verified_signed_source_vnd": {
+    "total_assets": 34167047236850,
+    "cash_ending": 2049092199336
+  },
+  "prior_2025q1_comparative_pat_vnd": 372276939771,
+  "review_status": "PARTIAL_CORE_ACCOUNTING_SOURCE_PASS__FULL_B01_B02_B03_DETAIL_NOT_VERIFIED",
+  "remaining": [
+    "signed Q1 entire B01 component-by-component against notes",
+    "signed Q1 all B02 CTCK income, expense details vs notes and supplementary independent public sources",
+    "signed Q1 B03 detailed items and cash customer off-B01 classification",
+    "Q1 source PDF complete binary SHA and archived page-image visual QA",
+    "2026 comparative presentation and interaction with TT99 general regime as stated by issuer"
+  ],
+  "do_not_mark_full_pass": true
+}

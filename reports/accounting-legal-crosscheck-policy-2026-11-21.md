@@ -54,3 +54,9 @@ Nguồn chính thức:
 6. Nếu thiếu chứng cứ pháp lý hoặc hồ sơ ký gốc, ghi `REVIEW_REQUIRED` và chuyển sang tìm nguồn, không tạo số ảo/không nâng trạng thái.
 
 *Tài liệu này là SOP quản trị chất lượng dữ liệu dựa trên các quy định trích dẫn; không phải đánh giá pháp lý chính thức hoặc kết luận rằng doanh nghiệp đã thực hiện đầy đủ mọi nghĩa vụ.*
+
+## 6. Bổ sung bằng chứng trực tiếp VIX 2026-Q1 (chỉ kiểm thử một phần)
+- Bản PDF gốc trên trang VIX: https://vixs.vn/wp-content/uploads/2026/04/20260417-VIX-BAO-CAO-TAI-CHINH-QUY-I-2026.pdf; ngày ký 17/04/2026, mẫu B01/B02/B03b/B09 **CTCK theo TT334/2016**; thuyết minh 2.1 dẫn TT210/2014, TT334/2016 và VAS27. Đây là nguồn xác nhận **mẫu áp dụng thực tế của VIX Q1/2026**, không phải khẳng định TT99/2025 vô hiệu cho mọi vấn đề kế toán CTCK.
+- Đã xác minh **chỉ tiêu tổng từ PDF gốc**: B01 tổng tài sản 29.598.210.995.041, tổng nợ 8.005.077.648.346, vốn CSH 21.593.133.346.695 VND; B02 LNTT 156.353.886.858, thuế tổng 17.983.617.803 (thuế hiện hành 44.096.616.869; thuế hoãn lại -26.112.999.066), LNST 138.370.269.055; B03 CFO +3.243.431.300.446, CFI -529.478.618, CFF -4.321.000.000.000; biến động -1.078.098.178.172 VND.
+- B03 tiền đầu 2.049.092.199.336 VND khớp **số cuối Q4/2025 ký gốc đã nghiệm thu**, B03 cuối = B01 cuối = Thuyết minh 5 = 970.994.021.164 VND, tất cả kiểm tra 0 VND.
+- Lưu bằng chứng trong `reports/source-audits/VIX-2026Q1-issuer-TT334-legal-form-and-headline-vnd.json`. Vì chưa có SHA-256 của **toàn tệp PDF gốc Q1/2026** và chưa kiểm hết từng dòng B01/B02/B03, trạng thái kỳ vẫn **FULL_DETAIL_PENDING**, không nhận PASS toàn phần và không chứng nhận tuân thủ pháp luật. Các nguồn so sánh năm 2025 đã nghiệm thu vẫn được giữ nguyên.
