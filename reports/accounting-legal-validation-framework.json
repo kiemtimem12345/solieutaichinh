@@ -87,8 +87,12 @@
         "scope": "separate",
         "form_confirmed": "B01-CTCK/B02-CTCK/B03b-CTCK/B09-CTCK under TT334, Note2.1 declares TT210/TT334 and VAS27",
         "source_url": "https://vixs.vn/wp-content/uploads/2026/04/20260417-VIX-BAO-CAO-TAI-CHINH-QUY-I-2026.pdf",
-        "full_statement_details_passed": false
-      }
+        "full_statement_details_passed": true
+      },
+      "additional_actual_sources_2026": [
+        "VIX Q2/2026 issuer signed PDF 17/07/2026 B01/B02/B03 43p",
+        "VIX Q3/2026 signed company-parent PDF from Vietstock issuer-disclosure ZIP 19/10/2026 44p; English translation 47p same scope"
+      ]
     },
     "ordinary_2025": {
       "accounting_regime": "TT200_2014_or_valid_industry_specific_regime",
@@ -128,28 +132,30 @@
       "2025-Q3",
       "2025-Q4"
     ],
-    "pending_2026": [
-      "2026-Q1",
-      "2026-Q2",
-      "2026-Q3"
-    ],
+    "pending_2026": [],
     "signed_ledger_paths": [
       "reports/source-audits/VIX-2025Q1Q2-original-B01-B02-exact-vnd.json",
       "reports/source-audits/VIX-2025Q1Q2-original-cash-vnd.json",
       "reports/source-audits/VIX-2025Q3-original-B01-B02-B03-exact-vnd.json",
-      "reports/source-audits/VIX-2025Q4-original-B01-B02-B03-exact-vnd.json"
+      "reports/source-audits/VIX-2025Q4-original-B01-B02-B03-exact-vnd.json",
+      "reports/source-audits/VIX-2026Q1Q2Q3-original-signed-VND.json"
     ],
     "further_legal_review": [
       "Specific statutory filing dates and disclosure timeliness for each published report",
       "Legal signatures / issuer authority (signature is recorded, but cryptographic signing and disclosure compliance are not established)",
-      "2026 securities form under TT210/334 and TT99 interaction confirmed from issuer signed 2026 filing",
       "Auditor opinion and independently reviewed restatement comparatives, if any",
-      "Qualitative valuation/capital maintenance compliance needs notes and corporate documents"
+      "Qualitative valuation/capital maintenance compliance needs notes and corporate documents",
+      "For 2026 statements, verify particular TT99 interaction in notes and review of FY2026 accounting policies; VIX signed forms TT334 confirmed, no legal compliance certification"
     ],
     "pending_2026_reviewed_subchecks": {
-      "2026-Q1": "ORIGINAL_ISSUER_REGIME_AND_MAIN_TOTALS_EXACT_VERIFIED__FULL_DETAIL_PENDING",
-      "2026-Q2": "UNVERIFIED",
-      "2026-Q3": "UNVERIFIED"
-    }
+      "2026-Q1": "COMPLETE_SOURCE_B01_B02_B03_18_EXACT_VND",
+      "2026-Q2": "COMPLETE_SOURCE_B01_B02_B03_18_EXACT_VND",
+      "2026-Q3": "COMPLETE_SOURCE_B01_B02_B03_18_EXACT_VND_Q3_OFFICIAL_MIRROR_PARENT_VI_EN"
+    },
+    "completed_separate_2026": [
+      "2026-Q1",
+      "2026-Q2",
+      "2026-Q3"
+    ]
   }
 }

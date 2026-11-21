@@ -1,0 +1,29 @@
+name: Recover signed VIX 2026 Q1 Q2 Q3 originals for exact-VND audit
+on:
+  push:
+    branches: [work/vix-2026-q1q2q3-signed-original-completion-20261121]
+    paths:
+      - scripts/recover_vix_2026_originals.py
+      - .github/workflows/recover-vix-2026-originals.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  retrieve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'pymupdf>=1.24,<1.28'
+      - name: Retrieve and hash 2026 Q1 Q2 Q3 issuer originals
+        run: python -u scripts/recover_vix_2026_originals.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vix-2026-3-issuer-original-pdfs-and-hashes
+          path: vix-2026-original-sources/
+          retention-days: 5
+          if-no-files-found: warn

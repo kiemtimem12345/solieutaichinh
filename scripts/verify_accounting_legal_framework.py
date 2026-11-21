@@ -106,6 +106,7 @@ def main_checks(rows,framework,audit2,cash2,audit3,audit4):
                    "eps_ytd":audit4["b02_original_12m"]["eps_ytd"],"eps_quarter":None}
     }
     must(set(rows)==set(framework["baseline_vix"]["completed_separate_2025"]+
+                       framework["baseline_vix"]["completed_separate_2026"]+
                        framework["baseline_vix"]["pending_2026"]),"SCOPE_PERIOD_COUNT")
     prev_quarter_cash=None
     prev_ytd_cf={k:0 for k in FLOWS}
@@ -165,32 +166,34 @@ def main_checks(rows,framework,audit2,cash2,audit3,audit4):
                         "cash_end_vnd":str(m["cash_ending"]),"signed_source_sha256":src["sha"],
                         "form":"securities_TT210_334",
                         "disclosure_legal_status":"NOT_CERTIFIED_REQUIRE_OFFICIAL_EVIDENCE_REVIEW"})
-    for period in framework["baseline_vix"]["pending_2026"]:
+    for period in framework["baseline_vix"]["completed_separate_2026"]:
         row=rows[period]
-        s=row.get("source_validation",{})
-        if period=="2026-Q1":
-            must(row.get("verification_status")==
-                 "issuer_signed_2026Q1_partial_core_B01_B02_B03_verified_FULL_DETAIL_PENDING",
-                 "VIX_Q1_2026_NOT_PARTIAL_SOURCE")
-            must(s.get("accounting_specialist_form_2026_verified") is True and
-                 s.get("core_only_is_not_financial_full_pass") is True,
-                 "VIX_Q1_2026_FALSE_FINANCIAL_PASS")
-            must(s.get("original_pdf_sha256_pending") is True and
-                 s.get("source_signed_pdf_sha256") is None,
-                 "VIX_Q1_2026_FALSE_VERIFIED_PDF_HASH")
-            must(s.get("source_scope")=="separate" and s.get("source_scope_verified"),
-                 "VIX_Q1_2026_WRONG_REPORT_SCOPE")
-            form="TT334/2016 B01-CTCK B02-CTCK B03b-CTCK explicitly shown in issuer original"
-            missing="full issuer B01/B02/B03 signed detail, PDF binary SHA and legal disclosure evidence"
-        else:
-            must(row.get("verification_status")=="manual_review_required_pending_extraction",
-                 f"UNSUPPORTED_PASS_WITHOUT_ORIGINAL:{period}")
-            form="CTCK 2026 special form not yet verified from signed issuer file"
-            missing="signed original B01/B02/B03, detailed notes and full legal disclosure evidence"
-        must(s.get("full_b01_b02_b03_visual_reviewed") is not True,
-             f"2026_PREMATURE_REVIEW_PASS:{period}")
-        review.append({"period":period,"financial_source_status":"REVIEW_REQUIRED",
-            "legal_regime":form, "missing":missing})
+        v=row["source_validation"]
+        must(row["verification_status"]==(
+            "issuer_signed_"+period.replace("-","")+"__separate_B01_B02_B03_exact_vnd"+
+            ("" if period=="2026-Q1" else "_H1_minus_Q1_quarter" if period=="2026-Q2" else "_9M_minus_H1_quarter")),
+            f"WRONG_2026_SIGNED_SOURCE_STATUS:{period}")
+        must("riêng" in row["report_type"].lower() and "hợp nhất" not in row["report_type"].lower(),
+             f"WRONG_2026_REPORT_SCOPE:{period}")
+        must(row["unit"]=="triệu VND" and v.get("source_scope")=="separate" and
+             v.get("source_scope_verified") is True,f"WRONG_2026_UNIT_OR_SCOPE:{period}")
+        must(v.get("original_signed_source_exact_VND_identity_count")==18 and
+             v.get("full_b01_b02_b03_visual_reviewed") is True and
+             v.get("original_issuer_pdf_sha256"),f"2026_PREMATURE_PASS:{period}")
+        must(row.get("broker_customer_deposits") is None,
+             f"2026_CUSTOMER_OFF_B01:{period}")
+        must(v.get("legal_compliance_certified") is False,
+             f"2026_FALSE_LEGAL_CERTIFICATION:{period}")
+        checked.append({"period":period,"scope":"separate",
+                        "accounting_checks":"PASS_ACCOUNTING_SOURCE_CHECKS",
+                        "form":"securities_TT210_334",
+                        "signed_source_sha256":v["original_issuer_pdf_sha256"],
+                        "disclosure_legal_status":"NOT_CERTIFIED_REQUIRE_OFFICIAL_EVIDENCE_REVIEW"})
+        review.append({"period":period,"financial_source_status":"COMPLETE_SIGNED_ORIGINAL_EXACT_VND",
+                       "legal_regime":"TT210/TT334 specialized CTCK source verified",
+                       "missing":"legal disclosure compliance, authorized approvals, and auditor qualifications if applicable (not automated)"})
+    for period in framework["baseline_vix"]["pending_2026"]:
+        raise AccountingSourceError(f"UNEXPECTED_PENDING_2026_PERIOD:{period}")
     return checked,review
 
 def crosscheck_plx_tolerance(policy,plx_doc,audit):
@@ -259,10 +262,10 @@ def main():
     tamper=negative_tests(policy,a2,c2,a3,a4,doc)
     out={"framework_version":policy["version"],
          "financial_checks":{"vix_2025_verified_separate":checked,
-                             "vix_2026_pending":pending,
+                             "vix_2026_source_complete_legal_review":pending,
                              "previous_plx_0p1_percent_exception":plx},
          "tamper_fail_closed_tests":tamper,
-         "issuer_original_math":"PASS for 2025 signed RIÊNG source and selected PLX preexisting approved exception",
+         "issuer_original_math":"PASS VIX 2025/2026 Q1 through Q3 separate signed sources exact VND; PLX existing 0.1% exception preserved",
          "legal_or_audit_opinion":"NOT PROVIDED",
          "disclosure_law_compliance":"UNASSESSED: verify official filing dates and corporate documentation"}
     if args.json:print(json.dumps(out,ensure_ascii=False,indent=2))
@@ -271,8 +274,8 @@ def main():
               "B01+B02+B03; quarter/YTD same source vintage, separate CTCK forms, "
               "cash bridge, EPS, off-B01 client money and 5 negative fail-closed tests.")
         print("PLX 2026-Q1 retains PASS_WITH_TOLERANCE 0.1% with source anomaly visible.")
-        print("REVIEW REQUIRED: VIX 2026-Q1/Q2/Q3 source B01/B02/B03, 2026 specialist "
-              "regime/TT99 interaction, issuer corporate/legal filing evidence. "
-              "No legal certification or audited-opinion assertion.")
+        print("VIX 2026 Q1/Q2/Q3 source B01/B02/B03 18 identities each EXACT VND PASS. "
+              "REVIEW REQUIRED separately for issuer corporate/legal filing and specific "
+              "TT99 policy interaction; no legal certification or audited-opinion assertion.")
 if __name__=="__main__":
     main()

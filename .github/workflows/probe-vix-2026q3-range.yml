@@ -1,0 +1,22 @@
+name: Probe VIX issuer Q3 2026 64KB range download
+on:
+  push:
+    branches: [work/vix-2026-q1q2q3-signed-original-completion-20261121]
+    paths:
+      - scripts/probe_vix_2026q3_range.py
+      - .github/workflows/probe-vix-2026q3-range.yml
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -u scripts/probe_vix_2026q3_range.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vix-2026q3-http-range-probe
+          path: vix-q3-range-probe/
+          retention-days: 2
