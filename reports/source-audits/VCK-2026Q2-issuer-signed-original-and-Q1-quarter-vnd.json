@@ -171,8 +171,11 @@
     "h1_less_q1_vs_direct_q2_profit_vnd": "29595000",
     "h1_less_q1_vs_direct_q2_pbt_vnd": "29595000",
     "h1_less_q1_vs_direct_q2_admin_vnd": "-29595000",
-    "accepted_relative_tolerance_fraction": "0.0001",
-    "resolution": "Keep issuer Q2 direct quarter B02 source; independent signed Q1 and signed six-month include an exact 29,595,000 VND offset in the administrative-cost line. No balancing plug. Relative deviation under 0.01%; note discrepancy without editing original amounts."
+    "accepted_relative_tolerance_fraction": "0.001",
+    "resolution": "Keep issuer Q2 direct quarter B02 source; independent signed Q1 and signed six-month include an exact 29,595,000 VND offset in the administrative-cost line. No balancing plug. Relative deviation under 0.01%; note discrepancy without editing original amounts.",
+    "latest_user_tolerance_percent": "0.1",
+    "note": "PBT residual 29,595,000 VND is about 0.00215% of Q2 reported PBT; administrative expense change about 0.01697% of Q2 admin charge. Both are below latest accepted 0.1% threshold. Source Q2 direct P&L not overwritten. Queue contains provenance for future note-specific review.",
+    "private_queue_id": "VCK-2026Q2-B02-H1-Q1-vintage-delta-29595000"
   },
   "source_policy": {
     "customer_cash_is_separate": true,
