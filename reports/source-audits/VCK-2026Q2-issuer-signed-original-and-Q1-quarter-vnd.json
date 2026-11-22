@@ -184,6 +184,30 @@
   "source_notes": [
     "Verified scanned original images of B01, B02, B03 and customer custody tables, and exact OCR mirror. Signed 17 July, published 20 July.",
     "Company 6M operating investing financing net exactly reconcile to B01 company cash, independent quarterly values use Q1 same reporting basis and exact VND.",
-    "Quarterly P&L direct source is authoritative; 29,595,000 VND change in Q1/H1 administrative charge comparison is 0.00214% of Q2 PBT, below project 0.01% threshold, but preserved as variance not silently corrected."
-  ]
+    "Quarterly P&L direct source is authoritative; 29,595,000 VND change in Q1/H1 administrative charge comparison is 0.00214% of Q2 PBT, below project 0.01% threshold, but preserved as variance not silently corrected.",
+    "Independent visually reviewed H1 dated 12/08/2026 has exactly the same 2026 6M company cash CFO CFI CFF net opening and ending VND as signed Q2 original; broker customer cash excluded. Reviewed B03 PDF screenshot pp16–17."
+  ],
+  "reviewed_H1_2026": {
+    "document_url": "https://cdn.financialreports.eu/financialreports/media/filings/67046/2026/RNS/67046_rns_2026-08-17_18938e4a-bf13-458e-93eb-511024a13ac3.pdf",
+    "issuer_disclosure_url": "https://www.vps.com.vn/bai-viet/vps-cong-bo-bao-cao-tai-chinh-ban-nien-nam-2026-da-duoc-soat-xet",
+    "reported_date": "2026-08-14",
+    "signed_report_date": "2026-08-12",
+    "document_pages": 72,
+    "visual_pdf_pages_zero_based": [
+      15,
+      16
+    ],
+    "reviewed_type": "independent review of six-month issuer company financials, not a statutory full-year audit",
+    "visual_seen": true,
+    "original_pdf_hash_not_verifiable_from_browser": true,
+    "source_cashflow_6m_vnd": {
+      "operating_cash_flow": "-2969984185501",
+      "investing_cash_flow": "-66449390863",
+      "financing_cash_flow": "-2284931680002",
+      "net_cash_change": "-5321365256366",
+      "cash_beginning": "8680990313016",
+      "cash_ending": "3359625056650"
+    },
+    "reconciles_exactly_with_asfiled_Q2_B03": true
+  }
 }
