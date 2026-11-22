@@ -27,6 +27,23 @@
         9,
         10
       ]
+    },
+    "visually_checked_form_pages": {
+      "B02_TCTD_HN_balance_sheet": [
+        4,
+        5
+      ],
+      "off_balance_statement": [
+        6
+      ],
+      "B03_TCTD_HN_income_statement": [
+        7,
+        8
+      ],
+      "B04_TCTD_HN_cashflow_statement": [
+        9,
+        10
+      ]
     }
   },
   "original_million_vnd_fields": {
@@ -177,7 +194,8 @@
     "B03 CFO original is -13,180,595 million VND. The old OCR incorrectly treated the first line 'interest received 23,692,971 million' as CFO; repaired from source PDF page 9.",
     "B03 CFI original -174,898 million, not capex-only -186,147 million. CFF explicitly zero, never create balancing plug.",
     "Bank B03 cash and equivalents 417,258,692 million is a specific cashflow-basis subtotal, not equivalent to B01 vault cash 13,713,225 million. No false equality check.",
-    "Net income attributable to bank shareholders 8,696,229 million differs from consolidated PAT 8,701,726 million due to noncontrolling interest -5,497 million."
+    "Net income attributable to bank shareholders 8,696,229 million differs from consolidated PAT 8,701,726 million due to noncontrolling interest -5,497 million.",
+    "Legal Vietnamese State Bank banking statement form names: B02/TCTD-HN is balance sheet, B03/TCTD-HN is income statement, B04/TCTD-HN is cashflow (distinct from generic financial B01/B02/B03 taxonomy)."
   ],
   "normalized_source_status": "original issuer consolidated source visually reviewed, exact million VND 28 accounting identities and bank cashflow signs validated"
 }
