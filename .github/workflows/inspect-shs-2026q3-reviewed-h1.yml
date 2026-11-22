@@ -1,0 +1,34 @@
+name: Inspect SHS 2026Q3 issuer original and H1 reviewed sources (read-only)
+on:
+  push:
+    branches: [work/shs-2026q3-signed-original-reviewed-h1-20261122]
+    paths:
+      - scripts/inspect_shs_2026q3_reviewed_h1_original.py
+      - .github/workflows/inspect-shs-2026q3-reviewed-h1.yml
+  pull_request:
+    paths:
+      - scripts/inspect_shs_2026q3_reviewed_h1_original.py
+      - .github/workflows/inspect-shs-2026q3-reviewed-h1.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF utilities
+        run: sudo apt-get update -qq && sudo apt-get install -qq -y curl poppler-utils
+      - name: Syntax check
+        run: python -m py_compile scripts/inspect_shs_2026q3_reviewed_h1_original.py
+      - name: Hash issuer original and independently reviewed source PDFs
+        run: python -u scripts/inspect_shs_2026q3_reviewed_h1_original.py
+      - name: Retain only source visual financial statement pages one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shs-2026q3-original-and-reviewed-H1-source-pages
+          path: shs-2026q3-h1-signed-source-preview/*.jpg
+          retention-days: 1
+          if-no-files-found: warn

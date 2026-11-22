@@ -1,0 +1,174 @@
+{
+  "ticker": "SHS",
+  "period": "2026-Q3",
+  "issuer": "Công ty Cổ phần Chứng khoán Sài Gòn - Hà Nội",
+  "scope": "Signed issuer own-company B01a CTCK, B02a CTCK and B03b CTCK 9M cash; independently reviewed H1 same issuer; segregated customer money excluded",
+  "unit": "VND",
+  "Q3_original_issuer": {
+    "url": "https://s3-storage.shs.com.vn/shs-website/VI_SHS_Bao_Cao_Tai_Chinh_Q3_2026_UB_94d6052636.pdf",
+    "signed_date": "2026-10-20",
+    "pdf_sha256": "78622b1eb767b4cbefa53836bde45ece8f8feb6baa55d6bac1d155667f80acc8",
+    "pages": 40,
+    "bytes": 29580249,
+    "page_1_based": {
+      "B01": [
+        6,
+        7,
+        8
+      ],
+      "client_cash": [
+        9
+      ],
+      "B02": [
+        10,
+        11,
+        12
+      ],
+      "B03_company": [
+        13,
+        14
+      ],
+      "B03_customer": [
+        15
+      ]
+    }
+  },
+  "H1_independently_reviewed": {
+    "url": "https://s3-storage.shs.com.vn/shs-website/VI_SHS_Bannien_BCTC_2026_f1d999d678.pdf",
+    "auditor": "AASC",
+    "signed_date": "2026-08-13",
+    "pages": 56,
+    "bytes": 37951575,
+    "pdf_sha256": "6511a79ba024ffa3070b2739c634c9a88f45236ec7d716de0a7fe932a4d2c2f0",
+    "page_1_based": {
+      "B01": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "B02": [
+        14,
+        15,
+        16
+      ],
+      "B03_company": [
+        17,
+        18
+      ],
+      "B03_customer": [
+        19
+      ]
+    }
+  },
+  "source_proof": {
+    "github_workflow_run": 45013391624,
+    "visual_artifact_id": 14750393671,
+    "original_pdf_not_committed": true
+  },
+  "original_exact_vnd": {
+    "cash": "3392364033103",
+    "fvtpl": "8357765086899",
+    "htm": "1429173437325",
+    "loans": "12435414017252",
+    "afs": "2494862250450",
+    "receivables": "462071215418",
+    "advances": "6532340837",
+    "service_receivables": "456464001046",
+    "other_receivables": "308278190149",
+    "impairment": "-519644666392",
+    "short_assets": "28883331945178",
+    "long_assets": "170495721669",
+    "total_assets": "29053827666847",
+    "financial_short": "28823279906087",
+    "other_short": "60052039091",
+    "borrowings": "14788250814265",
+    "bonds": "1147000000000",
+    "current_liabs": "16532373788107",
+    "long_liabs": "25000000",
+    "liabs": "16532398788107",
+    "equity": "12521428878740",
+    "share_capital": "8994622200000",
+    "share_premium": "392362368289",
+    "afs_fv_equity": "202700993400",
+    "retained": "2931743317051",
+    "revenue_q3": "1001990396188",
+    "reven_9m": "2017028302710",
+    "reven_H1": "1015037906522",
+    "cost_q3": "370115926821",
+    "finance_rev_q3": "981981572",
+    "finance_exp_q3": "352361500605",
+    "admin_q3": "29685108052",
+    "operating_profit_q3": "250809842282",
+    "other_profit_q3": "239933",
+    "pbt_q3": "250810082215",
+    "tax_q3": "47556157510",
+    "pat_q3": "203253924705",
+    "pbt_9m": "620521717151",
+    "pbt_H1": "369711634936",
+    "pat_9m": "510853071094",
+    "pat_H1": "307599146389",
+    "cfo_9m": "-4051046844037",
+    "cfi_9m": "-29454293791",
+    "cff_9m": "6585250814265",
+    "net_9m": "2504749676437",
+    "open_9m": "887614356666",
+    "close_9m": "3392364033103",
+    "cfo_H1": "-5061133441373",
+    "cfi_H1": "-13790864563",
+    "cff_H1": "5145670000000",
+    "net_H1": "70745694064",
+    "open_H1": "887614356666",
+    "close_H1": "958360050730",
+    "customer_cash_9m": "1211124622076",
+    "cfi_capex_9m": "-32653354545",
+    "cfi_disposal_9m": "43518529",
+    "cfi_dividends_9m": "3155542225",
+    "cff_borrow_9m": "39542130193468",
+    "cff_repayment_9m": "-32956879379203",
+    "assets_H1": "27566961471493",
+    "liabs_H1": "15022715008683",
+    "equity_H1": "12544246462810"
+  },
+  "quarter_standalone_cashflow_vnd": {
+    "cfo": "1010086597336",
+    "cfi": "-15663429228",
+    "cff": "1439580814265",
+    "net": "2434003982373",
+    "cash_beginning": "958360050730",
+    "cash_ending": "3392364033103"
+  },
+  "source_check_residual_vnd": {
+    "assets": "0",
+    "current": "0",
+    "financial_short": "0",
+    "liabilities": "0",
+    "balance": "0",
+    "equity": "0",
+    "q_profit": "0",
+    "q_beforetax": "0",
+    "q_aftertax": "0",
+    "bridge_revenue": "0",
+    "bridge_pbt": "0",
+    "bridge_pat": "0",
+    "cash_9m": "0",
+    "cash_H1": "0",
+    "cash_q3": "0",
+    "cash_bridge_9m": "0",
+    "cash_bridge_H1": "0",
+    "cash_bridge_q3": "0",
+    "cash_B01_B03": "0",
+    "cfi_items": "0",
+    "cff_items": "0",
+    "customer_not_company": "0",
+    "reviewed_H1_balance": "0",
+    "H1_reported_independent_cash_opening_equals_Q3_cash_opening": "0"
+  },
+  "notes": [
+    "Source original cash corporate B01 3,392,364,033,103 VND; B03 9M corporate ending matches exactly. Brokerage customer deposits 1,211,124,622,076 VND are off-company bank cash in code 026, never add to company cash.",
+    "Direct Q3 B02 operating revenue, pre-tax profit and PAT match Q3 9M minus independently AASC-reviewed H1 6M exact VND. Source 9M corporate cash CFO/CFI/CFF and reviewed H1 cash are same company and use same indirect B03 cash accounting classification.",
+    "Q3 cashflow =9M−AASC reviewed H1: CFO +1,010,086,597,336, CFI −15,663,429,228, CFF +1,439,580,814,265, net +2,434,003,982,373, opening +958,360,050,730, ending +3,392,364,033,103 exact VND.",
+    "SHS 2026Q3 source company issuer statement with no title declaring consolidated; do not automatically label a consolidated report. Previously source-checked 2025 and 2026Q1/Q2 records not reprocessed.",
+    "AASC independently reviewed H1 B01 total assets 27,566,961,471,493 VND, liabilities 15,022,715,008,683, equity 12,544,246,462,810, exactly reconciles and provides source-verified previous-quarter opening bases for Q3 annualized ROA and ROE."
+  ]
+}
