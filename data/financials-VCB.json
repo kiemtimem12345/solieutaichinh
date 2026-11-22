@@ -20,7 +20,7 @@
       "source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/VCB_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
       "source_index_url": "https://finance.vietstock.vn/VCB/tai-tai-lieu.htm?doctype=1",
       "report_type": "Báo cáo tài chính hợp nhất Ngân hàng TMCP Ngoại thương Việt Nam, Quý I/2025 (B01/B02/B03 theo chế độ TCTD; triệu VND)",
-      "source_pages": "PDF signed report 53 pages, B01 pp4–5, B02 pp7–8, B03 pp9–10, issuer signatures 29/04/2025",
+      "source_pages": "Original 53-page signed PDF: B02/TCTD-HN balance sheet pp4–5; off-balance sheet p6; B03/TCTD-HN income pp7–8; B04/TCTD-HN cash flow pp9–10",
       "quarter_profit_basis": "Issuer original consolidated B03/TCTD-HN current-quarter Q1 2025 equals signed 3M cumulative",
       "verification_status": "issuer_signed_VCB_2025Q1_consolidated_B01_B02_B04_exact_million_VND",
       "source_validation": {
@@ -60,7 +60,12 @@
         "source_original_CFO_exact_million": -13180595,
         "source_original_CFI_exact_million": -174898,
         "source_original_CFF_exact_million": 0,
-        "source_28_identities_all_zero_million": true
+        "source_28_identities_all_zero_million": true,
+        "signed_issuer_bank_form_names_verified": {
+          "balance": "B02/TCTD-HN",
+          "income": "B03/TCTD-HN",
+          "cashflow": "B04/TCTD-HN"
+        }
       },
       "published_at": "2025-04-29",
       "source_archive_file": "reports/raw/VCB/auto-vcb-20261021/f25bf036ad962541.pdf",
