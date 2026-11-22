@@ -25,6 +25,9 @@ def source_verify(s,pr):
     assert s["ticker"]=="VCK" and s["period"]=="2026-Q3"
     assert s["signed_date"]=="2026-10-19" and s["published_date"]=="2026-10-20"
     assert s["verified_original_at_HOSE_PDF"] is True
+    assert s["original_pdf_sha256"]=="faa3a568d8aac84e4104c234196355b985d4aa17417cb6adffe2fd4dc22dc7b6"
+    assert s["original_pdf_bytes"]==3680290 and s["original_pdf_pages"]==61
+    assert s["original_pdf_source_worker"]==44969525235 and s["original_pdf_artifact_id"]==14733320500
     assert "2505926" in s["official_original_url"] and s["unit"]=="VND"
     assert "consolidated report" in s["scope"] and "custody cash excluded" in s["scope"]
     f=s["original_exact_vnd_fields"]
@@ -140,6 +143,9 @@ def verify(s,prior,fin,queue):
     assert r["source_url"]==s["official_original_url"]
     v=r["source_validation"]
     assert v["source_audit_ledger"]==str(SOURCE.relative_to(R))
+    assert v["original_pdf_hash_verified"] is True
+    assert v["original_pdf_sha256"]==s["original_pdf_sha256"]
+    assert v["original_pdf_pages"]==s["original_pdf_pages"]
     assert v["source_verified_B01_B02_B03"] and v["broker_client_cash_excluded_from_company_CFO_CFI_CFF"]
     assert v["B02_direct_quarter_income_vs_9M_minus_H1_exact_zero_vnd"]
     assert v["B02_component_subtotal_variance_within_latest_0_1pct"]
