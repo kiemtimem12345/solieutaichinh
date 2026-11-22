@@ -1,6 +1,6 @@
 {
   "schema_version": "2026-11-22-source-accounting-pending-v1",
-  "display_policy": "private_work_queue_only; list exceptions or pending ticker codes only if user explicitly asks",
+  "display_policy": "private_work_queue_only; do not show exceptions unless user specifically asks what's incomplete",
   "continue_processing_other_periods": true,
   "items": [
     {
@@ -42,6 +42,30 @@
       "next_evidence_step": "Compare signed Q1 revision and H1 note about 29,595,000 VND administrative expense; do not plug any residual into earnings or cash",
       "user_visibility": "only_if_user_asks_which_tickers_or_periods_remain",
       "scope": "issuer_signed_company_not_client_brokerage_cash"
+    },
+    {
+      "id": "VCK-2026Q3-signed-B02-component-subtotal-500m",
+      "ticker": "VCK",
+      "period": "2026-Q3",
+      "status": "accepted_under_latest_0_1pct_user_tolerance_queued_for_source_note_only",
+      "production_eligible": true,
+      "blocks_sequential_processing": false,
+      "source_signed_original": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2505926/20261020%20-%20VCK%20-%20Bao%20cao%20tai%20chinh%20Quy%203.2026%20-%20signed.pdf",
+      "evidence_ledger": "reports/source-audits/VCK-2026Q3-issuer-signed-9M-reviewed-H1-exact-vnd.json",
+      "deviations_vnd": {
+        "Q3_B02_revenue_components_vs_subtotal": "-500000000",
+        "Q3_B02_operating_expense_components_vs_subtotal": "-400000"
+      },
+      "estimated_absolute_relative_percentage": {
+        "revenue": "0.02408",
+        "operating_expense": "0.000067"
+      },
+      "user_latest_acceptance_percent": "0.1",
+      "recorded_direct_original_subtotals_without_plugs": true,
+      "cashflow_and_major_B02_quarter_to_9M_bridge_exact_0_vnd": true,
+      "resume_only_with_new_evidence": true,
+      "next_evidence_step": "Inspect issuer B02 Q3 2026 component subtotals and possible hidden section/typing of 500m revenue and 400k expense; do not change signed totals without corrected filing.",
+      "user_visibility": "only_if_user_explicitly_asks_for_missing_ticker_or_period_list"
     }
   ]
 }
