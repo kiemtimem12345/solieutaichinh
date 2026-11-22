@@ -48,3 +48,8 @@ Ngày rà soát: 2026-11-22. Mã VCB. Đơn vị nguyên gốc: **triệu VND**.
 4. Số liệu phân tích hợp nhất từ TCBS/Vietcap chỉ phục vụ đối chiếu làm tròn; không coi là số liệu nguồn ký gốc.
 
 Trạng thái: `VCB_2026Q3_PARENT_SOURCE_VISUAL_CORE_PASS_CONSOLIDATED_PENDING`; `production_eligible=false`.
+
+## Đã định danh PDF hợp nhất Q3/2026
+- HOSE: https://staticfile.hsx.vn/Uploads/UploadDocuments/2510515/20261030%20-%20VCB%20-%20BCTC%20Hop%20nhat%20Q3%202026.pdf
+- Tên tệp gốc: `20261030 - VCB - BCTC Hop nhat Q3 2026.pdf`; công bố 30/10/2026, xác nhận qua https://nmquan.vn/data/ma/VCB/cong-bo/244413491-bctc-hop-nhat-q3-2026
+- Thử đọc trực tiếp qua web ngày 22/11/2026: timeout khi fetch; **chưa xem được ảnh gốc hợp nhất**. Các trị số hợp nhất làm tròn ở nguồn phân tích không đủ điều kiện để ghi production.
