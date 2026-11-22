@@ -1,6 +1,6 @@
 {
   "schema_version": "2026-11-22-source-accounting-pending-v1",
-  "display_policy": "private_work_queue_only; do not show exceptions unless user specifically asks what's incomplete",
+  "display_policy": "private_work_queue_only; not to be displayed unless user asks what is incomplete",
   "continue_processing_other_periods": true,
   "items": [
     {
@@ -66,6 +66,31 @@
       "resume_only_with_new_evidence": true,
       "next_evidence_step": "Inspect issuer B02 Q3 2026 component subtotals and possible hidden section/typing of 500m revenue and 400k expense; do not change signed totals without corrected filing.",
       "user_visibility": "only_if_user_explicitly_asks_for_missing_ticker_or_period_list"
+    },
+    {
+      "id": "VCB-2025Q3-gross-interest-9M-minus-H1-vintage-6904m",
+      "ticker": "VCB",
+      "period": "2025-Q3",
+      "status": "accepted_under_user_latest_0_1pct_tolerance_queued_for_note_only",
+      "production_eligible": true,
+      "blocks_sequential_processing": false,
+      "source": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/VCB_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
+      "evidence_ledger": "reports/source-audits/VCB-2025Q3-original-signed-consolidated-9M-million-vnd.json",
+      "underlying_source_unit": "triệu VND",
+      "exact_comparison_signed_Q3_direct_vs_9M_less_signed_H1": {
+        "gross_interest_income_million_vnd": -6904,
+        "gross_interest_expense_million_vnd": 6904,
+        "net_interest_income_million_vnd": 0,
+        "pretax_profit_million_vnd": 0,
+        "net_profit_million_vnd": 0,
+        "corporate_B04_cashflow_million_vnd": 0
+      },
+      "relative_interest_income_deviation_percent": 0.02585,
+      "relative_interest_expense_deviation_percent": 0.05726,
+      "user_latest_accepted_percentage": "0.1",
+      "do_not_replace_original_signed_quarter_or_invent_plug": true,
+      "retry_only_if_new_revised_H1_reviewed_financial_report_proves_reclassification": true,
+      "user_visibility": "only_if_user_asks_which_tickers_or_periods_remain"
     }
   ]
 }

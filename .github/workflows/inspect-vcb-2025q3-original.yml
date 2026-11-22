@@ -1,0 +1,34 @@
+name: Inspect VCB Q3 2025 signed consolidated 9M source (read-only)
+on:
+  push:
+    branches: [work/vcb-2025q3-9m-signed-consolidated-20261122]
+    paths:
+      - scripts/inspect_vcb_2025q3_consolidated_source.py
+      - .github/workflows/inspect-vcb-2025q3-original.yml
+  pull_request:
+    paths:
+      - scripts/inspect_vcb_2025q3_consolidated_source.py
+      - .github/workflows/inspect-vcb-2025q3-original.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF utilities
+        run: sudo apt-get update -qq && sudo apt-get install -qq -y curl poppler-utils
+      - name: Verify source inspection script
+        run: python -m py_compile scripts/inspect_vcb_2025q3_consolidated_source.py
+      - name: Hash and render signed issuer B02 B03 B04 9M source
+        run: python -u scripts/inspect_vcb_2025q3_consolidated_source.py
+      - name: Retain selected original financial-page images one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vcb-2025q3-original-consolidated-preview
+          path: vcb-2025q3-consolidated-previews/*.jpg
+          retention-days: 1
+          if-no-files-found: warn
