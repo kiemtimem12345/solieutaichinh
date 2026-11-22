@@ -37,7 +37,7 @@
     14
   ],
   "verified_original_at_HOSE_PDF": true,
-  "original_pdf_sha256": "pending_independent_binary_download",
+  "original_pdf_sha256": "faa3a568d8aac84e4104c234196355b985d4aa17417cb6adffe2fd4dc22dc7b6",
   "unit": "VND",
   "original_exact_vnd_fields": {
     "total_assets": "48808808409666",
@@ -183,7 +183,13 @@
     "2026 9M company B03 values and independently reviewed 2026 H1 company 6M exact same issuer/perimeter. Q3 CFO/CFI/CFF quarter and company cash bridge zero VND.",
     "Source PDF quarter B02 direct and 9M less reviewed H1 agree exactly for revenue, cost, PBT, taxes, PAT; no YTD/QTD conflation.",
     "Broker customer custody bank deposits (12,833,629,335,057 VND) are off-company B01 and cannot replace company cash (4,409,472,183,292 VND).",
-    "B02 published total revenue and expense show tiny subcomponent variance as printed (see source checks), retain signed totals without plugs; internally flag only if material per latest tolerance."
+    "B02 published total revenue and expense show tiny subcomponent variance as printed (see source checks), retain signed totals without plugs; internally flag only if material per latest tolerance.",
+    "Original matching VCK Q3 signed statement PDF mirror from Vietstock independently fetched by GitHub Actions, SHA256 and 61 pages verified; HOSE original digital text and screenshots visually cross-checked. Do not claim HOSE and Vietstock binary SHA identical."
   ],
-  "latest_user_relative_acceptance": "0.1%"
+  "latest_user_relative_acceptance": "0.1%",
+  "original_pdf_bytes": 3680290,
+  "original_pdf_pages": 61,
+  "original_pdf_hash_source_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%203/VCK_Baocaotaichinh_Q3_2026.pdf",
+  "original_pdf_source_worker": 44969525235,
+  "original_pdf_artifact_id": 14733320500
 }
