@@ -1,6 +1,6 @@
 {
   "schema_version": "2026-11-22-source-accounting-pending-v1",
-  "display_policy": "private_work_queue_only; do not display outstanding cases or ticker lists unless user explicitly asks",
+  "display_policy": "private_work_queue_only; list exceptions or pending ticker codes only if user explicitly asks",
   "continue_processing_other_periods": true,
   "items": [
     {
@@ -22,6 +22,26 @@
       "exclude_from_automatic_retry_without_new_source": true,
       "user_visibility": "only_if_user_asks_which_tickers_or_periods_remain",
       "created_for_project_date": "2026-11-22"
+    },
+    {
+      "id": "VCK-2026Q2-B02-H1-Q1-vintage-delta-29595000",
+      "ticker": "VCK",
+      "period": "2026-Q2",
+      "status": "accepted_under_latest_0_1pct_tolerance_queued_for_note_only",
+      "production_eligible": true,
+      "blocks_sequential_processing": false,
+      "resume_only_with_new_source_evidence": true,
+      "evidence_ledger": "reports/source-audits/VCK-2026Q2-issuer-signed-original-and-Q1-quarter-vnd.json",
+      "source_comparison": "Signed issuer Q2 standalone B02 direct vs H1 six months minus separately signed original Q1",
+      "comparison_residual_vnd": "29595000",
+      "comparison_percentage_of_q2_pretax": "0.002147",
+      "comparison_percentage_of_q2_admin_expense": "0.016966",
+      "allowed_latest_percentage": "0.1",
+      "exact_original_q2_lines_unmodified": true,
+      "exact_cash_bridge_residual_vnd": "0",
+      "next_evidence_step": "Compare signed Q1 revision and H1 note about 29,595,000 VND administrative expense; do not plug any residual into earnings or cash",
+      "user_visibility": "only_if_user_asks_which_tickers_or_periods_remain",
+      "scope": "issuer_signed_company_not_client_brokerage_cash"
     }
   ]
 }
