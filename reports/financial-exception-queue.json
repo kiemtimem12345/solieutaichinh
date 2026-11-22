@@ -1,6 +1,6 @@
 {
   "schema_version": "2026-11-22-source-accounting-pending-v1",
-  "display_policy": "private_work_queue_only; not to be displayed unless user asks what is incomplete",
+  "display_policy": "private_work_queue_only; never surface unfinished ticker codes or details unless asked by user",
   "continue_processing_other_periods": true,
   "items": [
     {
@@ -91,6 +91,27 @@
       "do_not_replace_original_signed_quarter_or_invent_plug": true,
       "retry_only_if_new_revised_H1_reviewed_financial_report_proves_reclassification": true,
       "user_visibility": "only_if_user_asks_which_tickers_or_periods_remain"
+    },
+    {
+      "id": "VCB-2026Q1-FY2025-audited-comparative-vs-first-asfiled-vintage",
+      "ticker": "VCB",
+      "period": "2026-Q1",
+      "status": "audited_FY2025_comparative_vintage_difference_quarantined_nonblocking",
+      "production_eligible": true,
+      "blocks_sequential_processing": false,
+      "evidence_ledger": "reports/source-audits/VCB-2026Q1-consolidated-original-29april-million-vnd.json",
+      "source_Q1_2026_signed_original": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/VCB_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
+      "source_original_FY2025_Q4_signed": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/VCB_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
+      "difference_as_of_31_dec_2025_million_vnd": {
+        "audited_2025Q4_cash_opening_Q1_2026_vs_2025_asfiled_cash_end": 889334,
+        "audited_asset_vs_first_issued": 350221,
+        "audited_liabilities_vs_first_issued": 3327371,
+        "audited_equity_vs_first_issued": -2977150
+      },
+      "explanation": "Q1/2026 source B02 FY2025 comparator explicitly marked audited, Q1 B04 opening 541,688,802 vs first-issued signed Q4/2025 ending 540,799,468. Different source versions. Q1 itself balances all 30 checks. Never force these FY original and audited source vintages to match.",
+      "next_evidence_step": "Recover VCB independently audited consolidated FY2025, inspect B02 and B04 notes for restatement and compare closing cash/equity; maintain both source versions. No re-run old PASS unless proven error.",
+      "user_visibility": "only_if_user_explicitly_asks_for_missing_ticker_or_periods",
+      "latest_threshold_0_1pct_cannot_justify_bank_cash_opening_plug": true
     }
   ]
 }
