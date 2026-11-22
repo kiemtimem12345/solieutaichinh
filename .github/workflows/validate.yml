@@ -43,6 +43,8 @@ jobs:
         run: python scripts/verify_plx_q3_2025_reviewed_h1.py
       - name: Verify PLX Q4 2025 original vs audited FY signed accounting vintages, quarantine quarter cash
         run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
+      - name: Verify SHS Q3 2026 signed issuer and independently AASC reviewed H1 62 VND fields, 24 exact equations
+        run: python scripts/verify_shs_2026q3_signed_reviewed_h1.py
       - name: Verify VCB 2026Q3 signed bank consolidated original 148 cells, 43 accounting identities and Q3 9M minus H1
         run: python scripts/verify_vcb_2026q3_signed_9m_h1.py
       - name: Verify VCB Q2 2026 signed H1 issuer consolidated 141 bank million VND values and 6M minus Q1 B04 cash
