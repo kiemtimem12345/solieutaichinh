@@ -2334,8 +2334,8 @@
           ]
         },
         "verified_original_pdf_page_images": true,
-        "original_pdf_hash_verified": false,
-        "original_pdf_hash_status": "source_proof_worker_running_optional; original HOSE visually verified independently",
+        "original_pdf_hash_verified": true,
+        "original_pdf_hash_status": "verified independent SHA256 from official-disclosure exact-document mirror (not claimed same bytes as HOSE original)",
         "source_verified_B01_B02_B03": true,
         "reporter_has_no_subsidiaries_signed_source": true,
         "broker_client_cash_excluded_from_company_CFO_CFI_CFF": true,
@@ -2347,7 +2347,13 @@
           "revenue": "500000000",
           "operating_expenses": "400000"
         },
-        "original_2024_data_is_excluded": true
+        "original_2024_data_is_excluded": true,
+        "original_pdf_sha256": "faa3a568d8aac84e4104c234196355b985d4aa17417cb6adffe2fd4dc22dc7b6",
+        "original_pdf_bytes": 3680290,
+        "original_pdf_pages": 61,
+        "original_pdf_mirror_source_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%203/VCK_Baocaotaichinh_Q3_2026.pdf",
+        "original_pdf_source_workflow": 44969525235,
+        "original_pdf_preview_artifact_id": 14733320500
       },
       "published_at": "2026-10-20",
       "source_archive_source": "VietstockFinance document index",
