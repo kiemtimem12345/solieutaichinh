@@ -200,6 +200,22 @@
   "source_notes": [
     "VCB signed bank cashflow 9M section line I CFO +106,283,289 million, not gross received interest 76,029,283 million; CFI -718,369; CFF 0; cash 9M net +105,564,920, cash start 430,614,185 and end 536,179,105 million.",
     "Q3 standalone company cash = signed 9M minus signed 2025 H1 6M same consolidated bank scope. Original income direct Q3 vs 9M minus H1 reconciles 0 million.",
-    "2024 only opening comparison in bank B02 source, no 2024 period stored. Bank B04 cash/equivalents not equal B02 vault cash."
-  ]
+    "2024 only opening comparison in bank B02 source, no 2024 period stored. Bank B04 cash/equivalents not equal B02 vault cash.",
+    "Q3 directly reported gross interest income vs 9M minus signed Q2/H1 differs -6,904 million and gross interest expense +6,904 million; net interest income, all downstream income, and B04 company cash reconcile exactly. Both ratios <0.1%; record in private exception queue, do not plug or overwrite signed Q3 figures."
+  ],
+  "comparison_to_prior_signed_H1": {
+    "source_ledger": "reports/source-audits/VCB-2025Q2-original-signed-consolidated-H1-million-vnd.json",
+    "report_versions": "issuer Q3 9M original minus issuer Q2 signed 6M, consolidated bank both; keep Q3 original direct quarter authoritative",
+    "quarterly_interest_income_delta_million_vnd": -6904,
+    "quarterly_interest_expense_delta_million_vnd": 6904,
+    "net_interest_income_delta_million_vnd": 0,
+    "quarter_profit_before_tax_delta_million_vnd": 0,
+    "quarter_net_profit_delta_million_vnd": 0,
+    "relative_interest_income_deviation_percent": 0.02585,
+    "relative_interest_expense_deviation_percent": 0.05726,
+    "latest_user_allowed_percent": 0.1,
+    "source_original_Q3_direct_values_unmodified": true,
+    "financial_cashflow_bridge_verified_to_zero": true,
+    "queue_only_no_rewrite": true
+  }
 }
