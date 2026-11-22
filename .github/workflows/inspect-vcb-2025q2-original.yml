@@ -1,0 +1,34 @@
+name: Inspect VCB Q2 2025 signed consolidated H1 source (read-only)
+on:
+  push:
+    branches: [work/vcb-2025q2-signed-consolidated-6m-20261122]
+    paths:
+      - scripts/inspect_vcb_2025q2_consolidated_source.py
+      - .github/workflows/inspect-vcb-2025q2-original.yml
+  pull_request:
+    paths:
+      - scripts/inspect_vcb_2025q2_consolidated_source.py
+      - .github/workflows/inspect-vcb-2025q2-original.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -qq -y curl poppler-utils
+      - name: Syntax check
+        run: python -m py_compile scripts/inspect_vcb_2025q2_consolidated_source.py
+      - name: Verify VCB consolidated original issuer 2025 H1 PDF source
+        run: python -u scripts/inspect_vcb_2025q2_consolidated_source.py
+      - name: Temporarily retain financial statement page previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vcb-2025q2-consolidated-original-page-previews
+          path: vcb-2025q2-consolidated-previews/*.jpg
+          if-no-files-found: warn
+          retention-days: 1
