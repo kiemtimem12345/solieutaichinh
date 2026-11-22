@@ -125,7 +125,10 @@
     "cfi_disposal_9m": "43518529",
     "cfi_dividends_9m": "3155542225",
     "cff_borrow_9m": "39542130193468",
-    "cff_repayment_9m": "-32956879379203"
+    "cff_repayment_9m": "-32956879379203",
+    "assets_H1": "27566961471493",
+    "liabs_H1": "15022715008683",
+    "equity_H1": "12544246462810"
   },
   "quarter_standalone_cashflow_vnd": {
     "cfo": "1010086597336",
@@ -157,12 +160,15 @@
     "cash_B01_B03": "0",
     "cfi_items": "0",
     "cff_items": "0",
-    "customer_not_company": "0"
+    "customer_not_company": "0",
+    "reviewed_H1_balance": "0",
+    "H1_reported_independent_cash_opening_equals_Q3_cash_opening": "0"
   },
   "notes": [
     "Source original cash corporate B01 3,392,364,033,103 VND; B03 9M corporate ending matches exactly. Brokerage customer deposits 1,211,124,622,076 VND are off-company bank cash in code 026, never add to company cash.",
     "Direct Q3 B02 operating revenue, pre-tax profit and PAT match Q3 9M minus independently AASC-reviewed H1 6M exact VND. Source 9M corporate cash CFO/CFI/CFF and reviewed H1 cash are same company and use same indirect B03 cash accounting classification.",
     "Q3 cashflow =9M−AASC reviewed H1: CFO +1,010,086,597,336, CFI −15,663,429,228, CFF +1,439,580,814,265, net +2,434,003,982,373, opening +958,360,050,730, ending +3,392,364,033,103 exact VND.",
-    "SHS 2026Q3 source company issuer statement with no title declaring consolidated; do not automatically label a consolidated report. Previously source-checked 2025 and 2026Q1/Q2 records not reprocessed."
+    "SHS 2026Q3 source company issuer statement with no title declaring consolidated; do not automatically label a consolidated report. Previously source-checked 2025 and 2026Q1/Q2 records not reprocessed.",
+    "AASC independently reviewed H1 B01 total assets 27,566,961,471,493 VND, liabilities 15,022,715,008,683, equity 12,544,246,462,810, exactly reconciles and provides source-verified previous-quarter opening bases for Q3 annualized ROA and ROE."
   ]
 }
