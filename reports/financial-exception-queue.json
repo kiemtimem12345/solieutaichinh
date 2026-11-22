@@ -1,6 +1,6 @@
 {
   "schema_version": "2026-11-22-source-accounting-pending-v1",
-  "display_policy": "private_work_queue_only; never surface unfinished ticker codes or details unless asked by user",
+  "display_policy": "private_work_queue_only; do not list queued tickers/periods unless user asks",
   "continue_processing_other_periods": true,
   "items": [
     {
@@ -112,6 +112,26 @@
       "next_evidence_step": "Recover VCB independently audited consolidated FY2025, inspect B02 and B04 notes for restatement and compare closing cash/equity; maintain both source versions. No re-run old PASS unless proven error.",
       "user_visibility": "only_if_user_explicitly_asks_for_missing_ticker_or_periods",
       "latest_threshold_0_1pct_cannot_justify_bank_cash_opening_plug": true
+    },
+    {
+      "id": "VCB-2026Q3-2025FY-comparative-trinh-bay-lai-vs-2026H1",
+      "ticker": "VCB",
+      "period": "2026-Q3",
+      "status": "separate_represented_prior_year_comparative_vintage_note_nonblocking",
+      "source_audit_ledger": "reports/source-audits/VCB-2026Q3-original-signed-consolidated-9M-million-vnd.json",
+      "source_Q3_2026": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%203/VCB_Baocaotaichinh_Q3_2026_Hopnhat.pdf",
+      "difference_million_vnd": {
+        "FY2025_comparative_assets_Q3_minus_H1": 44915,
+        "FY2025_comparative_liabilities_Q3_minus_H1": 15891,
+        "FY2025_comparative_equity_Q3_minus_H1": 29024
+      },
+      "explanation": "VCB Q3 signed original explicitly labels FY2025 31/12 figures trình bày lại, while Q2 2026 signed H1 comparative bank assets 2,442,279,166 vs 9M B02 2,442,324,081; do not rewrite already signed historical source; no 2024 period imported.",
+      "Q3_current_year_9M_cashflow_and_balance_equations_exact_zero_million": true,
+      "production_eligible": true,
+      "blocks_sequential_processing": false,
+      "private_only": true,
+      "next_evidence_step": "Read FY2025 audited source and Q3 2026 accounting note on presentation changes only with new relevant evidence.",
+      "user_visibility": "only_if_user_explicitly_asks_for_missing_ticker_or_period_list"
     }
   ]
 }
