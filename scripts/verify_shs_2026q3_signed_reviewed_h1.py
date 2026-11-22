@@ -112,7 +112,7 @@ def verify(src,d):
  expected_roe=round(int(s["pat_q3"])/(int(s["equity_H1"])+int(s["equity"]))*800,2)
  assert row["roa"]==expected_roa and row["roe"]==expected_roe,(expected_roa,expected_roe)
  assert vnd(row,"broker_customer_deposits")!=vnd(row,"cash_ending")
- assert row["cash_beginning"]+row["net_cash_change"]==row["cash_ending"]
+ assert vnd(row,"cash_beginning")+vnd(row,"net_cash_change")==vnd(row,"cash_ending")
  assert not any(x["period"].startswith("2024") for x in d["items"])
  return len(s)
 def main():
