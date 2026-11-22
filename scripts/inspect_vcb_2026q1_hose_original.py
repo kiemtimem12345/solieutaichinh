@@ -3,6 +3,7 @@
 from pathlib import Path
 import subprocess,hashlib,tempfile
 SOURCES=[
+"https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/VCB_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
 "https://staticfile.hsx.vn/Uploads/UploadDocuments/2458219/20260429%20-%20VCB%20-%20BCTC%20hop%20nhat%20Q1.2026.pdf"
 ]
 OUT=Path("vcb-2026q1-consolidated-preview");OUT.mkdir(exist_ok=True)
