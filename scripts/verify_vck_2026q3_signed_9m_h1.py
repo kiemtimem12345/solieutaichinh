@@ -26,7 +26,7 @@ def source_verify(s,pr):
     assert s["signed_date"]=="2026-10-19" and s["published_date"]=="2026-10-20"
     assert s["verified_original_at_HOSE_PDF"] is True
     assert "2505926" in s["official_original_url"] and s["unit"]=="VND"
-    assert "consolidated report" in s["scope"] and "client custody" in s["scope"]
+    assert "consolidated report" in s["scope"] and "custody cash excluded" in s["scope"]
     f=s["original_exact_vnd_fields"]
     assert len(f)==89
     N=lambda k:int(f[k])
