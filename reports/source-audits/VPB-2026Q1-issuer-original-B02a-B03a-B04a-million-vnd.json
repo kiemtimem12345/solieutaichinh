@@ -109,5 +109,11 @@
     "opening_cash": 196097219,
     "FX_effect": 0,
     "closing_cash": 208224915
+  },
+  "prior_FY2025": {
+    "assets": 1260149596,
+    "liabilities": 1079873967,
+    "equity": 180275629,
+    "closing_cash": 196097219
   }
 }
