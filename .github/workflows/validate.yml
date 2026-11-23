@@ -45,6 +45,8 @@ jobs:
         run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
       - name: Verify SHS Q3 2026 signed issuer and independently AASC reviewed H1 62 VND fields, 24 exact equations
         run: python scripts/verify_shs_2026q3_signed_reviewed_h1.py
+      - name: Verify STB 2025Q3 signed 9M-minus-KPMG H1 FX cash and accepted 200m component tolerance, 30 negative tests
+        run: python scripts/verify_stb_2025q3_original_KPMG_H1.py
       - name: Verify STB 2025Q2 original signed bank and KPMG H1-reviewed FX cash vintage with 25 negative tests
         run: python scripts/verify_stb_2025q2_original_KPMG_reviewed_h1.py
       - name: Verify STB 2025Q1 issuer original signed B02 B03 B04 FX-aware bank cash with 24 tamper cases
