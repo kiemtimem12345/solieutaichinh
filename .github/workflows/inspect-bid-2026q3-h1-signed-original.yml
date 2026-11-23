@@ -5,6 +5,9 @@ on:
       - scripts/inspect_bid_2026q3_h1_signed_sources.py
       - .github/workflows/inspect-bid-2026q3-h1-signed-original.yml
   workflow_dispatch:
+concurrency:
+  group: bid-2026q3-h1-issuer-readonly-source
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
