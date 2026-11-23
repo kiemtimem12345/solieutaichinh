@@ -1,0 +1,32 @@
+name: Inspect TPB 2026 Q3 original consolidated bank (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_tpb_2026q3_original.py'
+      - '.github/workflows/inspect-tpb-2026q3-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tpb-2026q3-original-source
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF source utilities
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Check inspector syntax
+        run: python -m py_compile scripts/inspect_tpb_2026q3_original.py
+      - name: Recover TPB original Q3/2026 and render bank signed statements
+        run: python -u scripts/inspect_tpb_2026q3_original.py
+      - name: Keep short-lived original bank statement previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tpb-2026q3-original-source-pages
+          path: tpb-2026q3-original-source/*
+          retention-days: 1
+          if-no-files-found: warn
