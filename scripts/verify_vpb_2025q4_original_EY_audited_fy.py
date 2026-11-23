@@ -58,7 +58,7 @@ def verify(a,f,priors):
  E["FY_B04_true_CFO"]=c["pre_wc_cash"]+ss(c,("assets_interbank","assets_securities","assets_derivatives",
     "assets_customer_loans","assets_credit_provisions","assets_other","liabs_government","liabs_interbank",
     "liabs_customer_deposits","liabs_valuable_papers","liabs_trust","liabs_derivatives",
-    "liabs_other","liabs_working_capital_other"))-c["CFO"]
+    "liabs_other"))-c["CFO"]
  E["FY_B04_CFI"]=ss(c,("capex","asset_disposals","disposal_costs","investment_distributions"))-c["CFI"]
  E["FY_B04_CFF"]=c["share_proceeds"]+c["dividends"]-c["CFF"]
  E["FY_B04_net"]=c["CFO"]+c["CFI"]+c["CFF"]+c["FX_effect"]-c["net_cash_change"]
