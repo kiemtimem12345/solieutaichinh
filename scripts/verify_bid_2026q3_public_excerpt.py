@@ -35,7 +35,7 @@ def verify(a: dict, data: dict) -> int:
     assert data["items"][2]["verification_status"] == "issuer_signed_BID_2025Q3_consolidated_B01_B03_B04_reviewedH1_quarter_exact_verified"
     assert data["items"][3]["verification_status"] == "issuer_signed_BID_2025Q4_first_issued_B01_B03_FY_audited_minus_signed9M_B04_verified"
     assert data["items"][4]["verification_status"] == "issuer_signed_BID_2026Q1_consolidated_B01_B03_B04_direct_exact_verified"
-    assert all(r.get("verification_status") == "auto_extracted_pending_visual_review" for r in data["items"][5:-1])
+    assert data["items"][5]["verification_status"] == "issuer_signed_BID_2026Q2_first_issued_B01_B03_reviewed_H1_minus_signed_Q1_B04_verified"
     b, q, y, c = (
         a["b01_2026_09_30_million_vnd"],
         a["b03_q3_direct_million_vnd"],
@@ -142,7 +142,7 @@ def verify(a: dict, data: dict) -> int:
     assert qc["quarter_new_equity"] == -1, "One-million same-basis Q3 financing offset is source-attributed, not a plug"
     vintage = a["H1_reviewed_vs_Q2_first_issued_scope_vintage"]
     older = data["items"][-2]
-    assert older["period"] == "2026-Q2" and older["verification_status"] == "auto_extracted_pending_visual_review"
+    assert older["period"] == "2026-Q2" and older["verification_status"] == "issuer_signed_BID_2026Q2_first_issued_B01_B03_reviewed_H1_minus_signed_Q1_B04_verified"
     assert older["total_assets"] == vintage["q2_original_provisional_assets"]
     assert older["total_liabilities"] == vintage["q2_original_provisional_liabilities"]
     assert older["equity"] == vintage["q2_original_provisional_equity"]
