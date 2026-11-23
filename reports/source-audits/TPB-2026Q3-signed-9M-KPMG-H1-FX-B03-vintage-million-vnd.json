@@ -1,0 +1,57 @@
+{
+  "schema_version": "TPB-2026Q3-9M-KPMG-H1-v1",
+  "symbol": "TPB",
+  "period": "2026-Q3",
+  "scope": "consolidated",
+  "unit": "triệu VND",
+  "original_Q3": {
+    "url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%203/TPB_Baocaotaichinh_Q3_2026_Hopnhat.pdf",
+    "sha256": "bd1aa29d631748a0e37bfe33b58ee11b4c4bc281187b4b1110f16b66f1dc7e89",
+    "bytes": 16711136,
+    "pages": 64,
+    "B02a_pages": [
+      7,
+      8
+    ],
+    "B03a_page": 10,
+    "B04a_pages": [
+      11,
+      12
+    ],
+    "workflow_run": 45208423862,
+    "artifact_id": 14834118606
+  },
+  "B02a_Q3": {
+    "cash_vault": 1775015,
+    "deposits_SBV": 25491292,
+    "interbank_assets": 123386201,
+    "trading_securities": 2212188,
+    "derivative_assets": 340615,
+    "customer_loans_net": 330151868,
+    "purchased_debt_net": 5762910,
+    "investment_securities": 64383584,
+    "longterm_investments": 13200,
+    "fixed_assets": 1582000,
+    "other_assets": 41412739,
+    "total_assets": 596511612,
+    "government_liabilities": 135553,
+    "interbank_liabilities": 170611018,
+    "customer_deposits": 301633971,
+    "derivative_liabilities": 0,
+    "trust_liabilities": 169793,
+    "valuable_papers": 56953271,
+    "other_liabilities": 14874952,
+    "total_liabilities": 544378558,
+    "bank_capital": 27740469,
+    "bank_funds": 6317995,
+    "fx_equity": 161199,
+    "retained_profit": 14092804,
+    "noncontrolling_equity": 3820587,
+    "total_equity": 52133054
+  },
+  "B02a_2025FY_represented_comparative": {
+    "total_assets": 505926663,
+    "total_equity": 45958116,
+    "caption": "31/12/2025 Trình bày lại, original Q3 source, do not substitute original FY2025 or KPMG FY2025 balance"
+  }
+}
