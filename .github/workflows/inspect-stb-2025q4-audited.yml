@@ -1,0 +1,32 @@
+name: Inspect STB 2025 Q4 signed original and KPMG audited FY bank cash
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_stb_2025q4_audited_sources.py'
+      - '.github/workflows/inspect-stb-2025q4-audited.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stb-2025q4-audited
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils curl tesseract-ocr tesseract-ocr-vie
+      - name: Compile inspection program
+        run: python -m py_compile scripts/inspect_stb_2025q4_audited_sources.py
+      - name: Read original and KPMG audited FY source stamps
+        run: python -u scripts/inspect_stb_2025q4_audited_sources.py
+      - name: Keep source evidence briefly
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stb-2025q4-original-kpmg-audited
+          path: stb-2025q4-source-evidence/*.txt
+          retention-days: 1
+          if-no-files-found: warn
