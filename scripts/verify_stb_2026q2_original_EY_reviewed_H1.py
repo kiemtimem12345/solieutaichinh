@@ -50,6 +50,7 @@ def verify(a,q1,d):
  E["Q2_net"]=q["CFO"]+q["CFI"]+q["CFF"]-q["net_cash_change"]
  E["Q2_FXcash"]=q["opening_cash"]+q["net_cash_change"]+q["FX_effect"]-q["closing_cash"]
  assert len(E)>=35 and all(v==0 for v in E.values()),E
+ assert a["source_vintage_delta_EY_less_original"]=={"CFO":-2,"CFI":1,"CFF":0,"net_cash_change":-1,"FX_effect":1,"closing_cash":0}
  assert len(a["source_identity_residuals"])==21 and all(v==0 for v in a["source_identity_residuals"].values())
  assert first["CFO"]==q1["B04a"]["CFO"] and first["closing_cash"]==q1["B04a"]["closing_cash"]
  assert (b["total_assets"],b["total_liabilities"],b["total_equity"])==(892048566,829241317,62807249)
