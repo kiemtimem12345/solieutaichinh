@@ -1,0 +1,32 @@
+name: Inspect BID 2025 Q3 original consolidated PDF (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_bid_2025q3_signed_consolidated.py'
+      - '.github/workflows/inspect-bid-2025q3-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bid-2025q3-source-inspection
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Check signed source inspector syntax
+        run: python -m py_compile scripts/inspect_bid_2025q3_signed_consolidated.py
+      - name: Fetch issuer original and render B01 B03 B04 for review
+        run: python -u scripts/inspect_bid_2025q3_signed_consolidated.py
+      - name: Keep minimal source preview for visual check
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bid-2025q3-source-pages
+          path: bid-2025q3-original-preview/*
+          retention-days: 1
+          if-no-files-found: warn
