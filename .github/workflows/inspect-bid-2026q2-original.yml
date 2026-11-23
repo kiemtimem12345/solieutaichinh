@@ -1,0 +1,32 @@
+name: Inspect BID Q2 2026 original signed consolidated (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_bid_2026q2_original_signed.py'
+      - '.github/workflows/inspect-bid-2026q2-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bid-2026q2-original-source
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install source PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Source script syntax
+        run: python -m py_compile scripts/inspect_bid_2026q2_original_signed.py
+      - name: Download original BID Q2 and inspect B01 B03 B04 pages
+        run: python -u scripts/inspect_bid_2026q2_original_signed.py
+      - name: Preserve minimal original previews for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bid-2026q2-original-source-previews
+          path: bid-2026q2-original-evidence/*
+          retention-days: 1
+          if-no-files-found: warn
