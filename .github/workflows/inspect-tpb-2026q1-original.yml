@@ -1,0 +1,32 @@
+name: Inspect TPB 2026 Q1 issuer original consolidated (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_tpb_2026q1_original.py'
+      - '.github/workflows/inspect-tpb-2026q1-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tpb-2026q1-original-PDF
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install bank PDF utilities
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Verify inspector script syntax
+        run: python -m py_compile scripts/inspect_tpb_2026q1_original.py
+      - name: Recover TPB 2026 Q1 original with signed B02a B03a B04a
+        run: python -u scripts/inspect_tpb_2026q1_original.py
+      - name: Retain signed visual source for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tpb-2026q1-original-statement-pages
+          path: tpb-2026q1-original-pages/*
+          retention-days: 1
+          if-no-files-found: warn
