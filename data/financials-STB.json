@@ -2210,9 +2210,9 @@
         "extraction_attempt_count": 1,
         "last_extraction_error": "Không tìm được ba dòng tài sản/nợ/vốn cùng một cột thỏa phương trình cân đối.",
         "verified_at": "2026-11-24",
-        "original_pdf_hash_verified": false,
-        "original_pdf_sha256": null,
-        "reviewed_H1_pdf_sha256": null,
+        "original_pdf_hash_verified": true,
+        "original_pdf_sha256": "b50173a5c871d979f1cdcb42bcb8f3bb1860a27afe9b72bfa90f3edca1f07ff0",
+        "reviewed_H1_pdf_sha256": "f2a79faff2d0d497ce0be06efc37f6673116f809b2963fa1833dc73d7fc853d5",
         "original_source_run": 45273494680,
         "source_audit_ledger": "reports/source-audits/STB-2026Q2-original-EY-reviewed-H1-million-vnd.json",
         "original_B02_B03_B04_pages": [
@@ -2237,7 +2237,11 @@
         "reviewed_EY_6M_net_original_vintage_delta_million": -1,
         "reviewed_EY_6M_FX_original_vintage_delta_million": 1,
         "EPS_source_YTD_conflict_retained": true,
-        "no_2024_dashboard_periods": true
+        "no_2024_dashboard_periods": true,
+        "original_pdf_pages": 46,
+        "reviewed_H1_pdf_pages": 96,
+        "original_pdf_bytes": 14625280,
+        "reviewed_H1_pdf_bytes": 20078883
       },
       "published_at": "2026-07-31",
       "source_archive_file": "reports/raw/STB/auto-stb-20261021/b50173a5c871d979.pdf",
@@ -2262,7 +2266,7 @@
         17,
         18
       ],
-      "core_financial_extraction_status": "EY_reviewed_H1_and_original_Q2_source_reconciled_pending_sha",
+      "core_financial_extraction_status": "original_signed_46p_EY_reviewed_96p_sha_verified_exact",
       "core_financial_extraction_updated_at": "2026-10-25T20:30:51+00:00",
       "core_financial_extraction_note": "Đã có đủ trang nguồn mục tiêu nhưng hai lượt phân tích trên cùng văn bản vẫn không tạo được bộ chỉ tiêu lõi cân đối. Các số OCR chưa cân đối được lưu riêng để đối chiếu; chỉ tiêu chính chưa xác minh được để trống.",
       "fixed_assets": 6937711,
