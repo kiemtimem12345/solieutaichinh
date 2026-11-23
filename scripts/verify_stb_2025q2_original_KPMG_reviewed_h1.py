@@ -73,7 +73,7 @@ def verify(a,prev,d):
  assert d["items"][0]["verification_status"]=="issuer_signed_STB_2025Q1_original_B02a_B03a_B04a_FX_cash_verified"
  assert [x["verification_status"] for x in d["items"]][1:]==[
  STATUS,"issuer_signed_STB_2025Q3_original_B02a_B03a_9M_minus_KPMG_H1_B04a_FX_tolerance_verified","issuer_signed_STB_2025Q4_original_B02a_B03a_KPMG_FY_minus_9M_B04a_FX_verified",
- "auto_extracted_pending_visual_review","manual_review_required_pending_extraction"]
+ "issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","manual_review_required_pending_extraction"]
  row=d["items"][1];sv=row["source_validation"]
  assert sv["original_pdf_sha256"]==ZIP and sv["KPMG_reviewed_H1_pdf_sha256"]==KPMG
  assert sv["original_pdf_hash_verified"] and sv["reviewed_6M_minus_signed_Q1_cash_FX_exact"]
