@@ -26,5 +26,32 @@
       9,
       10
     ]
+  },
+  "B02a": {
+    "cash_vault": 3246271,
+    "deposits_SBV": 12730361,
+    "interbank_assets": 199197876,
+    "trading_securities": 27155780,
+    "derivative_assets": 0,
+    "customer_loans_net": 1140006659,
+    "purchased_debt_net": 876761,
+    "investment_securities": 62911491,
+    "longterm_investments": 1322178,
+    "fixed_assets": 1921316,
+    "other_assets": 53157683,
+    "total_assets": 1502526376,
+    "gov_liabs": 77156,
+    "interbank_liabs": 348140679,
+    "customer_deposits": 732887440,
+    "derivative_liabs": 1197556,
+    "trust_liabs": 69858,
+    "valuable_papers": 168943535,
+    "other_liabs": 59994808,
+    "total_liabilities": 1311311032,
+    "capital": 103331782,
+    "funds": 18624963,
+    "retained": 56362639,
+    "minority": 12895960,
+    "total_equity": 191215344
   }
 }
