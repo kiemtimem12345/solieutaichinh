@@ -121,7 +121,7 @@ def verify(a:dict,fin:dict)->int:
  assert [x["verification_status"] for x in fin["items"][1:]] == [
   "issuer_signed_TPB_2025Q2_original_B02a_B03a_KPMG_H1_minus_Q1_B04a_FX_vintage_verified",
   "issuer_signed_TPB_2025Q3_consolidated_B02a_B03a_B04a_9M_minus_KPMG_H1_FX_exact_verified",
-  "auto_extracted_pending_visual_review",
+  "issuer_signed_TPB_2025Q4_original_B02a_B03a_KPMG_FY_audited_minus_9M_B04a_FX_vintage_verified",
   "auto_extracted_pending_visual_review",
   "auto_extracted_pending_visual_review"
  ]
