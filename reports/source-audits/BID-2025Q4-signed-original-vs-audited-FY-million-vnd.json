@@ -196,7 +196,7 @@
     "parent_profit": 29904264
   },
   "B04_FY_first_issued": {
-    "cash_before_working_capital_not_CFO": 54114415,
+    "cash_before_working_capital_not_CFO": 54096862,
     "CFO": 192956384,
     "CFI": -1638693,
     "CFF": 14253843,
@@ -230,7 +230,8 @@
     "CFI": 0,
     "CFF": -2409,
     "net_cash_change": -18308,
-    "closing_cash": -18308
+    "closing_cash": -18308,
+    "cash_before_working_capital": 17553
   },
   "rules": {
     "q4_b01_b03_signed_first_issued_source": true,
@@ -240,7 +241,8 @@
     "no_fake_balancing_values": true,
     "no_2024_dashboard_quarters": true,
     "no_prior_BID_2025Q1_Q2_Q3_or_2026Q3_reprocessing": true,
-    "do_not_use_FY_pre_working_capital_as_CFO": true
+    "do_not_use_FY_pre_working_capital_as_CFO": true,
+    "original_FY_cash_before_working_capital_visual_pdf_page_8_verified": true
   },
   "B04_Q4_auditedFY_minus_signed9m": {
     "CFO": 81100023,
