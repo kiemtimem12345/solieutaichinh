@@ -119,7 +119,7 @@ def verify(a:dict,fin:dict)->int:
  assert row["roe"]==round(400*p["net_profit"]/((b["total_equity"]+audited["total_equity"])/2),2)==17.5
  assert audited["total_equity"]==37594469 and audited["total_assets"]==418028391
  assert [x["verification_status"] for x in fin["items"][1:]] == [
-  "auto_extracted_pending_visual_review",
+  "issuer_signed_TPB_2025Q2_original_B02a_B03a_KPMG_H1_minus_Q1_B04a_FX_vintage_verified",
   "manual_review_required_pending_extraction",
   "auto_extracted_pending_visual_review",
   "auto_extracted_pending_visual_review",
