@@ -1,0 +1,32 @@
+name: Inspect VPB 2025 Q4 issuer original ZIP B02a B03a B04a (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_vpb_2025q4_original_sources.py'
+      - '.github/workflows/inspect-vpb-2025q4-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: vpb-2025q4-original-source
+  cancel-in-progress: true
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare original PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate inspector syntax
+        run: python -m py_compile scripts/inspect_vpb_2025q4_original_sources.py
+      - name: Recover Q4 original ZIP and render issuer pages
+        run: python -u scripts/inspect_vpb_2025q4_original_sources.py
+      - name: Retain source visuals one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vpb-2025q4-original-source-pages
+          path: vpb-2025q4-original-source/*
+          retention-days: 1
+          if-no-files-found: warn
