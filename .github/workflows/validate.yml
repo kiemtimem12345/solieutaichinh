@@ -51,6 +51,8 @@ jobs:
         run: python scripts/verify_vpb_2025q2_original_reviewed_h1_bank_cash.py
       - name: Verify VPB 2025Q3 signed 95p original bank and 9M-minus-reviewedH1 CFO 21 corruption tests
         run: python scripts/verify_vpb_2025q3_original_9m_reviewed_h1_bank_cash.py
+      - name: Verify VPB Q3 2026 signed original 9M minus reviewed H1 bank cash all seven quarters, 14 corruption tests
+        run: python scripts/verify_vpb_2026q3_9m_reviewed_h1.py
       - name: Verify VPB 2026Q2 signed B02 B03 and reviewed H1 B04 cash reclassification with 12 tamper tests
         run: python scripts/verify_vpb_2026q2_original_reviewed_h1.py
       - name: Verify VPB original signed 2026Q1 bank B02 B03 B04 exact CFO and 21 corruption checks
