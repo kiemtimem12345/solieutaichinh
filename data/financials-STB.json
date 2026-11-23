@@ -1749,8 +1749,8 @@
         "document_id": "544560",
         "manually_visual_reviewed": true,
         "verified_at": "2026-11-24",
-        "original_pdf_hash_verified": false,
-        "original_pdf_sha256": null,
+        "original_pdf_hash_verified": true,
+        "original_pdf_sha256": "9bdfef933a655d731b26f51daf831971eb87498eaf570ed8872240ae7064cdbc",
         "original_source_run": 45272591891,
         "source_audit_ledger": "reports/source-audits/STB-2026Q1-original-signed-bank-million-vnd.json",
         "original_B02_B03_B04_pages": [
@@ -1766,7 +1766,9 @@
         "original_B04_FX_cash_bridge_exact": true,
         "original_reported_2026Q1_true_CFO_negative": true,
         "EPS_2454_printed_but_not_directly_quarter_verified": true,
-        "no_2024_dashboard_periods": true
+        "no_2024_dashboard_periods": true,
+        "original_pdf_bytes": 2966556,
+        "original_pdf_pages": 45
       },
       "published_at": "2026-04-29",
       "source_archive_file": "reports/raw/STB/auto-stb-20261021/9bdfef933a655d73.pdf",
@@ -1788,7 +1790,7 @@
         13,
         14
       ],
-      "core_financial_extraction_status": "source_original_45p_accounting_cash_verified_pending_SHA",
+      "core_financial_extraction_status": "issuer_original_45p_sha256_B02_B03_B04_cash_exact_verified",
       "core_financial_extraction_updated_at": "2026-10-25T08:28:25+00:00",
       "core_financial_extraction_note": "Chỉ tiêu lõi được trích xuất từ văn bản PDF/ZIP đã lưu; chưa xác minh thủ công trên bản PDF.",
       "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
