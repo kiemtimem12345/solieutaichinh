@@ -118,7 +118,13 @@ def verify(a:dict,fin:dict)->int:
  assert row["roa"]==round(400*p["net_profit"]/((b["total_assets"]+audited["total_assets"])/2),2)==1.67
  assert row["roe"]==round(400*p["net_profit"]/((b["total_equity"]+audited["total_equity"])/2),2)==17.5
  assert audited["total_equity"]==37594469 and audited["total_assets"]==418028391
- assert all(x["verification_status"]=="auto_extracted_pending_visual_review" for x in fin["items"][1:])
+ assert [x["verification_status"] for x in fin["items"][1:]] == [
+  "auto_extracted_pending_visual_review",
+  "manual_review_required_pending_extraction",
+  "auto_extracted_pending_visual_review",
+  "auto_extracted_pending_visual_review",
+  "auto_extracted_pending_visual_review"
+ ]
  assert not any(x["period"].startswith("2024") for x in fin["items"])
  return len(checks)
 
