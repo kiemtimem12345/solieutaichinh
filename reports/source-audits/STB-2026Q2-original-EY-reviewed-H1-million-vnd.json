@@ -4,12 +4,12 @@
   "period": "2026-Q2",
   "scope": "consolidated",
   "unit": "triệu VND",
-  "stage": "issuer_original_Q2_and_EY_reviewed_H1_verified_pending_SHA",
+  "stage": "original_signed_46p_and_EY_H1_reviewed_96p_sha_verified_exact_FX_cash",
   "source": {
     "original_Q2_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/STB_Baocaotaichinh_Q2_2026_Hopnhat.pdf?ver=5b3df9bf",
     "EY_reviewed_H1_url": "https://www.sacombank.com.vn/content/dam/sacombank/files/nhadautu/baocaotaichinh/2026/Interim-Consolidated-Financial-Statements-2026.pdf",
-    "original_sha256": null,
-    "reviewed_H1_sha256": null,
+    "original_sha256": "b50173a5c871d979f1cdcb42bcb8f3bb1860a27afe9b72bfa90f3edca1f07ff0",
+    "reviewed_H1_sha256": "f2a79faff2d0d497ce0be06efc37f6673116f809b2963fa1833dc73d7fc853d5",
     "source_workflow_run": 45273494680,
     "reviewer": "Ernst & Young Vietnam Limited",
     "reviewer_review_date": "2026-08-12",
@@ -31,7 +31,11 @@
       11,
       12
     ],
-    "prior_Q1_source_ledger": "reports/source-audits/STB-2026Q1-original-signed-bank-million-vnd.json"
+    "prior_Q1_source_ledger": "reports/source-audits/STB-2026Q1-original-signed-bank-million-vnd.json",
+    "original_pdf_pages": 46,
+    "reviewed_H1_pdf_pages": 96,
+    "original_pdf_bytes": 14625280,
+    "reviewed_H1_pdf_bytes": 20078883
   },
   "B02a_reviewed_H1": {
     "cash_vault": 5929857,
