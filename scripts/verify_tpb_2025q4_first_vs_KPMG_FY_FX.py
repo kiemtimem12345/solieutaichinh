@@ -126,7 +126,7 @@ def verify(a,prior,data):
    if isinstance(value,int):assert row["signed_source_"+prefix+"_"+key]==value,(prefix,key)
  assert all(x["verification_status"].startswith("issuer_signed") for x in data["items"][:4])
  assert data["items"][4]["verification_status"]=="issuer_signed_TPB_2026Q1_B02a_B03a_B04a_exact_FX_2025_represented_comparative_verified"
- assert data["items"][5]["verification_status"]=="auto_extracted_pending_visual_review"
+ assert data["items"][5]["verification_status"]=="issuer_signed_TPB_2026Q2_first_B02a_B03a_KPMG_H1_minus_Q1_B04a_FX_verified"
  assert not any(x["period"].startswith("2024") for x in data["items"])
  return len(checks)
 
