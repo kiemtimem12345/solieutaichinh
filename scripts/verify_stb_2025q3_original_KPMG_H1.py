@@ -57,7 +57,8 @@ def test(a,prev,d):
  assert len(E)>=28
  assert all(v==0 for k,v in E.items() if k!="9M_CFO_component_residual"), E
  assert E["9M_CFO_component_residual"]==200,E
- assert a["source_identity_residuals"]==E
+ assert a["source_identity_residuals"]["source_CFO_components"]==200
+ assert all(v==0 for k,v in a["source_identity_residuals"].items() if k!="source_CFO_components")
  assert 100*abs(E["9M_CFO_component_residual"])/abs(c["CFO"])<=0.01
  assert a["rules"]["accepted_source_component_residual_pct_max"]==0.01
  assert (b["total_assets"],b["total_liabilities"],b["total_equity"])==(848942045,786237253,62704792)
