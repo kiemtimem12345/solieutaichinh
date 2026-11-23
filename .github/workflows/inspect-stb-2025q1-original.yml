@@ -1,0 +1,27 @@
+name: Inspect STB 2025 Q1 original consolidated B02 B03 B04
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_stb_2025q1_original.py'
+      - '.github/workflows/inspect-stb-2025q1-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Inspect STB signed B02 B03 B04
+        run: python -u scripts/inspect_stb_2025q1_original.py
+      - name: Retain source text briefly
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stb-2025q1-original-source
+          path: stb-2025q1-original/*
+          retention-days: 1
+          if-no-files-found: warn

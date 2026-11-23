@@ -1,0 +1,57 @@
+{
+  "schema_version": "2026-11-24-STB-Q1-original-scanned-OCR-source-checkpoint-v1",
+  "symbol": "STB",
+  "period": "2025-Q1",
+  "scope": "consolidated",
+  "unit": "triệu VND",
+  "status": "source_recovered_original_scan_B02_B03_B04_totals_await_full_line_items_validation",
+  "source": {
+    "url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/STB_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
+    "sha256": "d69ecb46b8b488f4a596db04640b2a0553700ae29e50675d3554a599d47f2cd0",
+    "bytes": 10950303,
+    "pages": 47,
+    "workflow_run": 45256938072,
+    "OCR_original_pages": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "scanned_original_no_text_layer": true
+  },
+  "B02a_preliminary": {
+    "assets": 757093326,
+    "liabilities": 699230949,
+    "equity": 57862377
+  },
+  "B03a_preliminary": {
+    "pretax_profit": 3674030,
+    "net_profit": 2896692
+  },
+  "B04a_source": {
+    "CFO": -4502482,
+    "CFI": -106676,
+    "CFF": -1638284,
+    "net_cash_change": -6247442,
+    "opening_cash": 106493055,
+    "FX_effect": -10387,
+    "closing_cash": 100235226
+  },
+  "source_identical_checks": {
+    "B02_balance": 0,
+    "B04_net_cash_component_sum": 0,
+    "B04_cash_reconciliation": 0
+  },
+  "rules": {
+    "no_2024_dashboard_periods": true,
+    "do_not_promote_until_complete_original_B02_B03_B04_line_checks": true,
+    "bank_actual_CFO_not_pre_working_capital": true,
+    "original_scanned_OCR_requires_tamper_testing": true
+  },
+  "continuation": "Visually inspect original B02a/B03a scanned pages 2-4 and B04a pp5-6, normalize all fields and EPS, test source identities, then Q2 2025. Existing six STB data rows include 2026 Q2 but not Q3; add 2026Q3 only from published original."
+}
