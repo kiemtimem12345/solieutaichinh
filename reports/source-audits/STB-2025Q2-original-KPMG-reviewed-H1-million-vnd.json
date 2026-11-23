@@ -1,0 +1,103 @@
+{
+  "symbol": "STB",
+  "period": "2025-Q2",
+  "scope": "consolidated",
+  "unit": "triệu VND",
+  "stage": "source_original_Q2_48p_and_KPMG_H1_104p_exact_source_vintages",
+  "source": {
+    "original_Q2": {
+      "url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/STB_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+      "bytes": 27665099,
+      "pages": 48,
+      "sha256": "7260dccced5ae737046bf19a297a2416194ad7335b518226e631d26aa9646656",
+      "B02a_pages": [
+        2,
+        3
+      ],
+      "B03a_page": 5,
+      "B04a_pages": [
+        6,
+        7
+      ]
+    },
+    "KPMG_H1_reviewed": {
+      "url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/STB_Baocaotaichinh_6T_2025_Soatxet_Hopnhat.pdf",
+      "bytes": 27878327,
+      "pages": 104,
+      "sha256": "244de4c8a97ada2e086b27ac78484265b825d4cde9cbfcaebbda62ec3e4b3833",
+      "B02a_pages": [
+        7,
+        8
+      ],
+      "B03a_pages": [
+        10,
+        11
+      ],
+      "B04a_pages": [
+        12,
+        13
+      ]
+    },
+    "source_recovery_run": 45264566289,
+    "source_reviewed_focused_run": 45265036958,
+    "prior_Q1_source_ledger": "reports/source-audits/STB-2025Q1-original-signed-bank-million-vnd.json"
+  },
+  "B02a_reviewed_H1": {
+    "cash_vault": 8185140,
+    "deposits_SBV": 17032478,
+    "interbank_assets": 100602320,
+    "trading_securities": 0,
+    "derivative_assets": 0,
+    "customer_loans_net": 577041997,
+    "purchased_debt_net": 0,
+    "investment_securities": 84045030,
+    "longterm_investments": 82141,
+    "fixed_assets": 7205630,
+    "investment_property": 15503,
+    "other_assets": 13128985,
+    "total_assets": 807339224,
+    "gov_liabs": 5246934,
+    "interbank_liabs": 60686995,
+    "customer_deposits": 624314777,
+    "derivative_liabs": 28358,
+    "trust_liabs": 511431,
+    "valuable_papers": 36558656,
+    "other_liabs": 20170866,
+    "total_liabilities": 747518017,
+    "capital": 20601582,
+    "reserves": 8024474,
+    "fx_reserve": 46714,
+    "retained": 31148437,
+    "minority": 0,
+    "total_equity": 59821207
+  },
+  "B03a_Q2_direct": {
+    "interest_income": 13857982,
+    "interest_expense": -7272905,
+    "net_interest": 6585077,
+    "service_income": 1717223,
+    "service_expense": -798074,
+    "services_net": 919149,
+    "FX_net": 226741,
+    "trading_net": 0,
+    "invest_net": 1747,
+    "other_income": 120973,
+    "other_expense": -93722,
+    "other_net": 27251,
+    "contribution_income": 9415,
+    "operating_income": 7769380,
+    "operating_expenses": 3199817,
+    "before_provision": 4569563,
+    "credit_provision": 912321,
+    "pretax_profit": 3657242,
+    "income_tax_current": 763644,
+    "income_tax_deferred": 0,
+    "income_tax": 763644,
+    "net_profit": 2893598,
+    "noncontrolling_profit": 0,
+    "parent_profit": 2893598
+  },
+  "H1_Q2_reported_eps_ytd": 6148,
+  "H1_reviewed_eps_ytd": 3071,
+  "source_vintage_note": "2025Q2 original prints cumulative EPS 6,148 VND; KPMG reviewed H1 prints 3,071 VND; retain as source-vintage ambiguity, set Q2 standalone EPS null. KPMG H1 signed B03 PBT 7,331,272, original Q2 disclosed H1 PBT 7,331,273, so do not overwrite signed Q2 direct pretax 3,657,242. H1 PAT both 5,790,290. Original B02 OCR reading 7,208,630 fixed assets, 82,140 longterm, 13,128,986 other assets, 28,388 derivatives, 20,170,868 other liabilities mismatches detailed balancing. Verified KPMG-reviewed B02 fields reconcile exactly to original total 807,339,224. Preserve signed source hashes."
+}
