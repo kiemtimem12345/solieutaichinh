@@ -9,7 +9,7 @@ permissions:
   contents: read
 concurrency:
   group: stb-2025q4-audited
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   inspect:
     runs-on: ubuntu-latest
