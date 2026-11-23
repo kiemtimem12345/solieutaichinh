@@ -1,0 +1,32 @@
+name: Inspect TPB 2025 Q1 signed original consolidated source (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_tpb_2025q1_original.py'
+      - '.github/workflows/inspect-tpb-2025q1-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tpb-2025q1-original-source
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF inspection utilities
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Check source syntax
+        run: python -m py_compile scripts/inspect_tpb_2025q1_original.py
+      - name: Fetch TPB signed original and inspect B01 B03 B04 visual pages
+        run: python -u scripts/inspect_tpb_2025q1_original.py
+      - name: Keep provenance previews for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tpb-2025q1-original-statement-preview
+          path: tpb-2025q1-original-pages/*
+          retention-days: 1
+          if-no-files-found: warn
