@@ -1,0 +1,32 @@
+name: Inspect STB 2025 H1 KPMG reviewed cash original scanned pages 9-13
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_stb_2025h1_kpmg_focus.py'
+      - '.github/workflows/inspect-stb-2025h1-kpmg.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stb-2025h1-kpmg
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install reviewed bank PDF OCR
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Script syntax
+        run: python -m py_compile scripts/inspect_stb_2025h1_kpmg_focus.py
+      - name: Verified KPMG H1 B04 scan pages only
+        run: python -u scripts/inspect_stb_2025h1_kpmg_focus.py
+      - name: Retain 1-day evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stb-h1-2025-kpmg-review-B04-pages
+          path: stb-2025h1-kpmg-focused/*.txt
+          retention-days: 1
+          if-no-files-found: warn
