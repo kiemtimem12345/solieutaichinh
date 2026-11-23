@@ -183,5 +183,17 @@
   },
   "reviewed_vintage_CFO_minus_original": 84346,
   "reviewed_vintage_CFI_minus_original": -84346,
-  "reviewed_vintage_net_difference": 0
+  "reviewed_vintage_net_difference": 0,
+  "B04a_Q2_reviewed_H1_less_signed_Q1": {
+    "CFO": 3065,
+    "CFI": -1215629,
+    "CFF": -3965367,
+    "net_cash_change": -5177931,
+    "FX_effect": 0,
+    "opening_cash": 208224915,
+    "closing_cash": 203046984,
+    "capex": -142835,
+    "share_proceeds": 1595
+  },
+  "reviewed_version_note": "Reviewed H1 scanned B04 pages 12-13 PDF: CFO 12,148,763, CFI -1,233,631, CFF -3,965,367, net 6,949,765. Original H1 CFO 12,064,417, CFI -1,149,285; 84,346 reclassification from investing to operating. OCR pre-WC misreads 27,052,422; source components exact sum 27,952,422."
 }
