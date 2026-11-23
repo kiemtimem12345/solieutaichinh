@@ -1,0 +1,32 @@
+name: Inspect BID 2025 Q2 and reviewed H1 original consolidated (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_bid_2025q2_and_reviewed_h1_source.py'
+      - '.github/workflows/inspect-bid-2025q2-h1-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bid-2025q2-reviewed-h1-source
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install original PDF inspection utilities
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate source inspector syntax
+        run: python -m py_compile scripts/inspect_bid_2025q2_and_reviewed_h1_source.py
+      - name: Inspect original Q2 signed and reviewed H1 consolidated
+        run: python -u scripts/inspect_bid_2025q2_and_reviewed_h1_source.py
+      - name: Short-lived B01 B03 B04 source images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bid-2025q2-reviewed-h1-original-previews
+          path: bid-2025q2-h1-evidence/*
+          retention-days: 1
+          if-no-files-found: warn
