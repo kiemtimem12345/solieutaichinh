@@ -117,5 +117,31 @@
     "opening_cash": 196097219,
     "FX_effect": 0,
     "closing_cash": 203046984
+  },
+  "B04a_Q2_standalone": {
+    "CFO": -81281,
+    "CFI": -1131283,
+    "CFF": -3965367,
+    "net_cash_change": -5177931,
+    "FX_effect": 0,
+    "opening_cash": 208224915,
+    "closing_cash": 203046984,
+    "capex": -58489,
+    "share_proceeds": 1595
+  },
+  "Q1_signed_reference": {
+    "ledger": "reports/source-audits/VPB-2026Q1-issuer-original-B02a-B03a-B04a-million-vnd.json",
+    "cash_opening": 196097219,
+    "cash_ending": 208224915,
+    "CFO": 12145698,
+    "CFI": -18002,
+    "CFF": 0,
+    "net_cash_change": 12127696
+  },
+  "source_identity_residuals": {
+    "balance": 0,
+    "H1_cash": 0,
+    "Q2_cash": 0,
+    "Q2_net": 0
   }
 }
