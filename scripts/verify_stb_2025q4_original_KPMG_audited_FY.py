@@ -61,7 +61,7 @@ def verify(a,old,d):
  assert all(v["verification_status"].startswith("issuer_signed_STB") for v in d["items"][:4])
  assert d["items"][3]["verification_status"]==STATUS
  assert [v["verification_status"] for v in d["items"]][4:]==[
- "issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","manual_review_required_pending_extraction"]
+ "issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified"]
  row=d["items"][3];sv=row["source_validation"]
  assert sv["original_pdf_sha256"]==sha and sv["audited_FY_pdf_sha256"]==auditsha
  assert sv["original_pdf_hash_verified"] and sv["source_audit_ledger"]==str(LEDGER.relative_to(ROOT))
