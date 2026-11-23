@@ -20,8 +20,8 @@ SOURCES = {
     "https://bidv.com.vn/wps/wcm/connect/69a3b6bf-9fb3-4ef3-bb61-156cd541bc7d/20261030%2B-%2BBID%2B-%2BCBTT%2BBCTC%2BHN%2Bgiua%2Bnien%2Bdo%2BQ3.pdf?MOD=AJPERES",
   ],
   "BID_2026H1_REVIEWED_HN": [
-    "https://staticfile.hsx.vn/Uploads/UploadDocuments/2490347/20260818%20-%20BID%20-%20CBTT%20BCTC%20HN%20ban%20nien%20da%20duoc%20soat%20xet.pdf",
     "https://bidv.com.vn/wps/wcm/connect/6e490bbf-6629-4667-9ae4-c6134af2fcd8/20260818%2B-%2BBID%2B-%2BCBTT%2BBCTC%2BHN%2Bban%2Bnien%2Bda%2Bduoc%2Bsoat%2Bxet.pdf?MOD=AJPERES",
+    "https://staticfile.hsx.vn/Uploads/UploadDocuments/2490347/20260818%20-%20BID%20-%20CBTT%20BCTC%20HN%20ban%20nien%20da%20duoc%20soat%20xet.pdf",
   ],
 }
 
@@ -94,8 +94,10 @@ def inspect(label: str, urls: list[str], directory: Path) -> None:
         print(f"BANK_STATEMENT_ROW {label} {line[:250]}", flush=True)
     print(f"RELEVANT_LINES label={label} count={len(relevant)} shown={min(115, len(relevant))}", flush=True)
     # Keep only a few source statement previews for manual image QA; expire quickly.
+    first = 11 if "H1" in label else 3
+    last = min(17 if "H1" in label else 10, count)
     exec_bound([
-        "pdftoppm", "-f", "3", "-l", str(min(10, count)), "-scale-to", "1150",
+        "pdftoppm", "-f", str(first), "-l", str(last), "-scale-to", "1400",
         "-jpeg", "-jpegopt", "quality=60",
         str(pdf), str(OUTPUT / label),
     ], 160)
