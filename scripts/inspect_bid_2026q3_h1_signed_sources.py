@@ -14,9 +14,17 @@ import subprocess
 import tempfile
 
 SOURCES = {
-  "BID_2026Q3_HN": "https://bidv.com.vn/wps/wcm/connect/69a3b6bf-9fb3-4ef3-bb61-156cd541bc7d/20261030%2B-%2BBID%2B-%2BCBTT%2BBCTC%2BHN%2Bgiua%2Bnien%2Bdo%2BQ3.pdf?MOD=AJPERES",
-  "BID_2026H1_REVIEWED_HN": "https://bidv.com.vn/wps/wcm/connect/6e490bbf-6629-4667-9ae4-c6134af2fcd8/20260818%2B-%2BBID%2B-%2BCBTT%2BBCTC%2BHN%2Bban%2Bnien%2Bda%2Bduoc%2Bsoat%2Bxet.pdf?MOD=AJPERES",
+  "BID_2026Q3_HN": [
+    # Public exchange-disclosed attachment mirror, fallback to direct issuer server.
+    "https://cafefnew.mediacdn.vn/download/031126/bid122005-bao-cao-tai-chinh-quy-3-2026-1-640833.pdf?v=1793696065790",
+    "https://bidv.com.vn/wps/wcm/connect/69a3b6bf-9fb3-4ef3-bb61-156cd541bc7d/20261030%2B-%2BBID%2B-%2BCBTT%2BBCTC%2BHN%2Bgiua%2Bnien%2Bdo%2BQ3.pdf?MOD=AJPERES",
+  ],
+  "BID_2026H1_REVIEWED_HN": [
+    "https://staticfile.hsx.vn/Uploads/UploadDocuments/2490347/20260818%20-%20BID%20-%20CBTT%20BCTC%20HN%20ban%20nien%20da%20duoc%20soat%20xet.pdf",
+    "https://bidv.com.vn/wps/wcm/connect/6e490bbf-6629-4667-9ae4-c6134af2fcd8/20260818%2B-%2BBID%2B-%2BCBTT%2BBCTC%2BHN%2Bban%2Bnien%2Bda%2Bduoc%2Bsoat%2Bxet.pdf?MOD=AJPERES",
+  ],
 }
+
 OUTPUT = Path("bid-2026q3-h1-signed-evidence")
 KEYWORDS = re.compile(
     r"tổng tài sản|tổng nợ|vốn chủ sở hữu|tổng thu nhập|thu nhập lãi|chi phí lãi|"
@@ -34,20 +42,36 @@ def exec_bound(argv: list[str], timeout: int) -> str:
         raise RuntimeError(f"{argv[0]} exited {result.returncode}: {result.stderr[:500]}")
     return result.stdout
 
-def inspect(label: str, url: str, directory: Path) -> None:
+def inspect(label: str, urls: list[str], directory: Path) -> None:
     pdf = directory / (label + ".pdf")
-    exec_bound([
-        "curl", "--fail", "--location", "--silent", "--show-error",
-        "--retry", "1", "--retry-delay", "2",
-        "--connect-timeout", "15", "--max-time", "115",
-        "--speed-time", "18", "--speed-limit", "4096",
-        "--max-filesize", str(40 * 1024 * 1024),
-        "--user-agent", "Mozilla/5.0", "--output", str(pdf), url,
-    ], 140)
-    if not pdf.exists() or pdf.stat().st_size < 60000:
-        raise RuntimeError(f"Truncated or empty issuer report {label}")
-    with pdf.open("rb") as f:
-        assert f.read(5) == b"%PDF-", f"Not a PDF: {label}"
+    used_url = None
+    for url in urls:
+        args = [
+            "curl", "--location", "--silent", "--show-error",
+            "--retry", "1", "--retry-delay", "2",
+            "--connect-timeout", "15", "--max-time", "110",
+            "--speed-time", "18", "--speed-limit", "4096",
+            "--max-filesize", str(40 * 1024 * 1024),
+            "--user-agent", "Mozilla/5.0 (financial-source-audit)",
+            "--output", str(pdf), "--write-out",
+            "%{http_code}|%{content_type}|%{size_download}|%{url_effective}", url
+        ]
+        try:
+            diag = exec_bound(args, 135)
+        except (RuntimeError, subprocess.TimeoutExpired) as e:
+            print(f"SOURCE_ATTEMPT_FAILED label={label} host={url.split('/')[2]} error={str(e)[:200]}", flush=True)
+            continue
+        size = pdf.stat().st_size if pdf.exists() else 0
+        magic = pdf.open("rb").read(5) if size else b""
+        is_pdf = size > 60000 and magic == b"%PDF-"
+        print(f"SOURCE_ATTEMPT label={label} host={url.split('/')[2]} {diag[:150]} bytes={size} pdf={is_pdf}", flush=True)
+        if is_pdf:
+            used_url = url
+            break
+    if used_url is None:
+        raise RuntimeError(f"NO_COMPLETE_PDF_AVAILABLE {label}; no source data may be promoted")
+    url = used_url
+
     metadata = exec_bound(["pdfinfo", str(pdf)], 30)
     match = re.search(r"^Pages:\s*(\d+)\s*$", metadata, re.M)
     assert match, f"PDF page count missing: {label}"
@@ -80,8 +104,8 @@ def inspect(label: str, url: str, directory: Path) -> None:
 def main() -> None:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
-        for label, url in SOURCES.items():
-            inspect(label, url, Path(tmp))
+        for label, urls in SOURCES.items():
+            inspect(label, urls, Path(tmp))
     print("PASS provenance-only BID 2026Q3 plus 2026 reviewed H1; production remains UNVERIFIED until numeric reconciliation", flush=True)
 
 if __name__ == "__main__":
