@@ -1410,11 +1410,11 @@
         "review_method": "OCR/text reconciliation; visual PDF review pending",
         "pretax_profit_sign_corrected_from_source": true,
         "verified_at": "2026-11-24",
-        "original_pdf_hash_verified": false,
+        "original_pdf_hash_verified": true,
         "original_source_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/STB_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
         "audited_FY_source_url": "https://www.sacombank.com.vn/content/dam/sacombank/files/nhadautu/baocaotaichinh/2025/Consolidated-Financial-Statements-2025.pdf",
         "source_audit_ledger": "reports/source-audits/STB-2025Q4-original-KPMG-FY-bank-million-vnd.json",
-        "original_source_run": 45270228115,
+        "original_source_run": 45271206207,
         "original_B02_B03_B04_pages": [
           1,
           2,
@@ -1435,7 +1435,13 @@
         "bank_FY_minus_9M_FX_cash_exact": true,
         "original_vs_audited_FY_CFO_plus3m_CFI_minus3m": true,
         "no_2024_dashboard_periods": true,
-        "EPS_YTD_not_standalone": true
+        "EPS_YTD_not_standalone": true,
+        "original_pdf_sha256": "b0b7438ed502a175a79940e08b254789d8b766af0524d9bbb0d36171adbe0dbf",
+        "original_pdf_bytes": 15953457,
+        "original_pdf_pages": 47,
+        "audited_FY_pdf_sha256": "57f65260cfc9b3d6b089bc831fec8e3f4e483be3e9c1ff2e2e31ccec8343e15f",
+        "audited_FY_pdf_bytes": 28901796,
+        "audited_FY_pdf_pages": 108
       },
       "source_archive_file": "reports/raw/STB/auto-stb-20261021/b0b7438ed502a175.pdf",
       "source_archive_match": "matched_report_queue_url",
@@ -1465,7 +1471,7 @@
         13,
         14
       ],
-      "core_financial_extraction_status": "issuer_original_KPMG_audited_source_reconciled_verified_pending_source_sha",
+      "core_financial_extraction_status": "issuer_original_47p_KPMG_audited_FY_108p_source_hashed_balanced_verified",
       "core_financial_extraction_updated_at": "2026-10-25T08:28:23+00:00",
       "core_financial_extraction_note": "Không còn trang PDF/ZIP đang chờ trích xuất tự động nhưng bộ chỉ tiêu lõi vẫn thiếu hoặc chưa cân đối. Giữ trống chỉ tiêu chưa xác minh và yêu cầu đối chiếu trực quan với báo cáo VietstockFinance.",
       "core_financial_extraction_calculations": {
