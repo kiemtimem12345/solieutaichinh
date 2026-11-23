@@ -1,0 +1,25 @@
+{
+  "symbol": "VPB",
+  "period": "2026-Q1",
+  "scope": "consolidated",
+  "unit": "triệu VND",
+  "source": {
+    "url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/VPB_Baocaotaichinh_Q1_2026_Hopnhat.zip",
+    "archive_sha256": "a592c1ff829656bee45856464f18321405d09bec4068cafde19d71d95b4f9533",
+    "archive_bytes": 2758885,
+    "english_sha256": "77031dda5d88561e2d5029de1f1b6e6e7276331b257b518b9755602b51fef737",
+    "vietnamese_sha256": "614be8877c21ef189da90266c5b059eb0b7d47024444156241725820bb11dcde",
+    "pages": 91,
+    "source_run": 45251429408,
+    "B02a_pages": [
+      5,
+      6
+    ],
+    "B03a_page": 8,
+    "B04a_pages": [
+      9,
+      10
+    ]
+  },
+  "status": "source_recovered_pending_exact_validation"
+}
