@@ -77,7 +77,7 @@ def verify(a,f,prev):
     assert (f["symbol"],[x["period"] for x in f["items"]])==("VPB",
       ["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"])
     assert [x["verification_status"] for x in f["items"]]==[
-      Q1_STATUS,Q2_STATUS,STATUS,"auto_extracted_pending_visual_review",
+      Q1_STATUS,Q2_STATUS,STATUS,"issuer_signed_VPB_2025Q4_original_B02a_B03a_EY_FY_minus_signed9M_bank_B04a_verified",
       "manual_review_required_pending_extraction","manual_review_required_pending_extraction",
       "auto_extracted_pending_visual_review"]
     assert f["items"][1]["cash_ending"]==q["opening_cash"]
