@@ -1,0 +1,29 @@
+name: Inspect VPB 2026 Q3 original signed 9M bank source
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_vpb_2026q3_source.py'
+      - '.github/workflows/inspect-vpb-2026q3-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Source syntax
+        run: python -m py_compile scripts/inspect_vpb_2026q3_source.py
+      - name: Original Q3 source
+        run: python -u scripts/inspect_vpb_2026q3_source.py
+      - name: Short-term evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vpb-2026q3-signed-source
+          path: vpb-2026q3-source/*
+          retention-days: 1
+          if-no-files-found: warn
