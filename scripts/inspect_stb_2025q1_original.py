@@ -25,6 +25,16 @@ def main():
   print("STB_ORIGINAL_START",flush=True)
   print(raw[:52000],flush=True)
   print("STB_ORIGINAL_END",flush=True)
-  assert len(raw.strip())>1000,"Scanned PDF: require visual/OCR fallback"
+  if len(raw.strip())<=1000:
+   print("STB_Q1_SCAN_DETECTED targeted_Vietnamese_OCR_pages_2_to_10",flush=True)
+   cmd(["pdftoppm","-f","2","-l",str(min(10,pages)),"-r","160","-gray","-png",
+    str(f),str(OUT/"page")],220)
+   for picture in sorted(OUT.glob("page-*.png")):
+    txt=cmd(["tesseract",str(picture),"stdout","-l","vie+eng","--psm","6"],90)
+    (OUT/(picture.stem+"-ocr.txt")).write_text(txt[:10000],"utf8")
+    print("STB_Q1_PAGE_OCR "+picture.stem,flush=True)
+    print(txt[:11000],flush=True)
+   assert len(list(OUT.glob("page-*-ocr.txt")))>=5
+
  print("PASS STB 2025 Q1 signed original source recovery; finance production unchanged",flush=True)
 if __name__=="__main__":main()
