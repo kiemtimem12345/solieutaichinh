@@ -63,7 +63,7 @@ def verify(a,fy,fin):
  assert (c["CFI"],c["CFF"],c["net_cash_change"],c["FX_effect"])==(-94901,-192100,-7567017,373117)
  assert (c["opening_cash"],c["closing_cash"])==(115747324,108553424)
  assert fin["symbol"]=="TPB" and [v["period"] for v in fin["items"]]==[
-  "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+  "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  row=fin["items"][4];s=row["source_validation"]
  assert row["verification_status"]=="issuer_signed_TPB_2026Q1_B02a_B03a_B04a_exact_FX_2025_represented_comparative_verified"
  assert row["unit"]=="triệu VND" and "hợp nhất" in row["report_type"].lower()
@@ -114,6 +114,7 @@ def verify(a,fy,fin):
  assert row["roe"]==round(400*p["net_profit"]/((b["total_equity"]+po["total_equity"])/2),2)==14.32
  assert all(z["verification_status"].startswith("issuer_signed") for z in fin["items"][:5])
  assert fin["items"][5]["verification_status"]=="issuer_signed_TPB_2026Q2_first_B02a_B03a_KPMG_H1_minus_Q1_B04a_FX_verified"
+ assert fin["items"][6]["verification_status"]=="issuer_signed_TPB_2026Q3_B02a_B03a_9M_minus_KPMG_H1_bank_B04a_FX_vintage_verified"
  assert not any(z["period"].startswith("2024") for z in fin["items"])
  return len(E)
 

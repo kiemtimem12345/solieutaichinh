@@ -96,7 +96,7 @@ def verify(a,prior,data):
  assert (first["pretax_profit"],audit["pretax_profit"],v["pretax_profit"])==(9203137,9231078,27941)
  assert (qcf["CFO"],qcf["CFI"],qcf["CFF"],qcf["net_cash_change"])==(28136272,2209560,-958800,29387032)
  assert (qcf["opening_cash"],qcf["closing_cash"],qcf["FX_effect"])==(86612489,115747324,-252197)
- assert data["symbol"]=="TPB" and [x["period"] for x in data["items"]]==["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+ assert data["symbol"]=="TPB" and [x["period"] for x in data["items"]]==["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  row=data["items"][3];source=row["source_validation"]
  assert row["verification_status"]=="issuer_signed_TPB_2025Q4_original_B02a_B03a_KPMG_FY_audited_minus_9M_B04a_FX_vintage_verified"
  assert row["unit"]=="triệu VND" and "hợp nhất" in row["report_type"].lower()
@@ -127,6 +127,7 @@ def verify(a,prior,data):
  assert all(x["verification_status"].startswith("issuer_signed") for x in data["items"][:4])
  assert data["items"][4]["verification_status"]=="issuer_signed_TPB_2026Q1_B02a_B03a_B04a_exact_FX_2025_represented_comparative_verified"
  assert data["items"][5]["verification_status"]=="issuer_signed_TPB_2026Q2_first_B02a_B03a_KPMG_H1_minus_Q1_B04a_FX_verified"
+ assert data["items"][6]["verification_status"]=="issuer_signed_TPB_2026Q3_B02a_B03a_9M_minus_KPMG_H1_bank_B04a_FX_vintage_verified"
  assert not any(x["period"].startswith("2024") for x in data["items"])
  return len(checks)
 
