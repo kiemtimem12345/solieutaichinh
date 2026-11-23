@@ -8,9 +8,9 @@
     "original_url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/STB_Baocaotaichinh_Q4_2025_Hopnhat.pdf",
     "original_original_bank_url": "https://www.sacombank.com.vn/content/dam/sacombank/files/nhadautu/baocaotaichinh/2025/Consolidated-Financial-Statements-Q4.2025.pdf",
     "audited_FY_url": "https://www.sacombank.com.vn/content/dam/sacombank/files/nhadautu/baocaotaichinh/2025/Consolidated-Financial-Statements-2025.pdf",
-    "original_sha256": null,
-    "audited_FY_sha256": null,
-    "source_inspection_workflow_run": 45270228115,
+    "original_sha256": "b0b7438ed502a175a79940e08b254789d8b766af0524d9bbb0d36171adbe0dbf",
+    "audited_FY_sha256": "57f65260cfc9b3d6b089bc831fec8e3f4e483be3e9c1ff2e2e31ccec8343e15f",
+    "source_inspection_workflow_run": 45271206207,
     "prior_Q3_source_ledger": "reports/source-audits/STB-2025Q3-original-9M-KPMG-reviewed-H1-million-vnd.json",
     "B02a_pages": [
       1,
@@ -32,7 +32,11 @@
     "audited_FY_B04_pages": [
       11,
       12
-    ]
+    ],
+    "original_bytes": 15953457,
+    "original_pages": 47,
+    "audited_FY_bytes": 28901796,
+    "audited_FY_pages": 108
   },
   "B02a_Audited_FY": {
     "cash_vault": 5401563,
@@ -181,5 +185,6 @@
     "originalvintage_CFI": 0
   },
   "source_vintage_note": "First-issued FY 2025 B04 CFO +92,478,001 and CFI -764,337. Audited FY KPMG CFO +92,478,004 (+3), CFI -764,340 (-3), net unchanged +87,894,716. Original signed Q3 9M B04 component residual 200m (0.00057%) preserved; do not reprocess. FY 2025 audited and issuer original B02 and FY B03 numbers agree. Q4 B03 directly reported loss PBT -3,360,145 PAT -2,752,462 due to Q4 credit loss provision +9,232,152. Tax credit -607,683 is negative tax expense, so PAT equals PBT minus negative tax.",
-  "EPS_note": "Q4 source EPS 3,150 VND is FY YTD not Q4 standalone, so Q4 eps=null and eps_ytd=3150. No 2024 period stored."
+  "EPS_note": "Q4 source EPS 3,150 VND is FY YTD not Q4 standalone, so Q4 eps=null and eps_ytd=3150. No 2024 period stored.",
+  "stage": "issuer_signed_original_KPMG_FY_108pages_hashed_and_2025Q4_exact_identity_verified"
 }
