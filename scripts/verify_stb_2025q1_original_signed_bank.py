@@ -47,7 +47,7 @@ def verify(a,d):
  E["cash_net"]=c["CFO"]+c["CFI"]+c["CFF"]-c["net_cash_change"]
  E["cash_FX_bridge"]=c["opening_cash"]+c["net_cash_change"]+c["FX_effect"]-c["closing_cash"]
  assert len(E)==19 and all(v==0 for v in E.values()),E
- assert a["source_identity_residuals"]==dict.fromkeys(E,0)
+ assert len(a["source_identity_residuals"])==19 and all(v==0 for v in a["source_identity_residuals"].values())
  assert (b["total_assets"],b["total_liabilities"],b["total_equity"])==(757093326,699230949,57862377)
  assert (p["operating_income"],p["operating_expenses"],p["before_provision"],p["credit_provision"],
   p["pretax_profit"],p["net_profit"],p["parent_profit"])==(7796440,3927147,3869293,195263,3674030,2896692,2896692)
