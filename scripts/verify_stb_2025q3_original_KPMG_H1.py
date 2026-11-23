@@ -72,7 +72,7 @@ def test(a,prev,d):
  assert all(d["items"][k]["verification_status"].startswith("issuer_signed_STB_2025Q") for k in range(3))
  assert d["items"][2]["verification_status"]==STATUS
  assert [x["verification_status"] for x in d["items"]][3:]==[
- "issuer_signed_STB_2025Q4_original_B02a_B03a_KPMG_FY_minus_9M_B04a_FX_verified","issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","manual_review_required_pending_extraction"]
+ "issuer_signed_STB_2025Q4_original_B02a_B03a_KPMG_FY_minus_9M_B04a_FX_verified","issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified"]
  row=d["items"][2];sv=row["source_validation"]
  assert sv["original_pdf_sha256"]==SHA and sv["original_pdf_hash_verified"]
  assert sv["B04_original_source_components_CFO_residual_million_vnd"]==200
