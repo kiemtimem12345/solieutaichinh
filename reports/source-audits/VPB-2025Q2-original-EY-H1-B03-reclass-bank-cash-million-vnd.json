@@ -1,0 +1,98 @@
+{
+  "schema_version": "2026-11-24-VPB-Q2-original-reviewed-H1-B03-reclass-mVND-v1",
+  "symbol": "VPB",
+  "period": "2025-Q2",
+  "scope": "consolidated",
+  "unit": "triệu VND",
+  "original_Q2": {
+    "url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/VPB_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+    "sha256": "1db3edcdef5697a720a57ae009ba0134d93abd4d2a053ceacdba8c22e99917da",
+    "bytes": 7224962,
+    "pages": 92,
+    "B02a_pages": [
+      5,
+      6
+    ],
+    "B03a_page": 8,
+    "B04a_pages": [
+      9,
+      10
+    ],
+    "workflow_run": 45244732378
+  },
+  "reviewed_H1": {
+    "url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/VPB_Baocaotaichinh_6T_2025_Soatxet_Hopnhat.pdf",
+    "sha256": "c9f27ab6b1d69611209dee51e5bd9dc91dd74f491abf4f25a01821964266eecf",
+    "bytes": 10239403,
+    "pages": 104,
+    "auditor": "EY",
+    "B02a_pages": [
+      9,
+      10
+    ],
+    "B03a_page": 12,
+    "B04a_pages": [
+      13,
+      14
+    ],
+    "workflow_run": 45244732378
+  },
+  "B02a_Q2": {
+    "cash_vault": 2403496,
+    "deposits_SBV": 17320822,
+    "interbank_assets": 154342401,
+    "trading_securities": 14361441,
+    "derivative_assets": 0,
+    "customer_loans_net": 811930923,
+    "purchased_debt_net": 925747,
+    "investment_securities": 73755887,
+    "longterm_investments": 189210,
+    "fixed_assets": 1873802,
+    "other_assets": 27614781,
+    "total_assets": 1104718510,
+    "gov_liabs": 4346133,
+    "interbank_liabs": 229364716,
+    "customer_deposits": 600774163,
+    "derivative_liabs": 572805,
+    "trust_liabs": 7497,
+    "valuable_papers": 83140558,
+    "other_liabs": 34329953,
+    "total_liabilities": 952535825,
+    "capital": 103331782,
+    "funds": 14574824,
+    "retained": 28790209,
+    "minority": 5485870,
+    "total_equity": 152182685
+  },
+  "B03a_Q2_direct": {
+    "interest_income": 23429748,
+    "interest_expense": -9977956,
+    "net_interest": 13451792,
+    "service_income": 3305471,
+    "service_expense": -1935445,
+    "services_net": 1370026,
+    "FX_net": 93240,
+    "trading_net": 326594,
+    "invest_net": 38529,
+    "other_income": 1921005,
+    "other_expense": -873475,
+    "other_net": 1047530,
+    "contribution_income": 8857,
+    "operating_income": 16336568,
+    "operating_expenses": 4206364,
+    "before_provision": 12130204,
+    "credit_provision": 5915679,
+    "pretax_profit": 6214525,
+    "income_tax_current": 1249088,
+    "income_tax_deferred": 27941,
+    "income_tax": 1277029,
+    "net_profit": 4937496,
+    "noncontrolling_profit": 75096,
+    "parent_profit": 4862400
+  },
+  "B02a_H1_reviewed": {
+    "total_assets": 1104718510,
+    "total_liabilities": 952535825,
+    "total_equity": 152182685
+  }
+}
