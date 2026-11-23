@@ -42,7 +42,7 @@ def check(a,old,data):
  assert (p["before_provision"],p["credit_provision"],p["pretax_profit"],p["net_profit"])==(4130068,2023863,2106205,1584404)
  assert (c["pre_wc_cash"],c["CFO"],c["CFI"],c["CFF"],c["net_cash_change"],c["FX_effect"],c["opening_cash"],c["closing_cash"])==(3664141,-58545352,-128122,-24412,-58697886,10352,194472583,135785049)
  assert c["opening_cash"]==old["B04a_FY_KPMG_audited"]["closing_cash"]
- assert [r["period"] for r in data["items"]]==["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+ assert [r["period"] for r in data["items"]]==["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  assert all(x["verification_status"].startswith("issuer_signed_STB") for x in data["items"][:5])
  assert data["items"][4]["verification_status"]==STATUS
  assert data["items"][5]["verification_status"]=="issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified"

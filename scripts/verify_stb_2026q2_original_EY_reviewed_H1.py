@@ -58,7 +58,7 @@ def verify(a,q1,d):
  assert (o["CFO"],o["CFI"],o["CFF"],o["net_cash_change"],o["FX_effect"],o["closing_cash"])==(-41480644,-147599,-1468762,-43097005,-5701,151369877)
  assert (e["CFO"],e["CFI"],e["CFF"],e["net_cash_change"],e["FX_effect"],e["closing_cash"])==(-41480646,-147598,-1468762,-43097006,-5700,151369877)
  assert (q["CFO"],q["CFI"],q["CFF"],q["net_cash_change"],q["FX_effect"],q["opening_cash"],q["closing_cash"])==(17064706,-19476,-1444350,15600880,-16052,135785049,151369877)
- assert [x["period"] for x in d["items"]]==["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+ assert [x["period"] for x in d["items"]]==["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  assert all(x["verification_status"].startswith("issuer_signed_STB") for x in d["items"])
  row=d["items"][5];v=row["source_validation"]
  assert row["verification_status"]==STATUS

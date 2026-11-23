@@ -68,12 +68,12 @@ def verify(a,prev,d):
  assert (c["CFO"],c["CFI"],c["CFF"],c["net_cash_change"],c["FX_effect"],c["closing_cash"])==(22993304,-295309,-3885533,18812462,184939,125490456)
  assert (q["CFO"],q["CFI"],q["CFF"],q["net_cash_change"],q["FX_effect"],q["opening_cash"],q["closing_cash"])==(27495786,-188633,-2247249,25059904,195326,100235226,125490456)
  assert prev["source"]["sha256"]=="d69ecb46b8b488f4a596db04640b2a0553700ae29e50675d3554a599d47f2cd0"
- assert len(d["items"])==6 and [x["period"] for x in d["items"]]==[
- "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+ assert len(d["items"])==7 and [x["period"] for x in d["items"]]==[
+ "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  assert d["items"][0]["verification_status"]=="issuer_signed_STB_2025Q1_original_B02a_B03a_B04a_FX_cash_verified"
  assert [x["verification_status"] for x in d["items"]][1:]==[
  STATUS,"issuer_signed_STB_2025Q3_original_B02a_B03a_9M_minus_KPMG_H1_B04a_FX_tolerance_verified","issuer_signed_STB_2025Q4_original_B02a_B03a_KPMG_FY_minus_9M_B04a_FX_verified",
- "issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified"]
+ "issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified","issuer_signed_STB_2026Q3_original_VI_EN_B02a_B03a_9M_minus_EY_H1_B04a_FX_verified"]
  row=d["items"][1];sv=row["source_validation"]
  assert sv["original_pdf_sha256"]==ZIP and sv["KPMG_reviewed_H1_pdf_sha256"]==KPMG
  assert sv["original_pdf_hash_verified"] and sv["reviewed_6M_minus_signed_Q1_cash_FX_exact"]

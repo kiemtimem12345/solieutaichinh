@@ -57,11 +57,11 @@ def verify(a,old,d):
  assert (q["CFO"],q["CFI"],q["CFF"],q["net_cash_change"],q["FX_effect"],q["opening_cash"],q["closing_cash"])==(57606771,-354438,-432812,56819521,-81479,137734541,194472583)
  assert a["B03a_Audited_FY"]["pretax_profit"]-old["B03a_original_9M_YTD"]["pretax_profit"]==p["pretax_profit"]
  assert a["B03a_Audited_FY"]["net_profit"]-old["B03a_original_9M_YTD"]["net_profit"]==p["net_profit"]
- assert [v["period"] for v in d["items"]]==["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+ assert [v["period"] for v in d["items"]]==["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  assert all(v["verification_status"].startswith("issuer_signed_STB") for v in d["items"][:4])
  assert d["items"][3]["verification_status"]==STATUS
  assert [v["verification_status"] for v in d["items"]][4:]==[
- "issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified"]
+ "issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified","issuer_signed_STB_2026Q3_original_VI_EN_B02a_B03a_9M_minus_EY_H1_B04a_FX_verified"]
  row=d["items"][3];sv=row["source_validation"]
  assert sv["original_pdf_sha256"]==sha and sv["audited_FY_pdf_sha256"]==auditsha
  assert sv["original_pdf_hash_verified"] and sv["source_audit_ledger"]==str(LEDGER.relative_to(ROOT))

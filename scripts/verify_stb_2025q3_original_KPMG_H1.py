@@ -68,11 +68,11 @@ def test(a,prev,d):
  assert (c["CFO"],c["CFI"],c["CFF"],c["net_cash_change"],c["FX_effect"])==(34871233,-409902,-3386136,31075195,166291)
  assert (q["CFO"],q["CFI"],q["CFF"],q["net_cash_change"],q["FX_effect"],q["opening_cash"],q["closing_cash"])==(11877929,-114593,499397,12262733,-18648,125490456,137734541)
  assert [x["period"] for x in d["items"]]==[
- "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+ "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  assert all(d["items"][k]["verification_status"].startswith("issuer_signed_STB_2025Q") for k in range(3))
  assert d["items"][2]["verification_status"]==STATUS
  assert [x["verification_status"] for x in d["items"]][3:]==[
- "issuer_signed_STB_2025Q4_original_B02a_B03a_KPMG_FY_minus_9M_B04a_FX_verified","issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified"]
+ "issuer_signed_STB_2025Q4_original_B02a_B03a_KPMG_FY_minus_9M_B04a_FX_verified","issuer_signed_STB_2026Q1_original_B02a_B03a_B04a_FX_exact_verified","issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified","issuer_signed_STB_2026Q3_original_VI_EN_B02a_B03a_9M_minus_EY_H1_B04a_FX_verified"]
  row=d["items"][2];sv=row["source_validation"]
  assert sv["original_pdf_sha256"]==SHA and sv["original_pdf_hash_verified"]
  assert sv["B04_original_source_components_CFO_residual_million_vnd"]==200

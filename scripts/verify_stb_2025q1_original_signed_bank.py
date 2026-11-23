@@ -53,8 +53,8 @@ def verify(a,d):
   p["pretax_profit"],p["net_profit"],p["parent_profit"])==(7796440,3927147,3869293,195263,3674030,2896692,2896692)
  assert (c["pre_wc_cash"],c["CFO"],c["CFI"],c["CFF"],c["net_cash_change"],c["FX_effect"],
   c["opening_cash"],c["closing_cash"])==(2196830,-4502482,-106676,-1638284,-6247442,-10387,106493055,100235226)
- assert len(d["items"])==6 and [v["period"] for v in d["items"]]==[
-  "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+ assert len(d["items"])==7 and [v["period"] for v in d["items"]]==[
+  "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  row=d["items"][0];sv=row["source_validation"]
  assert row["verification_status"]==STATUS and row["unit"]=="triệu VND"
  assert sv["original_pdf_sha256"]==DIGEST and sv["original_pdf_hash_verified"]
