@@ -48,5 +48,32 @@
     "retained": 52157601,
     "minority": 12503086,
     "total_equity": 186604801
+  },
+  "B03a": {
+    "interest_income": 31549594,
+    "interest_expense": -14588966,
+    "net_interest": 16960628,
+    "service_income": 3843225,
+    "service_expense": -1778702,
+    "services_net": 2064523,
+    "FX_net": -419768,
+    "trading_net": -224125,
+    "invest_net": 14393,
+    "other_income": 2364329,
+    "other_expense": -882398,
+    "other_net": 1481931,
+    "contribution_income": 30625,
+    "operating_income": 19908207,
+    "operating_expenses": 4318327,
+    "before_provision": 15589880,
+    "credit_provision": 7669094,
+    "pretax_profit": 7920786,
+    "income_tax_current": 1667459,
+    "income_tax_deferred": -76141,
+    "income_tax": 1591318,
+    "net_profit": 6329468,
+    "noncontrolling_profit": 130807,
+    "parent_profit": 6198661,
+    "EPS": 781
   }
 }
