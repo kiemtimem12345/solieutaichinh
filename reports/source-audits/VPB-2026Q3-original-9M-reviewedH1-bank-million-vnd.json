@@ -23,5 +23,32 @@
       10
     ],
     "H1_2026_reviewed_ledger": "reports/source-audits/VPB-2026Q2-original-and-H1-bank-million-vnd.json"
+  },
+  "B02a": {
+    "cash_vault": 3777821,
+    "deposits_SBV": 25912166,
+    "interbank_assets": 211413809,
+    "trading_securities": 24797228,
+    "derivative_assets": 0,
+    "customer_loans_net": 1191737085,
+    "purchased_debt_net": 1401862,
+    "investment_securities": 84264043,
+    "longterm_investments": 1322178,
+    "fixed_assets": 12700303,
+    "other_assets": 53460191,
+    "total_assets": 1610786686,
+    "gov_liabs": 26675,
+    "interbank_liabs": 365616152,
+    "customer_deposits": 793047430,
+    "derivative_liabs": 2223257,
+    "trust_liabs": 67695,
+    "valuable_papers": 193694229,
+    "other_liabs": 56032994,
+    "total_liabilities": 1410708432,
+    "capital": 123992546,
+    "funds": 18636802,
+    "retained": 44333662,
+    "minority": 13115244,
+    "total_equity": 200078254
   }
 }
