@@ -128,5 +128,42 @@
     "bank_FX_is_separate": true,
     "accepted_source_component_residual_pct_max": 0.01,
     "EPS_quarter_not_independently_reported": true
+  },
+  "B04a_Q3_9M_less_KPMG_H1": {
+    "CFO": 11877929,
+    "CFI": -114593,
+    "CFF": 499397,
+    "net_cash_change": 12262733,
+    "FX_effect": -18648,
+    "capex": -176289,
+    "opening_cash": 125490456,
+    "closing_cash": 137734541
+  },
+  "KPMG_H1_comparator": {
+    "CFO": 22993304,
+    "CFI": -295309,
+    "CFF": -3885533,
+    "net_cash_change": 18812462,
+    "FX_effect": 184939,
+    "opening_cash": 106493055,
+    "closing_cash": 125490456,
+    "capex": -387356
+  },
+  "source_identity_residuals": {
+    "assets": 0,
+    "liab": 0,
+    "equity": 0,
+    "balance": 0,
+    "operating": 0,
+    "PBT": 0,
+    "PAT": 0,
+    "source_pre_wc": 0,
+    "source_CFO_components": 200,
+    "source_CFI": 0,
+    "source_CFF": 0,
+    "source_net": 0,
+    "source_FX_close": 0,
+    "quarter_net": 0,
+    "quarter_FX_close": 0
   }
 }
