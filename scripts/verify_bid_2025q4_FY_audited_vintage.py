@@ -156,7 +156,8 @@ def audit(a: dict, earlier: dict, data: dict) -> int:
     assert row["roa"]==round(4*100*q["net_profit"]/((b["total_assets"]+data["items"][2]["total_assets"])/2),2)==1.44
     assert row["roe"]==round(4*100*q["net_profit"]/((b["total_equity"]+data["items"][2]["equity"])/2),2)==27.03
     assert all(data["items"][i]["verification_status"].startswith("issuer_signed") for i in (0,1,2,6))
-    assert all(data["items"][i]["verification_status"]=="auto_extracted_pending_visual_review" for i in (4,5))
+    assert data["items"][4]["verification_status"] == "issuer_signed_BID_2026Q1_consolidated_B01_B03_B04_direct_exact_verified"
+    assert all(data["items"][i]["verification_status"]=="auto_extracted_pending_visual_review" for i in (5,))
     assert all(not x["period"].startswith("2024") for x in data["items"])
     return len(e)
 
