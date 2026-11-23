@@ -31,7 +31,8 @@ def verify(a: dict, data: dict) -> int:
         "2025-Q1", "2025-Q2", "2025-Q3", "2025-Q4", "2026-Q1", "2026-Q2", "2026-Q3"
     ], "BID periods must be 2025-Q1 to issuer-verified 2026-Q3 exactly"
     assert data["items"][0]["verification_status"] == "issuer_signed_BID_2025Q1_consolidated_B01_B03_B04_exact_VND_verified"
-    assert all(r.get("verification_status") == "auto_extracted_pending_visual_review" for r in data["items"][1:-1])
+    assert data["items"][1]["verification_status"] == "issuer_signed_BID_2025Q2_first_issued_B01_B03_reviewedH1_minus_Q1_B04_verified"
+    assert all(r.get("verification_status") == "auto_extracted_pending_visual_review" for r in data["items"][2:-1])
     b, q, y, c = (
         a["b01_2026_09_30_million_vnd"],
         a["b03_q3_direct_million_vnd"],
