@@ -7,13 +7,19 @@
   "sources": {
     "original_zip": {
       "url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/VPB_Baocaotaichinh_Q3_2025_Hopnhat.zip",
-      "original_pdf_sha256": null,
-      "archive_sha256": null,
-      "source_run": null
+      "original_pdf_sha256": "8161383cd1b2c3101f96dd9ac245e5699846baf802dd0277d2167096e1d736f5",
+      "archive_sha256": "cfd78534904b1cb7e95a91b1f798ee3d1fe6fb051ed24eaae28a5edca4348474",
+      "source_run": 45247116874,
+      "archive_bytes": 7781593,
+      "original_member": "1-bctc-hop-nhat.pdf",
+      "original_pdf_bytes": 6614156,
+      "original_pdf_pages": 95,
+      "lookup_member": "3-bctc-hop-nhat-ban-tra-cuu.pdf",
+      "lookup_member_sha256": "dc47ad04aa480c50c169bf840ab435468f2cafa1274c7d9e840f171c8ff58406"
     },
     "issuer_lookup": {
       "url": "https://www.vpbank.com.vn/-/media/vpbank-latest/5nha-dau-tu/bao-cao-tai-chinh/vas/nam-2025/q3/3-bctc-hop-nhat-ban-tra-cuu.pdf",
-      "sha256": null,
+      "sha256": "dc47ad04aa480c50c169bf840ab435468f2cafa1274c7d9e840f171c8ff58406",
       "B02a_pages": [
         5,
         6
@@ -22,12 +28,15 @@
       "B04a_pages": [
         9,
         10
-      ]
+      ],
+      "bytes": 1503053,
+      "pages": 95
     },
     "reviewed_H1": {
       "sha256": "c9f27ab6b1d69611209dee51e5bd9dc91dd74f491abf4f25a01821964266eecf",
       "ledger_path": "reports/source-audits/VPB-2025Q2-original-reviewedH1-B02a-B03a-B04a-million-vnd.json"
-    }
+    },
+    "provenance_note": "Same ZIP includes original issuer signed report and its issuer lookup copy; lookup PDF SHA equals the directly downloaded official VPBank PDF; original and lookup source pages rendered, statement totals visually reconciled."
   },
   "B02a": {
     "cash_vault": 2943026,
