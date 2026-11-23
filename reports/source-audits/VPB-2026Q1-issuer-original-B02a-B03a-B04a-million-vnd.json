@@ -115,5 +115,16 @@
     "liabilities": 1079873967,
     "equity": 180275629,
     "closing_cash": 196097219
+  },
+  "comparative_2025Q1": {
+    "net_interest": 13382538,
+    "services_net": 1142025,
+    "other_net": 1070820,
+    "operating_income": 15764151,
+    "operating_expenses": 4071964,
+    "before_provision": 11692187,
+    "pretax_profit": 5014882,
+    "net_profit": 3934954,
+    "CFO": 8550806
   }
 }
