@@ -1,14 +1,14 @@
 {
-  "schema_version": "2026-11-23-BID-2026Q3-issuer-web-excerpt-provisional-v1",
+  "schema_version": "2026-11-23-BID-2026Q3-signed-source-visual-and-reviewed-H1-retrieval-v2",
   "ticker": "BID",
   "period": "2026-Q3",
   "scope": "consolidated",
   "unit": "triệu VND",
   "source_original_signed_issuer_url": "https://bidv.com.vn/wps/wcm/connect/69a3b6bf-9fb3-4ef3-bb61-156cd541bc7d/20261030%2B-%2BBID%2B-%2BCBTT%2BBCTC%2BHN%2Bgiua%2Bnien%2Bdo%2BQ3.pdf?MOD=AJPERES",
   "issuer_publication_date": "2026-10-30",
-  "source_basis": "Published BIDV issuer PDF text accessed independently through public PDF viewer; raw original SHA-256 and manual visual review are not yet available on GitHub Actions.",
-  "source_pdf_sha256_verified": false,
-  "manually_visual_reviewed": false,
+  "source_basis": "BIDV Q3 signed consolidated original reobtained from HNX-published CafeF mirror, 37 pages SHA-256 verified, B01/B03/B04 original page images visually reviewed; reviewed H1 official issuer PDF 57 pages SHA-256 verified, H1 B04 same-basis standalone bridge pending visual checks.",
+  "source_pdf_sha256_verified": true,
+  "manually_visual_reviewed": true,
   "production_eligible": false,
   "do_not_overwrite_previously_unverified_bid_2025_or_2026q1q2": true,
   "b01_2026_09_30_million_vnd": {
@@ -64,7 +64,8 @@
     "tax_expense": 5836505,
     "net_profit": 23646949,
     "nci_profit": 369206,
-    "parent_profit": 23277743
+    "parent_profit": 23277743,
+    "investment_visual_confirmed": 6245
   },
   "b04_9m_ytd_million_vnd": {
     "operating": -42483985,
@@ -84,14 +85,17 @@
   },
   "text_extraction_exception": {
     "id": "BID-2026Q3-9M-B03-investment-sign",
-    "status": "queued_nonblocking_source_text_sign_recheck",
+    "status": "resolved_by_signed_original_visual_20261123",
     "extracted_signed_component_million": -6245,
     "signed_revenue_subtotal_implied_million": 67541045,
     "component_sum_million": 67528555,
     "source_text_difference_million": -12490,
     "difference_pct_of_implied_subtotal": 0.018493,
     "user_latest_tolerance_pct": 0.1,
-    "note": "The PDF text extraction displays -6,245 for 9M investment securities income, whereas the published subtotal implies +6,245. Do not silently flip the sign until a visual B03 page or independent signed PDF hash confirms the print. This is a textual-extraction discrepancy, not proven an issuer financial error."
+    "note": "Signed Q3 consolidated B03 original at PDF page 7 clearly prints POSITIVE 6.245 million VND for cumulative 9M investment securities result; public extracted text supplied -6.245 incorrectly. Visual original restores 9M operating-income subtotal exactly. No source report discrepancy and no plug.",
+    "signed_visual_component_million": 6245,
+    "visual_component_sum_million": 67541045,
+    "accounting_residual_after_visual_million": 0
   },
   "required_completion_gates": [
     "Successfully download complete signed Q3 PDF from issuer or source-authenticated exchange mirror and record SHA256",
@@ -99,5 +103,31 @@
     "Reconcile direct Q3 B03 versus signed 9M minus reviewed H1; account for 9M text-layer sign discrepancy",
     "Add Q3 production data only after complete verified source and mandatory validation CI",
     "Do not mark 2025 and 2026Q1-Q2 BID existing provisional rows as completed"
-  ]
+  ],
+  "q3_signed_source_pdf": {
+    "url": "https://cafefnew.mediacdn.vn/download/031126/bid122005-bao-cao-tai-chinh-quy-3-2026-1-640833.pdf?v=1793696065790",
+    "pdf_sha256": "98a9b501e706c1a195c3a475f81ab60dcaa7db3c43ae2bfd10a77b3faf0424be",
+    "pages": 37,
+    "bytes": 11730260,
+    "b01_pages": [
+      4,
+      5
+    ],
+    "b03_pages": [
+      7
+    ],
+    "b04_pages": [
+      8,
+      9
+    ],
+    "visual_source_verified": true,
+    "github_run_id": 45145835215
+  },
+  "h1_reviewed_consolidated_original": {
+    "url": "https://bidv.com.vn/wps/wcm/connect/6e490bbf-6629-4667-9ae4-c6134af2fcd8/20260818%2B-%2BBID%2B-%2BCBTT%2BBCTC%2BHN%2Bban%2Bnien%2Bda%2Bduoc%2Bsoat%2Bxet.pdf?MOD=AJPERES",
+    "pdf_sha256": "3c3f6c39c9ca9f737c3d8d52893d7320be29dbb1a4bcecfdf062fad2b45106d2",
+    "pages": 57,
+    "bytes": 12790528,
+    "bank_b03_b04_visual_still_pending": true
+  }
 }
