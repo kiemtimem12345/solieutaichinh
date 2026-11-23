@@ -12,9 +12,9 @@ STATUS="issuer_signed_STB_2025Q4_original_B02a_B03a_KPMG_FY_minus_9M_B04a_FX_ver
 def verify(a,old,d):
  assert (a["symbol"],a["period"],a["scope"],a["unit"])==("STB","2025-Q4","consolidated","triệu VND")
  src=a["source"];sha=src["original_sha256"];auditsha=src["audited_FY_sha256"]
- assert isinstance(sha,str) and len(sha)==64 and all(x in "0123456789abcdef" for x in sha)
- assert isinstance(auditsha,str) and len(auditsha)==64 and all(x in "0123456789abcdef" for x in auditsha)
- assert src["source_inspection_workflow_run"]==45270228115
+ assert sha=="b0b7438ed502a175a79940e08b254789d8b766af0524d9bbb0d36171adbe0dbf"
+ assert auditsha=="57f65260cfc9b3d6b089bc831fec8e3f4e483be3e9c1ff2e2e31ccec8343e15f"
+ assert src["source_inspection_workflow_run"]==45271206207
  b,p,c,v,prev,q=(a[k] for k in ("B02a_Audited_FY","B03a_Q4_original_direct","B04a_FY_KPMG_audited","B04a_FY_original","B04a_9M_prior","B04a_Q4_audited_FY_minus_original_9M"))
  assert prev["CFO"]==old["B04a_original_9M"]["CFO"] and prev["FX_effect"]==old["B04a_original_9M"]["FX_effect"]
  def sm(o,keys):return sum(o[k] for k in keys)
