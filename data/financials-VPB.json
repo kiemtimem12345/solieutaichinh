@@ -2542,7 +2542,26 @@
         "source_document_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%203/VPB_Baocaotaichinh_Q3_2026_Hopnhat.zip",
         "listing_title": "Báo cáo tài chính Hợp nhất quý 3 năm 2026  | BCTC Hợp nhất quý 3 năm 2026  | https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY 3/VPB_Baocaotaichinh_Q3_2026_Hopnhat.zip",
         "document_id": "563165",
-        "manually_visual_reviewed": false
+        "manually_visual_reviewed": true,
+        "verified_at": "2026-11-24",
+        "original_pdf_hash_verified": true,
+        "original_zip_sha256": "99a59d7b4f87ab28292eedd9797a31a83f9caab324c5a3bd0cb0544f72e5cdd5",
+        "original_pdf_sha256": "026ad3ab3f672bd44ec3af074ce080795199f1e506720feabefb8cb1af290fda",
+        "original_pdf_pages": 88,
+        "lookup_pdf_sha256": "6e3d63a04332123a26310e24884a24244accc45c6b2f146917e67b2673e9eeff",
+        "reviewed_H1_pdf_sha256": "901f91a3b6e05c3342d9b77972c58627df06a8b8a4483cbc9d63eef1e01b6782",
+        "source_original_workflow_run": 45255183223,
+        "source_audit_ledger": "reports/source-audits/VPB-2026Q3-original-9M-reviewedH1-bank-million-vnd.json",
+        "original_B02a_B03a_B04a_pages": [
+          5,
+          6,
+          8,
+          9,
+          10
+        ],
+        "signed_9M_minus_reviewed_H1_cash_exact": true,
+        "reviewed_H1_CFO_CFI_reclass_84346_retained": true,
+        "no_2024_dashboard_periods": true
       },
       "published_at": "2026-10-19",
       "source_archive_file": "reports/raw/VPB/auto-vpb-20261021/99a59d7b4f87ab28.zip",
