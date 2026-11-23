@@ -117,7 +117,7 @@ def validate(a:dict,fy:dict,data:dict)->int:
  assert row["roa"]==round(4*100*p["net_profit"]/((b["total_assets"]+old["b01_dec31"]["total_assets"])/2),2)==0.82
  assert row["roe"]==round(4*100*p["net_profit"]/((b["total_equity"]+old["b01_dec31"]["total_equity"])/2),2)==15.11
  assert all(x["verification_status"].startswith("issuer_signed") for i,x in enumerate(data["items"]) if i not in (5,))
- assert data["items"][5]["verification_status"]=="auto_extracted_pending_visual_review"
+    assert data["items"][5]["verification_status"] == "issuer_signed_BID_2026Q2_first_issued_B01_B03_reviewed_H1_minus_signed_Q1_B04_verified"
  assert not any(x["period"].startswith("2024") for x in data["items"])
  return len(tests)
 
