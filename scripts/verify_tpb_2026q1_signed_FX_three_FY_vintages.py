@@ -113,7 +113,7 @@ def verify(a,fy,fin):
  assert row["roa"]==round(400*p["net_profit"]/((b["total_assets"]+po["total_assets"])/2),2)==1.30
  assert row["roe"]==round(400*p["net_profit"]/((b["total_equity"]+po["total_equity"])/2),2)==14.32
  assert all(z["verification_status"].startswith("issuer_signed") for z in fin["items"][:5])
- assert fin["items"][5]["verification_status"]=="auto_extracted_pending_visual_review"
+ assert fin["items"][5]["verification_status"]=="issuer_signed_TPB_2026Q2_first_B02a_B03a_KPMG_H1_minus_Q1_B04a_FX_verified"
  assert not any(z["period"].startswith("2024") for z in fin["items"])
  return len(E)
 
