@@ -1,0 +1,32 @@
+name: Inspect TPB 2025 Q2 signed and independently reviewed H1 sources (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_tpb_2025q2_h1_sources.py'
+      - '.github/workflows/inspect-tpb-2025q2-h1-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tpb-2025q2-H1-source-inspection
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install bank source PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate read-only inspector syntax
+        run: python -m py_compile scripts/inspect_tpb_2025q2_h1_sources.py
+      - name: Recover signed Q2 and reviewed H1 issuer PDFs with SHA256
+        run: python -u scripts/inspect_tpb_2025q2_h1_sources.py
+      - name: Preserve minimal B02a B03a B04a images for 1 day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tpb-2025q2-h1-source-previews
+          path: tpb-2025q2-h1-source-preview/*
+          retention-days: 1
+          if-no-files-found: warn
