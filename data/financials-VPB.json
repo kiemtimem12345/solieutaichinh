@@ -1946,7 +1946,26 @@
         "source_document_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/VPB_Baocaotaichinh_Q1_2026_Hopnhat.zip",
         "listing_title": "Báo cáo tài chính Hợp nhất quý 1 năm 2026  | BCTC Hợp nhất quý 1 năm 2026  | https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY 1/VPB_Baocaotaichinh_Q1_2026_Hopnhat.zip",
         "document_id": "541617",
-        "manually_visual_reviewed": false
+        "manually_visual_reviewed": true,
+        "source_audit_ledger": "reports/source-audits/VPB-2026Q1-issuer-original-B02a-B03a-B04a-million-vnd.json",
+        "original_zip_sha256": "a592c1ff829656bee45856464f18321405d09bec4068cafde19d71d95b4f9533",
+        "original_pdf_sha256": "77031dda5d88561e2d5029de1f1b6e6e7276331b257b518b9755602b51fef737",
+        "original_pdf_pages": 91,
+        "lookup_pdf_sha256": "614be8877c21ef189da90266c5b059eb0b7d47024444156241725820bb11dcde",
+        "source_original_workflow_run": 45251429408,
+        "original_pdf_hash_verified": true,
+        "source_accounting_unit": "triệu VND",
+        "B02a_B03a_B04a_pages": [
+          5,
+          6,
+          8,
+          9,
+          10
+        ],
+        "CFO_after_working_capital_verified": true,
+        "source_quarter_CFF_is_zero": true,
+        "prior_2025_Q1_restatement_preserved_not_overwritten": true,
+        "no_2024_dashboard_periods": true
       },
       "published_at": "2026-04-17",
       "source_archive_file": "reports/raw/VPB/auto-vpb-20261021/a592c1ff829656be.zip",
