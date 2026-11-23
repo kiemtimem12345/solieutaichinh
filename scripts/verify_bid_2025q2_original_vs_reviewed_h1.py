@@ -122,7 +122,8 @@ def verify(a: dict, data: dict) -> int:
         for k,v in rec.items():
             assert row["signed_source_"+prefix+"_"+k] == v, (prefix,k)
     assert data["items"][0]["verification_status"] == "issuer_signed_BID_2025Q1_consolidated_B01_B03_B04_exact_VND_verified"
-    assert all(z["verification_status"]=="auto_extracted_pending_visual_review" for z in data["items"][2:-1])
+    assert data["items"][2]["verification_status"] == "issuer_signed_BID_2025Q3_consolidated_B01_B03_B04_reviewedH1_quarter_exact_verified"
+    assert all(z["verification_status"]=="auto_extracted_pending_visual_review" for z in data["items"][3:-1])
     assert data["items"][-1]["verification_status"]=="issuer_signed_BID_2026Q3_consolidated_B01_B03_B04_reviewedH1_quarter_verified"
     assert all(not z["period"].startswith("2024") for z in data["items"])
     return len(checks)
