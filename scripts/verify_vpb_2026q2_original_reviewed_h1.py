@@ -47,7 +47,7 @@ def check(a,f,q1):
  assert (c["CFO"],c["CFI"],c["CFF"],c["net_cash_change"])==(12148763,-1233631,-3965367,6949765)
  assert (q["CFO"],q["CFI"],q["CFF"],q["net_cash_change"],q["opening_cash"],q["closing_cash"])==(3065,-1215629,-3965367,-5177931,208224915,203046984)
  assert f["items"][4]["verification_status"]=="issuer_signed_VPB_2026Q1_original_B02a_B03a_B04a_true_CFO_verified"
- assert f["items"][5]["verification_status"]==STATUS and f["items"][6]["verification_status"]=="auto_extracted_pending_visual_review"
+ assert f["items"][5]["verification_status"]==STATUS and f["items"][6]["verification_status"]=="issuer_signed_VPB_2026Q3_original_B02a_B03a_9M_minus_reviewed_H1_B04a_verified"
  row=f["items"][5];sv=row["source_validation"]
  assert sv["original_zip_sha256"]==a["sources"]["archive_sha256"]
  assert sv["reviewed_H1_pdf_sha256"]==a["sources"]["reviewed_H1_sha256"]
