@@ -21,5 +21,32 @@
       10
     ]
   },
-  "status": "source_recovered_pending_exact_validation"
+  "status": "source_recovered_pending_exact_validation",
+  "B02a": {
+    "cash_vault": 4065152,
+    "deposits_SBV": 14817329,
+    "interbank_assets": 195016578,
+    "trading_securities": 24890751,
+    "derivative_assets": 0,
+    "customer_loans_net": 1021232109,
+    "purchased_debt_net": 911814,
+    "investment_securities": 65833137,
+    "longterm_investments": 191960,
+    "fixed_assets": 1970053,
+    "other_assets": 43081149,
+    "total_assets": 1372010032,
+    "gov_liabs": 1063456,
+    "interbank_liabs": 311527853,
+    "customer_deposits": 682719373,
+    "derivative_liabs": 1025252,
+    "trust_liabs": 38296,
+    "valuable_papers": 138840016,
+    "other_liabs": 50190985,
+    "total_liabilities": 1185405231,
+    "capital": 103331782,
+    "funds": 18612332,
+    "retained": 52157601,
+    "minority": 12503086,
+    "total_equity": 186604801
+  }
 }
