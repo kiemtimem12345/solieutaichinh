@@ -45,6 +45,8 @@ jobs:
         run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
       - name: Verify SHS Q3 2026 signed issuer and independently AASC reviewed H1 62 VND fields, 24 exact equations
         run: python scripts/verify_shs_2026q3_signed_reviewed_h1.py
+      - name: Verify TPB 2026Q2 signed B02a B03a vs KPMG H1 six-month-minus-Q1 bank B04a and FX source-vintage accounting
+        run: python scripts/verify_tpb_2026q2_KPMG_H1_FX_vintage.py
       - name: Verify TPB 2026Q1 signed B02a B03a B04a FX and 2025 FY restated source vintage, 12 corruption gates
         run: python scripts/verify_tpb_2026q1_signed_FX_three_FY_vintages.py
       - name: Verify TPB 2025Q4 first-issued B02a B03a vs KPMG audited FY minus signed 9M B04a and 14 FX/tamper guards
