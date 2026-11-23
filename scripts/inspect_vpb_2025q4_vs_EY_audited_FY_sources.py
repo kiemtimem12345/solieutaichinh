@@ -30,10 +30,10 @@ def pdf(name,file,pgfrom,pglast):
  print(f"VPB_STATEMENT_TEXT_BEGIN name={name} pdf_pages={pgfrom}-{n}",flush=True)
  print(txt[:28500],flush=True)
  print(f"VPB_STATEMENT_TEXT_END name={name}",flush=True)
- # retains visual renders to avoid using text-only OCR for tiny print
- run(["pdftoppm","-f",str(pgfrom),"-l",str(n),"-scale-to","1700","-jpeg","-jpegopt","quality=66",
-    str(file),str(OUT/name)],210)
- print(f"PASS VPB_PAGES_RENDERED name={name} count={len(list(OUT.glob(name+'-*.jpg')))}",flush=True)
+ # Q4 issuer original and lookup pages already rendered and verified by source run 45248057271.
+ # EY FY pages 6-11 were visually examined against original PDF, so retain only text here.
+ print(f"PASS VPB_TEXT_ONLY name={name} pdf_pages={pgfrom}-{n}",flush=True)
+
 def main():
  OUT.mkdir(exist_ok=True)
  with tempfile.TemporaryDirectory() as td:
