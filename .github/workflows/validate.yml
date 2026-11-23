@@ -45,6 +45,8 @@ jobs:
         run: python scripts/verify_plx_q4_2025_original_vs_audited_vintage.py
       - name: Verify SHS Q3 2026 signed issuer and independently AASC reviewed H1 62 VND fields, 24 exact equations
         run: python scripts/verify_shs_2026q3_signed_reviewed_h1.py
+      - name: Verify BID 2025Q3 signed consolidated original, exact 9M-reviewed H1 cash, 16 income bridges and 9 anti-tamper controls
+        run: python scripts/verify_bid_2025q3_signed_original.py
       - name: Verify BID 2025Q2 original and Deloitte-reviewed H1 43 checks, cash vintage and 7 tamper guards
         run: python scripts/verify_bid_2025q2_original_vs_reviewed_h1.py
       - name: Verify BID 2025Q1 signed consolidated original 34p B01 B03 B04 exact CFO, 18 identities and 7 tamper gates
