@@ -101,7 +101,7 @@ def verify(a, f):
     assert row["roa"] == round(400*p["net_profit"]/avg_assets,2) == 1.88
     assert row["roe"] == round(400*p["net_profit"]/avg_equity,2) == 13.02
     assert [x["verification_status"] for x in f["items"][2:]] == [
-     "issuer_signed_VPB_2025Q3_original_B02a_B03a_9M_minus_reviewedH1_B04a_verified","auto_extracted_pending_visual_review",
+     "issuer_signed_VPB_2025Q3_original_B02a_B03a_9M_minus_reviewedH1_B04a_verified","issuer_signed_VPB_2025Q4_original_B02a_B03a_EY_FY_minus_signed9M_bank_B04a_verified",
      "manual_review_required_pending_extraction","manual_review_required_pending_extraction",
      "auto_extracted_pending_visual_review"]
     assert all(not x["period"].startswith("2024") for x in f["items"])

@@ -51,6 +51,8 @@ jobs:
         run: python scripts/verify_vpb_2025q2_original_reviewed_h1_bank_cash.py
       - name: Verify VPB 2025Q3 signed 95p original bank and 9M-minus-reviewedH1 CFO 21 corruption tests
         run: python scripts/verify_vpb_2025q3_original_9m_reviewed_h1_bank_cash.py
+      - name: Verify VPB 2025Q4 signed 93p vs EY FY 100p exact income/cash source vintages, 29 tamper gates
+        run: python scripts/verify_vpb_2025q4_original_EY_audited_fy.py
       - name: Verify TPB signed 2026Q3 original B02a B03a and 9M-minus-KPMG H1 bank cash FX, 16 reviewed-vintage bridges and 16 tamper gates
         run: python scripts/verify_tpb_2026q3_signed_9m_KPMG_H1.py
       - name: Verify TPB 2026Q2 signed B02a B03a vs KPMG H1 six-month-minus-Q1 bank B04a and FX source-vintage accounting
