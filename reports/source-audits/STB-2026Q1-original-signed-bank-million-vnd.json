@@ -6,7 +6,7 @@
   "unit": "triệu VND",
   "source": {
     "url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/STB_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
-    "sha256": null,
+    "sha256": "9bdfef933a655d731b26f51daf831971eb87498eaf570ed8872240ae7064cdbc",
     "pages": 45,
     "source_inspection_run": 45272591891,
     "B02a_pages": [
@@ -18,7 +18,8 @@
       6,
       7
     ],
-    "prior_2025FY_audited_source_ledger": "reports/source-audits/STB-2025Q4-original-KPMG-FY-bank-million-vnd.json"
+    "prior_2025FY_audited_source_ledger": "reports/source-audits/STB-2025Q4-original-KPMG-FY-bank-million-vnd.json",
+    "bytes": 2966556
   },
   "prior_2025FY_B02": {
     "assets": 917119803,
@@ -139,5 +140,6 @@
   },
   "EPS_source_note": "Issuer Q1 B03a printed EPS 2454 VND on YTD current year; this is not arithmetically equivalent to standalone Q1 PAT 1,584,404 million / ordinary shares. Retain as source EPS YTD field only; dashboard Q1 eps null pending footnote VI.13.2.",
   "cashflow_rule": "Source signed bank Q1 B04 pre-working-capital CFO +3,664,141 is not true CFO. Correct CFO -58,545,352, CFI -128,122, CFF -24,412, net -58,697,886, FX +10,352, 2025FY cash open 194,472,583 and Q1 cash end 135,785,049. No 2024 dashboard periods.",
-  "source_original_verified": true
+  "source_original_verified": true,
+  "stage": "original_signed_45p_sha256_verified_source_reconciled"
 }
