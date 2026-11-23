@@ -38,7 +38,8 @@ def check(a,f,q1):
   E["Q2_"+k]=c[k]-prev[k]-q[k]
  E["Q2_open"]=prev["closing_cash"]-q["opening_cash"]
  E["Q2_close"]=c["closing_cash"]-q["closing_cash"]
- E["Q2_net"]=q["CFO"]+q["CFI"]+q["CFF"]-q["net_cash_change"]
+ E["Q2_FX"]=q["FX_effect"]-c["FX_effect"]
+ E["Q2_net"]=q["CFO"]+q["CFI"]+q["CFF"]+q["FX_effect"]-q["net_cash_change"]
  E["Q2_cash"]=q["opening_cash"]+q["net_cash_change"]-q["closing_cash"]
  assert not any(E.values()),E
  assert (b["total_assets"],b["total_liabilities"],b["total_equity"])==(1502526376,1311311032,191215344)
