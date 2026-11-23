@@ -1,0 +1,32 @@
+name: Inspect BID 2026 Q1 signed original consolidated (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_bid_2026q1_signed_original.py'
+      - '.github/workflows/inspect-bid-2026q1-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bid-2026q1-original-source
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install original PDF inspection tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate inspection syntax
+        run: python -m py_compile scripts/inspect_bid_2026q1_signed_original.py
+      - name: Recover complete bank signed consolidated PDF
+        run: python -u scripts/inspect_bid_2026q1_signed_original.py
+      - name: Keep visual source for 1 day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bid-2026q1-original-source-pages
+          path: bid-2026q1-original-evidence/*
+          retention-days: 1
+          if-no-files-found: warn
