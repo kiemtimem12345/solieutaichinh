@@ -1,0 +1,32 @@
+name: Inspect BID Q3 2026 consolidated and reviewed H1 issuer originals (read-only)
+on:
+  pull_request:
+    paths:
+      - scripts/inspect_bid_2026q3_h1_signed_sources.py
+      - .github/workflows/inspect-bid-2026q3-h1-signed-original.yml
+  workflow_dispatch:
+concurrency:
+  group: bid-2026q3-h1-issuer-readonly-source
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF source tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate source inspector syntax
+        run: python -m py_compile scripts/inspect_bid_2026q3_h1_signed_sources.py
+      - name: Recover BID issuer signed consolidated Q3 and reviewed H1, inspect bank tables
+        run: python -u scripts/inspect_bid_2026q3_h1_signed_sources.py
+      - name: Preserve short-lived statement excerpts and low-resolution pages
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bid-2026q3-h1-issuer-consolidated-preview
+          path: bid-2026q3-h1-signed-evidence/*
+          retention-days: 1
+          if-no-files-found: warn
