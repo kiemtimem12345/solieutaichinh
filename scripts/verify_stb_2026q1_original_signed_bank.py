@@ -45,7 +45,7 @@ def check(a,old,data):
  assert [r["period"] for r in data["items"]]==["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
  assert all(x["verification_status"].startswith("issuer_signed_STB") for x in data["items"][:5])
  assert data["items"][4]["verification_status"]==STATUS
- assert data["items"][5]["verification_status"]=="manual_review_required_pending_extraction"
+ assert data["items"][5]["verification_status"]=="issuer_signed_STB_2026Q2_original_B02a_B03a_EY_H1_minus_Q1_B04a_FX_vintage_verified"
  row=data["items"][4];v=row["source_validation"]
  assert v["original_pdf_hash_verified"] and v["original_pdf_sha256"]==SHA and v["original_pdf_pages"]==45
  assert v["source_audit_ledger"]==str(A.relative_to(ROOT)) and v["original_B04_FX_cash_bridge_exact"]
