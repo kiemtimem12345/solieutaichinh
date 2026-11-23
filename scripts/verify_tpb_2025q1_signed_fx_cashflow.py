@@ -123,7 +123,7 @@ def verify(a:dict,fin:dict)->int:
   "issuer_signed_TPB_2025Q3_consolidated_B02a_B03a_B04a_9M_minus_KPMG_H1_FX_exact_verified",
   "issuer_signed_TPB_2025Q4_original_B02a_B03a_KPMG_FY_audited_minus_9M_B04a_FX_vintage_verified",
   "issuer_signed_TPB_2026Q1_B02a_B03a_B04a_exact_FX_2025_represented_comparative_verified",
-  "auto_extracted_pending_visual_review"
+  "issuer_signed_TPB_2026Q2_first_B02a_B03a_KPMG_H1_minus_Q1_B04a_FX_verified"
  ]
  assert not any(x["period"].startswith("2024") for x in fin["items"])
  return len(checks)

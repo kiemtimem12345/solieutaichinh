@@ -1,0 +1,32 @@
+name: Inspect TPB 2026 Q2 issuer signed original (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_tpb_2026q2_original.py'
+      - '.github/workflows/inspect-tpb-2026q2-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tpb-2026q2-source-original
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF source tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate syntax
+        run: python -m py_compile scripts/inspect_tpb_2026q2_original.py
+      - name: Fetch original signed TPB Q2 and optional independently reviewed H1
+        run: python -u scripts/inspect_tpb_2026q2_original.py
+      - name: Keep source previews briefly
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tpb-2026q2-original-and-H1-source-preview
+          path: tpb-2026q2-source-evidence/*
+          retention-days: 1
+          if-no-files-found: warn
