@@ -103,7 +103,7 @@ def verify(a,fin):
  assert row["roa"]==round(400*p["net_profit"]/((prior["assets"]+b["total_assets"])/2),2)==1.64
  assert row["roe"]==round(400*p["net_profit"]/((prior["equity"]+b["total_equity"])/2),2)==10.55
  assert [x["verification_status"] for x in fin["items"][1:]]==[
-  "auto_extracted_pending_visual_review","auto_extracted_pending_visual_review",
+  "issuer_signed_VPB_2025Q2_original_B02a_B03a_reviewed_H1_minus_Q1_bank_B04a_verified","auto_extracted_pending_visual_review",
   "auto_extracted_pending_visual_review","manual_review_required_pending_extraction",
   "manual_review_required_pending_extraction","auto_extracted_pending_visual_review"]
  assert all(not x["period"].startswith("2024") for x in fin["items"])
@@ -137,5 +137,5 @@ def main():
   else:raise AssertionError("VPB source tamper not blocked: "+kind)
  print(f"PASS VPB 2025Q1 issuer original 94p signed B02a B03a B04a, {n} exact accounting/cash identities, 55 verified normalized fields, {len(cases)} tamper controls.")
  print("PASS CFO +8,550,806 CFI -55,847 CFF 0 net +8,494,959, actual opening cash 143,002,784, closing 151,497,743 million VND; original OCR opening 443,002,784 rejected.")
- print("PASS VPB Q1/2025 ROA 1.64% ROE 10.55%; later VPB six periods stay provisional and no 2024 period added.")
+ print("PASS VPB Q1/2025 ROA 1.64% ROE 10.55%; Q2 separately source-verified while Q1 unchanged, later VPB five periods stay provisional and no 2024 period added.")
 if __name__=="__main__":main()
