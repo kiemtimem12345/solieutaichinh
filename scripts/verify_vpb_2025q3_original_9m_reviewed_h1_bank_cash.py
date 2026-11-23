@@ -79,7 +79,7 @@ def verify(a,f,prev):
     assert [x["verification_status"] for x in f["items"]]==[
       Q1_STATUS,Q2_STATUS,STATUS,"issuer_signed_VPB_2025Q4_original_B02a_B03a_EY_FY_minus_signed9M_bank_B04a_verified",
       "issuer_signed_VPB_2026Q1_original_B02a_B03a_B04a_true_CFO_verified","issuer_signed_VPB_2026Q2_original_B02a_B03a_reviewed_H1_minus_Q1_B04a_verified",
-      "auto_extracted_pending_visual_review"]
+      "issuer_signed_VPB_2026Q3_original_B02a_B03a_9M_minus_reviewed_H1_B04a_verified"]
     assert f["items"][1]["cash_ending"]==q["opening_cash"]
     assert f["items"][1]["operating_cash_flow_ytd"]==h["CFO"]
     row=f["items"][2];sv=row["source_validation"]

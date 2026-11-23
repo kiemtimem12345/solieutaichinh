@@ -54,7 +54,7 @@ def verify(a,d,fy):
  assert all(d["items"][k]["verification_status"].startswith("issuer_signed_VPB_2025Q") for k in range(4))
  assert d["items"][4]["verification_status"]==STATUS
  assert d["items"][5]["verification_status"]=="issuer_signed_VPB_2026Q2_original_B02a_B03a_reviewed_H1_minus_Q1_B04a_verified"
- assert d["items"][6]["verification_status"]=="auto_extracted_pending_visual_review"
+ assert d["items"][6]["verification_status"]=="issuer_signed_VPB_2026Q3_original_B02a_B03a_9M_minus_reviewed_H1_B04a_verified"
  r=d["items"][4];v=r["source_validation"]
  assert v["original_zip_sha256"]==s["archive_sha256"]
  assert v["original_pdf_sha256"]==s["english_sha256"] and v["lookup_pdf_sha256"]==s["vietnamese_sha256"]
