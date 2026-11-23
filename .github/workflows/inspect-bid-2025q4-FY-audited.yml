@@ -1,0 +1,32 @@
+name: Inspect BID 2025 Q4 original and audited FY consolidated (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_bid_2025q4_FY_audited.py'
+      - '.github/workflows/inspect-bid-2025q4-FY-audited.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bid-2025q4-FY-source-inspection
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Verify source inspector syntax
+        run: python -m py_compile scripts/inspect_bid_2025q4_FY_audited.py
+      - name: Recover signed Q4 and audited full-year originals and render statements
+        run: python -u scripts/inspect_bid_2025q4_FY_audited.py
+      - name: Preserve source page previews for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bid-2025q4-FY-audited-original-pages
+          path: bid-2025q4-FY-original-previews/*
+          retention-days: 1
+          if-no-files-found: warn
