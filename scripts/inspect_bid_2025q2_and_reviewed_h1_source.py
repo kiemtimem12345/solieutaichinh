@@ -13,9 +13,17 @@ import subprocess
 import tempfile
 
 SOURCES = {
-    "BID_2025Q2_ORIGINAL_HN": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/BID_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
-    "BID_2025H1_REVIEWED_HN": "https://cafef1.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/BID_Baocaotaichinh_6T_2025_Soatxet_Hopnhat_03102025143111.pdf",
+    "BID_2025Q2_ORIGINAL_HN": [
+        "https://static2.vietstock.vn/vietstock/2025/8/4/2_bid122005_2025_8_4_ba6b664_vi_baocaotaichinhhopnhat_q2_2025.pdf",
+        "https://staticfile.hsx.vn/Uploads/UploadDocuments/2394054/20250730%20-%20BID%20-%20CBTT%20BCTC%20hop%20nhat%20giua%20nien%20do%20QII%20nam%202025.pdf",
+        "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/BID_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
+    ],
+    "BID_2025H1_REVIEWED_HN": [
+        "https://cafef1.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/BID_Baocaotaichinh_6T_2025_Soatxet_Hopnhat_03102025143111.pdf",
+        "https://staticfile.hsx.vn/Uploads/UploadDocuments/2397669/20250815%20-%20BID%20-%20BCTC%20HN%20ban%20nien%202025%20da%20duoc%20soat%20xet.pdf",
+    ],
 }
+
 OUT = Path("bid-2025q2-h1-evidence")
 
 def run(cmd: list[str], seconds: int) -> str:
@@ -24,19 +32,33 @@ def run(cmd: list[str], seconds: int) -> str:
         raise RuntimeError(f"{cmd[0]} exit {p.returncode}: {p.stderr[:320]}")
     return p.stdout
 
-def inspect(label: str, url: str, tmp: Path) -> None:
+def inspect(label: str, urls: list[str], tmp: Path) -> None:
     pdf = tmp / (label + ".pdf")
-    out = run([
-        "curl", "--location", "--fail", "--silent", "--show-error",
-        "--retry", "1", "--retry-delay", "2",
-        "--connect-timeout", "15", "--max-time", "120",
-        "--speed-time", "20", "--speed-limit", "4096",
-        "--max-filesize", str(45 * 1024 * 1024),
-        "--user-agent", "Mozilla/5.0 (BID original financial proof)",
-        "--output", str(pdf), "--write-out",
-        "%{http_code}|%{content_type}|%{size_download}", url
-    ], 150)
-    assert pdf.exists() and pdf.stat().st_size > 60000, ("file truncated", label, out)
+    used_url = None
+    for url in urls:
+        try:
+            out = run([
+                "curl", "--location", "--silent", "--show-error",
+                "--connect-timeout", "12", "--max-time", "58",
+                "--speed-time", "12", "--speed-limit", "5000",
+                "--max-filesize", str(45 * 1024 * 1024),
+                "--user-agent", "Mozilla/5.0",
+                "--output", str(pdf), "--write-out",
+                "%{http_code}|%{content_type}|%{size_download}", url
+            ], 65)
+        except (RuntimeError, subprocess.TimeoutExpired) as e:
+            print(f"SOURCE_FALLBACK label={label} host={url.split('/')[2]} error={str(e)[:220]}", flush=True)
+            continue
+        size = pdf.stat().st_size if pdf.exists() else 0
+        magic = pdf.open("rb").read(5) if size else b""
+        valid = size > 60000 and magic == b"%PDF-" and out[:3] == "200"
+        print(f"SOURCE_ATTEMPT label={label} host={url.split('/')[2]} bytes={size} result={out[:110]} valid={valid}", flush=True)
+        if valid:
+            used_url = url
+            break
+    if used_url is None:
+        raise RuntimeError(f"NO_COMPLETE_ORIGINAL {label}, source blocked, no financial data publication")
+    url = used_url
     with pdf.open("rb") as f:
         assert f.read(5) == b"%PDF-", ("not pdf", label)
     info = run(["pdfinfo", str(pdf)], 45)
@@ -61,8 +83,8 @@ def inspect(label: str, url: str, tmp: Path) -> None:
 def main() -> None:
     OUT.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory() as td:
-        for label, url in SOURCES.items():
-            inspect(label, url, Path(td))
+        for label, urls in SOURCES.items():
+            inspect(label, urls, Path(td))
     print("PASS BID 2025Q2 and H1 reviewed source recovery only; numeric data unchanged", flush=True)
 
 if __name__ == "__main__":
