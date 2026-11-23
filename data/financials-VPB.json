@@ -2221,7 +2221,24 @@
         "source_document_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/VPB_Baocaotaichinh_Q2_2026_Hopnhat.zip",
         "listing_title": "Báo cáo tài chính Hợp nhất quý 2 năm 2026  | BCTC Hợp nhất quý 2 năm 2026  | https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY 2/VPB_Baocaotaichinh_Q2_2026_Hopnhat.zip",
         "document_id": "552946",
-        "manually_visual_reviewed": false
+        "manually_visual_reviewed": true,
+        "verified_at": "2026-11-24",
+        "original_pdf_hash_verified": true,
+        "original_zip_sha256": "ae41e9ee993f6487d6804e9ae6e1a0572c7e78e5536fd4ef5f11a80655df7145",
+        "original_pdf_sha256": "34cf838605a2f3e4bd273e8f0c3d248461787ae446bfee082b3a432254297900",
+        "lookup_pdf_sha256": "01ce509d68f3d3af8ad624a7060e7be080c0968947de14188647926bc56a1c58",
+        "reviewed_H1_pdf_sha256": "901f91a3b6e05c3342d9b77972c58627df06a8b8a4483cbc9d63eef1e01b6782",
+        "reviewed_H1_pages": [
+          12,
+          13
+        ],
+        "source_original_workflow_run": 45253364023,
+        "reviewed_scanned_OCR_run": 45253959781,
+        "source_audit_ledger": "reports/source-audits/VPB-2026Q2-original-and-H1-bank-million-vnd.json",
+        "reviewed_H1_CFO_CFI_84346_reclassification_verified": true,
+        "reviewed_H1_cash_change_same_as_original": true,
+        "bank_6M_minus_signed_Q1_cash_bridge_exact": true,
+        "no_2024_dashboard_periods": true
       },
       "published_at": "2026-07-17",
       "source_archive_file": "reports/raw/VPB/auto-vpb-20261021/ae41e9ee993f6487.zip",
