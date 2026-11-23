@@ -4,6 +4,9 @@ on:
     paths:
       - 'scripts/inspect_vpb_2025q4_vs_EY_audited_FY_sources.py'
       - '.github/workflows/inspect-vpb-2025q4-ey-fy.yml'
+      - 'data/financials-VPB.json'
+      - 'reports/source-audits/VPB-2025Q4-original-vs-EY-audited-FY-million-vnd.json'
+      - 'scripts/verify_vpb_2025q4_original_EY_audited_fy.py'
   workflow_dispatch:
 permissions:
   contents: read
