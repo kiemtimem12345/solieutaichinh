@@ -1,0 +1,30 @@
+{
+  "symbol": "VPB",
+  "period": "2026-Q2",
+  "unit": "triệu VND",
+  "scope": "consolidated",
+  "status": "issuer_original_source_recovered_reviewed_H1_scanned_pending_visual_comparison",
+  "sources": {
+    "original_zip_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/VPB_Baocaotaichinh_Q2_2026_Hopnhat.zip",
+    "archive_sha256": "ae41e9ee993f6487d6804e9ae6e1a0572c7e78e5536fd4ef5f11a80655df7145",
+    "archive_bytes": 8719901,
+    "original_signed_pdf_sha256": "34cf838605a2f3e4bd273e8f0c3d248461787ae446bfee082b3a432254297900",
+    "original_signed_pages": 88,
+    "lookup_pdf_sha256": "01ce509d68f3d3af8ad624a7060e7be080c0968947de14188647926bc56a1c58",
+    "lookup_pages": 88,
+    "reviewed_H1_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/VPB_Baocaotaichinh_6T_2026_Soatxet_Hopnhat.pdf",
+    "reviewed_H1_sha256": "901f91a3b6e05c3342d9b77972c58627df06a8b8a4483cbc9d63eef1e01b6782",
+    "reviewed_H1_pages": 108,
+    "reviewed_H1_is_scanned": true,
+    "original_source_run": 45253364023,
+    "B02a_pages": [
+      5,
+      6
+    ],
+    "B03a_page": 8,
+    "B04a_pages": [
+      9,
+      10
+    ]
+  }
+}
