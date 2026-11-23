@@ -1,0 +1,32 @@
+name: Inspect TPB 2025 Q4 signed issuer original (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_tpb_2025q4_original.py'
+      - '.github/workflows/inspect-tpb-2025q4-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tpb-2025q4-original
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install original PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate inspector Python
+        run: python -m py_compile scripts/inspect_tpb_2025q4_original.py
+      - name: Inspect TPB signed Q4 consolidated original and render source pages
+        run: python -u scripts/inspect_tpb_2025q4_original.py
+      - name: Keep source images for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tpb-2025q4-original-issuer-source-pages
+          path: tpb-2025q4-original-source/*
+          retention-days: 1
+          if-no-files-found: warn
