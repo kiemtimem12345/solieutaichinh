@@ -1,0 +1,32 @@
+name: Inspect VPB 2025 Q4 original vs EY audited FY source (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_vpb_2025q4_vs_EY_audited_FY_sources.py'
+      - '.github/workflows/inspect-vpb-2025q4-ey-fy.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: vpb-2025q4-ey-signed-original
+  cancel-in-progress: true
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate source inspector syntax
+        run: python -m py_compile scripts/inspect_vpb_2025q4_vs_EY_audited_FY_sources.py
+      - name: Retrieve Q4 issuer original and audited EY FY original
+        run: python -u scripts/inspect_vpb_2025q4_vs_EY_audited_FY_sources.py
+      - name: Retain evidence for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vpb-2025q4-original-vs-ey-fy-pages
+          path: vpb-2025q4-ey-audit-source/*
+          retention-days: 1
+          if-no-files-found: warn
