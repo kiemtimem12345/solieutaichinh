@@ -3,7 +3,7 @@
   "period": "2025-Q2",
   "scope": "consolidated",
   "unit": "triệu VND",
-  "stage": "source_original_Q2_48p_and_KPMG_H1_104p_exact_source_vintages",
+  "stage": "source_original_Q2_and_KPMG_reviewed_H1_exact_balanced_pending_CI",
   "source": {
     "original_Q2": {
       "url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/STB_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
@@ -186,5 +186,33 @@
     "reviewed_EPS_ytd": 3071,
     "original_EPS_ytd": 6148
   },
-  "reviewed_source_notes": "KPMG H1 B04 scanned source page 12 has OCR digit confusion: preWC appears '727164556'; verify by eight component sum 7,716,558. Tax paid OCR -1,960,725, provision utilization -628,331, derivative asset flow -25,649, other operating liabilities +880,163. Exact bank CFO is +22,993,304 vs original +22,993,305, 1 million FX compensation. KPMG H1 sources B03 EPS 3,071 vs Q2 issuer B03 printed 6,148; do not promote standalone EPS."
+  "reviewed_source_notes": "KPMG H1 B04 scanned source page 12 has OCR digit confusion: preWC appears '727164556'; verify by eight component sum 7,716,558. Tax paid OCR -1,960,725, provision utilization -628,331, derivative asset flow -25,649, other operating liabilities +880,163. Exact bank CFO is +22,993,304 vs original +22,993,305, 1 million FX compensation. KPMG H1 sources B03 EPS 3,071 vs Q2 issuer B03 printed 6,148; do not promote standalone EPS.",
+  "B04a_Q2_KPMG_H1_minus_Q1": {
+    "CFO": 27495786,
+    "CFI": -188633,
+    "CFF": -2247249,
+    "net_cash_change": 25059904,
+    "FX_effect": 195326,
+    "capex": -199593,
+    "opening_cash": 100235226,
+    "closing_cash": 125490456
+  },
+  "Q1_prior_source_B04_reference": {
+    "CFO": -4502482,
+    "CFI": -106676,
+    "CFF": -1638284,
+    "net_cash_change": -6247442,
+    "FX_effect": -10387,
+    "capex": -187763,
+    "closing_cash": 100235226
+  },
+  "source_rules": {
+    "original_Q2_B03a_direct_quarter_pretax": true,
+    "reviewed_H1_B04_minus_original_signed_Q1": true,
+    "no_2024_dashboard": true,
+    "retain_Q1_verified_data": true,
+    "EPS_Q2_standalone_not_source_verified": true,
+    "source_vintage_1m_fx_reconciliation": true,
+    "source_B02_scanned_OCR_uses_KPMG_reviewed_reconciled_components": true
+  }
 }
