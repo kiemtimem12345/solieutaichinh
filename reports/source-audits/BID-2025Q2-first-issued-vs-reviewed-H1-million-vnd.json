@@ -183,5 +183,7 @@
     "older_2025Q3_2026Q2_provisional_unchanged": true,
     "forbid_pre_working_capital_as_CFO": true,
     "source_original_PDF_hashes_and_visual_pages_verified": true
-  }
+  },
+  "source_original_q2_cf_investing_component_residual_million_vnd": 1,
+  "source_original_q2_cf_investing_component_note": "Original Q2 B04 printed components -988,648 +44 -506 +119,561 = -869,549 million, while printed original CFI subtotal is -869,550 million (1 million difference); reviewed H1 source has components -988,649 +2,077 -506 +119,561 = exact -867,517. Preserve both printed vintages; use reviewed H1 for Q2 cashflow, do not force original CFI subtotal."
 }
