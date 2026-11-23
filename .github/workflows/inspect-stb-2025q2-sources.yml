@@ -1,0 +1,32 @@
+name: Inspect STB 2025 Q2 issuer original and H1 reviewed sources
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_stb_2025q2_sources.py'
+      - '.github/workflows/inspect-stb-2025q2-sources.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stb-2025q2-signed-original-source
+  cancel-in-progress: true
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF tools and Vietnamese OCR for scans
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Check source inspector syntax
+        run: python -m py_compile scripts/inspect_stb_2025q2_sources.py
+      - name: Read source-stamped Q2 and optional reviewed H1
+        run: python -u scripts/inspect_stb_2025q2_sources.py
+      - name: Retain OCR statement evidence briefly
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stb-2025q2-original-reviewed-source
+          path: stb-2025q2-sources/*
+          retention-days: 1
+          if-no-files-found: warn
