@@ -91,7 +91,7 @@ def verify(a,f,priors):
  assert all(f["items"][k]["verification_status"].startswith(PREFIXES[k]) for k in range(3))
  assert [x["verification_status"] for x in f["items"]][3:]==[
   STATUS,"issuer_signed_VPB_2026Q1_original_B02a_B03a_B04a_true_CFO_verified","issuer_signed_VPB_2026Q2_original_B02a_B03a_reviewed_H1_minus_Q1_B04a_verified",
-  "auto_extracted_pending_visual_review"]
+  "issuer_signed_VPB_2026Q3_original_B02a_B03a_9M_minus_reviewed_H1_B04a_verified"]
  assert f["items"][2]["cash_ending"]==q["opening_cash"]
  r=f["items"][3];sv=r["source_validation"]
  assert r["unit"]=="triệu VND" and r["verification_status"]==STATUS
