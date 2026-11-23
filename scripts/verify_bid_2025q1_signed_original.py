@@ -136,7 +136,8 @@ def validate(a: dict, data: dict) -> int:
     assert data["items"][1]["verification_status"] == "issuer_signed_BID_2025Q2_first_issued_B01_B03_reviewedH1_minus_Q1_B04_verified"
     assert data["items"][2]["verification_status"] == "issuer_signed_BID_2025Q3_consolidated_B01_B03_B04_reviewedH1_quarter_exact_verified"
     assert data["items"][3]["verification_status"] == "issuer_signed_BID_2025Q4_first_issued_B01_B03_FY_audited_minus_signed9M_B04_verified"
-    assert all(x["verification_status"] == "auto_extracted_pending_visual_review" for x in data["items"][4:-1])
+    assert data["items"][4]["verification_status"] == "issuer_signed_BID_2026Q1_consolidated_B01_B03_B04_direct_exact_verified"
+    assert all(x["verification_status"] == "auto_extracted_pending_visual_review" for x in data["items"][5:-1])
     assert data["items"][-1]["verification_status"] == "issuer_signed_BID_2026Q3_consolidated_B01_B03_B04_reviewedH1_quarter_verified"
     assert all(not x["period"].startswith("2024") for x in data["items"])
     return len(E)
