@@ -4,6 +4,9 @@ on:
     paths:
       - 'scripts/inspect_vpb_2026q3_source.py'
       - '.github/workflows/inspect-vpb-2026q3-original.yml'
+      - 'data/financials-VPB.json'
+      - 'reports/source-audits/VPB-2026Q3-original-9M-reviewedH1-bank-million-vnd.json'
+      - 'scripts/verify_vpb_2026q3_9m_reviewed_h1.py'
   workflow_dispatch:
 permissions:
   contents: read
