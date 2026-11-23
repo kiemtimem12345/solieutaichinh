@@ -120,7 +120,7 @@ def verify(a:dict,fin:dict)->int:
  assert audited["total_equity"]==37594469 and audited["total_assets"]==418028391
  assert [x["verification_status"] for x in fin["items"][1:]] == [
   "issuer_signed_TPB_2025Q2_original_B02a_B03a_KPMG_H1_minus_Q1_B04a_FX_vintage_verified",
-  "manual_review_required_pending_extraction",
+  "issuer_signed_TPB_2025Q3_consolidated_B02a_B03a_B04a_9M_minus_KPMG_H1_FX_exact_verified",
   "auto_extracted_pending_visual_review",
   "auto_extracted_pending_visual_review",
   "auto_extracted_pending_visual_review"
