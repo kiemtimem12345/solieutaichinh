@@ -108,7 +108,7 @@ def validate(a,old,fin):
  assert v=={"assets":0,"liabilities":-59,"equity":59,"PBT":0,
   "PAT":58,"parent_PAT":30,"NCI_PAT":28,"CFO":0,"CFI":0,"CFF":0,"net_cash_change":0}
  assert fin["symbol"]=="TPB" and [z["period"] for z in fin["items"]]==[
-  "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2"]
+  "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  row=fin["items"][5];source=row["source_validation"]
  assert row["verification_status"]=="issuer_signed_TPB_2026Q2_first_B02a_B03a_KPMG_H1_minus_Q1_B04a_FX_verified"
  assert row["unit"]=="triệu VND" and "hợp nhất" in row["report_type"].lower()
@@ -139,6 +139,7 @@ def validate(a,old,fin):
   for k,v in record.items():
    if isinstance(v,int):assert row["signed_source_"+prefix+"_"+k]==v,(prefix,k)
  assert all(z["verification_status"].startswith("issuer_signed") for z in fin["items"])
+ assert fin["items"][6]["verification_status"]=="issuer_signed_TPB_2026Q3_B02a_B03a_9M_minus_KPMG_H1_bank_B04a_FX_vintage_verified"
  assert not any(z["period"].startswith("2024") for z in fin["items"])
  return len(E)
 
