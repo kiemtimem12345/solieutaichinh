@@ -53,7 +53,7 @@ def verify(a,d,fy):
  "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  assert all(d["items"][k]["verification_status"].startswith("issuer_signed_VPB_2025Q") for k in range(4))
  assert d["items"][4]["verification_status"]==STATUS
- assert d["items"][5]["verification_status"]=="manual_review_required_pending_extraction"
+ assert d["items"][5]["verification_status"]=="issuer_signed_VPB_2026Q2_original_B02a_B03a_reviewed_H1_minus_Q1_B04a_verified"
  assert d["items"][6]["verification_status"]=="auto_extracted_pending_visual_review"
  r=d["items"][4];v=r["source_validation"]
  assert v["original_zip_sha256"]==s["archive_sha256"]
