@@ -1,0 +1,32 @@
+name: Inspect STB 2025 Q1 signed original bank source (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_stb_2025q1_original.py'
+      - '.github/workflows/inspect-stb-2025q1-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stb-2025q1-original
+  cancel-in-progress: true
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate source script
+        run: python -m py_compile scripts/inspect_stb_2025q1_original.py
+      - name: Retrieve signed source and render original statement pages
+        run: python -u scripts/inspect_stb_2025q1_original.py
+      - name: Retain evidence for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stb-2025q1-original-rendered-statements
+          path: stb-2025q1-original-source/*
+          retention-days: 1
+          if-no-files-found: warn
