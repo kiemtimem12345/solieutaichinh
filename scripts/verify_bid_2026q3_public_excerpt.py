@@ -32,7 +32,8 @@ def verify(a: dict, data: dict) -> int:
     ], "BID periods must be 2025-Q1 to issuer-verified 2026-Q3 exactly"
     assert data["items"][0]["verification_status"] == "issuer_signed_BID_2025Q1_consolidated_B01_B03_B04_exact_VND_verified"
     assert data["items"][1]["verification_status"] == "issuer_signed_BID_2025Q2_first_issued_B01_B03_reviewedH1_minus_Q1_B04_verified"
-    assert all(r.get("verification_status") == "auto_extracted_pending_visual_review" for r in data["items"][2:-1])
+    assert data["items"][2]["verification_status"] == "issuer_signed_BID_2025Q3_consolidated_B01_B03_B04_reviewedH1_quarter_exact_verified"
+    assert all(r.get("verification_status") == "auto_extracted_pending_visual_review" for r in data["items"][3:-1])
     b, q, y, c = (
         a["b01_2026_09_30_million_vnd"],
         a["b03_q3_direct_million_vnd"],
@@ -249,6 +250,6 @@ def main() -> None:
         else:
             raise AssertionError("Failed to catch " + name)
     print(f"PASS BID 2026Q3 source-signed 37p Q3 and 57p reviewed H1, {checks} exact accounting identities, 16 quarter income bridges, 8 negative controls.")
-    print("PASS BID issuer Q3 B04 CFO -19,191,844 CFI -624,542 CFF +220,486 net -19,595,900; issuer-verified Q1/2025 preserved, remaining Q2/2025–Q2/2026 provisional records unmodified.")
+    print("PASS BID issuer Q3 B04 CFO -19,191,844 CFI -624,542 CFF +220,486 net -19,595,900; issuer-verified Q1/2025 preserved, remaining 2025Q4–2026Q2 provisional records unmodified.")
 if __name__ == "__main__":
     main()
