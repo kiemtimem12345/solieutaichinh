@@ -1,0 +1,27 @@
+{
+  "symbol": "VPB",
+  "period": "2026-Q3",
+  "scope": "consolidated",
+  "unit": "triệu VND",
+  "status": "original_signed_9M_and_reviewed_H1_bank_comparison_in_progress",
+  "sources": {
+    "url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%203/VPB_Baocaotaichinh_Q3_2026_Hopnhat.zip",
+    "archive_sha256": "99a59d7b4f87ab28292eedd9797a31a83f9caab324c5a3bd0cb0544f72e5cdd5",
+    "archive_bytes": 11451570,
+    "lookup_pdf_sha256": "6e3d63a04332123a26310e24884a24244accc45c6b2f146917e67b2673e9eeff",
+    "lookup_pages": 88,
+    "original_signed_pdf_sha256": "026ad3ab3f672bd44ec3af074ce080795199f1e506720feabefb8cb1af290fda",
+    "original_signed_pages": 88,
+    "source_run": 45255183223,
+    "B02a_pages": [
+      5,
+      6
+    ],
+    "B03a_page": 8,
+    "B04a_pages": [
+      9,
+      10
+    ],
+    "H1_2026_reviewed_ledger": "reports/source-audits/VPB-2026Q2-original-and-H1-bank-million-vnd.json"
+  }
+}
