@@ -1,0 +1,32 @@
+name: Inspect STB 2026Q2 original and independently reviewed H1 bank sources
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_stb_2026q2_reviewed_sources.py'
+      - '.github/workflows/inspect-stb-2026q2-reviewed.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stb-2026q2-reviewed-source
+  cancel-in-progress: false
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDF and OCR dependencies
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Compile signed issuer source inspector
+        run: python -m py_compile scripts/inspect_stb_2026q2_reviewed_sources.py
+      - name: Recover Q2 direct and reviewed H1 source with hashes
+        run: python -u scripts/inspect_stb_2026q2_reviewed_sources.py
+      - name: Retain statement OCR text for 1 day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stb-2026q2-source-reviewed-H1
+          path: stb-2026q2-review-source/*.txt
+          retention-days: 1
+          if-no-files-found: warn
