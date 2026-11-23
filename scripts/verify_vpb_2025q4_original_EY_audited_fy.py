@@ -90,7 +90,7 @@ def verify(a,f,priors):
    "2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
  assert all(f["items"][k]["verification_status"].startswith(PREFIXES[k]) for k in range(3))
  assert [x["verification_status"] for x in f["items"]][3:]==[
-  STATUS,"manual_review_required_pending_extraction","manual_review_required_pending_extraction",
+  STATUS,"issuer_signed_VPB_2026Q1_original_B02a_B03a_B04a_true_CFO_verified","manual_review_required_pending_extraction",
   "auto_extracted_pending_visual_review"]
  assert f["items"][2]["cash_ending"]==q["opening_cash"]
  r=f["items"][3];sv=r["source_validation"]

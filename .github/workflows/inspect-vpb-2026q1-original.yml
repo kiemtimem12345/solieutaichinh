@@ -1,0 +1,32 @@
+name: Inspect VPB 2026 Q1 issuer original ZIP bank source (read-only)
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_vpb_2026q1_issuer_original.py'
+      - '.github/workflows/inspect-vpb-2026q1-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: vpb-2026q1-signed-original
+  cancel-in-progress: true
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils
+      - name: Validate source inspector
+        run: python -m py_compile scripts/inspect_vpb_2026q1_issuer_original.py
+      - name: Fetch source ZIP and statement page text
+        run: python -u scripts/inspect_vpb_2026q1_issuer_original.py
+      - name: Retain source text one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vpb-2026q1-original-source-pages
+          path: vpb-2026q1-first-issuer-source/*
+          retention-days: 1
+          if-no-files-found: warn
