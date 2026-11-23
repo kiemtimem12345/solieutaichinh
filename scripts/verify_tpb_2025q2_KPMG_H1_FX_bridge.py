@@ -115,7 +115,7 @@ def verify(a,q1,fin):
    if isinstance(val,int): assert row["signed_source_"+prefix+"_"+key]==val,(prefix,key)
  assert fin["items"][0]["verification_status"]=="issuer_signed_TPB_2025Q1_consolidated_B02a_B03a_B04a_FX_aware_verified"
  assert [z["verification_status"] for z in fin["items"][2:]]==[
- "manual_review_required_pending_extraction","auto_extracted_pending_visual_review",
+ "issuer_signed_TPB_2025Q3_consolidated_B02a_B03a_B04a_9M_minus_KPMG_H1_FX_exact_verified","auto_extracted_pending_visual_review",
  "auto_extracted_pending_visual_review","auto_extracted_pending_visual_review"]
  assert all(not z["period"].startswith("2024") for z in fin["items"])
  return len(tests)
