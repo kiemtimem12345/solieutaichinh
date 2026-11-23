@@ -1,0 +1,32 @@
+name: Inspect STB signed original Q3 2026 issuer bank B02 B03 9M B04
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_stb_2026q3_issuer_sources.py'
+      - '.github/workflows/inspect-stb-2026q3-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stb-2026q3-original-issuer
+  cancel-in-progress: false
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDF and issuer original OCR tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Compile issuer-source verifier
+        run: python -m py_compile scripts/inspect_stb_2026q3_issuer_sources.py
+      - name: Compare VI signed issuer original and EN issuer 9M 2026 sources
+        run: python -u scripts/inspect_stb_2026q3_issuer_sources.py
+      - name: Retain original source text briefly
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stb-2026q3-original-signed
+          path: stb-2026q3-signed-source/*.txt
+          retention-days: 1
+          if-no-files-found: warn
