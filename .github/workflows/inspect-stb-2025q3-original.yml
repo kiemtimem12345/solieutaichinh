@@ -1,0 +1,32 @@
+name: Inspect STB 2025 Q3 original source 9M bank cash
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_stb_2025q3_original.py'
+      - '.github/workflows/inspect-stb-2025q3-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: stb-2025q3-first-signed
+  cancel-in-progress: true
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDF tools and Vietnamese OCR
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils curl tesseract-ocr tesseract-ocr-vie
+      - name: Source script syntax
+        run: python -m py_compile scripts/inspect_stb_2025q3_original.py
+      - name: Verify Q3 original and emit B02 B03 B04 pages
+        run: python -u scripts/inspect_stb_2025q3_original.py
+      - name: Retain source OCR text for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stb-2025q3-original-source
+          path: stb-2025q3-original/*.txt
+          retention-days: 1
+          if-no-files-found: warn
