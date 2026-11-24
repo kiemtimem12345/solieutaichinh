@@ -5,7 +5,7 @@
   "unit": "triệu VND",
   "source": {
     "Q1_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/CTG_Baocaotaichinh_Q1_2026_Hopnhat.pdf",
-    "Q1_sha256": null,
+    "Q1_sha256": "0bec0f8f23b6786814f57daaedf21ce6c139a761b1168580bf1a1fdf0cfe216d",
     "Q1_pages": 62,
     "H1_url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/CTG_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
     "H1_sha256": "f7453816648cac21536621e09d4e52a40e8ce9fcdbaf824981b3b997a8197318",
@@ -36,8 +36,10 @@
       9,
       10
     ],
-    "source_run": 45368731358,
-    "prior_Q3_locked_ledger": "reports/source-audits/CTG-2026Q3-consolidated-original-9M-minus-H1-million-vnd.json"
+    "source_run": 45369747279,
+    "prior_Q3_locked_ledger": "reports/source-audits/CTG-2026Q3-consolidated-original-9M-minus-H1-million-vnd.json",
+    "Q1_bytes": 6340703,
+    "source_hash_verified": true
   },
   "Q1": {
     "B02": {
