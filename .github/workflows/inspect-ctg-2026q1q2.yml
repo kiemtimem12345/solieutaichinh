@@ -1,0 +1,32 @@
+name: Inspect CTG 2026 Q1 and H1 signed original sources
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_ctg_2026q1q2_original.py'
+      - '.github/workflows/inspect-ctg-2026q1q2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ctg-2026q1q2-original
+  cancel-in-progress: false
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDF and Vietnamese source tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Compile CTG source inspector
+        run: python -m py_compile scripts/inspect_ctg_2026q1q2_original.py
+      - name: Verify source stamps and extract issuer B02 B03 B04 pages
+        run: python -u scripts/inspect_ctg_2026q1q2_original.py
+      - name: Retain short-lived parsed text evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctg-2026q1q2-source-inspection
+          path: ctg-2026-bank-source/*.txt
+          retention-days: 1
+          if-no-files-found: warn
