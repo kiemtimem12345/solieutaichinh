@@ -29,6 +29,16 @@ def main():
    print(f"CTG_2025Q2_TEXT_START name={name}",flush=True)
    print(text[:55000],flush=True)
    print(f"CTG_2025Q2_TEXT_END name={name}",flush=True)
-   assert len(text.strip())>2000,"source PDF text unexpectedly empty, need targeted OCR not use guessed figures"
+   if len(text.strip())<2000:
+    first,last=(2,9) if name=="ISSUER_FIRST_Q2" else (6,13)
+    print(f"CTG_2025Q2_ORIGINAL_SCAN_OCR name={name} pages_{first}_{last}",flush=True)
+    run(["pdftoppm","-f",str(first),"-l",str(min(pages,last)),
+      "-scale-to","1850","-gray","-png",str(f),str(OUT/name)],240)
+    for image in sorted(OUT.glob(name+"*.png")):
+     transcribed=run(["tesseract",str(image),"stdout","-l","vie+eng","--psm","6"],120)
+     (OUT/(image.stem+".txt")).write_text(transcribed[:17000],"utf8")
+     print(f"CTG_2025Q2_OCR_START name={name} file={image.stem}",flush=True)
+     print(transcribed[:12500],flush=True)
+     print(f"CTG_2025Q2_OCR_END name={name} file={image.stem}",flush=True)
  print("PASS CTG Q2 signed original versus independently PwC-reviewed H1 2025 source files retrieved; production unchanged",flush=True)
 if __name__=="__main__":main()
