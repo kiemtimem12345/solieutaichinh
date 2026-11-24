@@ -1,0 +1,32 @@
+name: Inspect CTG Q4 2025 issuer original and PwC audited FY bank sources
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_ctg_2025q4_pwc_FY_sources.py'
+      - '.github/workflows/inspect-ctg-2025q4-pwc-audited.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ctg-2025q4-audited-sources
+  cancel-in-progress: false
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - name: PDF extract and OCR utilities
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Compile original/independent auditor inspector
+        run: python -m py_compile scripts/inspect_ctg_2025q4_pwc_FY_sources.py
+      - name: Pin original issuer versus PwC audited FY PDF hashes
+        run: python -u scripts/inspect_ctg_2025q4_pwc_FY_sources.py
+      - name: Preserve one-day source text evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctg-2025q4-pwc-audited-original-source
+          path: ctg-2025q4-fy-pwc-sources/*.txt
+          retention-days: 1
+          if-no-files-found: warn
