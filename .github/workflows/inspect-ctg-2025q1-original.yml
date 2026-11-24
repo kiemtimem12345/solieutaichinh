@@ -1,0 +1,32 @@
+name: Inspect CTG Q1 2025 signed original bank B02 B03 B04 PDF
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_ctg_2025q1_issuer_signed.py'
+      - '.github/workflows/inspect-ctg-2025q1-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ctg-2025q1-source
+  cancel-in-progress: false
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF and Vietnamese OCR tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Syntax-validate inspector
+        run: python -m py_compile scripts/inspect_ctg_2025q1_issuer_signed.py
+      - name: Verify original signed consolidated bank statement source
+        run: python -u scripts/inspect_ctg_2025q1_issuer_signed.py
+      - name: Keep source excerpts for manual audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctg-2025q1-original-source-text
+          path: ctg-2025q1-issuer-source/*.txt
+          retention-days: 1
+          if-no-files-found: warn
