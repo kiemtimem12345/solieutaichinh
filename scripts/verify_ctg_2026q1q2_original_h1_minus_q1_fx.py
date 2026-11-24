@@ -14,8 +14,8 @@ H1_SHA="f7453816648cac21536621e09d4e52a40e8ce9fcdbaf824981b3b997a8197318"
 def check(a,prior,d):
  assert (a["symbol"],a["scope"],a["unit"])==("CTG","hợp nhất","triệu VND")
  s=a["source"]
- assert isinstance(s["Q1_sha256"],str) and len(s["Q1_sha256"])==64 and all(v in "0123456789abcdef" for v in s["Q1_sha256"])
- assert s["Q1_pages"]==62 and s["H1_pages"]==61 and s["H1_bytes"]==6703623
+ assert s["Q1_sha256"]=="0bec0f8f23b6786814f57daaedf21ce6c139a761b1168580bf1a1fdf0cfe216d"
+ assert s["Q1_pages"]==62 and s["Q1_bytes"]==6340703 and s["H1_pages"]==61 and s["H1_bytes"]==6703623
  assert s["H1_sha256"]==H1_SHA==prior["original_H1"]["pdf_sha256"]
  assert s["source_run"] in (45369747279,45369836579,45368731358)
  b1,p1,c1=(a["Q1"][k] for k in ("B02","B03","B04"))
