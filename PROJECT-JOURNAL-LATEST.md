@@ -14,3 +14,6 @@
 MBB Q1/2025 B04: https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/MBB_Baocaotaichinh_Q1_2025_Hopnhat.pdf . Đối chiếu PDF ký gốc, đơn vị triệu VND, CFO/CFI/CFF và cầu tiền bao gồm FX nếu có. Chỉ ghi dữ liệu khi đủ nguồn; kiểm thử trước khi đóng kỳ.
 
 Lượt này đã đọc snapshot main, kiểm kê thiếu trường. Chưa thay đổi số liệu, chưa chạy CI/CD.
+
+## MBB Q1/2025 — B04 nguồn gốc đã xác minh
+PDF 60 trang, ký 24/04/2025, ảnh PDF trang 7–8 (đếm từ 1), B04a/TCTD-HN. Nguồn URL ở trên. Triệu VND: CFO -26075011; CFI -176955; CFF 2198563; net -24053403; opening 97040275; closing 72986872. Hai đẳng thức dòng tiền dư 0. CFO cũ 18186686 là thu lãi nhận được; CFI cũ -105882 cũng sai. Chưa sửa production vì Q2 trở đi phụ thuộc lũy kế Q1 sai. Điểm tiếp theo: đọc H1/2025 soát xét và Q2/2025 ký gốc B04, chuẩn hóa Q1+Q2 đồng bộ, kiểm thử rồi cập nhật. Không đọc lại B04 Q1 trừ khi mâu thuẫn. Chưa chạy CI/CD.
