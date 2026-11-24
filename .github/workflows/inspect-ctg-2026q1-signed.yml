@@ -1,0 +1,32 @@
+name: Inspect CTG 2026Q1 signed original bank B02 B03 B04
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_ctg_2026q1_signed.py'
+      - '.github/workflows/inspect-ctg-2026q1-signed.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ctg-2026q1-source
+  cancel-in-progress: false
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 19
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PDF and Viet OCR
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Compile verifier
+        run: python -m py_compile scripts/inspect_ctg_2026q1_signed.py
+      - name: Pin original source and read bank B02 B03 B04
+        run: python -u scripts/inspect_ctg_2026q1_signed.py
+      - name: Retain one-day source text
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctg-2026q1-bank-original-text
+          path: ctg-2026q1-signed-evidence/*.txt
+          retention-days: 1
+          if-no-files-found: warn
