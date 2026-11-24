@@ -1783,9 +1783,10 @@
         "bank_B04_true_CFO_and_FX_cash_exact": true,
         "prior_2025_and_Q3_preserved": true,
         "no_2024_dashboard_periods": true,
-        "Q1_original_pdf_hash_verified": false,
-        "Q1_original_pdf_sha256": null,
-        "source_workflow_run": 45368731358
+        "Q1_original_pdf_hash_verified": true,
+        "Q1_original_pdf_sha256": "0bec0f8f23b6786814f57daaedf21ce6c139a761b1168580bf1a1fdf0cfe216d",
+        "source_workflow_run": 45369747279,
+        "Q1_original_pdf_bytes": 6340703
       },
       "published_at": "2026-04-29",
       "source_archive_file": "reports/raw/CTG/auto-ctg-20261021/0bec0f8f23b67868.pdf",
@@ -1806,7 +1807,7 @@
         7,
         8
       ],
-      "core_financial_extraction_status": "CTG_2026_original_source_visual_balanced_pending_Q1_SHA",
+      "core_financial_extraction_status": "issuer_signed_2026_Q1_62p_H1_61p_SHA256_source_exact_bank_B02_B03_B04_verified",
       "core_financial_extraction_updated_at": "2026-10-23T04:03:26Z",
       "core_financial_extraction_note": "Đã trích xuất lại tổng tài sản, nợ phải trả, vốn chủ và lợi nhuận từ PDF hợp nhất do VietstockFinance liên kết; còn cần đối chiếu trực quan.",
       "core_financial_extraction_calculations": {
@@ -2193,9 +2194,10 @@
         "bank_B04_true_CFO_and_FX_cash_exact": true,
         "prior_2025_and_Q3_preserved": true,
         "no_2024_dashboard_periods": true,
-        "Q1_original_pdf_hash_verified": false,
-        "Q1_original_pdf_sha256": null,
-        "source_workflow_run": 45368731358
+        "Q1_original_pdf_hash_verified": true,
+        "Q1_original_pdf_sha256": "0bec0f8f23b6786814f57daaedf21ce6c139a761b1168580bf1a1fdf0cfe216d",
+        "source_workflow_run": 45369747279,
+        "Q1_original_pdf_bytes": 6340703
       },
       "published_at": "2026-07-31",
       "source_archive_file": "reports/raw/CTG/auto-ctg-20261021/f7453816648cac21.pdf",
@@ -2216,7 +2218,7 @@
         6,
         7
       ],
-      "core_financial_extraction_status": "CTG_2026_original_source_visual_balanced_pending_Q1_SHA",
+      "core_financial_extraction_status": "issuer_signed_2026_Q1_62p_H1_61p_SHA256_source_exact_bank_B02_B03_B04_verified",
       "core_financial_extraction_updated_at": "2026-10-23T04:03:26Z",
       "core_financial_extraction_note": "Đã trích xuất lại tổng tài sản, nợ phải trả, vốn chủ và lợi nhuận từ PDF hợp nhất do VietstockFinance liên kết; còn cần đối chiếu trực quan.",
       "core_financial_extraction_calculations": {
