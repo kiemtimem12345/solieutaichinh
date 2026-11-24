@@ -101,6 +101,8 @@ jobs:
         run: python scripts/verify_bid_2025q1_signed_original.py
       - name: Verify BID 2026Q3 signed source 17 exact accounting checks, visual sign repair and 5 corruption guards
         run: python scripts/verify_bid_2026q3_public_excerpt.py
+      - name: Verify CTG 2026Q1 signed bank true CFO after WC and exact FY2025 cash rollover 32 tamper tests
+        run: python scripts/verify_ctg_2026q1_signed_true_cfo.py
       - name: Verify CTG 2025Q4 PwC audited material PBT PAT equity and exact FX cash with 45 tamper tests
         run: python scripts/verify_ctg_2025q4_PwC_audited_FY.py
       - name: Verify CTG 2025Q3 issuer signed 9M minus PwC-reviewed H1 33 exact FX-aware identities and 38 source tamper cases
