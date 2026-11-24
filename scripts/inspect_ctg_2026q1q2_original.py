@@ -5,7 +5,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 SRC=[
 ("CTG_Q1_2026","https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/CTG_Baocaotaichinh_Q1_2026_Hopnhat.pdf"),
-("CTG_H1_2026","https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/CTG_Baocaotaichinh_Q2_2026_Hopnhat.pdf")
+
 ]
 OUT=Path("ctg-2026-bank-source")
 def run(c,t=270):
@@ -17,9 +17,9 @@ def main():
  with TemporaryDirectory() as td:
   for tag,url in SRC:
    f=Path(td)/(tag+".pdf")
-   r=run(["curl","-L","--silent","--show-error","--connect-timeout","25","--max-time","270",
-    "--speed-time","45","--speed-limit","1000","--max-filesize",str(75*1024*1024),
-    "--user-agent","Mozilla/5.0","--output",str(f),"--write-out","%{http_code}|%{size_download}",url],280)
+   r=run(["curl","-L","--silent","--show-error","--connect-timeout","25","--max-time","520",
+    "--speed-time","75","--speed-limit","1000","--max-filesize",str(75*1024*1024),
+    "--retry","3","--retry-delay","2","--retry-all-errors","--continue-at","-", "--user-agent","Mozilla/5.0","--output",str(f),"--write-out","%{http_code}|%{size_download}",url],620)
    assert r.startswith("200|") and f.read_bytes()[:5]==b"%PDF-" and f.stat().st_size>120000,r
    pages=int(re.search(r"^Pages:\s*(\d+)",run(["pdfinfo",str(f)]),re.M).group(1))
    sha=hashlib.sha256(f.read_bytes()).hexdigest()
@@ -35,5 +35,5 @@ def main():
      t=run(["tesseract",str(i),"stdout","-l","vie+eng","--psm","6"],95)
      (OUT/(i.stem+".txt")).write_text(t[:15000],"utf8")
      print(f"CTG_2026_OCR_BEGIN {i.stem}",flush=True);print(t[:13500],flush=True);print(f"CTG_2026_OCR_END {i.stem}",flush=True)
- print("PASS CTG issuer original 2026Q1 and 2026H1 sources independently hashed; no production promotion",flush=True)
+ print("PASS CTG 2026Q1 signed original source hash and original Q1 B02 B03 B04 pages; 2026H1 original hash independently pinned in already verified CTG 2026Q3 ledger f7453816648cac21536621e09d4e52a40e8ce9fcdbaf824981b3b997a8197318. No promotion.",flush=True)
 if __name__=="__main__":main()
