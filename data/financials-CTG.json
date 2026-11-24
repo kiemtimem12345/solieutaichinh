@@ -433,9 +433,9 @@
         "extraction_attempt_count": 1,
         "last_extraction_error": "LNST vượt quá 1,5 lần LNTT; nghi ngờ OCR lệch cột hoặc nhận nhầm dòng.",
         "verified_at": "2026-11-24",
-        "original_pdf_hash_verified": false,
+        "original_pdf_hash_verified": true,
         "source_audit_ledger": "reports/source-audits/CTG-2025Q2-original-PwC-H1-bank-million-vnd.json",
-        "original_source_run": 45343236270,
+        "original_source_run": 45343490708,
         "original_B02_B03_B04_pages": [
           2,
           3,
@@ -462,7 +462,13 @@
         "PwC_capex_reclass_million": 79310,
         "full_year_cash_net_unchanged": true,
         "no_2024_dashboard_periods": true,
-        "CTG_2026Q3_already_verified_not_reprocessed": true
+        "CTG_2026Q3_already_verified_not_reprocessed": true,
+        "original_pdf_sha256": "6fafb5d70e3dc9ca99518b632ea44c8d75d5d57908bdf56b2221bc212e9b2aa7",
+        "original_pdf_bytes": 5373307,
+        "original_pdf_pages": 62,
+        "PwC_reviewed_H1_pdf_sha256": "6dd260b0197fc4994ded9f42e60d24acc49b6c86755b09012e5b67ccfa41bcaa",
+        "PwC_reviewed_H1_pdf_pages": 76,
+        "PwC_reviewed_H1_pdf_bytes": 11776646
       },
       "published_at": "2025-07-31",
       "source_archive_file": "reports/raw/CTG/auto-ctg-20261021/6fafb5d70e3dc9ca.pdf",
@@ -482,7 +488,7 @@
         6,
         7
       ],
-      "core_financial_extraction_status": "original_Q2_2025_PwC_H1_2025_source_reconciled_pending_SHA",
+      "core_financial_extraction_status": "signed_original_Q2_62p_PwC_H1_76p_sha_verified_45_exact_identities",
       "core_financial_extraction_updated_at": "2026-10-25T08:45:28+00:00",
       "core_financial_extraction_note": "Chỉ tiêu lõi được trích xuất từ văn bản PDF/ZIP đã lưu; chưa xác minh thủ công trên bản PDF.",
       "verification_status_note": "Các chỉ tiêu lõi đã được trích xuất tự động từ BCTC hợp nhất VietstockFinance; cần đối chiếu trực quan trước khi coi là xác minh.",
