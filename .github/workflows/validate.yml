@@ -101,6 +101,8 @@ jobs:
         run: python scripts/verify_bid_2025q1_signed_original.py
       - name: Verify BID 2026Q3 signed source 17 exact accounting checks, visual sign repair and 5 corruption guards
         run: python scripts/verify_bid_2026q3_public_excerpt.py
+      - name: Verify CTG Q2 2025 first signed versus PwC-reviewed H1 79,310m CFO CFI reclass and 32 negative tamper cases
+        run: python scripts/verify_ctg_2025q2_original_PwC_H1.py
       - name: Verify CTG 2025Q1 issuer signed bank true negative CFO no CFF, FX cash, 32 source tamper cases
         run: python scripts/verify_ctg_2025q1_original_signed_fx.py
       - name: Verify CTG 2026Q3 signed bank B02a B03a B04a 104 source fields, 28 zero identities, 16 income bridges and FX-aware cash

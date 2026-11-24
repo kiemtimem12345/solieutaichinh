@@ -1,0 +1,32 @@
+name: Inspect CTG original Q2 2025 and PwC reviewed H1 cash vintage sources
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_ctg_2025q2_pwc_source.py'
+      - '.github/workflows/inspect-ctg-2025q2-pwc.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ctg-2025q2-pwc
+  cancel-in-progress: false
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PDF extractor
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Compile source inspector
+        run: python -m py_compile scripts/inspect_ctg_2025q2_pwc_source.py
+      - name: Pin signed original and independently reviewed PwC cash source vintages
+        run: python -u scripts/inspect_ctg_2025q2_pwc_source.py
+      - name: Keep PDF text for 1 day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctg-2025q2-original-pwc-text
+          path: ctg-2025q2-original-pwc/*.txt
+          retention-days: 1
+          if-no-files-found: warn
