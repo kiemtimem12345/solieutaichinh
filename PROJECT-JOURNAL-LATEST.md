@@ -3,6 +3,9 @@
 ## Quy tắc bắt buộc khi mở cuộc trò chuyện mới
 Đọc file này trên main và kiểm tra commit mới nhất trước khi tiếp tục. Chỉ xử lý bước chưa đạt; mỗi mã/kỳ đạt phải ghi nhật ký, nguồn, kiểm thử, commit và điểm tiếp theo. Không coi OCR hoặc dữ liệu có sẵn là PASS nếu chưa đủ chứng cứ. Ngoại lệ đưa vào hàng chờ và tiếp tục mã khác theo yêu cầu. Phạm vi Q1/2025–Q3/2026, tối đa 20 kỳ, không nhập 2024. Biểu đồ cột xanh bo góc và đường, đơn vị rõ ràng, trục quý.
 
+## Nguyên tắc tự tiếp tục — chỉ dừng khi lỗi nghiêm trọng
+Không chờ người dùng nhắc hoặc xác nhận từng bước. Trong mỗi lượt thực hiện, chủ động xử lý liên tiếp các kỳ/mã theo hàng đợi, kiểm thử, ghi checkpoint ngay khi đạt, rồi chuyển bước tiếp theo. Lỗi thông thường (timeout, thiếu PDF, OCR, thiếu trường, kiểm thử cục bộ) phải tự tìm nguồn/phương án khác; nếu chưa giải quyết được, cô lập vào hàng chờ, ghi rõ bằng chứng và tiếp tục phần độc lập. Chỉ xin ý kiến khi có lỗi nghiêm trọng không thể xử lý an toàn theo quy tắc hiện có: nguy cơ mất/ghi đè dữ liệu đã xác minh, mâu thuẫn nguồn trọng yếu không thể phân giải, hoặc cần quyền truy cập/quyết định thay đổi phạm vi hay phương pháp ngoài ủy quyền. Không xuất bản dữ liệu chưa đạt. Khi hết thời lượng phiên, lưu điểm dừng; tác vụ định kỳ đọc nhật ký và tiếp tục, không giả định chạy liên tục ngoài lịch.
+
 ## Trạng thái kiểm tra thực tế
 - CTG: commit dd9f6adb3085539f08765e504d8dcb6b1ab0cf53 ghi đóng 7 kỳ; chưa kiểm tra lại CI trong lượt này.
 - BID: 7/7 bản ghi có trạng thái nguồn ký gốc đã xác minh B01/B03/B04; không làm lại các kỳ này nếu không có mâu thuẫn.
