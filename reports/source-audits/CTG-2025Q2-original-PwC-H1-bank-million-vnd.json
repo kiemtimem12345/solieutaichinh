@@ -4,13 +4,13 @@
   "period": "2025-Q2",
   "unit": "triệu VND",
   "scope": "consolidated",
-  "stage": "source_PwC_original_accounting_verified_pending_PDF_sha256",
+  "stage": "source_hash_verified_PwC_H1_76p_original_Q2_62p_45_exact_source_cash_identities",
   "sources": {
     "issuer_Q2_original": {
       "url": "https://investor.vietinbank.vn/documents/20126/169610/BCTC%2Bhop%2Bnhat%2BQuy%2BII.2025.pdf.pdf/35e4e2fa-04ef-fb04-3104-2b6aae0a7d3e",
-      "pdf_sha256": null,
-      "bytes": null,
-      "pages": null,
+      "pdf_sha256": "6fafb5d70e3dc9ca99518b632ea44c8d75d5d57908bdf56b2221bc212e9b2aa7",
+      "bytes": 5373307,
+      "pages": 62,
       "source_date": "2025-07-30",
       "B02_pages": [
         2,
@@ -28,9 +28,9 @@
     },
     "PwC_H1_reviewed": {
       "url": "https://investor.vietinbank.vn/documents/20126/223928/Vietinbank%20FS%20conso%2030.6.2025%20VN.pdf.pdf/46ebb297-6b5f-8e52-d65f-449ef00b3cfa",
-      "pdf_sha256": null,
-      "bytes": null,
-      "pages": null,
+      "pdf_sha256": "6dd260b0197fc4994ded9f42e60d24acc49b6c86755b09012e5b67ccfa41bcaa",
+      "bytes": 11776646,
+      "pages": 76,
       "review_date": "2025-08-14",
       "B02_pages": [
         7,
@@ -45,7 +45,7 @@
         12
       ]
     },
-    "source_workflow_run": 45343236270,
+    "source_workflow_run": 45343490708,
     "prior_Q1_original_audit_ledger": "reports/source-audits/CTG-2025Q1-original-signed-bank-million-vnd.json",
     "prior_Q1_original_pdf_sha256": "244171fc77a8ab7e8685b90a74ea8a52f00f3ad622864b591affcea21f953065"
   },
