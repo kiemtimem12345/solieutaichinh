@@ -4,12 +4,12 @@
   "period": "2025-Q1",
   "scope": "issuer-signed consolidated 31 March 2025",
   "unit": "triệu VND",
-  "stage": "source_direct_pdf_visual_reconciled_pending_sha256",
+  "stage": "issuer_signed_pdf_hash_verified_20_exact_identities_correct_true_CFO",
   "source": {
     "url": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/CTG_Baocaotaichinh_Q1_2025_Hopnhat.pdf",
     "pages": 61,
-    "bytes": null,
-    "pdf_sha256": null,
+    "bytes": 6535983,
+    "pdf_sha256": "244171fc77a8ab7e8685b90a74ea8a52f00f3ad622864b591affcea21f953065",
     "issuer_signed_date": "2025-04-29",
     "source_workflow_run": 45342348257,
     "B02_pages": [
