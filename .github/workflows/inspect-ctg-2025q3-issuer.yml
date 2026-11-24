@@ -1,0 +1,32 @@
+name: Inspect CTG signed Q3 2025 consolidated issuer original bank 9M
+on:
+  pull_request:
+    paths:
+      - 'scripts/inspect_ctg_2025q3_signed_9m.py'
+      - '.github/workflows/inspect-ctg-2025q3-issuer.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ctg-2025q3-issuer-signed-source
+  cancel-in-progress: false
+jobs:
+  original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PDF and optional Vietnamese OCR
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq curl poppler-utils tesseract-ocr tesseract-ocr-vie
+      - name: Compile signed source inspector
+        run: python -m py_compile scripts/inspect_ctg_2025q3_signed_9m.py
+      - name: Hash official signed Q3 2025 bank consolidated 9M
+        run: python -u scripts/inspect_ctg_2025q3_signed_9m.py
+      - name: Preserve original source text for one day
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctg-2025q3-original-9m-source
+          path: ctg-2025q3-issuer-evidence/*.txt
+          retention-days: 1
+          if-no-files-found: warn
