@@ -4,13 +4,13 @@
   "period": "2026-Q1",
   "scope": "consolidated",
   "unit": "triệu VND",
-  "stage": "signed_source_visual_PDF_verified_sha_pending",
+  "stage": "original_issuer_signed_PDF_61p_sha256_verified_20_exact_identities",
   "source": {
     "url": "https://investor.vietinbank.vn/documents/20126/745243/BCTC%20hop%20nhat%20Quy%20I.2026.pdf.pdf/fe475c57-822f-3c6d-5bf1-53e6612969e9",
     "signed_date": "2026-04-28",
-    "pdf_sha256": null,
-    "pages": null,
-    "bytes": null,
+    "pdf_sha256": "294f853b3317bb01648f39d1a81bdab3cbdaf625da27f0dcfe520dd5f15e2c2e",
+    "pages": 61,
+    "bytes": 5679820,
     "source_workflow_run": 45346880126,
     "B02_pages": [
       2,
