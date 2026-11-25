@@ -130,3 +130,6 @@ Q3 verified from signed original 83-page PDF pp.6–7,9–11 (printed 3–4,6–
 
 ## 25/11/2026 — TCB Q3/2025 merged/read-back PASS
 PR #202 CI #45573601590 completed success; merged 9d790a0883b314a5b407cf8beff326a01121050b. Main blob 74b2d80779fa71d4d2f21a1e236aef8e41663d9d confirms 29 zero residuals, six other periods unchanged, Q2→Q3 cash bridge exact. TCB three of seven periods verified. Next stage Q4 using audited FY evidence already recorded. No website smoke confirmation.
+
+## 25/11/2026 — TCB Q4/2025 audited candidate PR #203
+Q4 source evidence in preceding checkpoint. 38 exact residuals zero including both first-issued and audited FY cash sums/bridges, CFO adjustment and annual/quarter profits. Candidate 638f155781c9ead1824e34ed3e03f4b87c4cbd6d PR #203 https://github.com/kiemtimem12345/solieutaichinh/pull/203. Other six records unchanged; no production merge yet. Audited Q4 CFO 39077091 CFI -302339 CFF -6871089 net 31903663 opening 159923680 closing 191827343. Next financial CI then merge if PASS, read-back, Q1/2026 signed original source and bridge to audited FY. Website smoke unverified.
