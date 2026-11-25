@@ -97,9 +97,15 @@ def verify(s,h1,d):
     assert value(row,"net_profit_attributable")==value(row,"net_profit")
     assert all(x["period"].startswith(("2025-","2026-")) for x in d["items"])
     assert not d.get("pre_listing_legacy_reports")
-    # Never publish pending Q2 amounts due to earlier vintage discrepancy.
+    # Q2 vintage has now been reconciled; preserve exact H1 and cash links.
     q2=next(x for x in d["items"] if x["period"]=="2025-Q2")
-    assert q2["net_profit"] is None and q2["source_validation"]["unreconciled_vintage_queued"] is True
+    assert q2["verification_status"]=="issuer_signed_Q2_and_EY_H1_vintage_reconciled"
+    assert q2["source_validation"]["unreconciled_vintage_queued"] is False
+    assert value(q2,"net_profit")==702214269106
+    assert value(q2,"net_profit_ytd")==int(h1["original_vnd_fields"]["net_profit_ytd"])
+    assert value(q2,"cash_ending")==value(row,"cash_beginning")
+    for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change"):
+        assert value(q2,k+"_ytd")+value(row,k)==value(row,k+"_ytd")
     return q
 if __name__=="__main__":
     s,h,d=map(read,(SRC,H1,DATA))

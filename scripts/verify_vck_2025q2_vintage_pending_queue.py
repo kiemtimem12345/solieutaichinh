@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""VCK 2025Q2: signed-source exact VND, EY H1 vintage difference, quarantine queue.
+"""VCK 2025Q2: signed-source exact VND, EY H1 vintage difference, resolved comparative.
 
-Do not pass this period as reconciled or publish unmatched financial numbers.
-Do not prevent verification of later quarters.
+Preserve the historical variance and independently verify the now-resolved row.
 """
 from pathlib import Path
 import json,copy
+from decimal import Decimal
 
 ROOT=Path(__file__).resolve().parents[1]
 SRC=ROOT/"reports/source-audits/VCK-2025Q2-VPSS-original-and-EY-H1-vintage-vnd.json"
@@ -65,14 +65,49 @@ def verify(s,queue,data,q1):
     assert int(rev["ending"])==N("cash_ending_ytd")
     assert data["symbol"]=="VCK" and len(data["items"])==7
     row=next(x for x in data["items"] if x["period"]=="2025-Q2")
-    assert row["verification_status"]=="issuer_signed_Q2_2025_source_recovered_vintage_exception_queued"
-    assert row["source_validation"]["do_not_publish_unreconciled_quarter"] is True
-    assert row["source_validation"]["unreconciled_vintage_queued"] is True
-    assert row["total_assets"] is None and row["net_profit"] is None
-    assert row["operating_cash_flow"] is None and row["financing_cash_flow"] is None
+    assert row["verification_status"]=="issuer_signed_Q2_and_EY_H1_vintage_reconciled"
+    assert row["source_validation"]["do_not_publish_unreconciled_quarter"] is False
+    assert row["source_validation"]["unreconciled_vintage_queued"] is False
+    assert not row.get("scope_review_hold")
+    resolution=s["resolution_20261125"]
+    assert resolution["status"]=="reconciled_exact_vnd"
+    assert s["status"]=="resolved_issuer_signed_Q2_and_EY_H1_vintage_reconciled"
+    rr=resolution["source_review"]
+    revised=rr["revised_q1_comparative_vnd"]
+    assert revised["pretax_profit"]==919386668744 and revised["net_profit"]==735687757488
+    assert revised["securities_operating_expense"]==536435699262 and revised["admin_expense"]==83906585251
+    assert revised["pretax_profit"]-S("pretax_profit")==913532383
+    assert revised["net_profit"]-S("net_profit")==913532383
+    assert S("securities_operating_expense")-revised["securities_operating_expense"]==54329401
+    assert S("admin_expense")-revised["admin_expense"]==859202982
+    assert N("pretax_profit_ytd")-revised["pretax_profit"]-N("pretax_profit")==0
+    assert N("net_profit_ytd")-revised["net_profit"]-N("net_profit")==0
+    def exact(r,k):
+        assert type(r.get(k)) in (int,float),(k,r.get(k))
+        v=Decimal(str(r[k]))*Decimal(1000000)
+        assert v==v.to_integral_value(),(k,v)
+        return int(v)
+    for k,v in rr["raw_values_vnd"].items():
+        assert exact(row,k)==int(v),(k,exact(row,k),v)
+    assert len(rr["checks_exact_vnd"])==40 and all(v==0 for v in rr["checks_exact_vnd"].values())
+    assert row["source_review"]["revised_q1_comparative_vnd"]==revised
+    for k in ("total_assets","total_liabilities","equity","revenue","pretax_profit","net_profit"):
+        assert exact(row,k)==N(k)
+    for k,v in reviewed.items():
+        assert exact(row,k)==int(v)
+    for k,short in (("operating_cash_flow","CFO"),("investing_cash_flow","CFI"),("financing_cash_flow","CFF"),("net_cash_change","net")):
+        assert exact(row,k+"_ytd")==int(rev[short])
+        assert exact(row,k)==int(rev[short])-S(k)
+    first=next(x for x in data["items"] if x["period"]=="2025-Q1")
+    nextq=next(x for x in data["items"] if x["period"]=="2025-Q3")
+    assert exact(first,"net_profit")==S("net_profit")
+    assert exact(first,"cash_ending")==exact(row,"cash_beginning")
+    assert exact(nextq,"cash_beginning")==exact(row,"cash_ending")
+    assert exact(row,"client_brokerage_cash_ending_ytd")!=exact(row,"cash_ending")
+    assert row["eps"]==1232 and row["eps_ytd"]==2523
     assert len(queue["items"])>=1
     entry=next(x for x in queue["items"] if x["id"]=="VCK-2025Q2-signed-vintage-bridge")
-    assert entry["status"]=="queued_not_blocking_other_periods"
+    assert entry["status"]=="resolved_exact_vnd" and entry["production_eligible"] is True
     assert entry["user_visibility"]=="only_if_user_asks_which_tickers_or_periods_remain"
     assert entry["evidence_ledger"]==str(SRC.relative_to(ROOT))
     assert queue["continue_processing_other_periods"] is True
@@ -81,15 +116,16 @@ def verify(s,queue,data,q1):
 if __name__=="__main__":
     a,b,c,d=map(read,(SRC,QUEUE,DATA,Q1))
     n=verify(a,b,c,d)
-    for scenario in ("bad_balance","profit_vintage_suppressed","leak_to_published"):
+    for scenario in ("bad_balance","profit_vintage_suppressed","wrong_published_profit","wrong_revised_comparator"):
         aa,bb,cc,dd=copy.deepcopy(a),copy.deepcopy(b),copy.deepcopy(c),copy.deepcopy(d)
         if scenario=="bad_balance":
             aa["original_vnd_fields"]["total_assets"]=str(int(aa["original_vnd_fields"]["total_assets"])+1)
         elif scenario=="profit_vintage_suppressed":
             aa["checks_exact_vnd"]["income_Q2_vintage_difference"]="0"
-        else:next(x for x in cc["items"] if x["period"]=="2025-Q2")["net_profit"]=702214.269106
+        elif scenario=="wrong_published_profit":next(x for x in cc["items"] if x["period"]=="2025-Q2")["net_profit"]=702214.269107
+        else:aa["resolution_20261125"]["source_review"]["revised_q1_comparative_vnd"]["net_profit"]+=1
         try:verify(aa,bb,cc,dd)
         except (AssertionError,TypeError,ValueError):pass
         else:raise AssertionError("Not rejected: "+scenario)
-    print(f"PASS VCK Q2 2025 signed 45 source fields, {n} exact-VND checks with explicit vintage variance and private queue; 3 negative controls.")
-    print("NEXT: VCK Q3/2025, do not retry pending Q2 automatically.")
+    print(f"PASS VCK Q2 2025 signed 45 source fields, {n} exact-VND checks with explicit historical vintage variance, resolved Q1 comparative, exact published amounts; 4 negative controls.")
+    print("VCK Q2/2025 resolved; signed Q1 and later verified quarters preserved.")

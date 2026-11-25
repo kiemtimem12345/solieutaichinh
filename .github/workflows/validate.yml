@@ -137,7 +137,7 @@ jobs:
         run: python scripts/verify_vck_2025q4_original_EY_FY_bridge.py
       - name: Verify VCK Q3 2025 issuer signed ZIP and EY H1 9M-minus-6M exact VND data
         run: python scripts/verify_vck_2025q3_signed_original_ey_h1.py
-      - name: Verify VCK Q2 2025 signed source and audited H1 vintage quarantined in private exception queue
+      - name: Verify VCK Q2 2025 signed source, audited H1 cash and exact revised-Q1 vintage reconciliation
         run: python scripts/verify_vck_2025q2_vintage_pending_queue.py
       - name: Verify VCK Q1 2025 issuer signed VPS standalone B01 B02 B03 and prevent 2024 leakage
         run: python scripts/verify_vck_2025q1_signed_vps_issuer.py

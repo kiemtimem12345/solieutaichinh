@@ -92,7 +92,22 @@ def verify(s,fy,data):
     assert scaled(row,"broker_customer_deposits")==scaled(row,"client_brokerage_cash_ending")
     assert scaled(row,"broker_customer_deposits")!=scaled(row,"cash_ending")
     assert not data.get("pre_listing_legacy_reports")
-    assert next(z for z in data["items"] if z["period"]=="2025-Q2")["net_profit"] is None
+    # Q2 2025 was formerly quarantined; validate the now-reconciled record.
+    q2=next(z for z in data["items"] if z["period"]=="2025-Q2")
+    assert q2["verification_status"]=="issuer_signed_Q2_and_EY_H1_vintage_reconciled"
+    assert not q2.get("scope_review_hold")
+    assert not q2["source_validation"]["do_not_publish_unreconciled_quarter"]
+    assert scaled(q2,"net_profit")==702214269106
+    assert scaled(q2,"pretax_profit")==877990864499
+    assert scaled(q2,"operating_cash_flow")==8493524024537
+    assert scaled(q2,"investing_cash_flow")==-63912431200
+    assert scaled(q2,"financing_cash_flow")==-4899104917132
+    assert scaled(q2,"cash_ending")==5153921569830
+    q1=next(z for z in data["items"] if z["period"]=="2025-Q1")
+    assert scaled(q1,"net_profit")==734774225105
+    assert scaled(q2,"net_profit_ytd")==735687757488+scaled(q2,"net_profit")
+    assert scaled(q2,"cash_beginning")==scaled(q1,"cash_ending")
+    assert scaled(q2,"operating_cash_flow")+scaled(q2,"investing_cash_flow")+scaled(q2,"financing_cash_flow")==scaled(q2,"cash_ending")-scaled(q2,"cash_beginning")
     return len(f)
 if __name__=="__main__":
     src,fy,data=map(read,(SRC,FY,DATA))
