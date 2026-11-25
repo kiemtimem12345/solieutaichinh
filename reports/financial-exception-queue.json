@@ -8,7 +8,7 @@
       "ticker": "VCK",
       "period": "2025-Q2",
       "priority": "accounting_vintage_source_review",
-      "status": "queued_not_blocking_other_periods",
+      "status": "resolved_exact_vnd",
       "evidence_ledger": "reports/source-audits/VCK-2025Q2-VPSS-original-and-EY-H1-vintage-vnd.json",
       "discrepancies_exact_vnd": {
         "six_month_b03_operating_reclassification": "605000000",
@@ -17,11 +17,15 @@
         "quarter_profit_6m_minus_q1_minus_q2": "913532383",
         "quarter_pretax_6m_minus_q1_minus_q2": "913532383"
       },
-      "next_research_step": "Compare Q1 comparative income vintage, H1 audited/restated current-period notes and Q2 signed quarter current column; do not override signed Q2 with balancing plug. Inspect independent original notes when accessible.",
+      "next_research_step": "None unless contradictory new disclosure appears.",
       "resume_only_with_new_evidence": true,
       "exclude_from_automatic_retry_without_new_source": true,
       "user_visibility": "only_if_user_asks_which_tickers_or_periods_remain",
-      "created_for_project_date": "2026-11-22"
+      "created_for_project_date": "2026-11-22",
+      "production_eligible": true,
+      "blocks_sequential_processing": false,
+      "resolved_date": "2026-11-25",
+      "resolution": "Q1 comparative operating and admin expense revisions explain both 913532383 VND discrepancies exactly; original Q2 signed earnings, audited H1 cash minus original Q1. Historical discrepancies preserved."
     },
     {
       "id": "VCK-2026Q2-B02-H1-Q1-vintage-delta-29595000",
