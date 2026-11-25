@@ -132,8 +132,9 @@ def verify(src,prev,data):
     assert actual(row,"cash_ending")==actual(row,"cash_ending_ytd")
     assert not data.get("pre_listing_legacy_reports")
     q2=next(x for x in data["items"] if x["period"]=="2025-Q2")
-    assert q2["net_profit"] is None
-    assert q2["source_validation"]["unreconciled_vintage_queued"] is True
+    assert actual(q2,"net_profit")==702214269106
+    assert q2["verification_status"]=="issuer_signed_Q2_and_EY_H1_vintage_reconciled"
+    assert q2["source_validation"]["unreconciled_vintage_queued"] is False
     return q
 if __name__=="__main__":
     src,prev,data=map(read,(SRC,PREV,DATA))
