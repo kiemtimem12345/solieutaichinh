@@ -1307,7 +1307,6 @@
       "income_tax_deferred": -557,
       "income_tax": 1180526,
       "net_profit": 4698837,
-      "eps": 2276,
       "eps_period_basis": "9M YTD, not standalone Q3",
       "operating_cash_flow_ytd": -45692066,
       "investing_cash_flow_ytd": -981312,
@@ -1456,7 +1455,6 @@
         "income_tax_deferred",
         "income_tax",
         "net_profit",
-        "eps",
         "operating_cash_flow_ytd",
         "investing_cash_flow_ytd",
         "financing_cash_flow_ytd",
@@ -1477,8 +1475,10 @@
         "capital_expenditure",
         "dividends_paid",
         "roa",
-        "roe"
-      ]
+        "roe",
+        "eps_ytd"
+      ],
+      "eps_ytd": 2276
     }
   ],
   "note": "Đã đối soát thủ công các kỳ hợp nhất Q1/2024–Q4/2025 và Q1/2026–Q2/2026 trực tiếp từ tài liệu trong danh mục VietstockFinance. Đơn vị tiền: triệu VND. Lợi nhuận lấy theo phát sinh trong quý; ROA/ROE được thường niên hóa từ LNST quý và bình quân số dư đầu/cuối quý. Ngày công bố lấy từ metadata LastUpdate Vietstock; ngày ký báo cáo lưu riêng.",
