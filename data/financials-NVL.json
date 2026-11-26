@@ -365,6 +365,27 @@
           "eps_comparative_2026q2": -80,
           "eps_comparative_status": "different vintage; reason not verified; preserve original",
           "eps_comparative_sha256": "4c62126cc62d6221cbdd7c4c5bfd54a709ae5c39a40c000314e3d1334ae77f64"
+        },
+        "cashflow_source": {
+          "sha256": "618d514b355387ade90d2266f8f8c4c7098d94339592dc696d900482c96b4e6c",
+          "printed_pages": "11–12",
+          "artifact_id": 15130464525,
+          "prior_q1_sha256": "c960f4c9e5cb44e5926dbebbf53db7348fedbf2c370e9300cdc1ea76f1103e83",
+          "raw_h1_vnd": {
+            "operating_cash_flow": -7455704167784,
+            "investing_cash_flow": 7520790190642,
+            "financing_cash_flow": -366705590160,
+            "net_cash_change": -301619567302,
+            "exchange_rate_effect_on_cash": -2763585
+          },
+          "exact_checks": {
+            "h1": 0,
+            "quarter": 0,
+            "cash": 0,
+            "opening": 0
+          },
+          "previous_net_cash_change_million_vnd": -1778366.44519,
+          "note": "Mã 50 = 20+30+40, mã 61 riêng; không cộng tỷ giá vào dòng tiền thuần."
         }
       },
       "quarter_profit_basis": "Original B02a current quarter signed 2025-07-28",
