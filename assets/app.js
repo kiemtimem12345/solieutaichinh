@@ -1344,6 +1344,14 @@
     };
     const cashflowValue = (item, field, rows, ticker) => {
       const mode = cashflowBasisSelect?.value || 'quarter';
+      if (field === 'cash_opening_basis_adjustment') {
+        return mode !== 'ytd' && item?.cashflow_period_basis === 'quarter_derived_mixed_vintage_explicit_adjustment' && validNumber(item?.[field]) ? Number(item[field]) : null;
+      }
+      if (field === 'foreign_exchange_effect') {
+        const alias = mode === 'ytd' ? 'exchange_rate_effect_on_cash_ytd' : 'exchange_rate_effect_on_cash';
+        const canonical = mode === 'ytd' ? 'foreign_exchange_effect_ytd' : field;
+        if (!validNumber(item?.[canonical]) && validNumber(item?.[alias])) return Number(item[alias]);
+      }
       if (mode !== 'ytd') {
         // Prefer a source-matched quarterly figure already present in the row.
         // rowsForBasis has already removed values that are not source-approved.
@@ -2108,6 +2116,7 @@
         { label: 'Cổ tức, lợi nhuận đã trả cho chủ sở hữu', key: 'dividends_paid', level: 1 },
         { label: 'Lưu chuyển tiền thuần trong kỳ', key: 'net_cash_change', strong: true },
         { label: 'Tiền và tương đương tiền đầu kỳ', key: 'cash_beginning', level: 1 },
+        { label: 'Điều chỉnh cơ sở trình bày (không phải dòng tiền)', key: 'cash_opening_basis_adjustment', level: 1 },
         { label: 'Tiền và tương đương tiền cuối kỳ', key: 'cash_ending', strong: true }
       ];
       if (activeStatement === 'ratios') return [
@@ -2279,7 +2288,7 @@
             }).join('') + '</tr>';
         }).join('');
       } else {
-        const defs = getStatementRows();
+        const defs = getStatementRows().filter(def => def.key !== 'cash_opening_basis_adjustment' || (cashflowBasisSelect?.value !== 'ytd' && sourceRows.some(row => row.cashflow_period_basis === 'quarter_derived_mixed_vintage_explicit_adjustment' && validNumber(row.cash_opening_basis_adjustment))));
         body = defs.map(def => {
           const rowClass = [def.type === 'section' ? 'statement-section' : '', def.strong ? 'statement-strong' : '', def.level ? 'statement-level-' + def.level : ''].filter(Boolean).join(' ');
           const label = '<td class="statement-row-label">' + escapeHtml(def.label) + '</td>';
