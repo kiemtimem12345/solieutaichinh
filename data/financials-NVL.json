@@ -565,6 +565,17 @@
             "quarterCash": 0,
             "opening": 0
           }
+        },
+        "asset_source": {
+          "sha256": "9fddbc42c2cc38b1b5d485e7e37cff19a15c3948ef3f285941920790190759e8",
+          "printed_pages": "3–4",
+          "artifact_id": 15130464525,
+          "exact_checks": {
+            "current": 0,
+            "long": 0,
+            "total": 0,
+            "cash": 0
+          }
         }
       },
       "quarter_profit_basis": "original standalone quarter",
@@ -647,9 +658,25 @@
         "cash_ending_ytd",
         "revenue_ytd",
         "pretax_profit_ytd",
-        "net_profit_ytd"
+        "net_profit_ytd",
+        "short_term_investments",
+        "short_term_receivables",
+        "other_current_assets",
+        "long_term_receivables",
+        "investment_property",
+        "long_term_construction_in_progress",
+        "long_term_investments",
+        "other_non_current_assets"
       ],
-      "financial_line_items_status": "partial_source_verification_pending"
+      "financial_line_items_status": "partial_source_verification_pending",
+      "short_term_investments": 48524.470677,
+      "short_term_receivables": 45017413.493751,
+      "other_current_assets": 2109423.67788,
+      "long_term_receivables": 21902382.940835,
+      "investment_property": 5469238.641268,
+      "long_term_construction_in_progress": 418692.419994,
+      "long_term_investments": 3115330.315039,
+      "other_non_current_assets": 3447849.487681
     },
     {
       "symbol": "NVL",
