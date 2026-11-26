@@ -386,6 +386,20 @@
           },
           "previous_net_cash_change_million_vnd": -1778366.44519,
           "note": "Mã 50 = 20+30+40, mã 61 riêng; không cộng tỷ giá vào dòng tiền thuần."
+        },
+        "balance_sheet_source": {
+          "sha256": "618d514b355387ade90d2266f8f8c4c7098d94339592dc696d900482c96b4e6c",
+          "printed_pages": "6–9",
+          "artifact_id": 15130464525,
+          "exact_checks": {
+            "current": 0,
+            "long": 0,
+            "assets": 0,
+            "balance": 0,
+            "debt": 0,
+            "cash": 0,
+            "equity": 0
+          }
         }
       },
       "quarter_profit_basis": "Original B02a current quarter signed 2025-07-28",
@@ -468,7 +482,21 @@
         "other_profit",
         "income_tax_current",
         "income_tax_deferred",
-        "non_controlling_interest_profit"
+        "non_controlling_interest_profit",
+        "short_term_investments",
+        "short_term_receivables",
+        "other_current_assets",
+        "long_term_receivables",
+        "fixed_assets",
+        "investment_property",
+        "long_term_construction_in_progress",
+        "long_term_investments",
+        "other_non_current_assets",
+        "current_liabilities",
+        "long_term_liabilities",
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "retained_earnings"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "cost_of_goods_sold": -1245491.923597,
@@ -484,7 +512,22 @@
       "other_profit": 261695.805964,
       "income_tax_current": -126290.480065,
       "income_tax_deferred": 177684.541655,
-      "non_controlling_interest_profit": -29296.904979
+      "non_controlling_interest_profit": -29296.904979,
+      "short_term_investments": 43693.098517,
+      "short_term_receivables": 46873869.562031,
+      "other_current_assets": 2039892.279564,
+      "long_term_receivables": 20591509.453709,
+      "fixed_assets": 1949586.433108,
+      "investment_property": 5525507.846082,
+      "long_term_construction_in_progress": 414433.69544,
+      "long_term_investments": 3117335.559505,
+      "other_non_current_assets": 3644513.624114,
+      "current_liabilities": 103476262.105674,
+      "long_term_liabilities": 83175104.987489,
+      "short_term_borrowings": 32321029.22103,
+      "long_term_borrowings": 29510004.98203,
+      "retained_earnings": 14525216.597522,
+      "balance_sheet_basis": "2025-H1-reviewed"
     },
     {
       "symbol": "NVL",
