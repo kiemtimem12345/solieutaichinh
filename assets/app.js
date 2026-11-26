@@ -986,7 +986,7 @@
     };
     // Scope-blocked/unconfirmed reports may retain source OCR values for audit, but
     // never let those values enter public charts, comparisons, overview KPIs, or tables.
-    const scopeUnverifiedMetricField = /^(?:revenue|cost_of_goods_sold|gross_profit|financial_income|financial_expense|interest_expense|share_of_profit_in_associates|selling_expense|admin_expense|operating_profit|other_income|other_expense|other_profit|income_tax(?:_current|_deferred)?|pretax_profit|net_profit(?:_attributable)?|total_assets|total_liabilities|equity|roa|roe|pb|pe|eps|price|market_cap|enterprise_value|ev_ebitda|current_assets|non_current_assets|short_term_.*|current_liabilities|long_term_liabilities|fixed_assets|inventory|cash(?:_.*)?|retained_earnings|capital_expenditure(?:_ytd)?|dividends_paid(?:_ytd)?|operating_cash_flow(?:_ytd)?|investing_cash_flow(?:_ytd)?|financing_cash_flow(?:_ytd)?|foreign_exchange_effect(?:_ytd)?|net_cash_change(?:_ytd)?|bank_.*|broker_.*|investment_property_disposal_gain|non_controlling_interest_profit)$/i;
+    const scopeUnverifiedMetricField = /^(?:revenue|cost_of_goods_sold|gross_profit|financial_income|financial_expense|interest_expense|share_of_profit_in_associates|selling_expense|admin_expense|operating_profit|other_income|other_expense|other_profit|income_tax(?:_current|_deferred)?|pretax_profit|net_profit(?:_attributable)?|total_assets|total_liabilities|equity|roa|roe|pb|pe|eps|price|market_cap|enterprise_value|ev_ebitda|current_assets|non_current_assets|short_term_.*|current_liabilities|long_term_liabilities|fixed_assets|inventory|cash(?:_.*)?|retained_earnings|capital_expenditure(?:_ytd)?|dividends_paid(?:_ytd)?|operating_cash_flow(?:_ytd)?|investing_cash_flow(?:_ytd)?|financing_cash_flow(?:_ytd)?|foreign_exchange_effect(?:_ytd)?|exchange_rate_effect_on_cash(?:_ytd)?|net_cash_change(?:_ytd)?|bank_.*|broker_.*|investment_property_disposal_gain|non_controlling_interest_profit)$/i;
     const hasUnverifiedReportScope = item => {
       const scopeNote = String(item?.source_validation?.report_scope_note || item?.source_validation?.scope_validation_note || '').toLowerCase();
       const reportLabel = String(item?.report_type || '').toLowerCase();
@@ -2336,7 +2336,7 @@
             }
             if (def.text) return '<td class="statement-text-cell">' + escapeHtml(value || '—') + '</td>';
             const resolved = activeStatement === 'cashflow'
-              ? { value: cashflowValue(item, def.key, sourceRows, ticker), formula: '' }
+              ? { value: cashflowValue(item, def.key, sourceRows, ticker), formula: cashflowBasisSelect?.value !== 'ytd' && item.cashflow_period_basis === 'quarter_derived_mixed_vintage_explicit_adjustment' ? 'Số riêng quý tính từ hai phiên bản báo cáo; không hoàn toàn cùng cơ sở so sánh. Khoản điều chỉnh cơ sở được trình bày riêng, không phải dòng tiền.' : '' }
               : resolveStatementValue(item, def.key, sourceRows, ticker);
             const resolvedValue = resolved.value;
             const displayValue = def.negativeExpense && validNumber(resolvedValue) ? -Math.abs(Number(resolvedValue)) : resolvedValue;
