@@ -543,7 +543,29 @@
         "source_bytes_sha256_pending": true,
         "quarter_pdf": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/NVL_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
         "reviewed_h1_pdf": "https://www.novaland.com.vn/Data/Sites/1/media/quan-h%E1%BB%87-%C4%91%E1%BA%A7u-t%C6%B0/2025/20250826/250826_VN_BCTC_HN_6T2025_sx.pdf",
-        "basis_note": "B01/B02 Q3 gốc; B03 9M trừ H1 soát xét"
+        "basis_note": "B01/B02 Q3 gốc; B03 9M trừ H1 soát xét",
+        "cashflow_source": {
+          "sha256": "9fddbc42c2cc38b1b5d485e7e37cff19a15c3948ef3f285941920790190759e8",
+          "printed_pages": "8–9",
+          "artifact_id": 15130464525,
+          "reviewed_h1_sha256": "618d514b355387ade90d2266f8f8c4c7098d94339592dc696d900482c96b4e6c",
+          "raw_9m_vnd": {
+            "operating_cash_flow": -9082391479147,
+            "investing_cash_flow": 6670116626915,
+            "financing_cash_flow": 1642447375292,
+            "net_cash_change": -769827476940,
+            "exchange_rate_effect_on_cash": -3635062,
+            "cash_beginning_reported": 4607601921683,
+            "cash_ending": 3837770809681
+          },
+          "exact_checks": {
+            "sourceFlow": 0,
+            "sourceCash": 0,
+            "quarterFlow": 0,
+            "quarterCash": 0,
+            "opening": 0
+          }
+        }
       },
       "quarter_profit_basis": "original standalone quarter",
       "cashflow_period_basis": "quarter_derived_from_cumulative",
