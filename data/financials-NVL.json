@@ -732,7 +732,7 @@
         "quarter_pdf": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2485616/20260730%20-%20NVL%20-%20BCTC%20Hop%20nhat%20Q2%202026%20va%20giai%20trinh%20LNST.pdf",
         "reviewed_h1_pdf": "https://owa.hnx.vn/ftp/cims/2026/8_W5/000000016821977_VI_BaoCaoTaiChinhHopNhatSoatXet_6T2026.pdf",
         "source_bytes_sha256_pending": true,
-        "source_basis_note": "B01/B02 Q2 công bố ban đầu; B03 H1 soát xét trừ Q1 gốc; điều chỉnh cơ sở riêng. B01 chưa hồi tố sang H1 soát xét.",
+        "source_basis_note": "B01 H1 soát xét; B02 Q2 gốc; B03 H1 soát xét trừ Q1 gốc, điều chỉnh cơ sở riêng.",
         "standalone_cash_hold": false,
         "standalone_cash_status": "user_approved_mixed_vintage_derived_presentation",
         "cashflow_crosscheck_url": "https://widata.vn/NVL?tab=financial-reports",
@@ -740,6 +740,32 @@
         "cashflow_source_hashes": {
           "original_q1": "7402852212422f2c639968c39e95cd72b24c563a859ce84095bc98d22637ed14",
           "reviewed_h1": "20aa7254735542d470f12ada8d02786dfa5e673035274e42d3404352e266a007"
+        },
+        "balance_sheet_source": {
+          "url": "https://www.novaland.com.vn/Data/Sites/1/media/quan-h%E1%BB%87-%C4%91%E1%BA%A7u-t%C6%B0/2026/20260828/20260828_NVLG_BCTC_HN_6T2026_SX.pdf",
+          "sha256": "20aa7254735542d470f12ada8d02786dfa5e673035274e42d3404352e266a007",
+          "printed_pages": "6–9",
+          "artifact_id": 15130464525,
+          "exact_checks": {
+            "current": 0,
+            "long": 0,
+            "assets": 0,
+            "balance": 0,
+            "debt": 0,
+            "cash": 0,
+            "equity": 0
+          },
+          "previous_original_values_million_vnd": {
+            "current_assets": 213072913.53744,
+            "cash_and_equivalents": 4878790.260309,
+            "inventory": 157711911.62712,
+            "non_current_assets": 45585106.389068,
+            "total_assets": 258658019.926508,
+            "total_liabilities": 193420101.402442,
+            "current_liabilities": 100270990.540293,
+            "long_term_liabilities": 93149110.862149,
+            "equity": 65237918.524066
+          }
         }
       },
       "total_assets": 258658019.926508,
@@ -771,7 +797,7 @@
       "exchange_rate_effect_on_cash": 0.171153,
       "cash_beginning": 4518328.920108,
       "cash_ending": 4972107.489613,
-      "cash_and_equivalents": 4878790.260309,
+      "cash_and_equivalents": 4972107.489613,
       "eps": 434,
       "roa": null,
       "roe": null,
@@ -807,7 +833,19 @@
         "exchange_rate_effect_on_cash",
         "cash_beginning",
         "cash_ending",
-        "cash_opening_basis_adjustment"
+        "cash_opening_basis_adjustment",
+        "short_term_investments",
+        "short_term_receivables",
+        "other_current_assets",
+        "long_term_receivables",
+        "fixed_assets",
+        "investment_property",
+        "long_term_work_in_progress",
+        "long_term_investments",
+        "other_non_current_assets",
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "retained_earnings"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "revenue_ytd": 5095802.570041,
@@ -815,7 +853,20 @@
       "net_profit_ytd": 1771558.555719,
       "cash_opening_basis_adjustment": -45552.261468,
       "cashflow_comparability": "mixed_vintage_not_like_for_like",
-      "cashflow_presentation_note": "H1/2026 soát xét trừ Q1/2026 công bố gốc; chênh lệch cơ sở tiền đầu năm lưu riêng, không phải dòng tiền thực tế hoặc tỷ giá. Đối chiếu ảnh WiData do người dùng cung cấp đến 0,1 tỷ đồng."
+      "cashflow_presentation_note": "H1/2026 soát xét trừ Q1/2026 công bố gốc; chênh lệch cơ sở tiền đầu năm lưu riêng, không phải dòng tiền thực tế hoặc tỷ giá. Đối chiếu ảnh WiData do người dùng cung cấp đến 0,1 tỷ đồng.",
+      "short_term_investments": 19172911.736475,
+      "short_term_receivables": 28932739.999462,
+      "other_current_assets": 2283242.68477,
+      "long_term_receivables": 16072573.517457,
+      "fixed_assets": 2288464.872315,
+      "investment_property": 5041471.227268,
+      "long_term_work_in_progress": 419256.285888,
+      "long_term_investments": 18847331.377372,
+      "other_non_current_assets": 2916009.108768,
+      "short_term_borrowings": 30482394.449159,
+      "long_term_borrowings": 42428586.834612,
+      "retained_earnings": 20048847.090118,
+      "balance_sheet_basis": "2026-H1-reviewed"
     },
     {
       "symbol": "NVL",
