@@ -724,7 +724,7 @@
       "source_index_url": "https://finance.vietstock.vn/NVL/tai-tai-lieu.htm?doctype=1",
       "report_type": "BCTC hợp nhất 2026-Q2",
       "quarter_profit_basis": "B02 riêng quý công bố ban đầu",
-      "cashflow_period_basis": "YTD_only_standalone_unverified",
+      "cashflow_period_basis": "quarter_derived_mixed_vintage_explicit_adjustment",
       "verification_status": "partial_source_verification_pending",
       "source_validation": {
         "scope_status": "consolidated",
@@ -732,8 +732,15 @@
         "quarter_pdf": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2485616/20260730%20-%20NVL%20-%20BCTC%20Hop%20nhat%20Q2%202026%20va%20giai%20trinh%20LNST.pdf",
         "reviewed_h1_pdf": "https://owa.hnx.vn/ftp/cims/2026/8_W5/000000016821977_VI_BaoCaoTaiChinhHopNhatSoatXet_6T2026.pdf",
         "source_bytes_sha256_pending": true,
-        "source_basis_note": "B01/B02 bản Q2 công bố ban đầu; B03 lũy kế H1 soát xét, không trộn số dư đầu kỳ",
-        "standalone_cash_hold": true
+        "source_basis_note": "B01/B02 Q2 công bố ban đầu; B03 H1 soát xét trừ Q1 gốc; điều chỉnh cơ sở riêng. B01 chưa hồi tố sang H1 soát xét.",
+        "standalone_cash_hold": false,
+        "standalone_cash_status": "user_approved_mixed_vintage_derived_presentation",
+        "cashflow_crosscheck_url": "https://widata.vn/NVL?tab=financial-reports",
+        "cashflow_crosscheck_precision_vnd": 100000000,
+        "cashflow_source_hashes": {
+          "original_q1": "7402852212422f2c639968c39e95cd72b24c563a859ce84095bc98d22637ed14",
+          "reviewed_h1": "20aa7254735542d470f12ada8d02786dfa5e673035274e42d3404352e266a007"
+        }
       },
       "total_assets": 258658019.926508,
       "total_liabilities": 193420101.402442,
@@ -757,13 +764,13 @@
       "cash_beginning_reported_ytd": 4352030.381743,
       "exchange_rate_effect_on_cash_ytd": 0.917501,
       "cash_ending_ytd": 4972107.489613,
-      "operating_cash_flow": null,
-      "investing_cash_flow": null,
-      "financing_cash_flow": null,
-      "net_cash_change": null,
-      "exchange_rate_effect_on_cash": null,
-      "cash_beginning": null,
-      "cash_ending": null,
+      "operating_cash_flow": -3175162.5359,
+      "investing_cash_flow": 5021066.195509,
+      "financing_cash_flow": -1346572.999789,
+      "net_cash_change": 499330.65982,
+      "exchange_rate_effect_on_cash": 0.171153,
+      "cash_beginning": 4518328.920108,
+      "cash_ending": 4972107.489613,
       "cash_and_equivalents": 4878790.260309,
       "eps": 434,
       "roa": null,
@@ -792,12 +799,23 @@
         "exchange_rate_effect_on_cash_ytd",
         "cash_ending_ytd",
         "eps",
-        "cash_and_equivalents"
+        "cash_and_equivalents",
+        "operating_cash_flow",
+        "investing_cash_flow",
+        "financing_cash_flow",
+        "net_cash_change",
+        "exchange_rate_effect_on_cash",
+        "cash_beginning",
+        "cash_ending",
+        "cash_opening_basis_adjustment"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "revenue_ytd": 5095802.570041,
       "pretax_profit_ytd": 2570767.61879,
-      "net_profit_ytd": 1771558.555719
+      "net_profit_ytd": 1771558.555719,
+      "cash_opening_basis_adjustment": -45552.261468,
+      "cashflow_comparability": "mixed_vintage_not_like_for_like",
+      "cashflow_presentation_note": "H1/2026 soát xét trừ Q1/2026 công bố gốc; chênh lệch cơ sở tiền đầu năm lưu riêng, không phải dòng tiền thực tế hoặc tỷ giá. Đối chiếu ảnh WiData do người dùng cung cấp đến 0,1 tỷ đồng."
     },
     {
       "symbol": "NVL",
