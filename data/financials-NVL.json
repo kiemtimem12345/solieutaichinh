@@ -766,6 +766,22 @@
             "long_term_liabilities": 93149110.862149,
             "equity": 65237918.524066
           }
+        },
+        "income_statement_source": {
+          "url": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/NVL_Baocaotaichinh_Q2_2026_Hopnhat.pdf",
+          "sha256": "4c62126cc62d6221cbdd7c4c5bfd54a709ae5c39a40c000314e3d1334ae77f64",
+          "printed_pages": "6–7",
+          "artifact_id": 15130464525,
+          "exact_checks": {
+            "revenue": 0,
+            "gross": 0,
+            "operating": 0,
+            "other": 0,
+            "pretax": 0,
+            "tax": 0,
+            "attribution": 0
+          },
+          "comparative_q2_2025_eps": -80
         }
       },
       "total_assets": 258658019.926508,
@@ -845,7 +861,23 @@
         "other_non_current_assets",
         "short_term_borrowings",
         "long_term_borrowings",
-        "retained_earnings"
+        "retained_earnings",
+        "financial_income",
+        "financial_expense",
+        "interest_expense",
+        "selling_expense",
+        "admin_expense",
+        "share_of_profit_in_associates",
+        "operating_profit",
+        "other_income",
+        "other_expense",
+        "other_profit",
+        "income_tax_current",
+        "income_tax_deferred",
+        "non_controlling_interest_profit",
+        "revenue_ytd",
+        "pretax_profit_ytd",
+        "net_profit_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "revenue_ytd": 5095802.570041,
@@ -866,7 +898,20 @@
       "short_term_borrowings": 30482394.449159,
       "long_term_borrowings": 42428586.834612,
       "retained_earnings": 20048847.090118,
-      "balance_sheet_basis": "2026-H1-reviewed"
+      "balance_sheet_basis": "2026-H1-reviewed",
+      "financial_income": 1741321.849767,
+      "financial_expense": -572352.848706,
+      "interest_expense": -144621.891177,
+      "selling_expense": -75314.692749,
+      "admin_expense": -293376.968169,
+      "share_of_profit_in_associates": 27828.453821,
+      "operating_profit": 1220019.713984,
+      "other_income": 65162.285383,
+      "other_expense": -63233.222096,
+      "other_profit": 1929.063287,
+      "income_tax_current": 139472.469421,
+      "income_tax_deferred": 170475.200796,
+      "non_controlling_interest_profit": -56880.985158
     },
     {
       "symbol": "NVL",
