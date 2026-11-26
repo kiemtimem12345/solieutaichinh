@@ -27,3 +27,11 @@ jobs:
           name: nvl-source-verification
           path: nvl-source-verification.json
           retention-days: 14
+      - name: Save selected statement page evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nvl-statement-page-evidence
+          path: nvl-page-evidence/
+          retention-days: 3
+          if-no-files-found: error
