@@ -195,3 +195,7 @@ PR #211 CI run #45659136113 completed SUCCESS, squash merge 79764f055ad97e7e59c0
 
 ## 26/11/2026 — KDH Q1/2025 preliminary extraction checkpoint
 Prior conversation recorded consolidated Q1 2025 source https://khangdien.vn/Data/Sites/1/media/co-dong/bao-cao-tai-chinh/2025/20250429-kdh-bctc-hop-nhat-q12025-giai-trinh-trong-tm.pdf, original unit thousand VND. Extracted headline values in thousand VND: current assets 28282880013, noncurrent assets 1918837283, assets 30201717296, inventory 22404478200, liabilities 10633615574, equity 19568101722, revenue 709885462, gross profit 306687114, PBT 156560872, PAT 118668138, parent PAT 121945223, EPS 110 VND/share, CFO -1316111436, CFI 29064557, CFF 298424523, net cash -988622356, opening cash 3095618574, closing cash 2106996218. Prior arithmetic check 14/14 zero residual; source provenance to be retained and mapped to schema, not yet production verified. Next locate production row, preserve other tickers, run CI before marking Q1 complete. No production data changed.
+
+
+## 26/11/2026 — KDH Q1/2025 CLOSED for verified fields
+PR #212 final head 4c9c5755252cfc765d21a62a0c2d38294a4ac149 CI run 45746789163 SUCCESS; squash merge bf8080d2e85929e66e8feebe53e0966f9936af21. Main readback matches tested blob 9f28b067131012baff753c1fdb7ee1217edc4b5a. No reprocessing of verified Q1 fields unless contradiction found. KDH ticker not closed. Next Q2/2025 signed original and H1 reviewed cash bridge. Website smoke unverified.
