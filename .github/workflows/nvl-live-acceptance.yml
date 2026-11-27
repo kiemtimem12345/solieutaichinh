@@ -1,0 +1,29 @@
+name: NVL live acceptance
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/nvl-live-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify deployed NVL and dashboard source
+        run: |
+          python3 - <<'PY'
+          from scripts.verify_live_site import check_one
+          targets = ['data/financials-NVL.json', 'assets/app.js']
+          failures = []
+          for target in targets:
+              name, ok, reason = check_one(target)
+              print(name, 'PASS' if ok else 'FAIL', reason, flush=True)
+              if not ok:
+                  failures.append(name)
+          if failures:
+              raise SystemExit('Live verification failed: ' + ', '.join(failures))
+          print('NVL live JSON and dashboard JS match checkout SHA256.')
+          PY
