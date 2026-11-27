@@ -373,3 +373,7 @@ Summary aliases, quarterly annualized ROA/ROE and pinned source hash metadata co
 
 ## NVL full browser acceptance trial
 Prior isolated runtime and source CI 45948259295 and 45948259302 passed. Main/head compare found no overlapping paths; PR metadata updated and mergeable true at d33519b, draft retained. Added Chromium acceptance script 6c0050bd5a80b71464fbf042bda6cf6643b41250 and workflow c0cd4686423210ca9eb0fe8054f9080cb30ced5e. Tests local checkout via HTTP, block external fallback data, use pinned local Chart.js, select NVL and statement tabs, verify seven periods, COGS positive, quarterly cash adjustment and YTD absence, ROA/ROE; screenshot artifact. Browser trial not yet proven; inspect actual CI and fix selectors/startup/dependencies if necessary. Latest runs []. No production merge. Next browser gate and remaining release metadata, then merge and verify live site.
+
+
+## NVL browser runner compatibility repair
+Browser run 45948842143 failed before launching Chromium: Playwright 1.51.1 does not support ubuntu26.04-x64, confirmed job 140339715979 logs. Data CI 45948841995 and PDF source run 45948842040 succeeded. PR #217 mergeable, draft. Fixed browser workflow to use ubuntu-24.04 and added HTTP server readiness gate before browser tests, commit f1b95810b74f42edf780742c13b550ca29809f0a. Latest CI []. No financial values changed. Next inspect new browser CI, fix any actual DOM/selector failures, then complete release gates. Pin known compatible browser runner as SOP after successful test; do not claim browser passed yet. No production merge.
