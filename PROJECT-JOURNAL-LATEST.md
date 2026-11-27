@@ -381,3 +381,7 @@ Browser run 45948842143 failed before launching Chromium: Playwright 1.51.1 does
 
 ## NVL Chromium selector repair
 Ubuntu 24.04 browser install and HTTP startup succeeded in 45957045456; failed at first DOM assertion because test expected exact 'Tổng tài sản' whereas actual app.js label is 'TỔNG CỘNG TÀI SẢN'. Financial CI 45957045173 and source 45957045228 successful. Corrected label and added failure screenshot and DOM header/row-label diagnostics, commit 16eb03a31fcda2697f1cf06cb81085ae78d99cf8. Latest runs []. No financial changes. Next check browser result, investigate any subsequent genuine data/render failures. Keep draft until gates pass. No production merge.
+
+
+## NVL Chromium acceptance successful — reusable browser SOP
+Head 16eb03a31fcda2697f1cf06cb81085ae78d99cf8: data CI 45958629152, source CI 45958629161, browser CI 45958629166 all SUCCESS; browser job 140370900241, artifact 15179439073 (screenshot ZIP). Browser installation on pinned Ubuntu 24.04, HTTP readiness and actual DOM tab assertions passed. Adopt compatible pinned runner, local checkout HTTP, no remote data fallback, exact visible labels and screenshot/DOM diagnostics for future browser tests. Main changes since merge base only project journal, no overlapping paths. Remaining source-detail completeness/status audit and production verification; do not label unresolved fields verified. No production merge yet.
