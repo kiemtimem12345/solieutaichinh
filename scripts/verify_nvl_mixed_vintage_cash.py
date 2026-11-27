@@ -42,3 +42,20 @@ assert v(credit,"revenue") + v(credit,"cost_of_goods_sold") == v(credit,"gross_p
 assert credit["source_validation"]["q4_source_review"]["positive_cogs_note"]
 assert "preserveSourceCredit" in js and "!preserveSourceCredit" in js
 print("NVL verified positive COGS data and UI guard source anchors passed")
+
+# All in-scope summaries: exact VND identities, explicit quarterly ratio basis.
+assert list(sorted(rows)) == ["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"]
+for period,row in rows.items():
+    assert v(row,"total_assets") == v(row,"total_liabilities") + v(row,"equity"), period
+    assert v(row,"current_assets") + v(row,"non_current_assets") == v(row,"total_assets"), period
+    assert v(row,"revenue") + v(row,"cost_of_goods_sold") == v(row,"gross_profit"), period
+    assert sum(v(row,k) for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow")) == v(row,"net_cash_change"), period
+    adj = v(row,"cash_opening_basis_adjustment") if row.get("cash_opening_basis_adjustment") is not None else 0
+    assert v(row,"cash_beginning") + v(row,"net_cash_change") + v(row,"exchange_rate_effect_on_cash") + adj == v(row,"cash_ending"), period
+    assert v(row,"cash_and_equivalents") == v(row,"cash_ending"), period
+    if period != "2025-Q1":
+        assert row["source_validation"]["source_bytes_sha256_pending"] is False
+        assert len(row["source_validation"]["original_quarter_sha256"]) == 64
+        for metric,average in (("roa","average_total_assets"),("roe","average_equity")):
+            assert abs(row[metric] - row["net_profit"]*400/row[average]) < Decimal("0.000000001"), (period,metric)
+print("NVL seven-period summary identities and derived ratio checks passed")
