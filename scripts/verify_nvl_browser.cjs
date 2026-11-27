@@ -2,8 +2,8 @@ const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 (async()=>{
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
-try {
 const page=await browser.newPage({viewport:{width:1440,height:1000}});
+try {
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 await page.route('https://**/*',async route=>{
  if(route.request().url().includes('chart.js@4.4.8')) return route.fulfill({path:require('node:path').join(require('node:path').dirname(require.resolve('chart.js')),'chart.umd.js'),contentType:'application/javascript'});
@@ -20,7 +20,7 @@ const cell=async(label,period)=>{
  return (await row.locator('td').nth(col).innerText()).trim();
 };
 await page.locator('[data-statement="balance"]').click();
-assert.match(await cell(/^Tổng tài sản$/i,'Q3/2026'),/258,814.8/);
+assert.match(await cell(/^Tổng cộng tài sản$/i,'Q3/2026'),/258,814.8/);
 await page.locator('[data-statement="income"]').click();
 assert.equal(await cell(/^Giá vốn hàng bán$/,'Q4/2025'),'1,015.2');
 await page.locator('[data-statement="cashflow"]').click();
@@ -38,5 +38,10 @@ assert.match(await cell(/^ROA/,'Q3/2026'),/1.7/);
 assert.match(await cell(/^ROE/,'Q3/2026'),/6.7/);
 assert.deepEqual(errors,[]);
 console.log('NVL browser acceptance checks passed');
+}catch(e){
+ console.error('DOM headers:',await page.locator('#stockStatementHead').innerText().catch(()=>''));
+ console.error('DOM row labels:',await page.locator('#stockTableBody td.statement-row-label').allTextContents().catch(()=>[]));
+ await page.screenshot({path:'nvl-quarter-browser.png',fullPage:true}).catch(()=>{});
+ throw e;
 }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
