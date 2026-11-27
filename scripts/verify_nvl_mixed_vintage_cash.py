@@ -34,3 +34,11 @@ assert "Điều chỉnh cơ sở trình bày (không phải dòng tiền)" in js
 assert "exchange_rate_effect_on_cash_ytd" in js
 assert "không hoàn toàn cùng cơ sở so sánh" in js
 print("NVL mixed-vintage exact cash identities and nine one-VND tamper guards passed; UI source anchors present")
+
+# Q4 source credit must not be silently turned into a deduction.
+credit = rows["2025-Q4"]
+assert v(credit,"cost_of_goods_sold") == 1015177327509
+assert v(credit,"revenue") + v(credit,"cost_of_goods_sold") == v(credit,"gross_profit")
+assert credit["source_validation"]["q4_source_review"]["positive_cogs_note"]
+assert "preserveSourceCredit" in js and "!preserveSourceCredit" in js
+print("NVL verified positive COGS data and UI guard source anchors passed")
