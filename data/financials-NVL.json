@@ -576,6 +576,26 @@
             "total": 0,
             "cash": 0
           }
+        },
+        "liabilities_income_source": {
+          "sha256": "9fddbc42c2cc38b1b5d485e7e37cff19a15c3948ef3f285941920790190759e8",
+          "printed_pages": "5–7",
+          "artifact_id": 15130464525,
+          "exact_checks": {
+            "debt": 0,
+            "balance": 0,
+            "equity": 0,
+            "current": 0,
+            "long": 0,
+            "revenue": 0,
+            "gross": 0,
+            "operating": 0,
+            "other": 0,
+            "pretax": 0,
+            "tax": 0,
+            "attribution": 0
+          },
+          "interest_expense_sign_note": "Stored as positive expense magnitude consistent with completed Q1 schema; source printed negative."
         }
       },
       "quarter_profit_basis": "original standalone quarter",
@@ -666,7 +686,22 @@
         "investment_property",
         "long_term_construction_in_progress",
         "long_term_investments",
-        "other_non_current_assets"
+        "other_non_current_assets",
+        "financial_income",
+        "financial_expense",
+        "interest_expense",
+        "share_of_profit_of_associates",
+        "share_of_profit_in_associates",
+        "selling_expense",
+        "admin_expense",
+        "operating_profit",
+        "other_income",
+        "other_expense",
+        "other_profit",
+        "income_tax_current",
+        "income_tax_deferred",
+        "non_controlling_interest_profit",
+        "diluted_eps"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "short_term_investments": 48524.470677,
@@ -676,7 +711,22 @@
       "investment_property": 5469238.641268,
       "long_term_construction_in_progress": 418692.419994,
       "long_term_investments": 3115330.315039,
-      "other_non_current_assets": 3447849.487681
+      "other_non_current_assets": 3447849.487681,
+      "financial_income": 455978.704466,
+      "financial_expense": -1448617.053052,
+      "interest_expense": 31627.274551,
+      "share_of_profit_of_associates": 3466.010936,
+      "share_of_profit_in_associates": 3466.010936,
+      "selling_expense": -126239.113969,
+      "admin_expense": -309978.774154,
+      "operating_profit": -839337.620064,
+      "other_income": 192567.436458,
+      "other_expense": -135424.797252,
+      "other_profit": 57142.639206,
+      "income_tax_current": 151305.463537,
+      "income_tax_deferred": 219738.519704,
+      "non_controlling_interest_profit": -275022.071372,
+      "diluted_eps": -450
     },
     {
       "symbol": "NVL",
