@@ -377,3 +377,7 @@ Prior isolated runtime and source CI 45948259295 and 45948259302 passed. Main/he
 
 ## NVL browser runner compatibility repair
 Browser run 45948842143 failed before launching Chromium: Playwright 1.51.1 does not support ubuntu26.04-x64, confirmed job 140339715979 logs. Data CI 45948841995 and PDF source run 45948842040 succeeded. PR #217 mergeable, draft. Fixed browser workflow to use ubuntu-24.04 and added HTTP server readiness gate before browser tests, commit f1b95810b74f42edf780742c13b550ca29809f0a. Latest CI []. No financial values changed. Next inspect new browser CI, fix any actual DOM/selector failures, then complete release gates. Pin known compatible browser runner as SOP after successful test; do not claim browser passed yet. No production merge.
+
+
+## NVL Chromium selector repair
+Ubuntu 24.04 browser install and HTTP startup succeeded in 45957045456; failed at first DOM assertion because test expected exact 'Tổng tài sản' whereas actual app.js label is 'TỔNG CỘNG TÀI SẢN'. Financial CI 45957045173 and source 45957045228 successful. Corrected label and added failure screenshot and DOM header/row-label diagnostics, commit 16eb03a31fcda2697f1cf06cb81085ae78d99cf8. Latest runs []. No financial changes. Next check browser result, investigate any subsequent genuine data/render failures. Keep draft until gates pass. No production merge.
