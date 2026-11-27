@@ -402,7 +402,28 @@
           }
         },
         "original_quarter_sha256": "4c0c28fe3a42b55d90b56855e8f1918785cf8dce349179d8d987c4b3ad5d08f8",
-        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks",
+        "cashflow_detail_review": {
+          "artifact_id": 15130464525,
+          "source_codes": [
+            21,
+            36
+          ],
+          "source_entry": "2025-H1-reviewed/statements.txt",
+          "raw_ytd_vnd": [
+            -4956770776,
+            -197028
+          ],
+          "prior_ytd_vnd": [
+            0,
+            -197028
+          ],
+          "quarter_vnd": [
+            -4956770776,
+            0
+          ],
+          "blank_dividend_note": "2026 Q1/H1 current column blank and CFF components reconcile without dividends; interpreted as zero."
+        }
       },
       "quarter_profit_basis": "Original B02a current quarter signed 2025-07-28",
       "cashflow_period_basis": "quarter_derived_from_cumulative",
@@ -502,7 +523,11 @@
         "long_term_work_in_progress",
         "share_of_profit_of_associates",
         "foreign_exchange_effect",
-        "foreign_exchange_effect_ytd"
+        "foreign_exchange_effect_ytd",
+        "capital_expenditure",
+        "dividends_paid",
+        "capital_expenditure_ytd",
+        "dividends_paid_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "cost_of_goods_sold": -1245491.923597,
@@ -541,7 +566,11 @@
       "average_total_assets": 236712764.6423335,
       "average_equity": 50411338.5489825,
       "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
-      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh.",
+      "capital_expenditure": -4956.770776,
+      "dividends_paid": 0,
+      "capital_expenditure_ytd": -4956.770776,
+      "dividends_paid_ytd": -0.197028
     },
     {
       "symbol": "NVL",
@@ -612,7 +641,28 @@
           "interest_expense_sign_note": "Stored as positive expense magnitude consistent with completed Q1 schema; source printed negative."
         },
         "original_quarter_sha256": "9fddbc42c2cc38b1b5d485e7e37cff19a15c3948ef3f285941920790190759e8",
-        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks",
+        "cashflow_detail_review": {
+          "artifact_id": 15130464525,
+          "source_codes": [
+            21,
+            36
+          ],
+          "source_entry": "2025-Q3/page-13.png,page-14.png",
+          "raw_ytd_vnd": [
+            -14662231063,
+            -197028
+          ],
+          "prior_ytd_vnd": [
+            -4956770776,
+            -197028
+          ],
+          "quarter_vnd": [
+            -9705460287,
+            0
+          ],
+          "blank_dividend_note": "2026 Q1/H1 current column blank and CFF components reconcile without dividends; interpreted as zero."
+        }
       },
       "quarter_profit_basis": "original standalone quarter",
       "cashflow_period_basis": "quarter_derived_from_cumulative",
@@ -720,7 +770,11 @@
         "diluted_eps",
         "long_term_work_in_progress",
         "foreign_exchange_effect",
-        "foreign_exchange_effect_ytd"
+        "foreign_exchange_effect_ytd",
+        "capital_expenditure",
+        "dividends_paid",
+        "capital_expenditure_ytd",
+        "dividends_paid_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "short_term_investments": 48524.470677,
@@ -752,7 +806,11 @@
       "average_total_assets": 239096914.6523835,
       "average_equity": 51390929.180622995,
       "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
-      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh.",
+      "capital_expenditure": -9705.460287,
+      "dividends_paid": 0,
+      "capital_expenditure_ytd": -14662.231063,
+      "dividends_paid_ytd": -0.197028
     },
     {
       "symbol": "NVL",
@@ -810,7 +868,28 @@
           "positive_cogs_note": "Original Q4 code 11 positive, reversals/net credit; preserve printed sign; gross profit is revenue plus signed cost. Do not normalize to negative."
         },
         "original_quarter_sha256": "061fe7287652d908c515a9d2456b603f270d9d23a5eac680a94c8d83742adf07",
-        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks",
+        "cashflow_detail_review": {
+          "artifact_id": 15130464525,
+          "source_codes": [
+            21,
+            36
+          ],
+          "source_entry": "2025-FY-audited/statements.txt",
+          "raw_ytd_vnd": [
+            -23793897176,
+            -197028
+          ],
+          "prior_ytd_vnd": [
+            -14662231063,
+            -197028
+          ],
+          "quarter_vnd": [
+            -9131666113,
+            0
+          ],
+          "blank_dividend_note": "2026 Q1/H1 current column blank and CFF components reconcile without dividends; interpreted as zero."
+        }
       },
       "quarter_profit_basis": "original standalone quarter",
       "cashflow_period_basis": "quarter_derived_from_cumulative",
@@ -919,7 +998,11 @@
         "non_controlling_interest_profit",
         "long_term_work_in_progress",
         "foreign_exchange_effect",
-        "foreign_exchange_effect_ytd"
+        "foreign_exchange_effect_ytd",
+        "capital_expenditure",
+        "dividends_paid",
+        "capital_expenditure_ytd",
+        "dividends_paid_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "short_term_investments": 53843.467143,
@@ -951,7 +1034,11 @@
       "average_total_assets": 244741324.76522148,
       "average_equity": 54853593.618572,
       "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
-      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh.",
+      "capital_expenditure": -9131.666113,
+      "dividends_paid": 0,
+      "capital_expenditure_ytd": -23793.897176,
+      "dividends_paid_ytd": -0.197028
     },
     {
       "symbol": "NVL",
@@ -1001,7 +1088,28 @@
           "comparative_note": "Restated comparative; preserve original 2025 Q1, do not overwrite."
         },
         "original_quarter_sha256": "7402852212422f2c639968c39e95cd72b24c563a859ce84095bc98d22637ed14",
-        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks",
+        "cashflow_detail_review": {
+          "artifact_id": 15130464525,
+          "source_codes": [
+            21,
+            36
+          ],
+          "source_entry": "2026-Q1/statements.txt",
+          "raw_ytd_vnd": [
+            -3243236593,
+            0
+          ],
+          "prior_ytd_vnd": [
+            0,
+            0
+          ],
+          "quarter_vnd": [
+            -3243236593,
+            0
+          ],
+          "blank_dividend_note": "2026 Q1/H1 current column blank and CFF components reconcile without dividends; interpreted as zero."
+        }
       },
       "verification_status_note": "Bản gốc 29/04/2026 đã đối chiếu lớp văn bản nguồn SHA-256. B03 Q2 kết hợp H1 soát xét theo phương án được chấp thuận, điều chỉnh cơ sở riêng.",
       "total_assets": 253145048.762541,
@@ -1098,7 +1206,9 @@
         "diluted_eps",
         "long_term_work_in_progress",
         "foreign_exchange_effect",
-        "foreign_exchange_effect_ytd"
+        "foreign_exchange_effect_ytd",
+        "dividends_paid",
+        "dividends_paid_ytd"
       ],
       "financial_line_items_status": "user_accepted_original_partial_source_verified",
       "core_financial_extraction_status": "user_accepted_original_partial_source_verified",
@@ -1142,7 +1252,9 @@
       "foreign_exchange_effect_ytd": 0.746348,
       "average_total_assets": 251526448.79067248,
       "average_equity": 59364729.367395505,
-      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh.",
+      "dividends_paid": 0,
+      "dividends_paid_ytd": 0
     },
     {
       "symbol": "NVL",
@@ -1212,7 +1324,28 @@
           "comparative_q2_2025_eps": -80
         },
         "original_quarter_sha256": "4c62126cc62d6221cbdd7c4c5bfd54a709ae5c39a40c000314e3d1334ae77f64",
-        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks",
+        "cashflow_detail_review": {
+          "artifact_id": 15130464525,
+          "source_codes": [
+            21,
+            36
+          ],
+          "source_entry": "2026-H1-reviewed/statements.txt",
+          "raw_ytd_vnd": [
+            -7930280724,
+            0
+          ],
+          "prior_ytd_vnd": [
+            -3243236593,
+            0
+          ],
+          "quarter_vnd": [
+            -4687044131,
+            0
+          ],
+          "blank_dividend_note": "2026 Q1/H1 current column blank and CFF components reconcile without dividends; interpreted as zero."
+        }
       },
       "total_assets": 258658019.926508,
       "total_liabilities": 193420101.402442,
@@ -1311,7 +1444,11 @@
         "long_term_construction_in_progress",
         "share_of_profit_of_associates",
         "foreign_exchange_effect",
-        "foreign_exchange_effect_ytd"
+        "foreign_exchange_effect_ytd",
+        "capital_expenditure",
+        "dividends_paid",
+        "capital_expenditure_ytd",
+        "dividends_paid_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "revenue_ytd": 5095802.570041,
@@ -1353,7 +1490,11 @@
       "average_total_assets": 255901534.3445245,
       "average_equity": 62537193.441497,
       "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
-      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh.",
+      "capital_expenditure": -4687.044131,
+      "dividends_paid": 0,
+      "capital_expenditure_ytd": -7930.280724,
+      "dividends_paid_ytd": 0
     },
     {
       "symbol": "NVL",
@@ -1410,7 +1551,28 @@
           }
         },
         "original_quarter_sha256": "bda9bbefd267912493ac3c08d7e4bfe099b7dcba007cbf121852ec7d45ee82c0",
-        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks",
+        "cashflow_detail_review": {
+          "artifact_id": 15130464525,
+          "source_codes": [
+            21,
+            36
+          ],
+          "source_entry": "2026-Q3/page-10.png,page-11.png",
+          "raw_ytd_vnd": [
+            -448064575298,
+            -10450000000
+          ],
+          "prior_ytd_vnd": [
+            -7930280724,
+            0
+          ],
+          "quarter_vnd": [
+            -440134294574,
+            -10450000000
+          ],
+          "blank_dividend_note": "2026 Q1/H1 current column blank and CFF components reconcile without dividends; interpreted as zero."
+        }
       },
       "total_assets": 258814769.457275,
       "total_liabilities": 192485735.737604,
@@ -1507,7 +1669,11 @@
         "investment_property_disposal_gain",
         "long_term_work_in_progress",
         "foreign_exchange_effect",
-        "foreign_exchange_effect_ytd"
+        "foreign_exchange_effect_ytd",
+        "capital_expenditure",
+        "dividends_paid",
+        "capital_expenditure_ytd",
+        "dividends_paid_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "revenue_ytd": 10215915.400623,
@@ -1547,7 +1713,11 @@
       "average_total_assets": 258736394.6918915,
       "average_equity": 65783476.121868506,
       "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
-      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh.",
+      "capital_expenditure": -440134.294574,
+      "dividends_paid": -10450,
+      "capital_expenditure_ytd": -448064.575298,
+      "dividends_paid_ytd": -10450
     }
   ],
   "sync_status": "records_found",
