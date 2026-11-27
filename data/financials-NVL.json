@@ -1309,7 +1309,23 @@
         "reviewed_h1_pdf": "https://owa.hnx.vn/ftp/cims/2026/8_W5/000000016821977_VI_BaoCaoTaiChinhHopNhatSoatXet_6T2026.pdf",
         "source_bytes_sha256_pending": true,
         "source_basis_note": "Q3 B03 trừ H1 soát xét cùng số dư đầu năm; Q3 B01/B02 từ văn bản PDF chưa xác minh ảnh trang",
-        "standalone_cash_hold": false
+        "standalone_cash_hold": false,
+        "additional_source_review": {
+          "artifact_id": 15130464525,
+          "sha256": "bda9bbefd267912493ac3c08d7e4bfe099b7dcba007cbf121852ec7d45ee82c0",
+          "printed_pages": "4,7",
+          "exact_checks": {
+            "long": 0,
+            "assets": 0,
+            "attribution": 0,
+            "ytdAttribution": 0
+          },
+          "comparative_2025q3_eps": -405,
+          "comparative_2025q3_original_eps": -450,
+          "comparative_status": "preserve distinct source vintages; reason not yet checked",
+          "ytd_parent_vnd": 2988780736353,
+          "ytd_nci_vnd": -114949904851
+        }
       },
       "total_assets": 258814769.457275,
       "total_liabilities": 192485735.737604,
@@ -1375,12 +1391,28 @@
         "cash_beginning",
         "cash_ending",
         "eps",
-        "cash_and_equivalents"
+        "cash_and_equivalents",
+        "long_term_receivables",
+        "fixed_assets",
+        "investment_property",
+        "long_term_construction_in_progress",
+        "long_term_investments",
+        "other_non_current_assets",
+        "non_controlling_interest_profit",
+        "diluted_eps"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "revenue_ytd": 10215915.400623,
       "pretax_profit_ytd": 4172744.471209,
-      "net_profit_ytd": 2873830.831502
+      "net_profit_ytd": 2873830.831502,
+      "long_term_receivables": 16524932.527393,
+      "fixed_assets": 2260117.5227,
+      "investment_property": 4986562.205468,
+      "long_term_construction_in_progress": 422498.584679,
+      "long_term_investments": 17910667.180005,
+      "other_non_current_assets": 2778996.042813,
+      "non_controlling_interest_profit": -16459.175795,
+      "diluted_eps": 466
     }
   ],
   "sync_status": "records_found",
