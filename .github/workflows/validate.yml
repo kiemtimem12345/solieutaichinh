@@ -17,6 +17,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify NVL mixed-vintage cash bridge and adjustment presentation
+        run: python scripts/verify_nvl_mixed_vintage_cash.py
+      - name: Execute NVL dashboard cash and signed expense logic
+        run: node scripts/verify_nvl_dashboard_runtime.cjs
       - name: Validate Python scripts syntax
         run: python -m py_compile scripts/*.py
       - name: Validate original dashboard JS and 41 tracked JSON files
