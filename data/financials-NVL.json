@@ -334,7 +334,7 @@
       "source_validation": {
         "scope_status": "consolidated",
         "source_unit": "VND",
-        "source_bytes_sha256_pending": true,
+        "source_bytes_sha256_pending": false,
         "quarter_pdf": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/NVL_Baocaotaichinh_Q2_2025_Hopnhat.pdf",
         "reviewed_h1_pdf": "https://www.novaland.com.vn/Data/Sites/1/media/quan-h%E1%BB%87-%C4%91%E1%BA%A7u-t%C6%B0/2025/20250826/250826_VN_BCTC_HN_6T2025_sx.pdf",
         "basis_note": "B01 H1 reviewed; B02 original standalone quarter; B03 H1 minus Q1. Comparative EPS stored separately.",
@@ -400,7 +400,9 @@
             "cash": 0,
             "equity": 0
           }
-        }
+        },
+        "original_quarter_sha256": "4c0c28fe3a42b55d90b56855e8f1918785cf8dce349179d8d987c4b3ad5d08f8",
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
       },
       "quarter_profit_basis": "Original B02a current quarter signed 2025-07-28",
       "cashflow_period_basis": "quarter_derived_from_cumulative",
@@ -435,8 +437,8 @@
       "revenue_ytd": 3714779.217502,
       "pretax_profit_ytd": -260739.807211,
       "net_profit_ytd": -666298.823264,
-      "roa": null,
-      "roe": null,
+      "roa": -0.3208418087666475,
+      "roe": -1.5065529651073493,
       "financial_line_items_extracted_fields": [
         "total_assets",
         "current_assets",
@@ -496,7 +498,11 @@
         "long_term_liabilities",
         "short_term_borrowings",
         "long_term_borrowings",
-        "retained_earnings"
+        "retained_earnings",
+        "long_term_work_in_progress",
+        "share_of_profit_of_associates",
+        "foreign_exchange_effect",
+        "foreign_exchange_effect_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "cost_of_goods_sold": -1245491.923597,
@@ -527,7 +533,15 @@
       "short_term_borrowings": 32321029.22103,
       "long_term_borrowings": 29510004.98203,
       "retained_earnings": 14525216.597522,
-      "balance_sheet_basis": "2025-H1-reviewed"
+      "balance_sheet_basis": "2025-H1-reviewed",
+      "long_term_work_in_progress": 414433.69544,
+      "share_of_profit_of_associates": 1162.846629,
+      "foreign_exchange_effect": -3.305622,
+      "foreign_exchange_effect_ytd": -2.763585,
+      "average_total_assets": 236712764.6423335,
+      "average_equity": 50411338.5489825,
+      "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
     },
     {
       "symbol": "NVL",
@@ -540,7 +554,7 @@
       "source_validation": {
         "scope_status": "consolidated",
         "source_unit": "VND",
-        "source_bytes_sha256_pending": true,
+        "source_bytes_sha256_pending": false,
         "quarter_pdf": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/NVL_Baocaotaichinh_Q3_2025_Hopnhat.pdf",
         "reviewed_h1_pdf": "https://www.novaland.com.vn/Data/Sites/1/media/quan-h%E1%BB%87-%C4%91%E1%BA%A7u-t%C6%B0/2025/20250826/250826_VN_BCTC_HN_6T2025_sx.pdf",
         "basis_note": "B01/B02 Q3 gốc; B03 9M trừ H1 soát xét",
@@ -596,7 +610,9 @@
             "attribution": 0
           },
           "interest_expense_sign_note": "Stored as positive expense magnitude consistent with completed Q1 schema; source printed negative."
-        }
+        },
+        "original_quarter_sha256": "9fddbc42c2cc38b1b5d485e7e37cff19a15c3948ef3f285941920790190759e8",
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
       },
       "quarter_profit_basis": "original standalone quarter",
       "cashflow_period_basis": "quarter_derived_from_cumulative",
@@ -638,8 +654,8 @@
       "revenue_ytd": 5397909.642377,
       "pretax_profit_ytd": -1042934.788069,
       "net_profit_ytd": -1819537.787363,
-      "roa": null,
-      "roe": null,
+      "roa": -1.9293247104851399,
+      "roe": -8.976206365490896,
       "financial_line_items_extracted_fields": [
         "total_assets",
         "current_assets",
@@ -701,7 +717,10 @@
         "income_tax_current",
         "income_tax_deferred",
         "non_controlling_interest_profit",
-        "diluted_eps"
+        "diluted_eps",
+        "long_term_work_in_progress",
+        "foreign_exchange_effect",
+        "foreign_exchange_effect_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "short_term_investments": 48524.470677,
@@ -726,7 +745,14 @@
       "income_tax_current": 151305.463537,
       "income_tax_deferred": 219738.519704,
       "non_controlling_interest_profit": -275022.071372,
-      "diluted_eps": -450
+      "diluted_eps": -450,
+      "long_term_work_in_progress": 418692.419994,
+      "foreign_exchange_effect": -0.871477,
+      "foreign_exchange_effect_ytd": -3.635062,
+      "average_total_assets": 239096914.6523835,
+      "average_equity": 51390929.180622995,
+      "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
     },
     {
       "symbol": "NVL",
@@ -739,7 +765,7 @@
       "source_validation": {
         "scope_status": "consolidated",
         "source_unit": "VND",
-        "source_bytes_sha256_pending": true,
+        "source_bytes_sha256_pending": false,
         "quarter_pdf": "https://www.novaland.com.vn/Data/Sites/1/media/quan-h%E1%BB%87-%C4%91%E1%BA%A7u-t%C6%B0/2026/20260130/260130_NVLG_Consolidated_FS_Q4.2025_Vn_w.pdf",
         "reviewed_h1_pdf": "https://www.novaland.com.vn/Data/Sites/1/media/quan-h%E1%BB%87-%C4%91%E1%BA%A7u-t%C6%B0/2025/20250826/250826_VN_BCTC_HN_6T2025_sx.pdf",
         "audited_fy_pdf": "https://www.novaland.com.vn/Data/Sites/1/media/quan-h%E1%BB%87-%C4%91%E1%BA%A7u-t%C6%B0/2026/20260325/NVLG_BCKT%20Hop%20nhat_31.12.2025_VN_rs%20x.pdf",
@@ -782,7 +808,9 @@
             "exchange_rate_effect_on_cash": -3648406
           },
           "positive_cogs_note": "Original Q4 code 11 positive, reversals/net credit; preserve printed sign; gross profit is revenue plus signed cost. Do not normalize to negative."
-        }
+        },
+        "original_quarter_sha256": "061fe7287652d908c515a9d2456b603f270d9d23a5eac680a94c8d83742adf07",
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
       },
       "quarter_profit_basis": "original standalone quarter",
       "cashflow_period_basis": "quarter_derived_from_cumulative",
@@ -825,8 +853,8 @@
       "revenue_ytd": 6965347.416065,
       "pretax_profit_ytd": 2990720.414922,
       "net_profit_ytd": 1818671.096338,
-      "roa": null,
-      "roe": null,
+      "roa": 5.946210983684274,
+      "roe": 26.53032294656587,
       "financial_line_items_extracted_fields": [
         "total_assets",
         "current_assets",
@@ -888,7 +916,10 @@
         "other_profit",
         "income_tax_current",
         "income_tax_deferred",
-        "non_controlling_interest_profit"
+        "non_controlling_interest_profit",
+        "long_term_work_in_progress",
+        "foreign_exchange_effect",
+        "foreign_exchange_effect_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "short_term_investments": 53843.467143,
@@ -913,13 +944,20 @@
       "income_tax_current": -197067.417394,
       "income_tax_deferred": 592513.736684,
       "non_controlling_interest_profit": 455815.8662,
-      "balance_sheet_basis": "2025-FY-audited"
+      "balance_sheet_basis": "2025-FY-audited",
+      "long_term_work_in_progress": 424593.194226,
+      "foreign_exchange_effect": -0.013344,
+      "foreign_exchange_effect_ytd": -3.648406,
+      "average_total_assets": 244741324.76522148,
+      "average_equity": 54853593.618572,
+      "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
     },
     {
       "symbol": "NVL",
       "period": "2026-Q1",
       "unit": "triệu VND",
-      "ratio_unit": "%/năm (tính từ lợi nhuận quý khi đủ dữ liệu bình quân đầu/cuối kỳ)",
+      "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
       "source_url": "https://static2.vietstock.vn/vietstock/2026/5/4/20260429___nvl___bctc_hop_nhat_1q2026___giai_trinh_lnst.pdf",
       "source_index_url": "https://finance.vietstock.vn/NVL/tai-tai-lieu.htm?doctype=1",
       "published_at": "2026-04-29",
@@ -961,7 +999,9 @@
           "comparative_2025q1_eps": -222,
           "comparative_2025q1_gross_profit_vnd": 650680849402,
           "comparative_note": "Restated comparative; preserve original 2025 Q1, do not overwrite."
-        }
+        },
+        "original_quarter_sha256": "7402852212422f2c639968c39e95cd72b24c563a859ce84095bc98d22637ed14",
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
       },
       "verification_status_note": "Bản gốc 29/04/2026 đã đối chiếu lớp văn bản nguồn SHA-256. B03 Q2 kết hợp H1 soát xét theo phương án được chấp thuận, điều chỉnh cơ sở riêng.",
       "total_assets": 253145048.762541,
@@ -990,8 +1030,8 @@
       "eps": 404,
       "fixed_assets": 1874701.479806,
       "retained_earnings": 17876882.996493,
-      "roa": null,
-      "roe": null,
+      "roa": 1.3669456278617418,
+      "roe": 5.791704655775549,
       "revenue_ytd": 3586658.446812,
       "pretax_profit_ytd": 1348818.841519,
       "net_profit_ytd": 859557.448665,
@@ -1055,7 +1095,10 @@
         "non_controlling_interest_profit",
         "capital_expenditure",
         "capital_expenditure_ytd",
-        "diluted_eps"
+        "diluted_eps",
+        "long_term_work_in_progress",
+        "foreign_exchange_effect",
+        "foreign_exchange_effect_ytd"
       ],
       "financial_line_items_status": "user_accepted_original_partial_source_verified",
       "core_financial_extraction_status": "user_accepted_original_partial_source_verified",
@@ -1093,7 +1136,13 @@
       "non_controlling_interest_profit": -41609.743898,
       "capital_expenditure": -3243.236593,
       "capital_expenditure_ytd": -3243.236593,
-      "diluted_eps": 404
+      "diluted_eps": 404,
+      "long_term_work_in_progress": 844046.120777,
+      "foreign_exchange_effect": 0.746348,
+      "foreign_exchange_effect_ytd": 0.746348,
+      "average_total_assets": 251526448.79067248,
+      "average_equity": 59364729.367395505,
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
     },
     {
       "symbol": "NVL",
@@ -1110,7 +1159,7 @@
         "source_unit": "VND",
         "quarter_pdf": "https://staticfile.hsx.vn/Uploads/UploadDocuments/2485616/20260730%20-%20NVL%20-%20BCTC%20Hop%20nhat%20Q2%202026%20va%20giai%20trinh%20LNST.pdf",
         "reviewed_h1_pdf": "https://owa.hnx.vn/ftp/cims/2026/8_W5/000000016821977_VI_BaoCaoTaiChinhHopNhatSoatXet_6T2026.pdf",
-        "source_bytes_sha256_pending": true,
+        "source_bytes_sha256_pending": false,
         "source_basis_note": "B01 H1 soát xét; B02 Q2 gốc; B03 H1 soát xét trừ Q1 gốc, điều chỉnh cơ sở riêng.",
         "standalone_cash_hold": false,
         "standalone_cash_status": "user_approved_mixed_vintage_derived_presentation",
@@ -1161,7 +1210,9 @@
             "attribution": 0
           },
           "comparative_q2_2025_eps": -80
-        }
+        },
+        "original_quarter_sha256": "4c62126cc62d6221cbdd7c4c5bfd54a709ae5c39a40c000314e3d1334ae77f64",
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
       },
       "total_assets": 258658019.926508,
       "total_liabilities": 193420101.402442,
@@ -1194,8 +1245,8 @@
       "cash_ending": 4972107.489613,
       "cash_and_equivalents": 4972107.489613,
       "eps": 434,
-      "roa": null,
-      "roe": null,
+      "roa": 1.4255500411750681,
+      "roe": 5.833335695866615,
       "financial_line_items_extracted_fields": [
         "total_assets",
         "total_liabilities",
@@ -1256,7 +1307,11 @@
         "non_controlling_interest_profit",
         "revenue_ytd",
         "pretax_profit_ytd",
-        "net_profit_ytd"
+        "net_profit_ytd",
+        "long_term_construction_in_progress",
+        "share_of_profit_of_associates",
+        "foreign_exchange_effect",
+        "foreign_exchange_effect_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "revenue_ytd": 5095802.570041,
@@ -1290,7 +1345,15 @@
       "other_profit": 1929.063287,
       "income_tax_current": 139472.469421,
       "income_tax_deferred": 170475.200796,
-      "non_controlling_interest_profit": -56880.985158
+      "non_controlling_interest_profit": -56880.985158,
+      "long_term_construction_in_progress": 419256.285888,
+      "share_of_profit_of_associates": 27828.453821,
+      "foreign_exchange_effect": 0.171153,
+      "foreign_exchange_effect_ytd": 0.917501,
+      "average_total_assets": 255901534.3445245,
+      "average_equity": 62537193.441497,
+      "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
     },
     {
       "symbol": "NVL",
@@ -1307,7 +1370,7 @@
         "source_unit": "VND",
         "quarter_pdf": "https://www.novaland.com.vn/Data/Sites/1/media/quan-h%E1%BB%87-%C4%91%E1%BA%A7u-t%C6%B0/2026/20261030/20261030_NVLG_BCTC_HN_2026Q3.pdf",
         "reviewed_h1_pdf": "https://owa.hnx.vn/ftp/cims/2026/8_W5/000000016821977_VI_BaoCaoTaiChinhHopNhatSoatXet_6T2026.pdf",
-        "source_bytes_sha256_pending": true,
+        "source_bytes_sha256_pending": false,
         "source_basis_note": "Q3 B03 trừ H1 soát xét cùng số dư đầu năm; Q3 B01/B02 từ văn bản PDF chưa xác minh ảnh trang",
         "standalone_cash_hold": false,
         "additional_source_review": {
@@ -1345,7 +1408,9 @@
             "net_profit_vnd": -1153238964099,
             "eps": -405
           }
-        }
+        },
+        "original_quarter_sha256": "bda9bbefd267912493ac3c08d7e4bfe099b7dcba007cbf121852ec7d45ee82c0",
+        "summary_source_review_status": "summary_fields_reviewed_remaining_detail_and_release_checks"
       },
       "total_assets": 258814769.457275,
       "total_liabilities": 192485735.737604,
@@ -1378,8 +1443,8 @@
       "cash_ending": 3751982.824164,
       "cash_and_equivalents": 3751982.824164,
       "eps": 466,
-      "roa": null,
-      "roe": null,
+      "roa": 1.7040853909951217,
+      "roe": 6.70242644971186,
       "financial_line_items_extracted_fields": [
         "total_assets",
         "total_liabilities",
@@ -1439,7 +1504,10 @@
         "other_profit",
         "income_tax_current",
         "income_tax_deferred",
-        "investment_property_disposal_gain"
+        "investment_property_disposal_gain",
+        "long_term_work_in_progress",
+        "foreign_exchange_effect",
+        "foreign_exchange_effect_ytd"
       ],
       "financial_line_items_status": "partial_source_verification_pending",
       "revenue_ytd": 10215915.400623,
@@ -1472,7 +1540,14 @@
       "other_profit": 175861.831776,
       "income_tax_current": 443387.730278,
       "income_tax_deferred": 56316.846358,
-      "investment_property_disposal_gain": 0
+      "investment_property_disposal_gain": 0,
+      "long_term_work_in_progress": 422498.584679,
+      "foreign_exchange_effect": -1.38584,
+      "foreign_exchange_effect_ytd": -0.468339,
+      "average_total_assets": 258736394.6918915,
+      "average_equity": 65783476.121868506,
+      "ratio_unit": "%/năm (LNST quý × 4 / bình quân đầu và cuối quý)",
+      "ratio_calculation_note": "Chỉ số quy đổi năm từ LNST hợp nhất riêng quý, không phải TTM; số dư kỳ trước và kỳ hiện tại theo phiên bản đã chọn, có thể khác cơ sở trình bày. Không phải số liệu WiChart xác minh."
     }
   ],
   "sync_status": "records_found",
