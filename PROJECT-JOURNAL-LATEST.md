@@ -385,3 +385,7 @@ Ubuntu 24.04 browser install and HTTP startup succeeded in 45957045456; failed a
 
 ## NVL Chromium acceptance successful — reusable browser SOP
 Head 16eb03a31fcda2697f1cf06cb81085ae78d99cf8: data CI 45958629152, source CI 45958629161, browser CI 45958629166 all SUCCESS; browser job 140370900241, artifact 15179439073 (screenshot ZIP). Browser installation on pinned Ubuntu 24.04, HTTP readiness and actual DOM tab assertions passed. Adopt compatible pinned runner, local checkout HTTP, no remote data fallback, exact visible labels and screenshot/DOM diagnostics for future browser tests. Main changes since merge base only project journal, no overlapping paths. Remaining source-detail completeness/status audit and production verification; do not label unresolved fields verified. No production merge yet.
+
+
+## NVL merged — production verification pending
+B03 codes 21/36 added ad85d182294cffef59690eb802a4acfdde402b4a; 28 exact regression assertions fcf5b6d989be846787ec8f923a820f0ed9230ad2. Data CI 46039642976, source CI 46039642864, Chromium 46039642859 all SUCCESS. PR #217 marked ready then merged with expected head; merge eefa6b600fdeb85e58a0897f4fb79e84d765755b confirmed, main JSON blob 93e778b2b07e2f54f29f99a3bbb671424934d70d verified. Release is verified summary and displayed B03 fields, not all possible detailed fields. Direct live JSON access via web unavailable; main workflow runs not yet listed. Next inspect deployment and verify actual Hostinger JSON/browser, then mark NVL complete and advance queue. Do not repeat passed source work.
