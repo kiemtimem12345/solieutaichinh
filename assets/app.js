@@ -2339,7 +2339,13 @@
               ? { value: cashflowValue(item, def.key, sourceRows, ticker), formula: cashflowBasisSelect?.value !== 'ytd' && item.cashflow_period_basis === 'quarter_derived_mixed_vintage_explicit_adjustment' ? 'Số riêng quý tính từ hai phiên bản báo cáo; không hoàn toàn cùng cơ sở so sánh. Khoản điều chỉnh cơ sở được trình bày riêng, không phải dòng tiền.' : '' }
               : resolveStatementValue(item, def.key, sourceRows, ticker);
             const resolvedValue = resolved.value;
-            const displayValue = def.negativeExpense && validNumber(resolvedValue) ? -Math.abs(Number(resolvedValue)) : resolvedValue;
+            // An explicitly verified source credit is not a positive expense magnitude.
+            const preserveSourceCredit = def.key === 'cost_of_goods_sold' &&
+              Boolean(item.source_validation?.q4_source_review?.positive_cogs_note) &&
+              validNumber(item.revenue) && validNumber(item.gross_profit) &&
+              validNumber(resolvedValue) && Number(resolvedValue) > 0 &&
+              Math.round((Number(item.revenue) + Number(resolvedValue) - Number(item.gross_profit)) * 1000000) === 0;
+            const displayValue = def.negativeExpense && !preserveSourceCredit && validNumber(resolvedValue) ? -Math.abs(Number(resolvedValue)) : resolvedValue;
             const displayed = statementNumber(displayValue, item, Boolean(def.ratio));
             const derivedTitle = resolved.formula ? ' title="' + escapeHtml(resolved.formula) + '"' : '';
             const ratioSuffix = ['pb','pe','ev_ebitda'].includes(def.key) ? ' lần'
