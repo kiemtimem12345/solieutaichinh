@@ -59,3 +59,22 @@ for period,row in rows.items():
         for metric,average in (("roa","average_total_assets"),("roe","average_equity")):
             assert abs(row[metric] - row["net_profit"]*400/row[average]) < Decimal("0.000000001"), (period,metric)
 print("NVL seven-period summary identities and derived ratio checks passed")
+
+# Signed B03 source codes 21 and 36 (VND), independently transcribed from pinned source pages.
+source_detail = {
+    "2025-Q1": (0, -197028),
+    "2025-Q2": (-4956770776, -197028),
+    "2025-Q3": (-14662231063, -197028),
+    "2025-Q4": (-23793897176, -197028),
+    "2026-Q1": (-3243236593, 0),
+    "2026-Q2": (-7930280724, 0),
+    "2026-Q3": (-448064575298, -10450000000),
+}
+for period, expected in source_detail.items():
+    row = rows[period]
+    quarter = int(period[-1])
+    previous = (0,0) if quarter == 1 else source_detail[period[:-1]+str(quarter-1)]
+    for i,key in enumerate(("capital_expenditure","dividends_paid")):
+        assert v(row,key+"_ytd") == expected[i], (period,key,"ytd")
+        assert v(row,key) == expected[i]-previous[i], (period,key,"quarter")
+print("NVL 28 signed B03 detail checks passed")
