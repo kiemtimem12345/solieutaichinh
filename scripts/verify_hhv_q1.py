@@ -124,3 +124,23 @@ for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","cap
 assert abs(q["roa"]-q["net_profit"]*400/q["average_total_assets"])<Decimal("0.000000001")
 assert abs(q["roe"]-q["net_profit"]*400/q["average_equity"])<Decimal("0.000000001")
 print("HHV audited B03 and Q1 2026 source and audited opening regression passed")
+
+q1_26=q
+q=next(x for x in rows if x["period"]=="2026-Q2")
+expected_q2_26={"total_assets":41115938489527,"current_assets":1895697429775,"total_liabilities":28077882861130,"equity":13038055628397,"revenue":970266571976,"gross_profit":440928400793,"pretax_profit":198211967721,"net_profit":171818961733,"net_profit_attributable":144924339711,"operating_cash_flow_ytd":620555019493,"investing_cash_flow_ytd":-611545304688,"financing_cash_flow_ytd":-86937043272,"net_cash_change_ytd":-77927328467,"capital_expenditure_ytd":-16892398367,"cash_beginning_reported_ytd":571723614675,"cash_ending":493796286208}
+for k,x in expected_q2_26.items():
+    assert v(k)==x,(k,v(k),x)
+assert v("total_assets")==v("total_liabilities")+v("equity")
+assert v("gross_profit")==v("revenue")+v("cost_of_goods_sold")
+assert v("net_profit")==v("net_profit_attributable")+v("net_profit_non_controlling_interests")
+assert v("net_cash_change_ytd")==sum(v(k+"_ytd") for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow"))
+assert v("cash_ending")==v("cash_beginning_reported_ytd")+v("net_cash_change_ytd")+v("foreign_exchange_effect_ytd")
+assert v("cash_ending")==v("cash_and_equivalents")
+candidate=q["source_validation"]["candidate_mixed_opening_bridge_vnd"]
+for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change"):
+    assert q[k] is None,k
+    assert candidate[k]==v(k+"_ytd")-int(Decimal(q1_26[k+"_ytd"])*1000000),k
+assert candidate["opening_basis_adjustment"]==-15039808794
+assert candidate["opening_basis_adjustment"]==v("cash_beginning_reported_ytd")-int(Decimal(q1_26["cash_beginning_reported_ytd"])*1000000)
+assert candidate["closing_cash"]==candidate["opening_cash_q1"]+candidate["net_cash_change"]+candidate["opening_basis_adjustment"]
+print("HHV Q2 2026 source YTD and quarantined quarterly basis regression passed")
