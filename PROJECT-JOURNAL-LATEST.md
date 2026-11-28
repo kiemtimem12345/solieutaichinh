@@ -389,3 +389,7 @@ Head 16eb03a31fcda2697f1cf06cb81085ae78d99cf8: data CI 45958629152, source CI 45
 
 ## NVL merged — production verification pending
 B03 codes 21/36 added ad85d182294cffef59690eb802a4acfdde402b4a; 28 exact regression assertions fcf5b6d989be846787ec8f923a820f0ed9230ad2. Data CI 46039642976, source CI 46039642864, Chromium 46039642859 all SUCCESS. PR #217 marked ready then merged with expected head; merge eefa6b600fdeb85e58a0897f4fb79e84d765755b confirmed, main JSON blob 93e778b2b07e2f54f29f99a3bbb671424934d70d verified. Release is verified summary and displayed B03 fields, not all possible detailed fields. Direct live JSON access via web unavailable; main workflow runs not yet listed. Next inspect deployment and verify actual Hostinger JSON/browser, then mark NVL complete and advance queue. Do not repeat passed source work.
+
+
+## NVL COMPLETE — verified dashboard release scope
+PR #217 merged eefa6b600fdeb85e58a0897f4fb79e84d765755b; live acceptance PR #218 head 25a7ed2c08ad319b2ce4b21c015000580cdcade6, data CI 46040150157 SUCCESS, live HTTPS SHA256 CI 46040150260 SUCCESS for NVL JSON and app.js. Seven-quarter dashboard summary and displayed B03 details complete; other detailed unverified fields retain honest status. Browser local checkout passed; production byte parity confirmed, not a second production browser session. Do not reprocess NVL absent contradiction. Next HHV: inspect existing seven-period data and outstanding source/field gates only.
