@@ -21,6 +21,8 @@ jobs:
         run: python scripts/verify_nvl_mixed_vintage_cash.py
       - name: Execute NVL dashboard cash and signed expense logic
         run: node scripts/verify_nvl_dashboard_runtime.cjs
+      - name: Verify HHV Q1 signed source and cash flow
+        run: python scripts/verify_hhv_q1.py
       - name: Validate Python scripts syntax
         run: python -m py_compile scripts/*.py
       - name: Validate original dashboard JS and 41 tracked JSON files
