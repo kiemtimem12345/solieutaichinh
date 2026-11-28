@@ -101,3 +101,26 @@ assert a["net_profit_ytd"]-v("net_profit_ytd")==-7251236985
 assert a["operating_cash_flow_ytd"]-v("operating_cash_flow_ytd")==8299961909
 assert a["investing_cash_flow_ytd"]-v("investing_cash_flow_ytd")==-8300000000
 print("HHV FY audit: 16 source and distinct-vintage assertions passed")
+
+assert a["financing_cash_flow_ytd"]==-155439497291
+assert a["net_cash_change_ytd"]==277829547032
+assert a["cash_ending"]==586763423469
+assert a["cash_ending"]==a["cash_beginning"]+a["net_cash_change_ytd"]+a["foreign_exchange_effect_ytd"]
+assert a["net_cash_change_ytd"]==sum(a[k+"_ytd"] for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow"))
+assert a["cash_ending"]==a["cash_and_equivalents"]
+q=next(x for x in rows if x["period"]=="2026-Q1")
+expected_2026q1={"total_assets":41313115720358,"current_assets":2346786197707,"total_liabilities":28426042532398,"equity":12887073187960,"revenue":906967141844,"cost_of_goods_sold":-393494269425,"gross_profit":513472872419,"pretax_profit":244991886750,"net_profit":217338601615,"net_profit_attributable":179908433767,"net_profit_non_controlling_interests":37430167848,"operating_cash_flow":415266432734,"investing_cash_flow":-17037407288,"financing_cash_flow":217218045306,"capital_expenditure":-4365315818,"dividends_paid":0,"foreign_exchange_effect":0,"net_cash_change":615447070752,"cash_beginning":586763423469,"cash_ending":1202210494221}
+for k,x in expected_2026q1.items():
+    assert v(k)==x,(k,v(k),x)
+assert v("total_assets")==v("total_liabilities")+v("equity")
+assert v("gross_profit")==v("revenue")+v("cost_of_goods_sold")
+assert v("net_cash_change")==sum(v(k) for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow"))
+assert v("cash_ending")==v("cash_beginning")+v("net_cash_change")+v("foreign_exchange_effect")
+assert v("cash_ending")==v("cash_and_equivalents")
+assert v("net_profit")==v("net_profit_attributable")+v("net_profit_non_controlling_interests")
+assert v("cash_beginning")==a["cash_ending"]
+for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","capital_expenditure","dividends_paid","foreign_exchange_effect","net_cash_change"):
+    assert v(k+"_ytd")==v(k)
+assert abs(q["roa"]-q["net_profit"]*400/q["average_total_assets"])<Decimal("0.000000001")
+assert abs(q["roe"]-q["net_profit"]*400/q["average_equity"])<Decimal("0.000000001")
+print("HHV audited B03 and Q1 2026 source and audited opening regression passed")
