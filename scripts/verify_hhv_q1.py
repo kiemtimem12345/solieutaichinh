@@ -62,3 +62,22 @@ for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","cap
 assert abs(q["roa"]-q["net_profit"]*400/q["average_total_assets"])<Decimal("0.000000001")
 assert abs(q["roe"]-q["net_profit"]*400/q["average_equity"])<Decimal("0.000000001")
 print("HHV Q3: source assertions, quarter cash bridge and explicit one-VND printed exceptions passed")
+
+q3=q
+q=next(x for x in rows if x["period"]=="2025-Q4")
+expected_q4={"total_assets":40753441078781,"current_assets":1864835151184,"total_liabilities":28575631091903,"current_liabilities":3558781882006,"long_term_liabilities":25016849209897,"equity":12177809986878,"revenue":1205947447629,"cost_of_goods_sold":-751837439137,"gross_profit":454110008492,"pretax_profit":234827580086,"net_profit":201707917468,"net_profit_attributable":181787828018,"net_profit_non_controlling_interests":19920089450,"operating_cash_flow":1493675116612,"investing_cash_flow":-1198627802985,"financing_cash_flow":-182906719266,"capital_expenditure":-3574203964,"dividends_paid":0,"foreign_exchange_effect":0,"net_cash_change":112140594361,"cash_beginning":474622867199,"cash_ending":586763461560}
+for k,x in expected_q4.items():
+    assert v(k)==x,(k,v(k),x)
+assert v("equity")==8004717114333+4173092872545
+assert v("total_assets")==v("total_liabilities")+v("equity")
+assert v("total_liabilities")==v("current_liabilities")+v("long_term_liabilities")
+assert v("gross_profit")==v("revenue")+v("cost_of_goods_sold")
+assert v("net_cash_change")==sum(v(k) for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow"))
+assert v("cash_ending")==v("cash_beginning")+v("net_cash_change")+v("foreign_exchange_effect")
+assert v("cash_ending")==v("cash_and_equivalents")
+assert v("net_profit")==v("net_profit_attributable")+v("net_profit_non_controlling_interests")
+for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","capital_expenditure","dividends_paid","foreign_exchange_effect","net_cash_change"):
+    assert v(k+"_ytd")==v(k)+int(Decimal(q3[k+"_ytd"])*1000000),k
+assert abs(q["roa"]-q["net_profit"]*400/q["average_total_assets"])<Decimal("0.000000001")
+assert abs(q["roe"]-q["net_profit"]*400/q["average_equity"])<Decimal("0.000000001")
+print("HHV Q4: original source, equity code 400, YTD and ratio regression passed")
