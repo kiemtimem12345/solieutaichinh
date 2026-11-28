@@ -1,7 +1,12 @@
-import concurrent.futures, hashlib, json, pathlib, subprocess, tempfile, urllib.request
+import os, concurrent.futures, hashlib, json, pathlib, subprocess, tempfile, urllib.request
 from urllib.parse import urlparse
 SOURCES={"2025-Q1":["https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/HHV_Baocaotaichinh_Q1_2025_Hopnhat.pdf"]}
-ALLOWED={"static2.vietstock.vn"}
+ALLOWED={"static2.vietstock.vn","hhv.cdn.vccloud.vn"}
+if os.environ.get("HHV_SOURCE_BATCH") == "2025-Q2":
+    SOURCES={
+      "2025-Q2":["https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/HHV_Baocaotaichinh_Q2_2025_Hopnhat.pdf","https://hhv.cdn.vccloud.vn/wp-content/uploads/2025/07/20250730-HHV-Bao-cao-tai-chinh-hop-nhat-Quy-2-2025.pdf"],
+      "2025-H1-reviewed":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2025/08/20250825-HHV-Bao-cao-tai-chinh-hop-nhat-ban-nien-2025-da-soat-xet.pdf"]
+    }
 EXPECTED={'2025-Q1':'ac52e528cfe30786c3d251c38d6c0b27c0fc5347bd1e9873d692e85b7d461a94'}
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
@@ -11,14 +16,15 @@ class SafeRedirect(urllib.request.HTTPRedirectHandler):
 def verify(item):
     period, urls = item
     attempts = []
+    limit = (96 if period == '2025-H1-reviewed' else 64)*1024*1024
     for url in urls:
         try:
             assert urlparse(url).scheme == "https" and urlparse(url).hostname in ALLOWED
             opener = urllib.request.build_opener(SafeRedirect())
-            with opener.open(urllib.request.Request(url, headers={"User-Agent":"Financial report verification/1.0"}), timeout=75) as response:
-                data = response.read(64*1024*1024+1)
+            with opener.open(urllib.request.Request(url, headers={"User-Agent":"Financial report verification/1.0"}), timeout=120) as response:
+                data = response.read(limit+1)
                 final_url = response.geturl()
-            if len(data)>64*1024*1024 or not data.startswith(b"%PDF-"):
+            if len(data)>limit or not data.startswith(b"%PDF-"):
                 raise ValueError("not a supported PDF")
             digest = hashlib.sha256(data).hexdigest()
             if period in EXPECTED and digest != EXPECTED[period]:
