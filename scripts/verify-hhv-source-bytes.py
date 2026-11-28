@@ -31,6 +31,10 @@ if os.environ.get("HHV_SOURCE_BATCH") == "2026-H1-Q3":
       "2026-H1-reviewed":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2026/08/20260827-HHV-Bao-cao-tai-chinh-hop-nhat-giua-nien-do-ket-thuc-ngay-30.6.2026-da-soat-xet.pdf"],
       "2026-Q3":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2026/10/20261030-HHV-Bao-cao-tai-chinh-hop-nhat-giua-nien-do-Quy-3-nam-2026.pdf"]
     }
+EXPECTED["2026-H1-reviewed"]="306ffee5fefbe622999437bae77202ac597e349b21a6baa9bbeabf980ac78301"
+EXPECTED["2026-Q3"]="845ce2b48f7fc77a560d07a37475e2b7b53a3238deeb0dda668a91debb7de76e"
+if os.environ.get("HHV_SOURCE_BATCH") == "2026-H1-notes":
+    SOURCES={"2026-H1-reviewed":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2026/08/20260827-HHV-Bao-cao-tai-chinh-hop-nhat-giua-nien-do-ket-thuc-ngay-30.6.2026-da-soat-xet.pdf"]}
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         if urlparse(newurl).scheme != "https" or urlparse(newurl).hostname not in ALLOWED:
@@ -58,6 +62,8 @@ def verify(item):
                 info=subprocess.run(["pdfinfo",str(p)],capture_output=True,text=True,timeout=30,check=True).stdout
                 pages=int(next(line.split(":")[1] for line in info.splitlines() if line.startswith("Pages:")))
                 first,last=(19,min(pages,20)) if period=="2025-FY-audited" and os.environ.get("HHV_SOURCE_BATCH")=="2026-Q1" else (1,min(pages,22))
+                if os.environ.get("HHV_SOURCE_BATCH")=="2026-H1-notes":
+                    first,last=23,min(pages,48)
                 extract=subprocess.run(["pdftotext","-f",str(first),"-l",str(last),str(p),"-"],capture_output=True,timeout=60,check=True).stdout
                 evidence = pathlib.Path("hhv-page-evidence") / period
                 evidence.mkdir(parents=True, exist_ok=True)
