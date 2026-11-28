@@ -144,3 +144,27 @@ assert candidate["opening_basis_adjustment"]==-15039808794
 assert candidate["opening_basis_adjustment"]==v("cash_beginning_reported_ytd")-int(Decimal(q1_26["cash_beginning_reported_ytd"])*1000000)
 assert candidate["closing_cash"]==candidate["opening_cash_q1"]+candidate["net_cash_change"]+candidate["opening_basis_adjustment"]
 print("HHV Q2 2026 source YTD and quarantined quarterly basis regression passed")
+
+h=q["source_validation"]["reviewed_h1"]["values_vnd_except_eps"]
+assert h["cash_beginning"]==571735568582
+assert h["cash_ending"]==493807311370
+assert h["operating_cash_flow_ytd"]==621021245868
+assert h["investing_cash_flow_ytd"]==-612012459808
+assert h["financing_cash_flow_ytd"]==-86937043272
+assert h["cash_ending"]==h["cash_beginning"]+h["net_cash_change_ytd"]
+assert h["net_cash_change_ytd"]==sum(h[k+"_ytd"] for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow"))
+q=next(x for x in rows if x["period"]=="2026-Q3")
+expected_q3_26={"total_assets":41348384624303,"total_liabilities":28097499648185,"equity":13250884976118,"revenue":1114372954058,"cost_of_goods_sold":-642990794046,"gross_profit":471382160012,"pretax_profit":243820059416,"net_profit":212829093874,"net_profit_attributable":186326960359,"operating_cash_flow":186951668944,"investing_cash_flow":-30556832800,"financing_cash_flow":-180104479139,"capital_expenditure":-9834191901,"net_cash_change":-23709642995,"cash_beginning":493807311370,"cash_ending":470097668375}
+for k,x in expected_q3_26.items():
+    assert v(k)==x,(k,v(k),x)
+assert v("total_assets")==v("total_liabilities")+v("equity")
+assert v("gross_profit")==v("revenue")+v("cost_of_goods_sold")
+assert v("net_profit")==v("net_profit_attributable")+v("net_profit_non_controlling_interests")
+assert v("cash_beginning_reported_ytd")==h["cash_beginning"]
+assert v("cash_beginning")==h["cash_ending"]
+assert v("cash_ending")==v("cash_beginning")+v("net_cash_change")+v("foreign_exchange_effect")
+assert v("cash_ending")==v("cash_and_equivalents")
+for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","net_cash_change","capital_expenditure","foreign_exchange_effect","dividends_paid"):
+    assert v(k+"_ytd")==v(k)+h[k+"_ytd"]
+assert len(rows)==7 and len({x["period"] for x in rows})==7
+print("HHV reviewed H1 and Q3 same-basis source regression passed")
