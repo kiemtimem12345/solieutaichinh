@@ -7,7 +7,7 @@ if os.environ.get("HHV_SOURCE_BATCH") == "2025-Q2":
       "2025-Q2":["https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%202/HHV_Baocaotaichinh_Q2_2025_Hopnhat.pdf","https://hhv.cdn.vccloud.vn/wp-content/uploads/2025/07/20250730-HHV-Bao-cao-tai-chinh-hop-nhat-Quy-2-2025.pdf"],
       "2025-H1-reviewed":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2025/08/20250825-HHV-Bao-cao-tai-chinh-hop-nhat-ban-nien-2025-da-soat-xet.pdf"]
     }
-EXPECTED={'2025-Q1':'ac52e528cfe30786c3d251c38d6c0b27c0fc5347bd1e9873d692e85b7d461a94'}
+EXPECTED={'2025-Q1':'ac52e528cfe30786c3d251c38d6c0b27c0fc5347bd1e9873d692e85b7d461a94','2025-Q2':'cef9348b5d370efa3e4cbfdfb8f2821978da6de1765051f85a6350e1120f6e56','2025-H1-reviewed':'d4b002485c868803f012af5e10ccdea54d77b3c4978d14fd28e5a6a8de9a2abe'}
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         if urlparse(newurl).scheme != "https" or urlparse(newurl).hostname not in ALLOWED:
