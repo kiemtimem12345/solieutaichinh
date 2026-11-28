@@ -81,3 +81,23 @@ for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","cap
 assert abs(q["roa"]-q["net_profit"]*400/q["average_total_assets"])<Decimal("0.000000001")
 assert abs(q["roe"]-q["net_profit"]*400/q["average_equity"])<Decimal("0.000000001")
 print("HHV Q4: original source, equity code 400, YTD and ratio regression passed")
+
+# FY audited values remain distinct from original quarter and original YTD.
+a=q["source_validation"]["audited_fy"]["values_vnd_except_eps"]
+assert a["total_assets"]==40752075682457
+assert a["total_liabilities"]==28579498126112
+assert a["equity"]==12172577556345
+assert a["revenue_ytd"]==3801371595413
+assert a["pretax_profit_ytd"]==773401844361
+assert a["net_profit_ytd"]==671183550117
+assert a["operating_cash_flow_ytd"]==1828883045291
+assert a["investing_cash_flow_ytd"]==-1395614000968
+assert a["cash_and_equivalents"]==586763423469
+assert a["total_assets"]==a["total_liabilities"]+a["equity"]
+assert a["net_profit_ytd"]==a["net_profit_attributable_ytd"]+a["net_profit_non_controlling_interests_ytd"]
+assert a["net_profit_ytd"]==a["pretax_profit_ytd"]-a["income_tax_current_ytd"]-a["income_tax_deferred_ytd"]
+assert a["gross_profit_ytd"]==a["revenue_ytd"]+a["cost_of_goods_sold_ytd"]
+assert a["net_profit_ytd"]-v("net_profit_ytd")==-7251236985
+assert a["operating_cash_flow_ytd"]-v("operating_cash_flow_ytd")==8299961909
+assert a["investing_cash_flow_ytd"]-v("investing_cash_flow_ytd")==-8300000000
+print("HHV FY audit: 16 source and distinct-vintage assertions passed")
