@@ -25,6 +25,12 @@ if os.environ.get("HHV_SOURCE_BATCH") == "2026-Q1":
 EXPECTED["2026-Q1"]="5a4b2330958748831f9e44b7f03cc79f270d5a8f5ee6fc0a849d1fd82aef2137"
 if os.environ.get("HHV_SOURCE_BATCH") == "2026-Q2":
     SOURCES={"2026-Q2":["https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/HHV_Baocaotaichinh_Q2_2026_Hopnhat.pdf"]}
+EXPECTED["2026-Q2"]="87f6b65a84fa369871545090d90f0ea35b8c887486d8f6c68ac407c7e8ba32d2"
+if os.environ.get("HHV_SOURCE_BATCH") == "2026-H1-Q3":
+    SOURCES={
+      "2026-H1-reviewed":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2026/08/20260827-HHV-Bao-cao-tai-chinh-hop-nhat-giua-nien-do-ket-thuc-ngay-30.6.2026-da-soat-xet.pdf"],
+      "2026-Q3":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2026/10/20261030-HHV-Bao-cao-tai-chinh-hop-nhat-giua-nien-do-Quy-3-nam-2026.pdf"]
+    }
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         if urlparse(newurl).scheme != "https" or urlparse(newurl).hostname not in ALLOWED:
