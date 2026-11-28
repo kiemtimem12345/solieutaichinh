@@ -2,7 +2,7 @@ import concurrent.futures, hashlib, json, pathlib, subprocess, tempfile, urllib.
 from urllib.parse import urlparse
 SOURCES={"2025-Q1":["https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%201/HHV_Baocaotaichinh_Q1_2025_Hopnhat.pdf"]}
 ALLOWED={"static2.vietstock.vn"}
-EXPECTED={}
+EXPECTED={'2025-Q1':'ac52e528cfe30786c3d251c38d6c0b27c0fc5347bd1e9873d692e85b7d461a94'}
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         if urlparse(newurl).scheme != "https" or urlparse(newurl).hostname not in ALLOWED:
