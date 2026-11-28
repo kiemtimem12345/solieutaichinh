@@ -15,7 +15,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: python3 scripts/verify-hhv-source-bytes.py
         env:
-          HHV_SOURCE_BATCH: '2025-Q2'
+          HHV_SOURCE_BATCH: '2025-Q3'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
