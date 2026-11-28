@@ -22,6 +22,9 @@ if os.environ.get("HHV_SOURCE_BATCH") == "2026-Q1":
       "2025-FY-audited":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2026/03/20260331-HHV-Bao-cao-tai-chinh-hop-nhat-kiem-toan-nam-2025.pdf"],
       "2026-Q1":["https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/HHV_Baocaotaichinh_Q1_2026_Hopnhat.pdf"]
     }
+EXPECTED["2026-Q1"]="5a4b2330958748831f9e44b7f03cc79f270d5a8f5ee6fc0a849d1fd82aef2137"
+if os.environ.get("HHV_SOURCE_BATCH") == "2026-Q2":
+    SOURCES={"2026-Q2":["https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%202/HHV_Baocaotaichinh_Q2_2026_Hopnhat.pdf"]}
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         if urlparse(newurl).scheme != "https" or urlparse(newurl).hostname not in ALLOWED:
