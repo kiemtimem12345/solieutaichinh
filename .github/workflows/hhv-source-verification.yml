@@ -1,0 +1,24 @@
+name: HHV source evidence
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify-hhv-source-bytes.py'
+      - '.github/workflows/hhv-source-verification.yml'
+permissions:
+  contents: read
+jobs:
+  retrieve:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - run: python3 scripts/verify-hhv-source-bytes.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hhv-source-evidence
+          path: |
+            hhv-page-evidence/
+            hhv-source-verification.json
+          retention-days: 3
