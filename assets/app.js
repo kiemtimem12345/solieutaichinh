@@ -1344,6 +1344,10 @@
     };
     const cashflowValue = (item, field, rows, ticker) => {
       const mode = cashflowBasisSelect?.value || 'quarter';
+      // A source-verified YTD row may still have an unresolved quarter basis.
+      // Do not resurrect rejected quarterly amounts through aliases or fallback formulas.
+      if (mode !== 'ytd' && item?.source_validation?.quarter_cashflow_status === 'pending_comparable_basis_and_reviewed_h1' &&
+          ['cash_beginning','cash_opening_basis_adjustment','operating_cash_flow','investing_cash_flow','financing_cash_flow','capital_expenditure','dividends_paid','net_cash_change','foreign_exchange_effect'].includes(field)) return null;
       if (field === 'cash_opening_basis_adjustment') {
         return mode !== 'ytd' && item?.cashflow_period_basis === 'quarter_derived_mixed_vintage_explicit_adjustment' && validNumber(item?.[field]) ? Number(item[field]) : null;
       }
