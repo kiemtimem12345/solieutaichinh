@@ -43,3 +43,22 @@ assert review["cash_ending"]==570438756758
 assert review["cash_ending"]==review["cash_beginning"]+review["net_cash_change_ytd"]
 assert review["net_cash_change_ytd"]==sum(review[k+"_ytd"] for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow"))
 print("HHV Q2: signed original, YTD bridge, ratio and reviewed vintage assertions passed")
+
+q2=q
+q=next(x for x in rows if x["period"]=="2025-Q3")
+expected_q3={"total_assets":40049891402240,"current_assets":1671374841880,"total_liabilities":28072551732830,"equity":11977339669410,"revenue":913523162056,"cost_of_goods_sold":-523983362860,"gross_profit":389539799196,"pretax_profit":173726941297,"net_profit":152404295407,"net_profit_attributable":128868247423,"net_profit_non_controlling_interests":23536047983,"operating_cash_flow":-9315723795,"investing_cash_flow":-8643953400,"financing_cash_flow":-77856256337,"capital_expenditure":-12606427642,"dividends_paid":0,"foreign_exchange_effect":0,"net_cash_change":-95815933532,"cash_beginning":570438800731,"cash_ending":474622867199}
+for k,x in expected_q3.items():
+    assert v(k)==x,(k,v(k),x)
+assert v("total_assets")==v("total_liabilities")+v("equity")
+assert v("gross_profit")==v("revenue")+v("cost_of_goods_sold")
+assert v("net_cash_change")==sum(v(k) for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow"))
+assert v("cash_ending")==v("cash_beginning")+v("net_cash_change")+v("foreign_exchange_effect")
+assert v("cash_ending")==v("cash_and_equivalents")
+# The printed source has two one-VND differences; retain rather than force balance.
+assert v("net_profit")-v("net_profit_attributable")-v("net_profit_non_controlling_interests")==1
+assert v("net_profit_ytd")-int(Decimal(q2["net_profit_ytd"])*1000000)-v("net_profit")==-1
+for k in ("operating_cash_flow","investing_cash_flow","financing_cash_flow","capital_expenditure","dividends_paid","foreign_exchange_effect","net_cash_change"):
+    assert v(k+"_ytd")==v(k)+int(Decimal(q2[k+"_ytd"])*1000000),k
+assert abs(q["roa"]-q["net_profit"]*400/q["average_total_assets"])<Decimal("0.000000001")
+assert abs(q["roe"]-q["net_profit"]*400/q["average_equity"])<Decimal("0.000000001")
+print("HHV Q3: source assertions, quarter cash bridge and explicit one-VND printed exceptions passed")
