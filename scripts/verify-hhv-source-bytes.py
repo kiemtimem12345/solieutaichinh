@@ -10,6 +10,9 @@ if os.environ.get("HHV_SOURCE_BATCH") == "2025-Q2":
 EXPECTED={'2025-Q1':'ac52e528cfe30786c3d251c38d6c0b27c0fc5347bd1e9873d692e85b7d461a94','2025-Q2':'cef9348b5d370efa3e4cbfdfb8f2821978da6de1765051f85a6350e1120f6e56','2025-H1-reviewed':'d4b002485c868803f012af5e10ccdea54d77b3c4978d14fd28e5a6a8de9a2abe'}
 if os.environ.get("HHV_SOURCE_BATCH") == "2025-Q3":
     SOURCES={"2025-Q3":["https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%203/HHV_Baocaotaichinh_Q3_2025_Hopnhat.pdf"]}
+EXPECTED["2025-Q3"]="de02046176473385304e2cbb535219f695d0625bfeb8ad9599d602a293e66e88"
+if os.environ.get("HHV_SOURCE_BATCH") == "2025-Q4":
+    SOURCES={"2025-Q4":["https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/QUY%204/HHV_Baocaotaichinh_Q4_2025_Hopnhat.pdf"]}
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         if urlparse(newurl).scheme != "https" or urlparse(newurl).hostname not in ALLOWED:
