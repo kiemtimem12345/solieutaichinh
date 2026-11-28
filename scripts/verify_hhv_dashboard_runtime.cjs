@@ -1,0 +1,18 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const js=fs.readFileSync('assets/app.js','utf8');
+const rows=JSON.parse(fs.readFileSync('data/financials-HHV.json','utf8')).items;
+const a=js.indexOf('const cashflowValue = '),b=js.indexOf('const displayPeriod = ',a);
+assert(a>=0&&b>a);
+const ctx=vm.createContext({cashflowBasisSelect:{value:'quarter'},validNumber:v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v)),resolveStatementValue:()=>({value:999999})});
+vm.runInContext(js.slice(a,b)+';globalThis.calc=cashflowValue;',ctx);
+const q2=rows.find(r=>r.period==='2026-Q2'),q3=rows.find(r=>r.period==='2026-Q3');
+const fields=['cash_beginning','cash_opening_basis_adjustment','operating_cash_flow','investing_cash_flow','financing_cash_flow','capital_expenditure','dividends_paid','net_cash_change','foreign_exchange_effect'];
+for(const k of fields)assert.equal(ctx.calc(q2,k,rows,'HHV'),null,k);
+const vnd=x=>Math.round(x*1e6);
+assert.equal(vnd(ctx.calc(q3,'operating_cash_flow',rows,'HHV')),186951668944);
+assert.equal(vnd(ctx.calc(q3,'cash_beginning',rows,'HHV')),493807311370);
+ctx.cashflowBasisSelect.value='ytd';
+assert.equal(vnd(ctx.calc(q2,'operating_cash_flow',rows,'HHV')),620555019493);
+assert.equal(vnd(ctx.calc(q2,'cash_beginning',rows,'HHV')),571723614675);
+assert.equal(vnd(ctx.calc(q3,'operating_cash_flow',rows,'HHV')),807972914812);
+console.log('HHV 14 actual cashflowValue runtime assertions passed; isolated function, not browser DOM');
