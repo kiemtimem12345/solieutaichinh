@@ -16,6 +16,12 @@ if os.environ.get("HHV_SOURCE_BATCH") == "2025-Q4":
 EXPECTED["2025-Q4"]="8a23361f4138cc2c685770b62a66b72baea59b122a7716d2d9cc03971561ec85"
 if os.environ.get("HHV_SOURCE_BATCH") == "2025-FY-audited":
     SOURCES={"2025-FY-audited":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2026/03/20260331-HHV-Bao-cao-tai-chinh-hop-nhat-kiem-toan-nam-2025.pdf"]}
+EXPECTED["2025-FY-audited"]="11ebfc25d213771c8af0a4b9e9ff95378d5b1af3a097b7ef07d7518d4df7ceee"
+if os.environ.get("HHV_SOURCE_BATCH") == "2026-Q1":
+    SOURCES={
+      "2025-FY-audited":["https://hhv.cdn.vccloud.vn/wp-content/uploads/2026/03/20260331-HHV-Bao-cao-tai-chinh-hop-nhat-kiem-toan-nam-2025.pdf"],
+      "2026-Q1":["https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/HHV_Baocaotaichinh_Q1_2026_Hopnhat.pdf"]
+    }
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         if urlparse(newurl).scheme != "https" or urlparse(newurl).hostname not in ALLOWED:
@@ -42,14 +48,15 @@ def verify(item):
                 p.write_bytes(data)
                 info=subprocess.run(["pdfinfo",str(p)],capture_output=True,text=True,timeout=30,check=True).stdout
                 pages=int(next(line.split(":")[1] for line in info.splitlines() if line.startswith("Pages:")))
-                extract=subprocess.run(["pdftotext","-f","1","-l",str(min(pages,18)),str(p),"-"],capture_output=True,timeout=60,check=True).stdout
+                first,last=(19,min(pages,20)) if period=="2025-FY-audited" and os.environ.get("HHV_SOURCE_BATCH")=="2026-Q1" else (1,min(pages,22))
+                extract=subprocess.run(["pdftotext","-f",str(first),"-l",str(last),str(p),"-"],capture_output=True,timeout=60,check=True).stdout
                 evidence = pathlib.Path("hhv-page-evidence") / period
                 evidence.mkdir(parents=True, exist_ok=True)
                 # Only selected initial statement pages, not the full report.
                 if len(extract.strip()) < 1000:
-                    subprocess.run(["pdftoppm","-f","1","-l",str(min(pages,18)),"-r","180","-png",str(p),str(evidence/"page")],capture_output=True,timeout=120,check=True)
+                    subprocess.run(["pdftoppm","-f",str(first),"-l",str(last),"-r","180","-png",str(p),str(evidence/"page")],capture_output=True,timeout=120,check=True)
                 else:
-                    subprocess.run(["pdftotext","-layout","-f","1","-l",str(min(pages,18)),str(p),str(evidence/"statements.txt")],capture_output=True,timeout=60,check=True)
+                    subprocess.run(["pdftotext","-layout","-f",str(first),"-l",str(last),str(p),str(evidence/"statements.txt")],capture_output=True,timeout=60,check=True)
             return {"period":period,"url":url,"final_url":final_url,"status":"pdf_bytes_verified","sha256":hashlib.sha256(data).hexdigest(),"bytes":len(data),"pages":pages,"first_pages_text_bytes":len(extract.strip()),"attempts":attempts}
         except Exception as exc:
             attempts.append({"url":url,"error":str(exc)[:300]})
